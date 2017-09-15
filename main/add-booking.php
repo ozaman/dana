@@ -1223,6 +1223,8 @@ $(document).ready(function(){
     }
      $scope.salepricechild = function(x){
         console.log(x)
+        $scope.total_price_child = x*$scope.child;
+            $scope.total_price = $scope.total_price_adult + $scope.total_price_child;
 
     }
     $scope.listcar = 1;
