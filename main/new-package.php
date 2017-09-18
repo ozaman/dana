@@ -723,6 +723,7 @@
                                                 <option>Krabi</option>
 
                                                 <option>Phi Phi island</option>
+                                                 <option>Bangkok</option>
 
                                                 <!--<option>Standard Class</option>-->
 
