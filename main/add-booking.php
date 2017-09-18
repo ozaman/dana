@@ -531,7 +531,20 @@
                                                 
                                                 
                                           </select>
+                                           <span>-</span>
+                                            <select class="form-control" ng-change="changenum3(selectnum3)" id="num3" ng-model="selectnum3" data-ng-options="i  for i in num" style="">
+                                            <option value="">00</option>
+                                                
+                                                
+                                          </select>
+                                          <span>:</span>
+                                          <select class="form-control" ng-change="changenum4(selectnum4)" id="num4" ng-model="selectnum4" data-ng-options="i  for i in num2">
+                                           <option value="">00</option>
+                                                
+                                                
+                                          </select>
                                         </div>
+
                                             
                                         <!-- <p id="title-car">
                                             <span ng-if="flagcheck == 1">Cars: </span>
@@ -1332,6 +1345,18 @@ $(document).ready(function(){
             //console.log($scope.time_m)
 
     }
+    $scope.changenum3 = function(list3){
+            
+                $scope.time_h2 = list3;
+            //console.log($scope.time_h)
+
+            
+    }
+    $scope.changenum4 = function(list4){
+            $scope.time_m2 = list4;
+            //console.log($scope.time_m)
+
+    }
     $scope.changenumperson = function(person){
             if ($scope.checktype == 'Tour') {
             $scope.adult = person;
@@ -1495,6 +1520,12 @@ $(document).ready(function(){
             if ($scope.time_m == undefined) {
                 $scope.time_m = '00';
             }
+            if ($scope.time_h2 == undefined) {
+                $scope.time_h2 = '00';
+            }
+            if ($scope.time_m2 == undefined) {
+                $scope.time_m2 = '00';
+            }
             
             if ($scope.child == undefined) {
                 $scope.child = 0;
@@ -1517,7 +1548,7 @@ $(document).ready(function(){
             
             
             ////console.log('aaa'+ $('#datetimepicker11').val())
-            $scope.ontime = $scope.time_h+':'+$scope.time_m
+            $scope.ontime = $scope.time_h+':'+$scope.time_m+ '-' + $scope.time_h2+':'+$scope.time_m2;
             $scope.ondates = $('#on_date').val();
             //console.log($scope.checktype)
             //console.log($scope.packageid)
