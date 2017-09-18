@@ -91,7 +91,7 @@ echo "on date : " .$_GET[date];
     //$date = date('d/m/Y',$midnight);
      $dates = '05/08/2017';
      //echo $dates;
-    $sql =  "select * from dn_booking as TB_booking  WHERE status  = 0 AND ondate = '".$_GET[date]."' ORDER BY ontime ASC"; 
+    $sql =  "select * from dn_booking as TB_booking  WHERE status  = 0 AND ondate = '".$_GET[date]."' AND type = '".$_GET[type]."' ORDER BY ontime ASC"; 
 //$objQuery = mysql_query($sql);
 
                

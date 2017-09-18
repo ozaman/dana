@@ -396,6 +396,19 @@
                         <div class="search-box-date" style="    display: inline-block;">
                             <input type="date" class="search_date form-control" ng-model="datepdf" placeholder="Date" />
                         </div>
+
+                                            <select name="class" id="class"  class="form-control col-md-8"  style=" border: 1px solid #ccc; border-radius: 5px;display: inline-block" ng-model="typebook">
+
+                                                <option value="">-None-</option>
+                                                <option value="Transfer">Transfer</option>
+
+                                                <option value="Tour">Tour</option>
+
+                                                <!-- <option>First Class</option> -->
+
+                                                <!--<option>Standard Class</option>-->
+
+                                            </select>
                         <button type="reset" class="btn btn-info "  ng-click="getPrintPDF()" style="padding: 3px 15px;
     margin-left: 15px;"><i class="material-icons" style="font-size: 28px;">picture_as_pdf</i></button>
                                     </div>
@@ -639,6 +652,25 @@
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-danger" data-dismiss="modal" ng-click="deletebooking(idremovebooking)">Remove</button>
                                 <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal fade" id="selecttype">
+                    <div class="modal-dialog">
+                        <!-- Modal content-->
+                        <div class="modal-content">
+                            <div class="modal-header">
+                            <input type="hidden" name="" ng-model="idremovebooking">
+                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                <h4 class="modal-title" ></h4>
+                            </div>
+                            <div class="modal-body">
+                                <div>Please select type product or date</div>
+                            </div>
+                            <div class="modal-footer">
+                                <!-- <button type="button" class="btn btn-danger" data-dismiss="modal" ng-click="deletebooking(idremovebooking)">Remove</button> -->
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                             </div>
                         </div>
                     </div>
@@ -1030,14 +1062,25 @@ label.label-editUser {
             }
         }
         $scope.getPrintPDF = function(){
+            console.log($scope.typebook)
             console.log($scope.datepdf)
-            console.log($filter('date')(new Date($scope.datepdf),'dd/MM//yyyy'));
-            $scope.ondatepdf = $filter('date')(new Date($scope.datepdf),'dd/MM/yyyy')
-            if($scope.ondatepdf != 'undefined'){
-                $window.open('printPDF.php?date=' + $scope.ondatepdf);
-
-                //$window.location.href="http://danatoursasia.com/back/report/printPDF.php?date="+$scope.ondatepdf;
+             console.log($filter('date')(new Date($scope.datepdf),'dd/MM//yyyy'));
+                $scope.ondatepdf = $filter('date')(new Date($scope.datepdf),'dd/MM/yyyy')
+            if ($scope.typebook == undefined) {
+                $('#selecttype').modal('show')
             }
+            else{
+               
+                if($scope.ondatepdf != 'undefined'){
+                    $window.open('printPDF.php?date=' + $scope.ondatepdf+'&type='+$scope.typebook);
+
+                    //$window.location.href="http://danatoursasia.com/back/report/printPDF.php?date="+$scope.ondatepdf;
+                }
+                else{
+                     $('#selecttype').modal('show')
+                }
+            }
+            
         }
         $scope.logtype=function(x){
 
