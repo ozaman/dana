@@ -375,6 +375,13 @@
 
                                     
                                 <div >
+                                    <div class="form-group form-inline" >
+                                        <label for="name" class="label-tour">Response by<span>:</span></label>
+                                        <!-- <input type="text" class=" form-control" size="100" maxlength="200" placeholder = "Max length 200 characters" id="name" name="topic" ng-model="topic" required/> -->
+                                         <select class="form-control" ng-change="changeowner(selectowner)" id="label-addbooking" ng-model="selectowner" data-ng-options="i as i.name for i in dataowner" >
+                                                    <option value="">- None -</option>
+                                              </select>
+                                    </div>
                                 <div class="form-group form-inline" ng-show="checktransfer">
                                         <label for="name" class="label-tour">Province<span> :</span></label>
                                        
@@ -1068,7 +1075,7 @@ $(document).ready(function(){
         $scope.btnsave = false;
         
          $scope.dataAgent;
-          
+          $scope.ownername;
             $scope.checktour = true; 
         $scope.searchtransport = null;
         $scope.transferplace = [];
@@ -1190,6 +1197,17 @@ $(document).ready(function(){
                 }).success(function(res){
                  //console.log(res)
                  $scope.datatransport = res;
+                 //$scope.allTour = res;
+                       
+            });
+                $http({
+                method : 'POST',
+                url : "../php/getOwner.php",
+                //data: $.param({sv: $scope.dataSV}),
+                headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+                }).success(function(res){
+                 console.log(res)
+                 $scope.dataowner = res;
                  //$scope.allTour = res;
                        
             });
@@ -1387,6 +1405,11 @@ $(document).ready(function(){
             }
         }
            
+    }
+    $scope.changeowner = function(owner){
+            $scope.ownername = owner.name;
+            
+            console.log($scope.ownername)
     }
     $scope.changeagent = function(agent){
             $scope.agentid = agent.id;
@@ -1618,6 +1641,7 @@ $(document).ready(function(){
                                 ,'net_price_adult': $scope.net_price_adult
                                 ,'net_price_child': $scope.net_price_child
                                 ,'flight': $scope.flightname
+                                ,'owner': $scope.ownername
                                 
 
             

@@ -441,6 +441,7 @@
                                             <th>Child</th>
                                             <th>No. of Guest</th>
                                             <th>Type</th>
+                                            <th>Response by</th>
                                             <th>Agent Name</th>
                                             <th>Post By</th>
                                             <th>Lab </th>
@@ -468,6 +469,7 @@
                                                 <td align="center" ng-bind="item.child"></td>
                                                 <td ng-bind="item.total"></td>
                                                 <td ng-bind="item.type"></td>
+                                                <td ng-bind="item.owner"></td>
                                                 <td ><button  ng-click="getagent(item.agent_id)" class="btn btn-primary btn-xs"><span ng-bind="item.agent_name"></span></button>
                                                 </td>
                                                 <td ><button  ng-click="getpostby(item.user_id)" class="btn btn-rose btn-xs"><span ng-bind="item.user_name"></td>
