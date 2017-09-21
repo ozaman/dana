@@ -166,7 +166,7 @@
                                         <i class="material-icons">note_add</i> Add Bookings
                                     </a>
                                 </li> -->
-                                <li class="active">
+                                <li >
                                     <a href="../logs/confirm-booking.php">
                                         <i class="material-icons">check_circle</i>  Confirm Bookings
                                     </a>
