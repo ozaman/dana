@@ -462,18 +462,18 @@
                                                  <td align="center"  ng-bind="item.adult"></td>
                                                 <td align="center" ng-bind="item.child"></td>
                                                  <td ng-bind="item.total"></td>
-                                                <td class="col-md-2" ng-bind="item.adult_price*item.total  | currency:'':0" ></td>
+                                                <td class="col-md-2" ng-bind="item.total_amount | currency:'':0" ></td>
                                                 <td class="col-md-2" ng-bind="item.adult_price | currency:'':0" ></td>
                                                
 
-                                                <td ng-bind="item.net_price_adult*item.total  | currency:'':0"></td>
+                                                <td ng-bind="item.total_net  | currency:'':0"></td>
                                                 <td ng-bind="(item.item.adult_price*item.total)-item.net_price_adult*item.total  | currency:'':0"></td>
                                                 <td ng-bind=""></td>
                                                 <td ng-bind=""></td>
                                                 <td ng-bind=""></td>
                                                
                                                
-                                               <td ng-bind="(item.item.adult_price*item.total)-item.net_price_adult*item.total  | currency:'':0"></td>
+                                               <td ng-bind="item.received  | currency:'':0"></td>
                                                 <!-- <td ng-bind="item.owner"></td>
                                                 <td ><button  ng-click="getagent(item.agent_id)" class="btn btn-primary btn-xs"><span ng-bind="item.agent_name"></span></button>
                                                 </td>
@@ -1034,8 +1034,17 @@ label.label-editUser {
                   $scope.newdate = $filter('date')(new Date(),'dd/MM/yyyy');
                     //console.log($scope.newdate)
                 angular.forEach($scope.databook, function (data) {
-                    //console.log(data.ondate)
+                   // Total Amountitem.adult_price*item.total 
+                    console.log(data.adult_price*data.total)
+                    //item.net_price_adult*item.total
+                    $scope.total_amount = data.adult_price*data.total;
+                    $scope.total_net =  data.net_price_adult*data.total;
+
+                    data.total_amount = $scope.total_amount;
+                    data.total_net =  $scope.total_net
+                    data.received =  $scope.total_amount- $scope.total_net;
                      $scope.selsedataformonth.push(data)
+                      //data.dateCompare = 'wait';
                             if ($scope.newdate == data.ondate) { 
                                 data.noti = '1';                                    
                                 $scope.datanoti.push(data);
