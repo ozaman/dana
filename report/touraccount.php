@@ -452,7 +452,7 @@
                                             <th></th> -->
                                         </thead>
                                         <tbody >
-                                            <tr ng-repeat="item in selsedataformonth | filter:search:strict | dateselect:dateselectionfrom:dateselectionto:this">
+                                            <tr ng-repeat="item in selsedataformonth | filter:search:strict | dateselect:dateselectionfrom:dateselectionto:this | startFrom:(currentPage -1) * pageSize | limitTo:pageSize">
                                                 <td align="center" ng-bind="$index+1"></td>
                                                 <td ng-bind="item.ondate"></td>
                                                 <td class="col-md-2" ng-bind="item.name" ></td>
@@ -500,6 +500,8 @@
                                     </table>
 
                                 </div>
+                                <uib-pagination   id="page" total-items="selsedataformonth.length" ng-model="currentPage" items-per-page="pageSize" total-items="totalItems"  max-size="maxSize" class="pagination-sm" boundary-links="true" rotate="false" num-pages="numPages" >                        
+                            </uib-pagination>
                             </div>
                         </div>
                     </div>
@@ -817,6 +819,10 @@
 <script src="../js/jquery/demo.js"></script>
 <script src="../files/js-/angular.min.js"></script>
     <script src="../js/angular/angular-cookies.min.js"></script>
+     <script src="https://code.angularjs.org/1.4.5/angular-route.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-filter/0.5.8/angular-filter.min.js"></script>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-filter/0.5.8/angular-filter.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.14.3/ui-bootstrap-tpls.min.js"></script>
 
 <!-- <script src="../files/js-/main.js?v=<?=time()?>"></script> -->
 <!-- <script type="text/javascript">
@@ -956,13 +962,17 @@ label.label-editUser {
 
     </style>
     <script>
-    var app = angular.module('myApp',['ngCookies']);
-    app.controller('myCtrl', function($scope, $http, $cookies, $window,$filter){
+    var app = angular.module('myApp',['ngCookies','ngRoute','angular.filter','ui.bootstrap']);
+    app.controller('myCtrl', function($scope, $http, $cookies, $window,$filter,$interval){
          loadpage();
         function loadpage(){
             $scope.datanoti = [];
             $scope.checktype = 'All';
              $scope.selsedataformonth = [];
+              $scope.pageSize = 10;
+    
+      $scope.currentPage = 1;
+      $scope.maxSize = 5;
              var today = new Date();
                 var date = new Date(today.getFullYear()+'-'+(today.getMonth()+1)+'-1');
                 //console.log(today);
@@ -1040,9 +1050,30 @@ label.label-editUser {
                     $scope.total_amount = data.adult_price*data.total;
                     $scope.total_net =  data.net_price_adult*data.total;
 
-                    data.total_amount = $scope.total_amount;
-                    data.total_net =  $scope.total_net
-                    data.received =  $scope.total_amount- $scope.total_net;
+
+                   
+                    if(data.package_name == 'City Tour'){
+                       data.total_net =  data.adult_price; 
+                        data.received =  0;
+                         data.total_amount = data.adult_price;
+                    }
+                    else{
+                         if(data.total_price == '0'){
+                           
+                             data.received = 0;
+                            
+                           
+                        }
+                         else{
+                            data.received =  $scope.total_amount- $scope.total_net;
+                        }
+                         data.total_net =  $scope.total_net;
+                          data.total_amount = $scope.total_amount;
+                         
+                        
+
+                    }
+                    
                      $scope.selsedataformonth.push(data)
                       //data.dateCompare = 'wait';
                             if ($scope.newdate == data.ondate) { 
@@ -1483,6 +1514,11 @@ label.label-editUser {
 //                     return data.slice(start);
 //                 }
 //             })
+app.filter('startFrom',function(){
+      return function(data,start){
+          return data.slice(start); 
+      }
+  });
             app.filter('dateselect',function(){
                 return function(data,input1,input2,scope){
                     ////console.log(admin);
