@@ -1,6 +1,6 @@
 <?php
 include("../config.php");
-	$sql = "select * from dn_booking as TB_booking WHERE owner = 'mosab' AND type = 'Tour'  ORDER BY ondate ASC	";
+	$sql = "select * from dn_booking as TB_booking WHERE owner = 'mosab' AND type = 'Tour' AND status != 2  ORDER BY ondate ASC	";
 	$Objquery = mysql_query($sql,$conndb);
 	//echo $Objquery;
 	//$row = mysql_num_rows($Objquery); // นับจำนวนแถว
