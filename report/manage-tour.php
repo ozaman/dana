@@ -9,7 +9,7 @@
     <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
     <meta name="viewport" content="width=device-width">
     <!-- Canonical SEO -->
-   
+   <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous"> -->
     <!-- Bootstrap core CSS     -->
     <link href="../js/bootstrap.min.css" rel="stylesheet">
     <!--  Material Dashboard CSS    -->
@@ -126,7 +126,7 @@
                                          Complete Booking
                                     </a>
                                 </li>
-                               <li class="active">
+                               <li >
                                     <a href="new-booking.php">
                                         <i class="material-icons">insert_drive_file</i> New Bookings
                                     </a>
@@ -141,6 +141,12 @@
                                     <a href="account.php">
                                     <i class="material-icons">account_balance_wallet</i>
                                          Account
+                                    </a>
+                                </li>
+                                <li class="active">
+                                    <a href="manage-tour.php">
+                                    <i class="material-icons">account_balance_wallet</i>
+                                         Manage Account Tours
                                     </a>
                                 </li>
                             </ul>
@@ -218,7 +224,7 @@
                                 <ul class="dropdown-menu" id="login-down">
                                     <li>
                                         <a href="">
-                                            <i class="material-icons">access_alarms</i> Bookings
+                                            <i class="material-icons">access_alarms</i> Manage Account Tours 
                                         </a>
                                     </li>
                                    <!--  <li>
@@ -302,7 +308,7 @@
                                             <button type="button" class="btn btn-success btn-sm" style=""><i class="fa fa-plus padding-icon" aria-hidden="true"></i> New</button></a> -->
                                         <ol class="breadcrumb" style="margin: 0;padding: 11px;background: #fff; display: inline-block; ">
                                             <!-- <li><a href="package.php">Main Menu</a></li> -->
-                                            <li class="active"><span>/</span>  New bookings
+                                            <li class="active"><span>/</span>  Manage Account Tours
                                     </li>
                                         </ol>
                                     </div>
@@ -312,7 +318,7 @@
                      
                       
                        <div class="col-md-12">
-                       <div class="form-group form-inline">
+                       <!-- <div class="form-group form-inline">
                                     <div class="radio" id="radioin" >
                                         <label style="padding: 0px 35px;">
                                             <input type="radio" name="typeRadios" ng-change="logtype(checktype)" ng-model="checktype" value="Tour" >
@@ -332,7 +338,7 @@
                                             All
                                         </label>
                                     </div>
-                            </div>
+                            </div> -->
                              <div class="row form-group form-inline">
                      
                    
@@ -357,6 +363,7 @@
                                        <li ng-click="clicklist('Invoice')">Invoice</li>
                                         <li ng-click="clicklist('Package Name')">Package Name</li>
                                         <li ng-click="clicklist('Agent Name')">Agent Name</li>
+                                        <li ng-click="clicklist('Customer name')">Customer name</li>
                                   
 
                                  
@@ -370,6 +377,7 @@
                                 <input type="text" class="search_product form-control" ng-model="search.invoice" placeholder="Invoice">
                                 <input type="text" class="search_name form-control" ng-model="search.package_name" placeholder="Package Name">
                                 <input type="text" class="search_agentname form-control" ng-model="search.agent_name" placeholder="Agent Name">
+                                <input type="text" class="search_castomername form-control" ng-model="search.name" placeholder="Customer name">
                                 
                                 
                                
@@ -379,16 +387,17 @@
                         </div>
                         <div class="form-group form-inline " style="width: 100%">
                                             <label for="class" class="label-tour" style="    margin-right: 4px;color: #555">Agent<span> :</span></label>
-                                             <select class="form-control" ng-change="changeagent(selectagent)" id="selectagent" ng-model="selectagent" data-ng-options="i as i.fname for i in dataAgent" id="label-addbooking" style="width: 170px;">
+                                             <select class="form-control" ng-change="changeagent(selectagent)" id="selectagent" ng-model="selectagent" data-ng-options="i as i for i in dataAgent" id="label-addbooking" style="width: 170px;">
                                                     <option value="">- None -</option>
                                               </select>
+                                              <div class="clear" ng-click="clear()">Clear</div>
                                                 <!--<label for="class" class="label-tour" style="    margin-right: 4px;color: #555">Print booking on date <span> :</span></label>
                         <div class="search-box-date" style="    display: inline-block;">
                             <input type="date" class="search_date form-control" ng-model="datepdf" placeholder="Date" />
                         </div>
                         <button type="reset" class="btn btn-default" data-dismiss="modal" onclick="getPrintPDF()"><i class="material-icons">picture_as_pdf</i>Print</button>-->
                                     </div>
-                                    <div class="form-group form-inline " style="width: 100%;border-top: 1px solid #fff;
+                                    <!-- <div class="form-group form-inline " style="width: 100%;border-top: 1px solid #fff;
     padding-top: 15px;
     padding-bottom: 0;">
                                             
@@ -404,14 +413,12 @@
 
                                                 <option value="Tour">Tour</option>
 
-                                                <!-- <option>First Class</option> -->
-
-                                                <!--<option>Standard Class</option>-->
+                                               
 
                                             </select>
                         <button type="reset" class="btn btn-info "  ng-click="getPrintPDF()" style="padding: 3px 15px;
     margin-left: 15px;"><i class="material-icons" style="font-size: 28px;">picture_as_pdf</i></button>
-                                    </div>
+                                    </div> -->
                             <div class="card">
                                 <!-- <div class="card-header card-header-icon" data-background-color="rose">
                                     <i class="material-icons">assignment</i>
@@ -447,12 +454,14 @@
                                             <th>Approved by</th>
                                             
                                             <th>Profit</th>
+                                            <th></th>
                                             <!-- <th>Lab </th>
                                             <th></th>
                                             <th></th> -->
                                         </thead>
                                         <tbody >
-                                            <tr ng-repeat="item in selsedataformonth | filter:search:strict | dateselect:dateselectionfrom:dateselectionto:this | startFrom:(currentPage -1) * pageSize | limitTo:pageSize">
+                                            <tr ng-repeat="item in selsedataformonth | filter:search:strict | dateselect:dateselectionfrom:dateselectionto:this ">
+                                                <!-- | startFrom:(currentPage -1) * pageSize | limitTo:pageSize -->
                                                 <td align="center" ng-bind="$index+1"></td>
                                                 <td ng-bind="item.ondate"></td>
                                                 <td class="col-md-2" ng-bind="item.name" ></td>
@@ -462,46 +471,38 @@
                                                  <td align="center"  ng-bind="item.adult"></td>
                                                 <td align="center" ng-bind="item.child"></td>
                                                  <td ng-bind="item.total"></td>
-                                                <td class="col-md-2" ng-bind="item.total_amount | currency:'':0" ></td>
-                                                <td class="col-md-2" ng-bind="item.adult_price | currency:'':0" ></td>
+                                                <td align="right" class="col-md-2" ng-bind="item.total_amount | currency:'':0" ></td>
+                                                <td align="right" class="col-md-2" ng-bind="item.adult_price | currency:'':0" ></td>
                                                
 
-                                                <td ng-bind="item.total_net  | currency:'':0"></td>
-                                                <td ng-bind="(item.item.adult_price*item.total)-item.net_price_adult*item.total  | currency:'':0"></td>
+                                                <td align="right" ng-bind="item.total_net  | currency:'':0"></td>
+                                               <td align="right" ng-bind="item.received  | currency:'':0"></td>
                                                 <td ng-bind=""></td>
-                                                <td ng-bind=""></td>
-                                                <td ng-bind=""></td>
-                                               
-                                               
-                                               <td ng-bind="item.received  | currency:'':0"></td>
-                                                <!-- <td ng-bind="item.owner"></td>
-                                                <td ><button  ng-click="getagent(item.agent_id)" class="btn btn-primary btn-xs"><span ng-bind="item.agent_name"></span></button>
-                                                </td>
-                                                <td ><button  ng-click="getpostby(item.user_id)" class="btn btn-rose btn-xs"><span ng-bind="item.user_name"></td>
-                                                <td align="center"><button class="btn btn-rose btn-xs" ng-if="item.alert == 0 && item.type == 'Transfer'" style="background: #ff0000">Acknowledge</button>
-                                                <button class="btn btn-success btn-xs" ng-if="item.alert == 1 && item.type == 'Transfer'">Acknowledge<img src="../files/img-/yes.png" style="width: 23px;
-    position: absolute;
-    right: 0;
-    margin-top: -12px;
-    margin-right: -5px;
-    border: solid 3px #fff;
-    border-radius: 50%;"></button>
-                                                <span ng-if="item.type == 'Tour'">-</span>
-                                                </td>
-                                                
-                                              
-                                                <td class="col-md-1" align="center"><a href="view-booking.php#?data={{item.id}}"  target="_blank"><i class="material-icons"  style="color: #9E9E9E; font-size: 25px;">find_in_page</i></a></td>
-                                                <td class="col-md-1" align="center"><i class="material-icons" ng-click="removepackage(item)" style="color: #e91e1e; font-size: 25px;padding-top: 5px;">delete</i></td> -->
-
-
+                                                <td ><i ng-show="item.done == 1" class="material-icons" style="color: #4caf50;">playlist_add_check</i><i ng-show="item.done == 0" class="material-icons"  style="color: #ff9800;">schedule</i></td>
+                                                <td ><button ng-show="item.approved == 0" data-toggle="modal" data-target="#approved" ng-click="approve(item)" class="btn btn-info btn-sm" style="text-transform: capitalize;">Approve</button></td>
+                                                <td align="right" ng-bind="item.received  | currency:'':0"></td>
+                                                <td class="field" ></td>
                                             </tr>
                                            
+                                              
+                                              <td colspan="9" class="field" style="font-weight: bold;" align="right">Grand Total</td>
+                                              <td class="field" style="font-weight: bold;" align="right" ng-bind="total_tamount | currency:'':0"></td>
+                                              <td class="field" style="font-weight: bold;" align="center" >-</td>
+                                              <td class="field" style="font-weight: bold;" align="right" ng-bind="total_tnet | currency:'':0"></td>
+                                              <td class="field" style="font-weight: bold;" align="right" ng-bind="total_treseive | currency:'':0"></td>
+                                               <td class="field" ></td>
+                                              <td class="field" ></td>
+                                              <td class="field" ></td>
+                                              <!-- <td class="field" style="font-weight: bold;" align="right" ng-bind="total_transfer_price | currency:'':0"></td> -->
+                                              <!-- total_tamount,total_tsele,total_tnet,total_treseive,total_tprofit -->
+                                              <td class="field" style="font-weight: bold;" align="right" ng-bind="total_tprofit | currency:'':0"></td>
+                                              <td class="field" ></td>
                                         </tbody>
                                     </table>
 
                                 </div>
-                                <uib-pagination   id="page" total-items="selsedataformonth.length" ng-model="currentPage" items-per-page="pageSize" total-items="totalItems"  max-size="maxSize" class="pagination-sm" boundary-links="true" rotate="false" num-pages="numPages" >                        
-                            </uib-pagination>
+                                <!-- <uib-pagination   id="page" total-items="selsedataformonth.length" ng-model="currentPage" items-per-page="pageSize" total-items="totalItems"  max-size="maxSize" class="pagination-sm" boundary-links="true" rotate="false" num-pages="numPages" >                        
+                            </uib-pagination> -->
                             </div>
                         </div>
                     </div>
@@ -586,6 +587,51 @@
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-danger" data-dismiss="modal" ng-click="confirm()">Yes</button>
                                 <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal fade" id="approved">
+                    <div class="modal-dialog">
+                        <!-- Modal content-->
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                <h4 class="modal-title" >Approved</h4>
+                            </div>
+                            <div class="modal-body">
+                                <div>Do you really want to Approvedbooking:{{coninvoice}} </div>
+                                 <div class="form-group  " style="width: 100%;padding-left: 100px;margin-top: 35px;">
+                                    <!-- <div class="checkbox" style="padding: 0 20px 0 0" id="checkforagent">
+                                            <label>
+                                                <input type="checkbox" name="optionsCheckboxes" value="checked" ng-model="checkconfirm" ng-click="Acceptconfirm($event,checkconfirm)">Confirm Bookings
+                                            </label>
+                                    </div>
+                                    <div class="checkbox" style="padding: 0 20px 0 0" id="checkforagent">
+                                            <label>
+                                                <input type="checkbox" name="optionsCheckboxes" value="checked" ng-model="checkcancel" ng-click="Acceptcancel($event,checkcancel)">Cancellation Bookings
+                                            </label>
+                                    </div> -->
+                                    <!-- <div class="radio-type" style="padding-left: 120px;  margin-top: 51px;">
+                                        
+                                        <div class="radio" style="padding: 0 20px 0 0">
+                                                    <label>
+                                                        <input type="radio" name="optionsRadios" ng-model="checkcancel"><p style="display: inline-block; margin-left: 10px;margin-bottom:  0"> Cancellation Bookings</p>
+                                                    </label>
+                                                </div>
+                                        <div class="radio " style="padding: 0 20px 0 0">
+                                                    <label>
+                                                        <input type="radio" name="optionsRadios" ng-model="checkconfirm" ><p style="display: inline-block; margin-left: 10px;margin-bottom:  0"></p>
+                                                    </label>
+                                                </div>
+                                                
+                                                </div> -->
+                                       
+                                    </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-danger" data-dismiss="modal" ng-click="confirmapprove()" style="width: 80px;">Yes</button>
+                                <button type="button" class="btn btn-default" data-dismiss="modal" style="width: 80px;">Cancel</button>
                             </div>
                         </div>
                     </div>
@@ -937,6 +983,28 @@ label.label-editUser {
 .booking_searchengine .select{
     width: 170px;
 }
+ .clear{
+    /*display: none;*/
+    display: inline-block;
+    background: #337AB7;
+    padding: 7px 13px;
+    color:#FFF;
+    text-decoration: none;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    border-radius: 2px;
+    margin-left: 10px;
+}
+
+.clear:hover{
+    cursor: pointer;
+    color: #FFF;
+    text-decoration: none;
+    border: 2px solid #337AB7;
+    padding: 5px 11px;
+    background: #FFF;
+    color:#337AB7;
+}
 @media screen and (max-width: 767px){
 
 #InputPassPhone {
@@ -968,15 +1036,23 @@ label.label-editUser {
         function loadpage(){
             $scope.datanoti = [];
             $scope.checktype = 'All';
-             $scope.selsedataformonth = [];
-              $scope.pageSize = 10;
+            $scope.selsedataformonth = [];
+            $scope.dataAgentget = [];
+            // $scope.dataAgent = [];
+            $scope.pageSize = 10;
     
-      $scope.currentPage = 1;
-      $scope.maxSize = 5;
+            $scope.currentPage = 1;
+            $scope.maxSize = 5;
+            $scope.total_tamount = 0;
+            $scope.total_tsele = 0;
+            $scope.total_tnet = 0;
+            $scope.total_treseive = 0;
+            $scope.total_tprofit = 0;
+           
              var today = new Date();
                 var date = new Date(today.getFullYear()+'-'+(today.getMonth()+1)+'-1');
-                //console.log(today);
-                //console.log(date);
+                console.log(today);
+                console.log(date);
                 $scope.dateselectionfrom = date;
                 $scope.dateselectionto = today;
             if($cookies.get('login'))
@@ -1040,17 +1116,20 @@ label.label-editUser {
                 }).success(function(res){
                  console.log(res)
                  console.log(res[0].flight)
-                 $scope.databook = res;
+                 $scope.datatour = res;
                   $scope.newdate = $filter('date')(new Date(),'dd/MM/yyyy');
                     //console.log($scope.newdate)
-                angular.forEach($scope.databook, function (data) {
+                angular.forEach($scope.datatour, function (data) {
                    // Total Amountitem.adult_price*item.total 
+                   $scope.dataAgentget.push(data.agent_name)
+                    //$scope.dataAgentget.push(data.agent_id)
                     console.log(data.adult_price*data.total)
                     //item.net_price_adult*item.total
                     $scope.total_amount = data.adult_price*data.total;
                     $scope.total_net =  data.net_price_adult*data.total;
+                    //$scope.dataAgent.push()
 
-
+                      
                    
                     if(data.package_name == 'City Tour'){
                        data.total_net =  data.adult_price; 
@@ -1061,13 +1140,15 @@ label.label-editUser {
                          if(data.total_price == '0'){
                            
                              data.received = 0;
+                              data.total_net = 0;
                             
                            
                         }
                          else{
                             data.received =  $scope.total_amount- $scope.total_net;
+                             data.total_net =  $scope.total_net;
                         }
-                         data.total_net =  $scope.total_net;
+                        
                           data.total_amount = $scope.total_amount;
                          
                         
@@ -1085,7 +1166,47 @@ label.label-editUser {
                                 data.noti = '0'; 
                             }
                         });
-                    //console.log($scope.databook)
+                $scope.databook = $scope.datatour;
+                console.log($scope.databook)
+                var a = $scope.dataAgentget;
+                      var b = new Array();
+                      var first2 = 0;
+                      var count2 = 0;
+                      for(var i = 0 ; i < a.length; i++)
+                       {
+                        count2 = 0;              
+                        if(first2==0)
+                            {
+                              b.push(a[i]);
+                              first2++;
+                            }
+                            for(var j = 0 ; j < b.length ; j++)
+                            {                    
+                              if(b[j]!=a[i])
+                              {
+                                count2++;
+                                if(count2==b.length)
+                                {
+                                  b.push(a[i]);
+                                }
+                              }
+                            }              
+                      }
+                      console.log(b)
+                      $scope.dataAgent = b;
+                     //   for (var i = 0; i < b.length; i++) {
+                     //      angular.forEach($scope.databook, function(data){ 
+                     //          if (data.agent_name == b[i]) 
+                     //          {
+                     //             $scope.dataAgent.push(data);
+                     //             //console.log($scope.nametooo) 
+                                 
+                     //          }
+
+                              
+                     //      });
+                     // }
+                console.log($scope.dataAgent)
                  
                        
             });
@@ -1095,7 +1216,7 @@ label.label-editUser {
                     headers: {'Content-Type': 'application/x-www-form-urlencoded'}
                 }).success(function (res) {
                     
-                    $scope.dataAgent = res;
+                    // $scope.dataAgent = res;
                     //console.log($scope.dataAgent)
                     
                     
@@ -1177,51 +1298,128 @@ label.label-editUser {
                 });
              }
          }
+         $scope.clear = function(){
+              $http({
+                method : 'POST',
+                url : "../php/getTouraccount.php",
+                //data: $.param({sv: $scope.dataSV}),
+                headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+                }).success(function(res){
+                 console.log(res)
+                 console.log(res[0].flight)
+                 $scope.datatour = res;
+                  $scope.newdate = $filter('date')(new Date(),'dd/MM/yyyy');
+                    //console.log($scope.newdate)
+                angular.forEach($scope.datatour, function (data) {
+                   // Total Amountitem.adult_price*item.total 
+                    console.log(data.adult_price*data.total)
+                    //item.net_price_adult*item.total
+                    $scope.total_amount = data.adult_price*data.total;
+                    $scope.total_net =  data.net_price_adult*data.total;
+
+
+                   
+                    if(data.package_name == 'City Tour'){
+                       data.total_net =  data.adult_price; 
+                        data.received =  0;
+                         data.total_amount = data.adult_price;
+                    }
+                    else{
+                         if(data.total_price == '0'){
+                           
+                             data.received = 0;
+                              data.total_net = 0;
+                            
+                           
+                        }
+                         else{
+                            data.received =  $scope.total_amount- $scope.total_net;
+                             data.total_net =  $scope.total_net;
+                        }
+                        
+                          data.total_amount = $scope.total_amount;
+                         
+                        
+
+                    }
+                    
+                     $scope.selsedataformonth.push(data)
+                      //data.dateCompare = 'wait';
+                            if ($scope.newdate == data.ondate) { 
+                                data.noti = '1';                                    
+                                $scope.datanoti.push(data);
+                                            
+                            }
+                            else{
+                                data.noti = '0'; 
+                            }
+                        });
+                $scope.databook = $scope.datatour;
+                console.log($scope.databook)
+                // $('.clear').css('display','none');
+                 
+                       
+            });
+         }
          $scope.changeagent = function(agent){
-            $scope.agentid = agent.id;
+            // $('.clear').css('display','inline-block');
+
+           $scope.agentid = agent;
             $scope.selsedataformonth = [];
-            // var total_sele_adult = 0;
-            // var total_sele_child = 0;
-            // var total_net_adult = 0;
-            // var total_net_child = 0;
-            // var total_price = 0;
-            // var total_transfer_price = 0;
+            var total_tamount = 0;
+            var total_tsele = 0;
+            var total_tnet = 0;
+            var total_treseive = 0;
+            var total_tprofit = 0;
+            
             angular.forEach($scope.databook, function(data){
-            if(agent.id == data.agent_id)
+            if(agent == data.agent_name)
             {   
                 
                 $scope.selsedataformonth.push(data)
                  
             }
-            // if ($scope.selsedataformonth.length == 0) {
-            //         total_net_adult = 0;
-            //         total_net_child = 0;                                    
-            //         total_sele_adult = 0;
-            //         total_sele_child = 0;
-            //         total_price = 0;
-            //         total_transfer_price = 0;
+            if ($scope.selsedataformonth.length == 0) {
+                $scope.total_tamount = 0;
+                $scope.total_tsele = 0;
+                $scope.total_tnet = 0;
+                $scope.total_treseive = 0;
+                $scope.total_tprofit = 0;
                                     
-            //         $scope.returnvalue( total_sele_adult,total_sele_child,total_net_adult,total_net_child,total_price,total_transfer_price)
-            // }
-            // else{
-            //     angular.forEach($scope.selsedataformonth, function(data){
+                    $scope.returnvalue( total_tamount,total_tsele,total_tnet,total_treseive,total_tprofit)
+            }
+            else{
+                angular.forEach($scope.selsedataformonth, function(data){
               
-            //         total_net_adult += parseInt(data.net_price_adult);
-            //         total_net_child += parseInt(data.net_price_child);
-            //         total_sele_adult += parseInt(data.adult_price);
-            //         total_sele_child += parseInt(data.child_price);
-            //         total_price += parseInt(data.total_price);
-            //         total_transfer_price += parseInt(data.transfer_price);
+                    total_tamount += parseInt(data.total_amount);
+                    total_tsele += parseInt(data.adult_price);
+                    total_tnet += parseInt(data.total_net);
+                    total_treseive += parseInt(data.received);
+                    total_tprofit += parseInt(data.received);
+                   
                                     
-            //         $scope.returnvalue( total_sele_adult,total_sele_child,total_net_adult,total_net_child,total_price,total_transfer_price)
-            //     });
-            //     }
+                     $scope.returnvalue( total_tamount,total_tsele,total_tnet,total_treseive,total_tprofit)
+                });
+                }
             
                  
             
         });
-            //console.log($scope.dataselectagent)
+            console.log($scope.dataselectagent)
+           
+            
+                 
+            
+     
     }
+     $scope.returnvalue = function (a,b,c,d,e) {
+        $scope.total_tamount = a;
+                $scope.total_tsele = b;
+                $scope.total_tnet = c;
+                $scope.total_treseive = d;
+                $scope.total_tprofit = e;
+                           
+                    }
         $scope.logout = function(){
             $cookies.remove("login");
           
@@ -1388,6 +1586,8 @@ label.label-editUser {
                 angular.element(result).css('display','none');                       
                 result = document.getElementsByClassName("search_list");
                 angular.element(result).css('display','none');
+                result = document.getElementsByClassName("search_castomername");                
+                angular.element(result).css('display','none');
                 result = document.getElementsByClassName("reset_search");
                 angular.element(result).css('display','inline-block');
                 $scope.list = false;
@@ -1411,6 +1611,8 @@ label.label-editUser {
                 angular.element(result).css('display','none');                       
                 result = document.getElementsByClassName("search_list");
                 angular.element(result).css('display','none');
+                result = document.getElementsByClassName("search_castomername");                
+                angular.element(result).css('display','none');
                 result = document.getElementsByClassName("reset_search");
                 angular.element(result).css('display','inline-block');
                 $scope.list = false;
@@ -1432,6 +1634,8 @@ label.label-editUser {
                 result = document.getElementsByClassName("search_agentname");
                 angular.element(result).css('display','none');                        
                 result = document.getElementsByClassName("search_list");
+                angular.element(result).css('display','none');
+                result = document.getElementsByClassName("search_castomername");                
                 angular.element(result).css('display','none');
                 result = document.getElementsByClassName("reset_search");
                 angular.element(result).css('display','inline-block');
@@ -1456,6 +1660,33 @@ label.label-editUser {
                 angular.element(result).css('display','none');
                 result = document.getElementsByClassName("search_agentname");               
                 angular.element(result).css('display','inline-block'); 
+                 result = document.getElementsByClassName("search_castomername");                
+                angular.element(result).css('display','none');
+                result = document.getElementsByClassName("reset_search");
+                angular.element(result).css('display','inline-block');
+                $scope.list = false;
+                $scope.search = new Array();
+                $scope.search.package_name = '';
+                $scope.search.id = '';
+                
+                       
+            }
+             else if(input=='Customer name')
+            {
+                //alert('aaa')
+                result = document.getElementsByClassName("search_booking");
+                angular.element(result).css('display','none');
+                result = document.getElementsByClassName("search_product");
+                angular.element(result).css('display','none'); 
+                 result = document.getElementsByClassName("search_name");
+                angular.element(result).css('display','none');
+                                       
+                result = document.getElementsByClassName("search_list");
+                angular.element(result).css('display','none');
+                result = document.getElementsByClassName("search_agentname");               
+                angular.element(result).css('display','none'); 
+                 result = document.getElementsByClassName("search_castomername");
+                angular.element(result).css('display','inline-block');
                 result = document.getElementsByClassName("reset_search");
                 angular.element(result).css('display','inline-block');
                 $scope.list = false;
@@ -1489,91 +1720,83 @@ label.label-editUser {
             $scope.search.package_name = '';
                     
         }
-        $scope.returnvalue = function (a,b,c,d,e) {
-                    $scope.total_sell = a;
-                    $scope.total_start = b;
-                    $scope.total_percen = c;
-                    $scope.total_omise = d;
-                    $scope.total_sum = e;
-                } 
+        // $scope.returnvalue = function (a,b,c,d,e) {
+        //     $scope.total_sell = a;
+        //     $scope.total_start = b;
+        //     $scope.total_percen = c;
+        //     $scope.total_omise = d;
+        //     $scope.total_sum = e;
+        // } 
                  
     });
-// app.filter('startFromin',function(){
-//                 return function(data,start){
-//                     return data.slice(start);
-//                 }
-//             })
-//             app.filter('startFrom',function(){
-//                 return function(data,start){
-//                     //console.log('in filter');
-//                     return data.slice(start);
-//                 }
-//             })
-//             app.filter('startFrompen',function(){
-//                 return function(data,start){
-//                     return data.slice(start);
-//                 }
-//             })
-app.filter('startFrom',function(){
-      return function(data,start){
-          return data.slice(start); 
-      }
-  });
-            app.filter('dateselect',function(){
+    app.filter('dateselect',function(){
                 return function(data,input1,input2,scope){
-                    ////console.log(admin);
-                    //console.log("In filter here");
+                    //console.log(admin);
                     var result = new Array();
                     var total_sell = 0;
-                    var x = 0;
-                    var total_start = 0;
-                    var total_percen = 0;
-                    var total_omise = 0;
-                    var total_sum = 0;
+                    var sum = 0;
+                    var sum1 = 0;
+                    var total_tamount = 0;
+                    var total_tsele = 0;
+                    var total_tnet = 0;
+                    var total_treseive = 0;
+                    var total_tprofit = 0;
+
+                    
                     //$scope.total_sell = 0;
                     if(input2 != null)
                     {
-                        //console.log("In case here 1");
-                        //console.log(input1);
-                        ////console.log("And");
-                        ////console.log(input2);
+                        console.log("In case here 1");
+                        console.log(input1);
+                        //console.log("And");
+                        //console.log(input2);
                         var current;
                         var current1;
                         current = new Date(input1);
-                        ////console.log(current);
+                        //console.log(current);
                         var x =current.setHours(00, 00, 00);
                         var setx = new Date(x).getTime();
                         //console.log(new Date(x).getTime());
-                        //console.log(setx)
                         current1 = new Date(input2);
                         var y =current1.setHours(24, 00, 00);
                         //console.log(y);
                         for (var i=0; i<data.length; i++){
-                            //console.log(data[i].post_date *1000)
                             if(data[i].post_date *1000 > setx && data[i].post_date*1000 < new Date(y).getTime())
                             {
-                                ////console.log(data[i]);
-                                ////console.log(new Date(data[i].booking_date).getTime());
+                                //console.log(data[i]);
+                                //console.log(new Date(data[i].booking_date).getTime());
                                 //console.log('Round'+i);
-                                ////console.log(new Date(x).getTime());
+                                console.log(data[i].total_price);
+                                // if(data[i].total_price == '0'){
+                                //     console.log('aa')
+                                //      total_treseive += 0;
+                            
+                           
+                                // }
+                                // else{
+                                   total_treseive += parseInt(data[i].received);
+                               // }
+                                    total_tamount += parseInt(data[i].total_amount);
+                    total_tsele += parseInt(data[i].adult_price);
+                    total_tnet += parseInt(data[i].total_net);
+                    // total_treseive += parseInt(data[i].received);
+                    total_tprofit += parseInt(data[i].received);
+                   
+                                    
+                     scope.returnvalue( total_tamount,total_tsele,total_tnet,total_treseive,total_tprofit)
                                 
-                                   
-                                    result.push(data[i]);
-                                
-                                
-                                
-                                
+                                result.push(data[i]);
                             }
                             else
                             {
-                                ////console.log('Not Bwtween');
+                                //console.log('Not Bwtween');
                             }
                         }
                         return result;
                     }
                     else if(input2 == null && input1 == null)
                     {
-                        //console.log("In case here 2");
+                        console.log("In case here 2");
                         var nowdate = new Date();
                         var month = nowdate.getMonth()+1;
                         var year = nowdate.getFullYear();
@@ -1587,43 +1810,51 @@ app.filter('startFrom',function(){
                         current = new Date(nowdate);
                         var y =current.setHours(24, 00, 00);
                         for (var i=0; i<data.length; i++){
-                            if(data[i].post_date *1000 > setx && data[i].post_date*1000 < new Date(y).getTime())
+                           if(data[i].post_date *1000 > setx && data[i].post_date*1000 < new Date(y).getTime())
                             {
-                                ////console.log('Date Between');
-                                
+                                //console.log('Date Between');
+                                 total_tprofit += data[i].received;
+                   
                                     
-                                    result.push(data[i]);
-                               
+                     scope.returnvalue( total_tamount,total_tsele,total_tnet,total_treseive,total_tprofit)
+                                    
+                                   
+                                
+                                result.push(data[i]);
+                    
                             }
                             else
                             {
-                                    ////console.log('Not Bwtween');
+                                    //console.log('Not Bwtween');
                             }
                         }
                         return result;
                     }
                     else
                     {
-                        //console.log("In case here 3");
+                        console.log("In case here 3");
                         var current = new Date(input1);
                         var x =current.setHours(00, 00, 00);
                         var y =current.setHours(24, 00, 00);
                         for (var i=0; i<data.length; i++){
-                            ////console.log(i);
-                            ////console.log(data[i]);
-                            if(data[i].post_date *1000 > setx && data[i].post_date*1000 < new Date(y).getTime())
+                            //console.log(i);
+                            //console.log(data[i]);
+                           if(data[i].post_date *1000 > setx && data[i].post_date*1000 < new Date(y).getTime())
                             {
-                                //console.log(new Date(x).getTime());
-                                ////console.log('Date Between');
+                                console.log(new Date(x).getTime());
+                                //console.log('Date Between');
                                 
+                                    console.log(data[i].received)
+                                    parseInt(total_tprofit) += parseInt(data[i].received);
                                     
-                                    result.push(data[i]);
+                                     scope.returnvalue( total_tamount,total_tsele,total_tnet,total_treseive,total_tprofit)
                                
+                                result.push(data[i]);
                             }
                             else
                             {
 
-                                ////console.log('Not Bwtween');
+                                //console.log('Not Bwtween');
 
                             }
                         }
@@ -1633,6 +1864,125 @@ app.filter('startFrom',function(){
                     //return result;
                 }
             })
+// app.filter('startFrom',function(){
+//       return function(data,start){
+//           return data.slice(start); 
+//       }
+//   });
+            // app.filter('dateselect',function(){
+            //     return function(data,input1,input2,scope){
+            //         ////console.log(admin);
+            //         //console.log("In filter here");
+            //         var result = new Array();
+            //         var total_sell = 0;
+            //         var x = 0;
+            //         var total_start = 0;
+            //         var total_percen = 0;
+            //         var total_omise = 0;
+            //         var total_sum = 0;
+            //         //$scope.total_sell = 0;
+            //         if(input2 != null)
+            //         {
+            //             //console.log("In case here 1");
+            //             //console.log(input1);
+            //             ////console.log("And");
+            //             ////console.log(input2);
+            //             var current;
+            //             var current1;
+            //             current = new Date(input1);
+            //             ////console.log(current);
+            //             var x =current.setHours(00, 00, 00);
+            //             var setx = new Date(x).getTime();
+            //             //console.log(new Date(x).getTime());
+            //             //console.log(setx)
+            //             current1 = new Date(input2);
+            //             var y =current1.setHours(24, 00, 00);
+            //             //console.log(y);
+            //             for (var i=0; i<data.length; i++){
+            //                 //console.log(data[i].post_date *1000)
+            //                 if(data[i].post_date *1000 > setx && data[i].post_date*1000 < new Date(y).getTime())
+            //                 {
+            //                     ////console.log(data[i]);
+            //                     ////console.log(new Date(data[i].booking_date).getTime());
+            //                     //console.log('Round'+i);
+            //                     ////console.log(new Date(x).getTime());
+                                
+                                   
+            //                         result.push(data[i]);
+                                
+                                
+                                
+                                
+            //                 }
+            //                 else
+            //                 {
+            //                     ////console.log('Not Bwtween');
+            //                 }
+            //             }
+            //             return result;
+            //         }
+            //         else if(input2 == null && input1 == null)
+            //         {
+            //             //console.log("In case here 2");
+            //             var nowdate = new Date();
+            //             var month = nowdate.getMonth()+1;
+            //             var year = nowdate.getFullYear();
+                        
+
+            //             var datefrom = new Date(year+'-'+month+'-1');
+                       
+            //             var current;
+            //             current = new Date(datefrom);
+            //             var x =current.setHours(00, 00, 00);
+            //             current = new Date(nowdate);
+            //             var y =current.setHours(24, 00, 00);
+            //             for (var i=0; i<data.length; i++){
+            //                 if(data[i].post_date *1000 > setx && data[i].post_date*1000 < new Date(y).getTime())
+            //                 {
+            //                     ////console.log('Date Between');
+                                
+                                    
+            //                         result.push(data[i]);
+                               
+            //                 }
+            //                 else
+            //                 {
+            //                         ////console.log('Not Bwtween');
+            //                 }
+            //             }
+            //             return result;
+            //         }
+            //         else
+            //         {
+            //             //console.log("In case here 3");
+            //             var current = new Date(input1);
+            //             var x =current.setHours(00, 00, 00);
+            //             var y =current.setHours(24, 00, 00);
+            //             for (var i=0; i<data.length; i++){
+            //                 ////console.log(i);
+            //                 ////console.log(data[i]);
+            //                 if(data[i].post_date *1000 > setx && data[i].post_date*1000 < new Date(y).getTime())
+            //                 {
+            //                     //console.log(new Date(x).getTime());
+            //                     ////console.log('Date Between');
+                                
+                                    
+            //                         result.push(data[i]);
+                               
+            //                 }
+            //                 else
+            //                 {
+
+            //                     ////console.log('Not Bwtween');
+
+            //                 }
+            //             }
+
+            //             return result;
+            //         }
+            //         //return result;
+            //     }
+            // })
             
 
     </script>

@@ -143,6 +143,12 @@
                                          Account
                                     </a>
                                 </li>
+                                 <li>
+                                    <a href="manage-tour.php">
+                                    <i class="material-icons">account_balance_wallet</i>
+                                         Manage Account Tours
+                                    </a>
+                                </li>
                             </ul>
                         </div>
                     </li>
