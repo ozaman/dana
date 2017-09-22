@@ -466,7 +466,7 @@
                                             <th>Net price</th>
                                             <th>Transfer price</th>
                                             <!-- <th>Money Received</th> -->
-                                            <th>Status Pay</th>                                         
+                                            <th>Pay by</th>                                         
                                            
                                             <th>Done</th>
                                             <th>Approved by</th>
@@ -497,9 +497,9 @@
                                                 <td align="right" ng-bind="item.total_net  | currency:'':0"></td>
                                                 <td align="right" ng-bind="item.transfer_price  | currency:'':0"></td>
                                                <!-- <td align="right" ng-bind="item.received  | currency:'':0"></td> -->
-                                                <td  align="center"><i ng-show="item.status_invoice == 1 || item.total_price == 0" class="material-icons" style="color: #4caf50;">playlist_add_check</i><button ng-show="item.status_invoice == 0 && item.total_price != 0" data-toggle="modal" data-target="#payproduct" ng-click="pay(item)" class="btn btn-primary btn-sm" style="text-transform: capitalize;">Pay</button></td>
+                                                <td  align="center"><span style="color: #9c27b0" ng-show="item.status_invoice == 1 || item.total_price == 0" ng-bind="item.pay_by"></span><!-- <i ng-show="item.status_invoice == 1 || item.total_price == 0" class="material-icons" style="color: #4caf50;">playlist_add_check</i> --><button ng-show="item.status_invoice == 0 && item.total_price != 0" data-toggle="modal" data-target="#payproduct" ng-click="pay(item)" class="btn btn-primary btn-sm" style="text-transform: capitalize;">Pay</button></td>
                                                 <td  align="center"><i ng-show="item.done == 1" class="material-icons" style="color: #4caf50;">playlist_add_check</i><i ng-show="item.done == 0" class="material-icons"  style="color: #ff9800;">schedule</i></td>
-                                                <td  align="center"><button ng-show="item.approved == 0" data-toggle="modal" data-target="#approved" ng-click="approve(item)" class="btn btn-info btn-sm" style="text-transform: capitalize;">Approve</button></td>
+                                                <td  align="center"><button ng-show="item.approved == 0" data-toggle="modal" data-target="#approved" ng-click="approve(item)" class="btn btn-info btn-sm" style="text-transform: capitalize;">Approve</button><span style="color: #00bcd4" ng-show="item.approved == 1" ng-bind="item.approve_by"></span></td>
                                                 <!-- <td align="right" ng-bind="item.received  | currency:'':0"></td> -->
                                                 <td class="field" ></td>
                                             </tr>
@@ -616,127 +616,75 @@
                         <div class="modal-content">
                             <div class="modal-header">
                                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                                <h4 class="modal-title" >Approved</h4>
+                                <h4 class="modal-title" style="    font-weight: 400;" >Approved</h4>
                             </div>
                             <div class="modal-body">
-                                <div>Do you really want to Approved booking:{{dataitem.invoice}} </div>
-                                 <div class="form-group  " style="width: 100%;padding-left: 100px;margin-top: 35px;">
+                                <div style="text-align: center; font-size: 16px;font-weight: 500;">Invoice number :  <span style="color: #9c27b0; font-weight: 700;" ng-bind="dataitem.invoice"></span></div>
+                                 <div class="form-group  " style="width: 100%;margin-top: 35px;">
                                      <div class="card-content table-responsive">
-
                                     <table class="table">
-
-                                      
-
-                                             
-
-                                           
-
-                                            <!-- <th>Status</th> -->
-
-                                            <!-- <th>Invoice</th> -->
-
                                             <th class="col-md-4">Package Name</th>
                                             <th>Customer name</th> 
-                                            <!-- <th>Flight</th>  -->
-                                             <th>Pickup place</th>
-                                            <th>To place</th>     
-
-                                            <!-- <th>Adult Price</th>
-
-                                            <th>Child Price</th> -->
-
                                             <th>Total Price</th>
-
                                             <th>Departure Date</th>
-
-                                            <!-- <th>On time</th> -->
-
-                                            <!-- <th>Adult</th> -->
-
-                                            <!-- <th>Child</th> -->
-
                                             <th>No. of Guest</th>
-
-                                            <!-- <th>Type</th> -->
-
                                             <th>Agent Name</th>
-
-                                            <!-- <th>Post By</th> -->
-
-                                            <!-- <th></th> -->
-                                            <!-- <th></th> -->
-
-                                       
-
                                         <tbody >
-
                                             <tr>
-
-                                               
-
-                                                 
-
-                                                 <!-- <td align="center"><i class="material-icons" style="color: #4CAF50;font-size: 18px;">check_circle</i></td> -->
-
-                                                <!-- <td  ng-bind="dataitem.invoice"></td> -->
-
                                                 <td class="col-md-4" ng-bind="dataitem.package_name"></td>
                                                 <td class="col-md-2" ng-bind="dataitem.name" ></td>
-                                                <!-- <td class="col-md-2" ng-bind="dataitem.flight" ng-if="dataitem.flight != ''" ></td> -->
-                                                <!-- <td align="center" class="col-md-2" ng-if="dataitem.flight == ''"><span >-</span></td> -->
-                                                
-                                                <td ng-bind="dataitem.pickup_place"></td>
-                                                <td ng-bind="dataitem.to_place"></td>
-
-
-<!-- 
-                                                <td ng-bind="dataitem.adult_price | currency:'':0"></td>
-
-                                                <td ng-bind="dataitem.child_price | currency:'':0"></td> -->
-
                                                 <td ng-bind="dataitem.total_price | currency:'':0"></td>
-
                                                 <td ng-bind="dataitem.ondate"></td>
-
-                                                <!-- <td ng-bind="dataitem.ontime"></td> -->
-
-                                                <!-- <td ng-bind="dataitem.adult"></td> -->
-
-                                                <!-- <td ng-bind="dataitem.child"></td> -->
-
-                                                <td ng-bind="dataitem.total"></td>
-
-                                                <!-- <td ng-bind="dataitem.type"></td> -->
-
-                                                <td ><button  ng-click="getagent(dataitem.agent_id)" class="btn btn-primary btn-xs"><span ng-bind="dataitem.agent_name"></span></button></td>
-
-                                                <!-- <td ><button  ng-click="getpostby(dataitem.agent_id)" class="btn btn-rose btn-xs"><span ng-bind="dataitem.user_name"></td> -->
-
-                                                
-
-                                              
-
-                                                 <!-- <td class="col-md-1" align="center"><a href="view-booking.php#?data={{dataitem.id}}"  target="_blank"><i class="material-icons"  style="color: #9E9E9E; font-size: 25px;">find_in_page</i></a></td> -->
-                                                  <!-- <td class="col-md-1" align="center"><i class="material-icons" ng-click="removepackage(dataitem)" style="color: #e91e1e; font-size: 25px;padding-top: 5px;">delete</i></td> -->
-
-
-
+                                                <td align="center" ng-bind="dataitem.total"></td>
+                                                <td ><span ng-bind="dataitem.agent_name"></span></td>
                                             </tr>
-
-                                           
-
                                         </tbody>
-
                                     </table>
-
-
-
-                                </div>
-                                       
-                                    </div>
+                                </div>                                       
+                            </div>
                             </div>
                             <div class="modal-footer">
-                                <button type="button" class="btn btn-danger" data-dismiss="modal" ng-click="confirmapprove(dataitem.id)" style="width: 80px;">Yes</button>
+                                <button type="button" class="btn btn-info" ng-click="confirmapprove(dataitem.id)" style="width: 80px;">Yes</button>
+                                <button type="button" class="btn btn-default" data-dismiss="modal" style="width: 80px;">Cancel</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal fade" id="payproduct">
+                    <div class="modal-dialog">
+                        <!-- Modal content-->
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                <h4 class="modal-title" style="    font-weight: 400;" >Approved</h4>
+                            </div>
+                            <div class="modal-body">
+                                <div style="text-align: center; font-size: 16px;font-weight: 500;">Invoice number :  <span style="color: #9c27b0; font-weight: 700;" ng-bind="dataitempay.invoice"></span></div>
+                                 <div class="form-group  " style="width: 100%;margin-top: 35px;">
+                                     <div class="card-content table-responsive">
+                                    <table class="table">
+                                            <th class="col-md-4">Package Name</th>
+                                            <th>Customer name</th> 
+                                            <th>Total Price</th>
+                                            <th>Departure Date</th>
+                                            <th>No. of Guest</th>
+                                            <th>Agent Name</th>
+                                        <tbody >
+                                            <tr>
+                                                <td class="col-md-4" ng-bind="dataitempay.package_name"></td>
+                                                <td class="col-md-2" ng-bind="dataitempay.name" ></td>
+                                                <td ng-bind="dataitempay.total_price | currency:'':0"></td>
+                                                <td ng-bind="dataitempay.ondate"></td>
+                                                <td align="center" ng-bind="dataitempay.total"></td>
+                                                <td ><span ng-bind="dataitempay.agent_name"></span></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>                                       
+                            </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-primary" ng-click="confirmpay(dataitempay.id)" style="width: 80px;">Yes</button>
                                 <button type="button" class="btn btn-default" data-dismiss="modal" style="width: 80px;">Cancel</button>
                             </div>
                         </div>
@@ -1557,6 +1505,67 @@ label.label-editUser {
           
            
         }
+        $scope.confirmapprove = function(item){
+            console.log(item)
+            console.log($scope.nameconfirm)
+             $http({
+                method : 'POST',
+                url : "../php/updateApprove.php",
+                data: $.param({'id': item,'approve_by': $scope.nameconfirm}),
+                headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+                }).success(function(res){
+                 console.log(res)
+                 $window.location.reload();
+                 //$('#approved').modal('hide');
+                 
+                 
+                       
+            });
+          
+           
+        }
+        // $scope.confirmapprove = function(item){
+        //     console.log(item)
+        //     console.log($scope.nameconfirm)
+        //     //  $http({
+        //     //     method : 'POST',
+        //     //     url : "../php/updateApprove.php",
+        //     //     data: $.param({'invoice': item,'approve_by': $scope.nameconfirm}),
+        //     //     headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+        //     //     }).success(function(res){
+        //     //      console.log(res)
+                 
+                 
+                       
+        //     // });
+          
+           
+        // }
+        $scope.pay = function(item){
+            $scope.dataitempay = item;
+            console.log($scope.dataitempay)
+          
+           
+        }
+        $scope.confirmpay = function(item){
+            console.log(item)
+            console.log($scope.nameconfirm)
+             $http({
+                method : 'POST',
+                url : "../php/updatePay.php",
+                data: $.param({'id': item,'pay_by': $scope.nameconfirm}),
+                headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+                }).success(function(res){
+                 console.log(res)
+                 $window.location.reload();
+                  //$('#payproduct').modal('hide');
+                 
+                 
+                       
+            });
+          
+           
+        }
         $scope.removepackage = function(i){
             //console.log(i)
             $scope.idremovebooking = i.id;
@@ -1878,8 +1887,8 @@ label.label-editUser {
                     //$scope.total_sell = 0;
                     if(input2 != null)
                     {
-                        console.log("In case here 1");
-                        console.log(input1);
+                        //console.log("In case here 1");
+                        //console.log(input1);
                         //console.log("And");
                         //console.log(input2);
                         var current;
@@ -1928,7 +1937,7 @@ label.label-editUser {
                     }
                     else if(input2 == null && input1 == null)
                     {
-                        console.log("In case here 2");
+                        //console.log("In case here 2");
                         var nowdate = new Date();
                         var month = nowdate.getMonth()+1;
                         var year = nowdate.getFullYear();
@@ -1964,7 +1973,7 @@ label.label-editUser {
                     }
                     else
                     {
-                        console.log("In case here 3");
+                        //console.log("In case here 3");
                         var current = new Date(input1);
                         var x =current.setHours(00, 00, 00);
                         var y =current.setHours(24, 00, 00);
@@ -1973,10 +1982,10 @@ label.label-editUser {
                             //console.log(data[i]);
                            if(data[i].post_date *1000 > setx && data[i].post_date*1000 < new Date(y).getTime())
                             {
-                                console.log(new Date(x).getTime());
+                                //console.log(new Date(x).getTime());
                                 //console.log('Date Between');
                                 
-                                    console.log(data[i].received)
+                                    //console.log(data[i].received)
                                     parseInt(total_tprofit) += parseInt(data[i].received);
                                     
                                      scope.returnvalue( total_tamount,total_tsele,total_tnet,total_treseive,total_tprofit)
