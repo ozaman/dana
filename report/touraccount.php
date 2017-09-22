@@ -9,7 +9,7 @@
     <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
     <meta name="viewport" content="width=device-width">
     <!-- Canonical SEO -->
-   
+   <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous"> -->
     <!-- Bootstrap core CSS     -->
     <link href="../js/bootstrap.min.css" rel="stylesheet">
     <!--  Material Dashboard CSS    -->
@@ -312,7 +312,7 @@
                      
                       
                        <div class="col-md-12">
-                       <div class="form-group form-inline">
+                       <!-- <div class="form-group form-inline">
                                     <div class="radio" id="radioin" >
                                         <label style="padding: 0px 35px;">
                                             <input type="radio" name="typeRadios" ng-change="logtype(checktype)" ng-model="checktype" value="Tour" >
@@ -332,7 +332,7 @@
                                             All
                                         </label>
                                     </div>
-                            </div>
+                            </div> -->
                              <div class="row form-group form-inline">
                      
                    
@@ -357,6 +357,7 @@
                                        <li ng-click="clicklist('Invoice')">Invoice</li>
                                         <li ng-click="clicklist('Package Name')">Package Name</li>
                                         <li ng-click="clicklist('Agent Name')">Agent Name</li>
+                                        <li ng-click="clicklist('Customer name')">Customer name</li>
                                   
 
                                  
@@ -370,6 +371,7 @@
                                 <input type="text" class="search_product form-control" ng-model="search.invoice" placeholder="Invoice">
                                 <input type="text" class="search_name form-control" ng-model="search.package_name" placeholder="Package Name">
                                 <input type="text" class="search_agentname form-control" ng-model="search.agent_name" placeholder="Agent Name">
+                                <input type="text" class="search_castomername form-control" ng-model="search.name" placeholder="Customer name">
                                 
                                 
                                
@@ -388,7 +390,7 @@
                         </div>
                         <button type="reset" class="btn btn-default" data-dismiss="modal" onclick="getPrintPDF()"><i class="material-icons">picture_as_pdf</i>Print</button>-->
                                     </div>
-                                    <div class="form-group form-inline " style="width: 100%;border-top: 1px solid #fff;
+                                    <!-- <div class="form-group form-inline " style="width: 100%;border-top: 1px solid #fff;
     padding-top: 15px;
     padding-bottom: 0;">
                                             
@@ -404,14 +406,12 @@
 
                                                 <option value="Tour">Tour</option>
 
-                                                <!-- <option>First Class</option> -->
-
-                                                <!--<option>Standard Class</option>-->
+                                               
 
                                             </select>
                         <button type="reset" class="btn btn-info "  ng-click="getPrintPDF()" style="padding: 3px 15px;
     margin-left: 15px;"><i class="material-icons" style="font-size: 28px;">picture_as_pdf</i></button>
-                                    </div>
+                                    </div> -->
                             <div class="card">
                                 <!-- <div class="card-header card-header-icon" data-background-color="rose">
                                     <i class="material-icons">assignment</i>
@@ -452,7 +452,8 @@
                                             <th></th> -->
                                         </thead>
                                         <tbody >
-                                            <tr ng-repeat="item in selsedataformonth | filter:search:strict | dateselect:dateselectionfrom:dateselectionto:this | startFrom:(currentPage -1) * pageSize | limitTo:pageSize">
+                                            <tr ng-repeat="item in selsedataformonth | filter:search:strict | dateselect:dateselectionfrom:dateselectionto:this ">
+                                                <!-- | startFrom:(currentPage -1) * pageSize | limitTo:pageSize -->
                                                 <td align="center" ng-bind="$index+1"></td>
                                                 <td ng-bind="item.ondate"></td>
                                                 <td class="col-md-2" ng-bind="item.name" ></td>
@@ -500,8 +501,8 @@
                                     </table>
 
                                 </div>
-                                <uib-pagination   id="page" total-items="selsedataformonth.length" ng-model="currentPage" items-per-page="pageSize" total-items="totalItems"  max-size="maxSize" class="pagination-sm" boundary-links="true" rotate="false" num-pages="numPages" >                        
-                            </uib-pagination>
+                                <!-- <uib-pagination   id="page" total-items="selsedataformonth.length" ng-model="currentPage" items-per-page="pageSize" total-items="totalItems"  max-size="maxSize" class="pagination-sm" boundary-links="true" rotate="false" num-pages="numPages" >                        
+                            </uib-pagination> -->
                             </div>
                         </div>
                     </div>
@@ -975,8 +976,8 @@ label.label-editUser {
       $scope.maxSize = 5;
              var today = new Date();
                 var date = new Date(today.getFullYear()+'-'+(today.getMonth()+1)+'-1');
-                //console.log(today);
-                //console.log(date);
+                console.log(today);
+                console.log(date);
                 $scope.dateselectionfrom = date;
                 $scope.dateselectionto = today;
             if($cookies.get('login'))
@@ -1040,10 +1041,10 @@ label.label-editUser {
                 }).success(function(res){
                  console.log(res)
                  console.log(res[0].flight)
-                 $scope.databook = res;
+                 $scope.datatour = res;
                   $scope.newdate = $filter('date')(new Date(),'dd/MM/yyyy');
                     //console.log($scope.newdate)
-                angular.forEach($scope.databook, function (data) {
+                angular.forEach($scope.datatour, function (data) {
                    // Total Amountitem.adult_price*item.total 
                     console.log(data.adult_price*data.total)
                     //item.net_price_adult*item.total
@@ -1085,7 +1086,8 @@ label.label-editUser {
                                 data.noti = '0'; 
                             }
                         });
-                    //console.log($scope.databook)
+                $scope.databook = $scope.datatour;
+                console.log($scope.databook)
                  
                        
             });
@@ -1388,6 +1390,8 @@ label.label-editUser {
                 angular.element(result).css('display','none');                       
                 result = document.getElementsByClassName("search_list");
                 angular.element(result).css('display','none');
+                result = document.getElementsByClassName("search_castomername");                
+                angular.element(result).css('display','none');
                 result = document.getElementsByClassName("reset_search");
                 angular.element(result).css('display','inline-block');
                 $scope.list = false;
@@ -1411,6 +1415,8 @@ label.label-editUser {
                 angular.element(result).css('display','none');                       
                 result = document.getElementsByClassName("search_list");
                 angular.element(result).css('display','none');
+                result = document.getElementsByClassName("search_castomername");                
+                angular.element(result).css('display','none');
                 result = document.getElementsByClassName("reset_search");
                 angular.element(result).css('display','inline-block');
                 $scope.list = false;
@@ -1432,6 +1438,8 @@ label.label-editUser {
                 result = document.getElementsByClassName("search_agentname");
                 angular.element(result).css('display','none');                        
                 result = document.getElementsByClassName("search_list");
+                angular.element(result).css('display','none');
+                result = document.getElementsByClassName("search_castomername");                
                 angular.element(result).css('display','none');
                 result = document.getElementsByClassName("reset_search");
                 angular.element(result).css('display','inline-block');
@@ -1456,6 +1464,33 @@ label.label-editUser {
                 angular.element(result).css('display','none');
                 result = document.getElementsByClassName("search_agentname");               
                 angular.element(result).css('display','inline-block'); 
+                 result = document.getElementsByClassName("search_castomername");                
+                angular.element(result).css('display','none');
+                result = document.getElementsByClassName("reset_search");
+                angular.element(result).css('display','inline-block');
+                $scope.list = false;
+                $scope.search = new Array();
+                $scope.search.package_name = '';
+                $scope.search.id = '';
+                
+                       
+            }
+             else if(input=='Customer name')
+            {
+                //alert('aaa')
+                result = document.getElementsByClassName("search_booking");
+                angular.element(result).css('display','none');
+                result = document.getElementsByClassName("search_product");
+                angular.element(result).css('display','none'); 
+                 result = document.getElementsByClassName("search_name");
+                angular.element(result).css('display','none');
+                                       
+                result = document.getElementsByClassName("search_list");
+                angular.element(result).css('display','none');
+                result = document.getElementsByClassName("search_agentname");               
+                angular.element(result).css('display','none'); 
+                 result = document.getElementsByClassName("search_castomername");
+                angular.element(result).css('display','inline-block');
                 result = document.getElementsByClassName("reset_search");
                 angular.element(result).css('display','inline-block');
                 $scope.list = false;
@@ -1490,35 +1525,19 @@ label.label-editUser {
                     
         }
         $scope.returnvalue = function (a,b,c,d,e) {
-                    $scope.total_sell = a;
-                    $scope.total_start = b;
-                    $scope.total_percen = c;
-                    $scope.total_omise = d;
-                    $scope.total_sum = e;
-                } 
+            $scope.total_sell = a;
+            $scope.total_start = b;
+            $scope.total_percen = c;
+            $scope.total_omise = d;
+            $scope.total_sum = e;
+        } 
                  
     });
-// app.filter('startFromin',function(){
-//                 return function(data,start){
-//                     return data.slice(start);
-//                 }
-//             })
-//             app.filter('startFrom',function(){
-//                 return function(data,start){
-//                     //console.log('in filter');
-//                     return data.slice(start);
-//                 }
-//             })
-//             app.filter('startFrompen',function(){
-//                 return function(data,start){
-//                     return data.slice(start);
-//                 }
-//             })
-app.filter('startFrom',function(){
-      return function(data,start){
-          return data.slice(start); 
-      }
-  });
+// app.filter('startFrom',function(){
+//       return function(data,start){
+//           return data.slice(start); 
+//       }
+//   });
             app.filter('dateselect',function(){
                 return function(data,input1,input2,scope){
                     ////console.log(admin);
