@@ -1412,14 +1412,7 @@ label.label-editUser {
             
      
     }
-     $scope.returnvalue = function (a,b,c,d,e) {
-        $scope.total_tamount = a;
-                $scope.total_tsele = b;
-                $scope.total_tnet = c;
-                $scope.total_treseive = d;
-                $scope.total_tprofit = e;
-                           
-                    }
+    
         $scope.logout = function(){
             $cookies.remove("login");
           
@@ -1720,13 +1713,13 @@ label.label-editUser {
             $scope.search.package_name = '';
                     
         }
-        // $scope.returnvalue = function (a,b,c,d,e) {
-        //     $scope.total_sell = a;
-        //     $scope.total_start = b;
-        //     $scope.total_percen = c;
-        //     $scope.total_omise = d;
-        //     $scope.total_sum = e;
-        // } 
+        $scope.returnvalue = function (a,b,c,d,e) {
+            $scope.total_tamount = a;
+            $scope.total_tsele = b;
+            $scope.total_tnet = c;
+            $scope.total_treseive = d;
+            $scope.total_tprofit = e;                           
+        }
                  
     });
     app.filter('dateselect',function(){
@@ -1864,125 +1857,7 @@ label.label-editUser {
                     //return result;
                 }
             })
-// app.filter('startFrom',function(){
-//       return function(data,start){
-//           return data.slice(start); 
-//       }
-//   });
-            // app.filter('dateselect',function(){
-            //     return function(data,input1,input2,scope){
-            //         ////console.log(admin);
-            //         //console.log("In filter here");
-            //         var result = new Array();
-            //         var total_sell = 0;
-            //         var x = 0;
-            //         var total_start = 0;
-            //         var total_percen = 0;
-            //         var total_omise = 0;
-            //         var total_sum = 0;
-            //         //$scope.total_sell = 0;
-            //         if(input2 != null)
-            //         {
-            //             //console.log("In case here 1");
-            //             //console.log(input1);
-            //             ////console.log("And");
-            //             ////console.log(input2);
-            //             var current;
-            //             var current1;
-            //             current = new Date(input1);
-            //             ////console.log(current);
-            //             var x =current.setHours(00, 00, 00);
-            //             var setx = new Date(x).getTime();
-            //             //console.log(new Date(x).getTime());
-            //             //console.log(setx)
-            //             current1 = new Date(input2);
-            //             var y =current1.setHours(24, 00, 00);
-            //             //console.log(y);
-            //             for (var i=0; i<data.length; i++){
-            //                 //console.log(data[i].post_date *1000)
-            //                 if(data[i].post_date *1000 > setx && data[i].post_date*1000 < new Date(y).getTime())
-            //                 {
-            //                     ////console.log(data[i]);
-            //                     ////console.log(new Date(data[i].booking_date).getTime());
-            //                     //console.log('Round'+i);
-            //                     ////console.log(new Date(x).getTime());
-                                
-                                   
-            //                         result.push(data[i]);
-                                
-                                
-                                
-                                
-            //                 }
-            //                 else
-            //                 {
-            //                     ////console.log('Not Bwtween');
-            //                 }
-            //             }
-            //             return result;
-            //         }
-            //         else if(input2 == null && input1 == null)
-            //         {
-            //             //console.log("In case here 2");
-            //             var nowdate = new Date();
-            //             var month = nowdate.getMonth()+1;
-            //             var year = nowdate.getFullYear();
-                        
 
-            //             var datefrom = new Date(year+'-'+month+'-1');
-                       
-            //             var current;
-            //             current = new Date(datefrom);
-            //             var x =current.setHours(00, 00, 00);
-            //             current = new Date(nowdate);
-            //             var y =current.setHours(24, 00, 00);
-            //             for (var i=0; i<data.length; i++){
-            //                 if(data[i].post_date *1000 > setx && data[i].post_date*1000 < new Date(y).getTime())
-            //                 {
-            //                     ////console.log('Date Between');
-                                
-                                    
-            //                         result.push(data[i]);
-                               
-            //                 }
-            //                 else
-            //                 {
-            //                         ////console.log('Not Bwtween');
-            //                 }
-            //             }
-            //             return result;
-            //         }
-            //         else
-            //         {
-            //             //console.log("In case here 3");
-            //             var current = new Date(input1);
-            //             var x =current.setHours(00, 00, 00);
-            //             var y =current.setHours(24, 00, 00);
-            //             for (var i=0; i<data.length; i++){
-            //                 ////console.log(i);
-            //                 ////console.log(data[i]);
-            //                 if(data[i].post_date *1000 > setx && data[i].post_date*1000 < new Date(y).getTime())
-            //                 {
-            //                     //console.log(new Date(x).getTime());
-            //                     ////console.log('Date Between');
-                                
-                                    
-            //                         result.push(data[i]);
-                               
-            //                 }
-            //                 else
-            //                 {
-
-            //                     ////console.log('Not Bwtween');
-
-            //                 }
-            //             }
-
-            //             return result;
-            //         }
-            //         //return result;
-            //     }
-            // })
             
 
     </script>
