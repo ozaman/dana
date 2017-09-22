@@ -318,7 +318,7 @@
                      
                       
                        <div class="col-md-12">
-                       <!-- <div class="form-group form-inline">
+                       <div class="form-group form-inline">
                                     <div class="radio" id="radioin" >
                                         <label style="padding: 0px 35px;">
                                             <input type="radio" name="typeRadios" ng-change="logtype(checktype)" ng-model="checktype" value="Tour" >
@@ -338,7 +338,7 @@
                                             All
                                         </label>
                                     </div>
-                            </div> -->
+                            </div>
                              <div class="row form-group form-inline">
                      
                    
@@ -429,6 +429,22 @@
                                     <!-- <h4 class="title">Users </h4> -->
                                     <!-- <p class="category">Here is a subtitle for this table</p> -->
                                 <!-- </div> -->
+                                <?php
+                                // $date = date('d/m/Y H:i:s');
+                                // $d = date_parse_from_format("Y-m-d", $date);
+                                // $x =  $d["month"];
+                                // $m = $x - 3;
+                                // if ($m < 10) {
+                                //    $final = '0'.$m;
+                                // }
+                                // else{
+                                //     $final = $m;
+                                // }
+                                // $midnight = mktime(0,0,0,date('m'),date('d'),date('Y'));
+                                // $date = date('01/'.$final.'/Y H:i:s',$midnight);
+                                // $date2 =  date('d/m/Y H:i:s',($midnight+(60*60*24))-1);
+                                // echo  $date.'<br>'. $date2.'<br>'.$m;
+                                ?>
                                 <div class="card-content table-responsive">
                                     <table class="table">
                                         <thead class="text-primary">
@@ -441,19 +457,21 @@
                                             <th>Agent Name</th>
 
                                             <th class="col-md-4">Package Name</th> 
-                                            <th>Adult</th>
-                                            <th>Child</th>
+                                            <!-- <th>Adult</th>
+                                            <th>Child</th> -->
                                              <th>No. of Guest</th>
+                                             <th>No. of Car</th>
                                             <th>Total Amount</th>   
                                             <th>Unit price</th>
                                             <th>Net price</th>
-                                            <th>Money Received</th>
-                                            <th>Owe Money</th>                                         
+                                            <th>Transfer price</th>
+                                            <!-- <th>Money Received</th> -->
+                                            <th>Status Pay</th>                                         
                                            
                                             <th>Done</th>
                                             <th>Approved by</th>
                                             
-                                            <th>Profit</th>
+                                            <!-- <th>Profit</th> -->
                                             <th></th>
                                             <!-- <th>Lab </th>
                                             <th></th>
@@ -468,24 +486,26 @@
                                                 <td  ng-bind="item.invoice"></td>
                                                 <td ><span ng-bind="item.agent_name"></span></td>
                                                 <td class="col-md-4" ng-bind="item.package_name" ></td>
-                                                 <td align="center"  ng-bind="item.adult"></td>
-                                                <td align="center" ng-bind="item.child"></td>
+                                                <!--  <td align="center"  ng-bind="item.adult"></td>
+                                                <td align="center" ng-bind="item.child"></td> -->
                                                  <td ng-bind="item.total"></td>
-                                                <td align="right" class="col-md-2" ng-bind="item.total_amount | currency:'':0" ></td>
+                                                 <td ng-bind="item.listcar"></td>
+                                                <td align="right" class="col-md-2" ng-bind="item.total_price | currency:'':0" ></td>
                                                 <td align="right" class="col-md-2" ng-bind="item.adult_price | currency:'':0" ></td>
                                                
 
                                                 <td align="right" ng-bind="item.total_net  | currency:'':0"></td>
-                                               <td align="right" ng-bind="item.received  | currency:'':0"></td>
-                                                <td ng-bind=""></td>
-                                                <td ><i ng-show="item.done == 1" class="material-icons" style="color: #4caf50;">playlist_add_check</i><i ng-show="item.done == 0" class="material-icons"  style="color: #ff9800;">schedule</i></td>
-                                                <td ><button ng-show="item.approved == 0" data-toggle="modal" data-target="#approved" ng-click="approve(item)" class="btn btn-info btn-sm" style="text-transform: capitalize;">Approve</button></td>
-                                                <td align="right" ng-bind="item.received  | currency:'':0"></td>
+                                                <td align="right" ng-bind="item.transfer_price  | currency:'':0"></td>
+                                               <!-- <td align="right" ng-bind="item.received  | currency:'':0"></td> -->
+                                                <td  align="center"><i ng-show="item.status_invoice == 1 || item.total_price == 0" class="material-icons" style="color: #4caf50;">playlist_add_check</i><button ng-show="item.status_invoice == 0 && item.total_price != 0" data-toggle="modal" data-target="#payproduct" ng-click="pay(item)" class="btn btn-primary btn-sm" style="text-transform: capitalize;">Pay</button></td>
+                                                <td  align="center"><i ng-show="item.done == 1" class="material-icons" style="color: #4caf50;">playlist_add_check</i><i ng-show="item.done == 0" class="material-icons"  style="color: #ff9800;">schedule</i></td>
+                                                <td  align="center"><button ng-show="item.approved == 0" data-toggle="modal" data-target="#approved" ng-click="approve(item)" class="btn btn-info btn-sm" style="text-transform: capitalize;">Approve</button></td>
+                                                <!-- <td align="right" ng-bind="item.received  | currency:'':0"></td> -->
                                                 <td class="field" ></td>
                                             </tr>
                                            
                                               
-                                              <td colspan="9" class="field" style="font-weight: bold;" align="right">Grand Total</td>
+                                            <!--   <td colspan="10" class="field" style="font-weight: bold;" align="right">Grand Total</td>
                                               <td class="field" style="font-weight: bold;" align="right" ng-bind="total_tamount | currency:'':0"></td>
                                               <td class="field" style="font-weight: bold;" align="center" >-</td>
                                               <td class="field" style="font-weight: bold;" align="right" ng-bind="total_tnet | currency:'':0"></td>
@@ -493,10 +513,9 @@
                                                <td class="field" ></td>
                                               <td class="field" ></td>
                                               <td class="field" ></td>
-                                              <!-- <td class="field" style="font-weight: bold;" align="right" ng-bind="total_transfer_price | currency:'':0"></td> -->
-                                              <!-- total_tamount,total_tsele,total_tnet,total_treseive,total_tprofit -->
+                                             
                                               <td class="field" style="font-weight: bold;" align="right" ng-bind="total_tprofit | currency:'':0"></td>
-                                              <td class="field" ></td>
+                                              <td class="field" ></td> -->
                                         </tbody>
                                     </table>
 
@@ -600,37 +619,124 @@
                                 <h4 class="modal-title" >Approved</h4>
                             </div>
                             <div class="modal-body">
-                                <div>Do you really want to Approvedbooking:{{coninvoice}} </div>
+                                <div>Do you really want to Approved booking:{{dataitem.invoice}} </div>
                                  <div class="form-group  " style="width: 100%;padding-left: 100px;margin-top: 35px;">
-                                    <!-- <div class="checkbox" style="padding: 0 20px 0 0" id="checkforagent">
-                                            <label>
-                                                <input type="checkbox" name="optionsCheckboxes" value="checked" ng-model="checkconfirm" ng-click="Acceptconfirm($event,checkconfirm)">Confirm Bookings
-                                            </label>
-                                    </div>
-                                    <div class="checkbox" style="padding: 0 20px 0 0" id="checkforagent">
-                                            <label>
-                                                <input type="checkbox" name="optionsCheckboxes" value="checked" ng-model="checkcancel" ng-click="Acceptcancel($event,checkcancel)">Cancellation Bookings
-                                            </label>
-                                    </div> -->
-                                    <!-- <div class="radio-type" style="padding-left: 120px;  margin-top: 51px;">
-                                        
-                                        <div class="radio" style="padding: 0 20px 0 0">
-                                                    <label>
-                                                        <input type="radio" name="optionsRadios" ng-model="checkcancel"><p style="display: inline-block; margin-left: 10px;margin-bottom:  0"> Cancellation Bookings</p>
-                                                    </label>
-                                                </div>
-                                        <div class="radio " style="padding: 0 20px 0 0">
-                                                    <label>
-                                                        <input type="radio" name="optionsRadios" ng-model="checkconfirm" ><p style="display: inline-block; margin-left: 10px;margin-bottom:  0"></p>
-                                                    </label>
-                                                </div>
+                                     <div class="card-content table-responsive">
+
+                                    <table class="table">
+
+                                      
+
+                                             
+
+                                           
+
+                                            <!-- <th>Status</th> -->
+
+                                            <!-- <th>Invoice</th> -->
+
+                                            <th class="col-md-4">Package Name</th>
+                                            <th>Customer name</th> 
+                                            <!-- <th>Flight</th>  -->
+                                             <th>Pickup place</th>
+                                            <th>To place</th>     
+
+                                            <!-- <th>Adult Price</th>
+
+                                            <th>Child Price</th> -->
+
+                                            <th>Total Price</th>
+
+                                            <th>Departure Date</th>
+
+                                            <!-- <th>On time</th> -->
+
+                                            <!-- <th>Adult</th> -->
+
+                                            <!-- <th>Child</th> -->
+
+                                            <th>No. of Guest</th>
+
+                                            <!-- <th>Type</th> -->
+
+                                            <th>Agent Name</th>
+
+                                            <!-- <th>Post By</th> -->
+
+                                            <!-- <th></th> -->
+                                            <!-- <th></th> -->
+
+                                       
+
+                                        <tbody >
+
+                                            <tr>
+
+                                               
+
+                                                 
+
+                                                 <!-- <td align="center"><i class="material-icons" style="color: #4CAF50;font-size: 18px;">check_circle</i></td> -->
+
+                                                <!-- <td  ng-bind="dataitem.invoice"></td> -->
+
+                                                <td class="col-md-4" ng-bind="dataitem.package_name"></td>
+                                                <td class="col-md-2" ng-bind="dataitem.name" ></td>
+                                                <!-- <td class="col-md-2" ng-bind="dataitem.flight" ng-if="dataitem.flight != ''" ></td> -->
+                                                <!-- <td align="center" class="col-md-2" ng-if="dataitem.flight == ''"><span >-</span></td> -->
                                                 
-                                                </div> -->
+                                                <td ng-bind="dataitem.pickup_place"></td>
+                                                <td ng-bind="dataitem.to_place"></td>
+
+
+<!-- 
+                                                <td ng-bind="dataitem.adult_price | currency:'':0"></td>
+
+                                                <td ng-bind="dataitem.child_price | currency:'':0"></td> -->
+
+                                                <td ng-bind="dataitem.total_price | currency:'':0"></td>
+
+                                                <td ng-bind="dataitem.ondate"></td>
+
+                                                <!-- <td ng-bind="dataitem.ontime"></td> -->
+
+                                                <!-- <td ng-bind="dataitem.adult"></td> -->
+
+                                                <!-- <td ng-bind="dataitem.child"></td> -->
+
+                                                <td ng-bind="dataitem.total"></td>
+
+                                                <!-- <td ng-bind="dataitem.type"></td> -->
+
+                                                <td ><button  ng-click="getagent(dataitem.agent_id)" class="btn btn-primary btn-xs"><span ng-bind="dataitem.agent_name"></span></button></td>
+
+                                                <!-- <td ><button  ng-click="getpostby(dataitem.agent_id)" class="btn btn-rose btn-xs"><span ng-bind="dataitem.user_name"></td> -->
+
+                                                
+
+                                              
+
+                                                 <!-- <td class="col-md-1" align="center"><a href="view-booking.php#?data={{dataitem.id}}"  target="_blank"><i class="material-icons"  style="color: #9E9E9E; font-size: 25px;">find_in_page</i></a></td> -->
+                                                  <!-- <td class="col-md-1" align="center"><i class="material-icons" ng-click="removepackage(dataitem)" style="color: #e91e1e; font-size: 25px;padding-top: 5px;">delete</i></td> -->
+
+
+
+                                            </tr>
+
+                                           
+
+                                        </tbody>
+
+                                    </table>
+
+
+
+                                </div>
                                        
                                     </div>
                             </div>
                             <div class="modal-footer">
-                                <button type="button" class="btn btn-danger" data-dismiss="modal" ng-click="confirmapprove()" style="width: 80px;">Yes</button>
+                                <button type="button" class="btn btn-danger" data-dismiss="modal" ng-click="confirmapprove(dataitem.id)" style="width: 80px;">Yes</button>
                                 <button type="button" class="btn btn-default" data-dismiss="modal" style="width: 80px;">Cancel</button>
                             </div>
                         </div>
@@ -1097,25 +1203,25 @@ label.label-editUser {
                     }
                     
              });
-             $http({
-                method : 'POST',
-                url : "../php/getTours.php",
-                //data: $.param({sv: $scope.dataSV}),
-                headers: {'Content-Type': 'application/x-www-form-urlencoded'}
-                }).success(function(res){
-                 //console.log(res)
-                 $scope.dataTour = res;
-                 $scope.allTour = res;
+            //  $http({
+            //     method : 'POST',
+            //     url : "../php/getTours.php",
+            //     //data: $.param({sv: $scope.dataSV}),
+            //     headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+            //     }).success(function(res){
+            //      //console.log(res)
+            //      $scope.dataTour = res;
+            //      $scope.allTour = res;
                        
-            });
+            // });
                  $http({
                 method : 'POST',
-                url : "../php/getTouraccount.php",
+                url : "../php/getManagebooking.php",
                 //data: $.param({sv: $scope.dataSV}),
                 headers: {'Content-Type': 'application/x-www-form-urlencoded'}
                 }).success(function(res){
                  console.log(res)
-                 console.log(res[0].flight)
+                // console.log(res[0].flight)
                  $scope.datatour = res;
                   $scope.newdate = $filter('date')(new Date(),'dd/MM/yyyy');
                     //console.log($scope.newdate)
@@ -1123,37 +1229,25 @@ label.label-editUser {
                    // Total Amountitem.adult_price*item.total 
                    $scope.dataAgentget.push(data.agent_name)
                     //$scope.dataAgentget.push(data.agent_id)
-                    console.log(data.adult_price*data.total)
+                    // console.log(data.adult_price*data.total)
                     //item.net_price_adult*item.total
-                    $scope.total_amount = data.adult_price*data.total;
-                    $scope.total_net =  data.net_price_adult*data.total;
+                    // $scope.total_amount = data.adult_price*data.total;
+                    // $scope.total_net =  data.net_price_adult*data.total;
                     //$scope.dataAgent.push()
 
-                      
-                   
-                    if(data.package_name == 'City Tour'){
-                       data.total_net =  data.adult_price; 
-                        data.received =  0;
-                         data.total_amount = data.adult_price;
+                    if(data.type == 'Transfer'){
+                        data.total_net = data.transfer_price*data.listcar;
+                        $scope.total_net =  data.transfer_price*data.listcar;
                     }
                     else{
-                         if(data.total_price == '0'){
-                           
-                             data.received = 0;
-                              data.total_net = 0;
-                            
-                           
-                        }
-                         else{
-                            data.received =  $scope.total_amount- $scope.total_net;
-                             data.total_net =  $scope.total_net;
-                        }
-                        
-                          data.total_amount = $scope.total_amount;
-                         
-                        
+                        data.total_net = (data.net_price_adult*data.adult) + (data.net_price_child*data.child);
+                        $scope.total_net =(data.net_price_adult*data.adult) + (data.net_price_child*data.child);
+                    }  
+                    data.total_amount = $scope.total_price;
+                    
 
-                    }
+                    data.received =  $scope.total_price - $scope.total_net;
+                   
                     
                      $scope.selsedataformonth.push(data)
                       //data.dateCompare = 'wait';
@@ -1210,19 +1304,7 @@ label.label-editUser {
                  
                        
             });
-                $http({
-                    method: 'post',
-                    url: "../php/getAgent.php",                    
-                    headers: {'Content-Type': 'application/x-www-form-urlencoded'}
-                }).success(function (res) {
-                    
-                    // $scope.dataAgent = res;
-                    //console.log($scope.dataAgent)
-                    
-                    
-             }); 
-
-
+             
             }
             else
             {
@@ -1301,7 +1383,7 @@ label.label-editUser {
          $scope.clear = function(){
               $http({
                 method : 'POST',
-                url : "../php/getTouraccount.php",
+                url : "../php/getManagebooking.php",
                 //data: $.param({sv: $scope.dataSV}),
                 headers: {'Content-Type': 'application/x-www-form-urlencoded'}
                 }).success(function(res){
@@ -1312,36 +1394,49 @@ label.label-editUser {
                     //console.log($scope.newdate)
                 angular.forEach($scope.datatour, function (data) {
                    // Total Amountitem.adult_price*item.total 
-                    console.log(data.adult_price*data.total)
+                   $scope.dataAgentget.push(data.agent_name)
+                    //$scope.dataAgentget.push(data.agent_id)
+                    // console.log(data.adult_price*data.total)
                     //item.net_price_adult*item.total
-                    $scope.total_amount = data.adult_price*data.total;
-                    $scope.total_net =  data.net_price_adult*data.total;
+                    // $scope.total_amount = data.adult_price*data.total;
+                    // $scope.total_net =  data.net_price_adult*data.total;
+                    //$scope.dataAgent.push()
 
-
-                   
-                    if(data.package_name == 'City Tour'){
-                       data.total_net =  data.adult_price; 
-                        data.received =  0;
-                         data.total_amount = data.adult_price;
+                    if(data.type == 'Transfer'){
+                        data.total_net = data.transfer_price*data.listcar;
+                        $scope.total_net =  data.transfer_price*data.listcar;
                     }
                     else{
-                         if(data.total_price == '0'){
+                        data.total_net = (data.net_price_adult*data.adult) + (data.net_price_child*data.child);
+                        $scope.total_net =(data.net_price_adult*data.adult) + (data.net_price_child*data.child);
+                    }  
+                    data.total_amount = $scope.total_price;
+                    
+
+                    data.received =  $scope.total_price - $scope.total_net;
+                    // if(data.package_name == 'City Tour'){
+                    //    data.total_net =  data.adult_price; 
+                    //     data.received =  0;
+                    //      data.total_amount = data.adult_price;
+                    // }
+                    // else{
+                    //      if(data.total_price == '0'){
                            
-                             data.received = 0;
-                              data.total_net = 0;
+                    //          data.received = 0;
+                    //           data.total_net = 0;
                             
                            
-                        }
-                         else{
-                            data.received =  $scope.total_amount- $scope.total_net;
-                             data.total_net =  $scope.total_net;
-                        }
+                    //     }
+                    //      else{
+                    //         data.received =  $scope.total_amount- $scope.total_net;
+                    //          data.total_net =  $scope.total_net;
+                    //     }
                         
-                          data.total_amount = $scope.total_amount;
+                    //       data.total_amount = $scope.total_amount;
                          
                         
 
-                    }
+                    // }
                     
                      $scope.selsedataformonth.push(data)
                       //data.dateCompare = 'wait';
@@ -1356,7 +1451,45 @@ label.label-editUser {
                         });
                 $scope.databook = $scope.datatour;
                 console.log($scope.databook)
-                // $('.clear').css('display','none');
+                var a = $scope.dataAgentget;
+                      var b = new Array();
+                      var first2 = 0;
+                      var count2 = 0;
+                      for(var i = 0 ; i < a.length; i++)
+                       {
+                        count2 = 0;              
+                        if(first2==0)
+                            {
+                              b.push(a[i]);
+                              first2++;
+                            }
+                            for(var j = 0 ; j < b.length ; j++)
+                            {                    
+                              if(b[j]!=a[i])
+                              {
+                                count2++;
+                                if(count2==b.length)
+                                {
+                                  b.push(a[i]);
+                                }
+                              }
+                            }              
+                      }
+                      console.log(b)
+                      $scope.dataAgent = b;
+                     //   for (var i = 0; i < b.length; i++) {
+                     //      angular.forEach($scope.databook, function(data){ 
+                     //          if (data.agent_name == b[i]) 
+                     //          {
+                     //             $scope.dataAgent.push(data);
+                     //             //console.log($scope.nametooo) 
+                                 
+                     //          }
+
+                              
+                     //      });
+                     // }
+                console.log($scope.dataAgent)
                  
                        
             });
@@ -1417,6 +1550,12 @@ label.label-editUser {
             $cookies.remove("login");
           
             $window.location.href = '../login.php';
+        }
+        $scope.approve = function(item){
+            $scope.dataitem = item;
+            console.log($scope.dataitem)
+          
+           
         }
         $scope.removepackage = function(i){
             //console.log(i)
@@ -1759,7 +1898,7 @@ label.label-editUser {
                                 //console.log(data[i]);
                                 //console.log(new Date(data[i].booking_date).getTime());
                                 //console.log('Round'+i);
-                                console.log(data[i].total_price);
+                                // console.log(data[i].total_price);
                                 // if(data[i].total_price == '0'){
                                 //     console.log('aa')
                                 //      total_treseive += 0;
