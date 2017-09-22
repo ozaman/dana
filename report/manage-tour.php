@@ -144,9 +144,15 @@
                                     </a>
                                 </li>
                                 <li class="active">
-                                    <a href="manage-tour.php">
+                                    <a href="account-tour.php">
                                     <i class="material-icons">account_balance_wallet</i>
-                                         Manage Account Tours
+                                         Account Tours
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="manage-booking.php">
+                                    <i class="material-icons">account_balance_wallet</i>
+                                         Account Tours
                                     </a>
                                 </li>
                             </ul>
@@ -451,7 +457,7 @@
                                             <th>Owe Money</th>                                         
                                            
                                             <th>Done</th>
-                                            <th>Approved by</th>
+                                            <!-- <th>Approved by</th> -->
                                             
                                             <th>Profit</th>
                                             <th></th>
@@ -479,7 +485,7 @@
                                                <td align="right" ng-bind="item.received  | currency:'':0"></td>
                                                 <td ng-bind=""></td>
                                                 <td ><i ng-show="item.done == 1" class="material-icons" style="color: #4caf50;">playlist_add_check</i><i ng-show="item.done == 0" class="material-icons"  style="color: #ff9800;">schedule</i></td>
-                                                <td ><button ng-show="item.approved == 0" data-toggle="modal" data-target="#approved" ng-click="approve(item)" class="btn btn-info btn-sm" style="text-transform: capitalize;">Approve</button></td>
+                                                <!-- <td ><button ng-show="item.approved == 0" data-toggle="modal" data-target="#approved" ng-click="approve(item)" class="btn btn-info btn-sm" style="text-transform: capitalize;">Approve</button></td> -->
                                                 <td align="right" ng-bind="item.received  | currency:'':0"></td>
                                                 <td class="field" ></td>
                                             </tr>

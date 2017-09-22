@@ -147,10 +147,16 @@
                                          Account
                                     </a>
                                 </li>
-                                 <li>
-                                    <a href="../report/manage-tour.php">
+                                  <li >
+                                    <a href="../report/account-tour.php">
                                     <i class="material-icons">account_balance_wallet</i>
-                                         Manage Account Tours
+                                         Account Tours
+                                    </a>
+                                </li>
+                                <li >
+                                    <a href="../report/manage-booking.php">
+                                    <i class="material-icons">account_balance_wallet</i>
+                                         Manage Booking
                                     </a>
                                 </li>
                             </ul>
