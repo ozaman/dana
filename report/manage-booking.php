@@ -320,7 +320,7 @@
                                             <button type="button" class="btn btn-success btn-sm" style=""><i class="fa fa-plus padding-icon" aria-hidden="true"></i> New</button></a> -->
                                         <ol class="breadcrumb" style="margin: 0;padding: 11px;background: #fff; display: inline-block; ">
                                             <!-- <li><a href="package.php">Main Menu</a></li> -->
-                                            <li class="active"><span>/</span>  Manage Account Tours
+                                            <li class="active"><span>/</span>  Manage Booking
                                     </li>
                                         </ol>
                                     </div>
@@ -351,86 +351,137 @@
                                         </label>
                                     </div>
                             </div>
-                             <div class="row form-group form-inline">
-                     
-                   
-                      <p style="font-weight: 300;display: inline-block;margin-right:15px;">From</p>
-                        <div class="search-box-date" style="    display: inline-block;">
-                            <input type="date" class="search_date form-control" ng-model="dateselectionfrom" placeholder="Date" />
-                        </div>
-                        <p style="font-weight: 300;display: inline-block;margin-right:15px;">To</p>
-                        <div class="search-box-date" style="    display: inline-block;">
-                            <input type="date" class="search_dateto form-control" ng-model="dateselectionto" placeholder="Date" />
-                        </div>
-                  </div>
-                          <div class="row form-group form-inline">
-                    <div class="booking_searchengine">
-                            <p style="font-weight: 300;display: inline-block;margin-right:5px;">Search</p>
-                            <div class="select">
-                          <div class='span6'>
-                              
-                              <label type="text" class="form-control" placeholder="Search By"  ng-click="openlist()"  x-webkit-speech  style="width: 100%;margin: 0"><span ng-bind="search_box_list"></span><i class="fa fa-sort-desc"></i></label>
-                              <ul class="search_list">
-                                  <li ng-click="clicklist('Booking ID')">Booking ID</li>
-                                       <li ng-click="clicklist('Invoice')">Invoice</li>
-                                        <li ng-click="clicklist('Package Name')">Package Name</li>
-                                        <li ng-click="clicklist('Agent Name')">Agent Name</li>
-                                        <li ng-click="clicklist('Customer name')">Customer name</li>
-                                  
+                            <div class="row form-group form-inline" style="padding-bottom: 0">
+                                <div class="col-md-6 col-md-4 col-md-3 " style="padding-bottom: 20px">
+                                    <table width="100%">
+                                        <tr>
+                                            <td width="50">
+                                                <p style="font-weight: 300;width: 40px">From</p>
+                                            </td>
+                                            
+                                            <td>
+                                                <div class="search-box-date" style="">
+                                                    <input type="date" class="search_date form-control" ng-model="dateselectionfrom" placeholder="Date" />
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                    
+                        
+                                </div>
 
-                                 
-                              </ul>
-                          </div>
-                      </div>
-                            
-                            <div class="search-box">
+                                <div class="col-md-6 col-md-4 col-md-3" style="padding-bottom:20px">
+                                    <table width="100%">
+                                        <tr>
+                                            <td width="50">
+                                                <p style="font-weight: 300;">To</p>
+                                            </td>
+                                            <td></td>
+                                            <td>
+                                                <div class="search-box-date" >
+                                                    <input type="date" class="search_dateto form-control" ng-model="dateselectionto" placeholder="Date" />
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </table> 
+                                </div>
+                            </div>
+                          <div class="row form-group form-inline" style="margin-top: 0;padding-bottom: 0">
+                                <div class="booking_searchengine">
+                                    <div class="col-md-6 col-md-4 col-md-3" style="padding-bottom: 20px">
+                                    <table width="100%">
+                                        <tr>
+                                            <td width="50">
+                                                <p style="font-weight: 300;">Search</p>
+                                            </td>
+                                            <td></td>
+                                            <td>
+                                                <div class="select">
+                                  <div class='span6'>                                      
+                                      <label type="text" class="form-control" placeholder="Search By"  ng-click="openlist()"  x-webkit-speech  style="width: 100%;margin: 0"><span ng-bind="search_box_list"></span><i class="fa fa-sort-desc"></i></label>
+                                      <ul class="search_list">
+                                          <li ng-click="clicklist('Booking ID')">Booking ID</li>
+                                               <li ng-click="clicklist('Invoice')">Invoice</li>
+                                                <li ng-click="clicklist('Package Name')">Package Name</li>
+                                                <li ng-click="clicklist('Agent Name')">Agent Name</li>
+                                                <li ng-click="clicklist('Customer name')">Customer name</li>
+                                          
+
+                                         
+                                      </ul>
+                                  </div>
+                              </div>
+                                            </td>
+                                        </tr>
+                                    </table> 
+                                </div>
+                                 <div class="col-md-6 col-md-4 col-md-3"  id="search_input" style="display: none;padding-bottom: 20px">
+                                    <table width="100%">
+                                        <tr>
+                                            <td width="50">
+                                                
+                                            </td>
+                                            <td></td>
+                                            <td>
+                                                <div class="search-box">
                              
-                                <input type="text" class="search_booking form-control" ng-model="search.id" placeholder="Booking ID">
-                                <input type="text" class="search_product form-control" ng-model="search.invoice" placeholder="Invoice">
-                                <input type="text" class="search_name form-control" ng-model="search.package_name" placeholder="Package Name">
-                                <input type="text" class="search_agentname form-control" ng-model="search.agent_name" placeholder="Agent Name">
-                                <input type="text" class="search_castomername form-control" ng-model="search.name" placeholder="Customer name">
+                                <input type="text" class="search_booking form-control"  ng-model="search.id" placeholder="Booking ID" style="width: 100%">
+                                <input type="text" class="search_product form-control"  ng-model="search.invoice" placeholder="Invoice" style="width: 100%">
+                                <input type="text" class="search_name form-control"  ng-model="search.package_name" placeholder="Package Name" style="width: 100%">
+                                <input type="text" class="search_agentname form-control"  ng-model="search.agent_name" placeholder="Agent Name" style="width: 100%">
+                                <input type="text" class="search_castomername form-control"  ng-model="search.name" placeholder="Customer name" style="width: 100%">
                                 
                                 
                                
                             </div>
                             <a ng-click="reset_search_click()" class="reset_search">Reset</a>
+                                            </td>
+                                        </tr>
+                                    </table> 
+                                </div>
+                                
+                                
+                            
+                            
+                            
                         </div>
                         </div>
-                        <div class="form-group form-inline " style="width: 100%">
-                                            <label for="class" class="label-tour" style="    margin-right: 4px;color: #555">Agent<span> :</span></label>
-                                             <select class="form-control" ng-change="changeagent(selectagent)" id="selectagent" ng-model="selectagent" data-ng-options="i as i for i in dataAgent" id="label-addbooking" style="width: 170px;">
+                        <div class="form-group form-inline " style="width: 100%;margin-top: 0">
+                            <div class="col-md-6 col-md-4 col-md-3" style="padding-bottom: 20px">
+                                    <table width="100%">
+                                        <tr>
+                                            <td width="50">
+                                                <label for="class" class="label-tour" style="color: #555">Agent</label>
+                                            </td>
+                                            <td></td>
+                                            <td>
+                                                 <select class="form-control" ng-change="changeagent(selectagent)" id="selectagent" ng-model="selectagent" data-ng-options="i as i for i in dataAgent" id="label-addbooking" style="width: 170px;">
                                                     <option value="">- None -</option>
                                               </select>
-                                              <div class="clear" ng-click="clear()">Clear</div>
+                                             
+                                            </td>
+                                        </tr>
+                                    </table> 
+                                </div>
+                                <div class="col-md-6 col-md-4 col-md-3" style="padding-bottom: 10px">
+                                    <table width="100%">
+                                        <tr>
+                                            
+                                            <td width="50"></td>
+                                            <td>
+                                                 <div class="clear" ng-click="clear()">Clear</div>
+                                            </td>
+                                        </tr>
+                                    </table> 
+                                </div>      
+                                            
                                                 <!--<label for="class" class="label-tour" style="    margin-right: 4px;color: #555">Print booking on date <span> :</span></label>
                         <div class="search-box-date" style="    display: inline-block;">
                             <input type="date" class="search_date form-control" ng-model="datepdf" placeholder="Date" />
                         </div>
                         <button type="reset" class="btn btn-default" data-dismiss="modal" onclick="getPrintPDF()"><i class="material-icons">picture_as_pdf</i>Print</button>-->
                                     </div>
-                                    <!-- <div class="form-group form-inline " style="width: 100%;border-top: 1px solid #fff;
-    padding-top: 15px;
-    padding-bottom: 0;">
-                                            
-                                                <label for="class" class="label-tour" style="    margin-right: 4px;color: #555">Print booking <span> :</span></label>
-                        <div class="search-box-date" style="    display: inline-block;">
-                            <input type="date" class="search_date form-control" ng-model="datepdf" placeholder="Date" />
-                        </div>
-
-                                            <select name="class" id="class"  class="form-control col-md-8"  style=" border: 1px solid #ccc; border-radius: 5px;display: inline-block" ng-model="typebook">
-
-                                                <option value="">-None-</option>
-                                                <option value="Transfer">Transfer</option>
-
-                                                <option value="Tour">Tour</option>
-
-                                               
-
-                                            </select>
-                        <button type="reset" class="btn btn-info "  ng-click="getPrintPDF()" style="padding: 3px 15px;
-    margin-left: 15px;"><i class="material-icons" style="font-size: 28px;">picture_as_pdf</i></button>
-                                    </div> -->
+                                    
                             <div class="card">
                                 <!-- <div class="card-header card-header-icon" data-background-color="rose">
                                     <i class="material-icons">assignment</i>
@@ -656,8 +707,8 @@
                             </div>
                             </div>
                             <div class="modal-footer">
-                                <button type="button" class="btn btn-info" ng-click="confirmapprove(dataitem.id)" style="width: 80px;">Yes</button>
-                                <button type="button" class="btn btn-default" data-dismiss="modal" style="width: 80px;">Cancel</button>
+                                <button type="button" class="btn btn-info" ng-click="confirmapprove(dataitem.id)" style="width: 80px;    text-transform: capitalize;">Yes</button>
+                                <button type="button" class="btn btn-default" data-dismiss="modal" style="width: 80px;    text-transform: capitalize;">Cancel</button>
                             </div>
                         </div>
                     </div>
@@ -696,8 +747,8 @@
                             </div>
                             </div>
                             <div class="modal-footer">
-                                <button type="button" class="btn btn-primary" ng-click="confirmpay(dataitempay.id)" style="width: 80px;">Yes</button>
-                                <button type="button" class="btn btn-default" data-dismiss="modal" style="width: 80px;">Cancel</button>
+                                <button type="button" class="btn btn-primary" ng-click="confirmpay(dataitempay.id)" style="width: 80px;    text-transform: capitalize;">Yes</button>
+                                <button type="button" class="btn btn-default" data-dismiss="modal" style="width: 80px;    text-transform: capitalize;">Cancel</button>
                             </div>
                         </div>
                     </div>
@@ -1059,7 +1110,7 @@ label.label-editUser {
     -webkit-border-radius: 2px;
     -moz-border-radius: 2px;
     border-radius: 2px;
-    margin-left: 10px;
+    /*margin-left: 10px;*/
 }
 
 .clear:hover{
@@ -1726,9 +1777,12 @@ label.label-editUser {
         $scope.clicklist = function(input){
             var result;
             $scope.search_box_list = input;
+            $("#search_input").show();
+            // result = document.getElementsByClassName("search_input").show();
             ////console.log($scope.search_box_list);
             if(input=='Booking ID')
             {
+                
                 result = document.getElementsByClassName("search_booking");
                 angular.element(result).css('display','inline-block');
                 result = document.getElementsByClassName("search_product");
@@ -1853,6 +1907,7 @@ label.label-editUser {
                     
         }
         $scope.reset_search_click = function(){
+            $("#search_input").hide();
             $scope.search_box_list = null;
             result = document.getElementsByClassName("search_booking");
             angular.element(result).css('display','none');
