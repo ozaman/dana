@@ -420,7 +420,10 @@
                                     </div>
                                     <div class="form-group form-inline" ng-show="checktransfer">
                                         <label for="name" class="label-tour">Total price<span> :</span></label>
-                                        <label class="form-control "  id="label-addbooking" "><span ng-bind="total_pricetransfer | currency:'':0"></span></label>
+
+                                         <input class="form-control"  id="label-addbooking" ng-value="total_pricetransfer | currency:'':0" ng-change="totalpricetransfer(total_pricetransfer)" ng-model="total_pricetransfer">
+                                       
+                                        <!-- <label class="form-control "  id="label-addbooking" "><span ng-bind="total_pricetransfer | currency:'':0"></span></label> -->
                                         <!-- <input type="text" class=" form-control" size="100" maxlength="200" placeholder = "2x,xxx" id="price" name="price" ng-model="price" required/> -->
                                     </div>
                                     <div class="form-group form-inline"  ng-show="checktour">
@@ -1098,6 +1101,7 @@ $(document).ready(function(){
           $scope.childshow = 0;
           $scope.person = 0;
           $scope.costpackage = 0;
+          $scope.total_price;
          //$scope.checktype;
         
         
@@ -1255,6 +1259,11 @@ $(document).ready(function(){
     }
      $scope.profile = function(){
         location.href="profile";
+
+    }
+     $scope.totalpricetransfer = function(x){
+        console.log(x)
+        $scope.total_price = x;
 
     }
     $scope.saleprice = function(x){

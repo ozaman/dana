@@ -451,7 +451,7 @@
                                 // $date2 =  date('d/m/Y H:i:s',($midnight+(60*60*24))-1);
                                 // echo  $date.'<br>'. $date2.'<br>'.$m;
                                 ?>
-                                <div class="card-content table-responsive">
+                                <div class="card-content ">
                                     <table class="table">
                                         <thead class="text-primary">
                                              <th></th>
