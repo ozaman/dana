@@ -84,7 +84,7 @@
 
                 <a href="" class="simple-text">
 
-                    DN
+                    <img width="50" src="../files/img/logo.png">
 
                 </a>
 

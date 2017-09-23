@@ -44,7 +44,7 @@
             </div>
             <div class="logo logo-mini">
                 <a href="" class="simple-text">
-                    DN
+                    <img width="50" src="../files/img/logo.png">
                 </a>
             </div>
             <div class="sidebar-wrapper ">

@@ -44,7 +44,7 @@
             </div>
             <div class="logo logo-mini">
                 <a href="" class="simple-text">
-                    DN
+                    <img width="50" src="../files/img/logo.png">
                 </a>
             </div>
             <div class="sidebar-wrapper ">
@@ -418,24 +418,25 @@
                                  <div class="col-md-6 col-md-4 col-md-3"  id="search_input" style="display: none;padding-bottom: 20px">
                                     <table width="100%">
                                         <tr>
-                                            <td width="50">
+                                            <td id="tdsearch-box" width="50">
                                                 
                                             </td>
                                             <td></td>
-                                            <td>
+                                            <td valign="top">
                                                 <div class="search-box">
                              
-                                <input type="text" class="search_booking form-control"  ng-model="search.id" placeholder="Booking ID" style="width: 100%">
-                                <input type="text" class="search_product form-control"  ng-model="search.invoice" placeholder="Invoice" style="width: 100%">
-                                <input type="text" class="search_name form-control"  ng-model="search.package_name" placeholder="Package Name" style="width: 100%">
-                                <input type="text" class="search_agentname form-control"  ng-model="search.agent_name" placeholder="Agent Name" style="width: 100%">
-                                <input type="text" class="search_castomername form-control"  ng-model="search.name" placeholder="Customer name" style="width: 100%">
+                                                <input type="text" class="search_booking form-control"  ng-model="search.id" placeholder="Booking ID" style="width: 100%">
+                                                <input type="text" class="search_product form-control"  ng-model="search.invoice" placeholder="Invoice" style="width: 100%">
+                                                <input type="text" class="search_name form-control"  ng-model="search.package_name" placeholder="Package Name" style="width: 100%">
+                                                <input type="text" class="search_agentname form-control"  ng-model="search.agent_name" placeholder="Agent Name" style="width: 100%">
+                                                <input type="text" class="search_castomername form-control"  ng-model="search.name" placeholder="Customer name" style="width: 100%">
                                 
                                 
                                
                             </div>
-                            <a ng-click="reset_search_click()" class="reset_search">Reset</a>
+                           
                                             </td>
+                                            <td> <a ng-click="reset_search_click()" class="reset_search">Reset</a></td>
                                         </tr>
                                     </table> 
                                 </div>
@@ -530,15 +531,15 @@
                                              <th>No. of Guest</th>
                                             <th>Total Amount</th>   
                                             <th>Unit price</th>
-                                            <th>Net price</th>
+                                            <th>Total Net</th>
                                             <th>Money Received</th>
-                                            <th>Owe Money</th>                                         
+                                            <!-- <th>Owe Money</th>                                          -->
                                            
                                             <th>Done</th>
                                             <!-- <th>Approved by</th> -->
                                             
                                             <th>Profit</th>
-                                            <th></th>
+                                            <!-- <th></th> -->
                                             <!-- <th>Lab </th>
                                             <th></th>
                                             <th></th> -->
@@ -561,7 +562,7 @@
 
                                                 <td align="right" ng-bind="item.total_net  | currency:'':0"></td>
                                                <td align="right" ng-bind="item.received  | currency:'':0"></td>
-                                                <td ng-bind=""></td>
+                                                <!-- <td ng-bind=""></td> -->
                                                 <td ><i ng-show="item.done == 1" class="material-icons" style="color: #4caf50;">playlist_add_check</i><i ng-show="item.done == 0" class="material-icons"  style="color: #ff9800;">schedule</i></td>
                                                 <!-- <td ><button ng-show="item.approved == 0" data-toggle="modal" data-target="#approved" ng-click="approve(item)" class="btn btn-info btn-sm" style="text-transform: capitalize;">Approve</button></td> -->
                                                 <td align="right" ng-bind="item.received  | currency:'':0"></td>
@@ -575,12 +576,12 @@
                                               <td class="field" style="font-weight: bold;" align="right" ng-bind="total_tnet | currency:'':0"></td>
                                               <td class="field" style="font-weight: bold;" align="right" ng-bind="total_treseive | currency:'':0"></td>
                                                <td class="field" ></td>
-                                              <td class="field" ></td>
-                                              <td class="field" ></td>
+                                              <!-- <td class="field" ></td> -->
+                                              <!-- <td class="field" ></td> -->
                                               <!-- <td class="field" style="font-weight: bold;" align="right" ng-bind="total_transfer_price | currency:'':0"></td> -->
                                               <!-- total_tamount,total_tsele,total_tnet,total_treseive,total_tprofit -->
                                               <td class="field" style="font-weight: bold;" align="right" ng-bind="total_tprofit | currency:'':0"></td>
-                                              <td class="field" ></td>
+                                              <!-- <td class="field" ></td> -->
                                         </tbody>
                                     </table>
 
@@ -1089,7 +1090,14 @@ label.label-editUser {
     background: #FFF;
     color:#337AB7;
 }
+#tdsearch-box{
+    display: none;
+}
 @media screen and (max-width: 767px){
+#tdsearch-box{
+    display: block;
+}
+
 
 #InputPassPhone {
     margin-left: 0;
@@ -1400,8 +1408,9 @@ label.label-editUser {
                     //item.net_price_adult*item.total
                     $scope.total_amount = data.adult_price*data.total;
                     $scope.total_net =  data.net_price_adult*data.total;
+                    //$scope.dataAgent.push()
 
-
+                      
                    
                     if(data.package_name == 'City Tour'){
                        data.total_net =  data.adult_price; 
@@ -1426,6 +1435,7 @@ label.label-editUser {
                         
 
                     }
+                    
                     
                      $scope.selsedataformonth.push(data)
                       //data.dateCompare = 'wait';
