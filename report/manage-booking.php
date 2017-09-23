@@ -554,7 +554,7 @@
                                                  <td ng-bind="item.total"></td>
                                                  <td ng-bind="item.listcar"></td>
                                                 <td align="right" class="col-md-2" ng-bind="item.total_price | currency:'':0" ></td>
-                                                <td align="right" class="col-md-2" ng-bind="item.adult_price | currency:'':0" ></td>
+                                                <td align="right" class="col-md-2" ng-bind="item.total_amount | currency:'':0" ></td>
                                                
 
                                                 <td align="right" ng-bind="item.total_net  | currency:'':0"></td>
@@ -568,7 +568,7 @@
                                             </tr>
                                            
                                               
-                                            <!--   <td colspan="10" class="field" style="font-weight: bold;" align="right">Grand Total</td>
+                                              <td colspan="10" class="field" style="font-weight: bold;" align="right">Grand Total</td>
                                               <td class="field" style="font-weight: bold;" align="right" ng-bind="total_tamount | currency:'':0"></td>
                                               <td class="field" style="font-weight: bold;" align="center" >-</td>
                                               <td class="field" style="font-weight: bold;" align="right" ng-bind="total_tnet | currency:'':0"></td>
@@ -578,7 +578,7 @@
                                               <td class="field" ></td>
                                              
                                               <td class="field" style="font-weight: bold;" align="right" ng-bind="total_tprofit | currency:'':0"></td>
-                                              <td class="field" ></td> -->
+                                              <td class="field" ></td>
                                         </tbody>
                                     </table>
 
@@ -1249,12 +1249,30 @@ label.label-editUser {
                     if(data.type == 'Transfer'){
                         data.total_net = data.transfer_price*data.listcar;
                         $scope.total_net =  data.transfer_price*data.listcar;
+                        if (data.agent_name == 'EIT' || data.agent_name == 'SAFANA') {
+                            if(data.province == 'Phuket'){
+                                data.total_amount = $scope.total_price+(23*33);
+                            }
+                            else{
+                                 data.total_amount = $scope.total_price+(35*33);
+                            }
+                        }
+                        if (data.agent_name == 'Magic World') {
+                             if(data.province == 'Phuket'){
+                                data.total_amount = $scope.total_price+(20*33);
+                            }
+                            else{
+                                 data.total_amount = $scope.total_price+(35*33);
+                            }
+                        }
+                        // if()data.total_amount = $scope.total_price;
                     }
                     else{
                         data.total_net = (data.net_price_adult*data.adult) + (data.net_price_child*data.child);
                         $scope.total_net =(data.net_price_adult*data.adult) + (data.net_price_child*data.child);
+                        data.total_amount = $scope.total_price;
                     }  
-                    data.total_amount = $scope.total_price;
+                    //data.total_amount = $scope.total_price;
                     
 
                     data.received =  $scope.total_price - $scope.total_net;
