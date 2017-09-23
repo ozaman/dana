@@ -282,14 +282,20 @@
                                 </li>
                                  <li >
                                     <a href="account-tour.php">
-                                    <i class="material-icons">account_balance_wallet</i>
+                                    <i class="material-icons">business_center</i>
                                          Account Tours
                                     </a>
                                 </li>
                                 <li >
                                     <a href="manage-booking.php">
-                                    <i class="material-icons">account_balance_wallet</i>
+                                     <i class="material-icons">dvr</i>
                                          Manage Booking
+                                    </a>
+                                </li>
+                                <li >
+                                    <a href="revenue-expenses.php">
+                                   <i class="material-icons">monetization_on</i>
+                                         Revenue-Expenses
                                     </a>
                                 </li>
 

@@ -145,14 +145,20 @@
                                 </li>
                                 <li >
                                     <a href="account-tour.php">
-                                    <i class="material-icons">account_balance_wallet</i>
+                                    <i class="material-icons">business_center</i>
                                          Account Tours
                                     </a>
                                 </li>
                                 <li class="active">
                                     <a href="manage-booking.php">
-                                    <i class="material-icons">account_balance_wallet</i>
+                                    <i class="material-icons">dvr</i>
                                          Manage Booking
+                                    </a>
+                                </li>
+                                <li >
+                                    <a href="revenue-expenses.php">
+                                   <i class="material-icons">monetization_on</i>
+                                         Revenue-Expenses
                                     </a>
                                 </li>
                             </ul>
@@ -451,7 +457,7 @@
                                 // $date2 =  date('d/m/Y H:i:s',($midnight+(60*60*24))-1);
                                 // echo  $date.'<br>'. $date2.'<br>'.$m;
                                 ?>
-                                <div class="card-content ">
+                                <div class=" table-responsive">
                                     <table class="table">
                                         <thead class="text-primary">
                                              <th></th>
@@ -662,7 +668,7 @@
                         <div class="modal-content">
                             <div class="modal-header">
                                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                                <h4 class="modal-title" style="    font-weight: 400;" >Approved</h4>
+                                <h4 class="modal-title" style="    font-weight: 400;" >Pay</h4>
                             </div>
                             <div class="modal-body">
                                 <div style="text-align: center; font-size: 16px;font-weight: 500;">Invoice number :  <span style="color: #9c27b0; font-weight: 700;" ng-bind="dataitempay.invoice"></span></div>
