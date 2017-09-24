@@ -401,11 +401,12 @@
                                   <div class='span6'>                                      
                                       <label type="text" class="form-control" placeholder="Search By"  ng-click="openlist()"  x-webkit-speech  style="width: 100%;margin: 0"><span ng-bind="search_box_list"></span><i class="fa fa-sort-desc"></i></label>
                                       <ul class="search_list">
-                                          <li ng-click="clicklist('Booking ID')">Booking ID</li>
+                                          <!-- <li ng-click="clicklist('Booking ID')">Booking ID</li> -->
                                                <li ng-click="clicklist('Invoice')">Invoice</li>
                                                 <li ng-click="clicklist('Package Name')">Package Name</li>
                                                 <li ng-click="clicklist('Agent Name')">Agent Name</li>
                                                 <li ng-click="clicklist('Customer name')">Customer name</li>
+                                                <li ng-click="clicklist('Own name')">Own name</li>
                                           
 
                                          
@@ -431,6 +432,7 @@
                                                 <input type="text" class="search_name form-control"  ng-model="search.package_name" placeholder="Package Name" style="width: 100%">
                                                 <input type="text" class="search_agentname form-control"  ng-model="search.agent_name" placeholder="Agent Name" style="width: 100%">
                                                 <input type="text" class="search_castomername form-control"  ng-model="search.name" placeholder="Customer name" style="width: 100%">
+                                                <input type="text" class="search_ownername form-control"  ng-model="search.owner" placeholder="Own name" style="width: 100%">
                                 
                                 
                                
@@ -1478,7 +1480,7 @@ label.label-editUser {
                     // $scope.total_net =  data.net_price_adult*data.total;
                     //$scope.dataAgent.push()
 
-                    $scope.total_price = parseInt(data.total_price);
+                   $scope.total_price = parseInt(data.total_price);
                     if(data.type == 'Transfer'){
                         data.total_net = data.transfer_price*data.listcar;
                         $scope.total_net =  data.transfer_price*data.listcar;
@@ -1543,7 +1545,7 @@ label.label-editUser {
                         // $scope.total_net =(data.net_price_adult*data.adult) + (data.net_price_child*data.child);
                         //data.total_amount = $scope.total_price;
                         //$scope.total_amount = data.total_price;
-                    } 
+                    }
                     // if(data.package_name == 'City Tour'){
                     //    data.total_net =  data.adult_price; 
                     //     data.received =  0;
@@ -1914,6 +1916,8 @@ label.label-editUser {
                 angular.element(result).css('display','none');
                 result = document.getElementsByClassName("search_castomername");                
                 angular.element(result).css('display','none');
+                result = document.getElementsByClassName("search_ownername");
+            angular.element(result).css('display','none');
                 result = document.getElementsByClassName("reset_search");
                 angular.element(result).css('display','inline-block');
                 $scope.list = false;
@@ -1939,6 +1943,8 @@ label.label-editUser {
                 angular.element(result).css('display','none');
                 result = document.getElementsByClassName("search_castomername");                
                 angular.element(result).css('display','none');
+                result = document.getElementsByClassName("search_ownername");
+            angular.element(result).css('display','none');
                 result = document.getElementsByClassName("reset_search");
                 angular.element(result).css('display','inline-block');
                 $scope.list = false;
@@ -1963,6 +1969,8 @@ label.label-editUser {
                 angular.element(result).css('display','none');
                 result = document.getElementsByClassName("search_castomername");                
                 angular.element(result).css('display','none');
+                result = document.getElementsByClassName("search_ownername");
+            angular.element(result).css('display','none');
                 result = document.getElementsByClassName("reset_search");
                 angular.element(result).css('display','inline-block');
                 $scope.list = false;
@@ -1988,6 +1996,8 @@ label.label-editUser {
                 angular.element(result).css('display','inline-block'); 
                  result = document.getElementsByClassName("search_castomername");                
                 angular.element(result).css('display','none');
+                result = document.getElementsByClassName("search_ownername");
+            angular.element(result).css('display','none');
                 result = document.getElementsByClassName("reset_search");
                 angular.element(result).css('display','inline-block');
                 $scope.list = false;
@@ -2011,7 +2021,36 @@ label.label-editUser {
                 angular.element(result).css('display','none');
                 result = document.getElementsByClassName("search_agentname");               
                 angular.element(result).css('display','none'); 
+                result = document.getElementsByClassName("search_ownername");
+            angular.element(result).css('display','none');
                  result = document.getElementsByClassName("search_castomername");
+                angular.element(result).css('display','inline-block');
+                result = document.getElementsByClassName("reset_search");
+                angular.element(result).css('display','inline-block');
+                $scope.list = false;
+                $scope.search = new Array();
+                $scope.search.package_name = '';
+                $scope.search.id = '';
+                
+                       
+            }
+            else if(input=='Own name')
+            {
+                //alert('aaa')
+                result = document.getElementsByClassName("search_booking");
+                angular.element(result).css('display','none');
+                result = document.getElementsByClassName("search_product");
+                angular.element(result).css('display','none'); 
+                 result = document.getElementsByClassName("search_name");
+                angular.element(result).css('display','none');
+                                       
+                result = document.getElementsByClassName("search_list");
+                angular.element(result).css('display','none');
+                result = document.getElementsByClassName("search_agentname");               
+                angular.element(result).css('display','none'); 
+                 result = document.getElementsByClassName("search_castomername");
+                angular.element(result).css('display','none');
+                 result = document.getElementsByClassName("search_ownername");
                 angular.element(result).css('display','inline-block');
                 result = document.getElementsByClassName("reset_search");
                 angular.element(result).css('display','inline-block');
@@ -2039,6 +2078,10 @@ label.label-editUser {
             result = document.getElementsByClassName("search_list");
             angular.element(result).css('display','none');
             result = document.getElementsByClassName("reset_search");
+            angular.element(result).css('display','none');
+            result = document.getElementsByClassName("search_castomername");
+            angular.element(result).css('display','none');
+            result = document.getElementsByClassName("search_ownername");
             angular.element(result).css('display','none');
             
             $scope.list = false;
