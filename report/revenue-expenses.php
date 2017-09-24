@@ -481,6 +481,8 @@
                                     
                             <div class="card">
                                 <h3>Revenue</h3>
+                                <div>Booking date <span ng-bind="dateselectionfrom | date:'dd/MM/yyyy'"></span> <span> - </span> <span ng-bind="dateselectionto | date:'dd/MM/yyyy'"></span></div>
+                                
                                 <!-- <div class="card-header card-header-icon" data-background-color="rose">
                                     <i class="material-icons">assignment</i>
                                 </div> -->
@@ -493,15 +495,16 @@
                                 
                                 <div class=" table-responsive">
                                     <table class="table">
-                                        <thead class="text-primary">
-                                             <th></th>
+                                        <thead class="">
+                                             <td></td>
                                              
+                                            <td>Total car service revenue</td>
+                                             <td>Total Tour Revenue</td>
+                                            <td align="right">Total Amount</td>   
+                                            <!-- <td>Unit price</td> -->
                                             
-                                            <th align="right">Total Amount</th>   
-                                            <!-- <th>Unit price</th> -->
-                                            
-                                            <th align="right">Transfer price</th>
-                                            <th align="right">Money Received</th>
+                                            <td align="right">Total Net</td>
+                                            <td align="right">Money Received</td>
                                            
                                             
                                            
@@ -537,6 +540,8 @@
                                             <tr > 
                                                
                                               <td class="field" style="font-weight: bold;" align="right">Grand Total</td>
+                                              <td ng-bind="tota_sum_transfer | currency:'':0"></td>
+                                              <td ng-bind="tota_sum_tour | currency:'':0"></td>
                                               <td class="field" style="font-weight: bold;" align="right" ng-bind="total_tamount | currency:'':0"></td>
                                               <!-- <td class="field" style="font-weight: bold;" align="center" >-</td> -->
                                               <td class="field" style="font-weight: bold;" align="right" ng-bind="total_tnet | currency:'':0"></td>
@@ -547,6 +552,31 @@
                                              </tr>
                                         </tbody>
                                     </table>
+
+                                </div>
+                                <div>
+                                    <table class="table">
+                                        <tr>
+                                            
+                                            <td>Total car service revenue</td>
+                                            <td>Total spending on car service</td>
+                                            <td>Tum Total Transfer</td>
+                                            <td></td>
+                                            <td>Total Tour Revenue</td>
+                                            <td>Tour expenses</td>
+                                            <td>sum total tour</td>
+                                        </tr>
+                                        <tr>
+                                            <td>{{sum_transfer}}</td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                    </table>
+                                    
 
                                 </div>
                                 <!-- <uib-pagination   id="page" total-items="selsedataformonth.length" ng-model="currentPage" items-per-page="pageSize" total-items="totalItems"  max-size="maxSize" class="pagination-sm" boundary-links="true" rotate="false" num-pages="numPages" >                        
@@ -1196,6 +1226,7 @@ label.label-editUser {
             //      $scope.allTour = res;
                        
             // });
+            $scope.sum_transfer = 0;
                  $http({
                 method : 'POST',
                 url : "../php/getManagebooking.php",
@@ -1221,26 +1252,44 @@ label.label-editUser {
                         data.total_net = data.transfer_price*data.listcar;
                         $scope.total_net =  data.transfer_price*data.listcar;
                         if (data.agent_name != 'Magic World') {
-                            if(data.province == 'Phuket'){
+                            if (data.total_price != 0) {
+                                if(data.province == 'Phuket'){
                                 data.total_amount = $scope.total_price+(23*33);
-                                $scope.total_amount = $scope.total_price+(23*33);
+                                    $scope.total_amount = $scope.total_price+(23*33);
+                                }
+                                else{
+                                     data.total_amount = $scope.total_price+(35*33);
+                                     $scope.total_amount = $scope.total_price+(35*33);
+                                }
+
                             }
-                            else{
-                                 data.total_amount = $scope.total_price+(35*33);
-                                 $scope.total_amount = $scope.total_price+(35*33);
+                             else{
+                               $scope.total_amount = 0; 
                             }
+                            
                         }
                         else{
-                             if(data.province == 'Phuket'){
+                             if (data.total_price != 0) {
+                                 if(data.province == 'Phuket'){
                                 data.total_amount = $scope.total_price+(20*33);
                                 $scope.total_amount = $scope.total_price+(20*33);
-                            }
-                            else{
-                                 data.total_amount = $scope.total_price+(35*33);
-                                 $scope.total_amount = $scope.total_price+(35*33);
-                            }
+                                }
+                                else{
+                                     data.total_amount = $scope.total_price+(35*33);
+                                     $scope.total_amount = $scope.total_price+(35*33);
+                                }
+                             }
+                             else{
+                                 $scope.total_amount = 0; 
+                             }
+                            
                         }
                         data.received =  $scope.total_amount - $scope.total_net;
+                      data.sum_transfer = parseInt($scope.total_amount);
+                       data.sum_tour = 0;
+                       console.log($scope.total_amount)
+                       //console.log( $scope.sum_transfer+'=='+$scope.total_amount)
+
                         // if()data.total_amount = $scope.total_price;
                     }
                     else{
@@ -1260,6 +1309,7 @@ label.label-editUser {
                                
                             }
                              else{
+                                data.sum_tour = $scope.total_amount;
                                 $scope.total_net = (data.net_price_adult*data.adult) + (data.net_price_child*data.child);
                                 $scope.total_amount = data.total_price;
                                 data.total_amount = $scope.total_price;
@@ -1278,6 +1328,8 @@ label.label-editUser {
                             
 
                         }
+                        data.sum_transfer = 0;
+                        data.sum_tour = parseInt($scope.total_amount);
                         // data.total_net = (data.net_price_adult*data.adult) + (data.net_price_child*data.child);
                         // $scope.total_net =(data.net_price_adult*data.adult) + (data.net_price_child*data.child);
                         //data.total_amount = $scope.total_price;
@@ -1612,6 +1664,8 @@ label.label-editUser {
                 $scope.total_tnet = 0;
                 $scope.total_treseive = 0;
                 $scope.total_tprofit = 0;
+                // $scope.tota_sum_transfer= 0;
+                // $scope.tota_sum_tour= 0;
                                     
                     $scope.returnvalue( total_tamount,total_tsele,total_tnet,total_treseive,total_tprofit)
             }
@@ -2011,12 +2065,14 @@ label.label-editUser {
             $scope.search.package_name = '';
                     
         }
-        $scope.returnvalue = function (a,b,c,d,e) {
+        $scope.returnvalue = function (a,b,c,d,e,f,g) {
             $scope.total_tamount = a;
             $scope.total_tsele = b;
             $scope.total_tnet = c;
             $scope.total_treseive = d;
             $scope.total_tprofit = e;                           
+            $scope.tota_sum_transfer = f;                           
+            $scope.tota_sum_tour = g;                           
         }
                  
     });
@@ -2032,6 +2088,8 @@ label.label-editUser {
                     var total_tnet = 0;
                     var total_treseive = 0;
                     var total_tprofit = 0;
+                    var tota_sum_transfer= 0;
+                    var tota_sum_tour= 0;
 
                     
                     //$scope.total_sell = 0;
@@ -2044,7 +2102,7 @@ label.label-editUser {
                         var current;
                         var current1;
                         current = new Date(input1);
-                        //console.log(current);
+                        console.log(current);
                         var x =current.setHours(00, 00, 00);
                         var setx = new Date(x).getTime();
                         //console.log(new Date(x).getTime());
@@ -2072,9 +2130,11 @@ label.label-editUser {
                     total_tnet += parseInt(data[i].total_net);
                     // total_treseive += parseInt(data[i].received);
                     total_tprofit += parseInt(data[i].received);
+                    tota_sum_transfer += parseInt(data[i].sum_transfer);
+                    tota_sum_tour += parseInt(data[i].sum_tour);
                    
                                     
-                     scope.returnvalue( total_tamount,total_tsele,total_tnet,total_treseive,total_tprofit)
+                     scope.returnvalue( total_tamount,total_tsele,total_tnet,total_treseive,total_tprofit,tota_sum_transfer,tota_sum_tour)
                                 
                                 result.push(data[i]);
                             }
