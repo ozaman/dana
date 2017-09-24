@@ -500,11 +500,7 @@
                                              
                                             <td>Total car service revenue</td>
                                              <td>Total Tour Revenue</td>
-                                            <td align="right">Total Amount</td>   
-                                            <!-- <td>Unit price</td> -->
                                             
-                                            <td align="right">Total Net</td>
-                                            <td align="right">Money Received</td>
                                            
                                             
                                            
@@ -542,6 +538,30 @@
                                               <td class="field" style="font-weight: bold;" align="right">Grand Total</td>
                                               <td ng-bind="tota_sum_transfer | currency:'':0"></td>
                                               <td ng-bind="tota_sum_tour | currency:'':0"></td>
+                                          </tr>
+
+                                          </tbody>
+                                      </table>
+
+                                        <table class="table" style="margin-top: 50px">
+                                          
+                                               <thead class="">
+                                             <td></td>
+                                             
+                                           
+                                            <td align="right">Total Amount</td>   
+                                            <!-- <td>Unit price</td> -->
+                                            
+                                            <td align="right">Total Net</td>
+                                            <td align="right">Money Received</td>
+                                           
+                                            
+                                           
+                                            
+                                            
+                                        </thead>
+                                        <tbody>
+                                         <td class="field" style="font-weight: bold;" align="right">Grand Total</td>
                                               <td class="field" style="font-weight: bold;" align="right" ng-bind="total_tamount | currency:'':0"></td>
                                               <!-- <td class="field" style="font-weight: bold;" align="center" >-</td> -->
                                               <td class="field" style="font-weight: bold;" align="right" ng-bind="total_tnet | currency:'':0"></td>
@@ -549,12 +569,15 @@
                                               
                                              
                                               <td class="field" style="font-weight: bold;" align="right" ng-bind="total_tprofit | currency:'':0"></td>
-                                             </tr>
-                                        </tbody>
-                                    </table>
+                                              </tbody>
+                                          </table>
+                                          
+                                             
+                                        <!-- </tbody> -->
+                                    <!-- </table> -->
 
                                 </div>
-                                <div>
+                                <!-- <div>
                                     <table class="table">
                                         <tr>
                                             
@@ -578,7 +601,7 @@
                                     </table>
                                     
 
-                                </div>
+                                </div> -->
                                 <!-- <uib-pagination   id="page" total-items="selsedataformonth.length" ng-model="currentPage" items-per-page="pageSize" total-items="totalItems"  max-size="maxSize" class="pagination-sm" boundary-links="true" rotate="false" num-pages="numPages" >                        
                             </uib-pagination> -->
                             </div>
@@ -1293,6 +1316,10 @@ label.label-editUser {
                         // if()data.total_amount = $scope.total_price;
                     }
                     else{
+                        // if (data.total_price != 0) {
+
+                        // }
+
                         if(data.package_name == 'City Tour'){
                        data.total_net =  data.adult_price; 
                         data.received =  0;
@@ -1305,6 +1332,7 @@ label.label-editUser {
                                  data.received = 0;
                                   data.total_net = 0;
                                    data.total_amount = 0;
+                                   $scope.total_amount = 0;
                                 
                                
                             }
