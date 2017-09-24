@@ -386,7 +386,7 @@
                                     </table> 
                                 </div>
                             </div>
-                          <div class="row form-group form-inline" style="margin-top: 0;padding-bottom: 0">
+                         <!--  <div class="row form-group form-inline" style="margin-top: 0;padding-bottom: 0">
                                 <div class="booking_searchengine">
                                     <div class="col-md-6 col-md-4 col-md-3" style="padding-bottom: 20px">
                                     <table width="100%">
@@ -446,8 +446,8 @@
                             
                             
                         </div>
-                        </div>
-                        <div class="form-group form-inline " style="width: 100%;margin-top: 0">
+                        </div> -->
+                        <!-- <div class="form-group form-inline " style="width: 100%;margin-top: 0">
                             <div class="col-md-6 col-md-4 col-md-3" style="padding-bottom: 20px">
                                     <table width="100%">
                                         <tr>
@@ -476,14 +476,11 @@
                                     </table> 
                                 </div>      
                                             
-                                                <!--<label for="class" class="label-tour" style="    margin-right: 4px;color: #555">Print booking on date <span> :</span></label>
-                        <div class="search-box-date" style="    display: inline-block;">
-                            <input type="date" class="search_date form-control" ng-model="datepdf" placeholder="Date" />
-                        </div>
-                        <button type="reset" class="btn btn-default" data-dismiss="modal" onclick="getPrintPDF()"><i class="material-icons">picture_as_pdf</i>Print</button>-->
-                                    </div>
+                                                
+                                    </div> -->
                                     
                             <div class="card">
+                                <h3>Revenue</h3>
                                 <!-- <div class="card-header card-header-icon" data-background-color="rose">
                                     <i class="material-icons">assignment</i>
                                 </div> -->
