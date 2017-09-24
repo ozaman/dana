@@ -491,38 +491,27 @@
                                     <!-- <p class="category">Here is a subtitle for this table</p> -->
                                 <!-- </div> -->
                                 
-                                <!-- <div class=" table-responsive">
+                                <div class=" table-responsive">
                                     <table class="table">
                                         <thead class="text-primary">
                                              <th></th>
                                              
-                                            <th>Departure Date</th>
-                                            <th>Customer name</th> 
-                                            <th>Invoice</th>
-                                            <th>Agent Name</th>
-
-                                            <th class="col-md-4">Package Name</th> 
+                                            
+                                            <th align="right">Total Amount</th>   
+                                            <!-- <th>Unit price</th> -->
+                                            
+                                            <th align="right">Transfer price</th>
+                                            <th align="right">Money Received</th>
                                            
-                                             <th>No. of Guest</th>
-                                             <th>No. of Car</th>
-                                            <th>Total Amount</th>   
-                                            <th>Unit price</th>
-                                            <th>Total Net</th>
-                                            <th>Transfer price</th>
-                                            <th>Money Received</th>
-                                            <th>Pay by</th>                                         
-                                           
-                                            <th>Done</th>
-                                            <th>Approved by</th>
                                             
                                            
-                                            <th></th>
+                                            
                                             
                                         </thead>
                                         <tbody >
                                             <tr ng-repeat="item in selsedataformonth | filter:search:strict | dateselect:dateselectionfrom:dateselectionto:this ">
                                                
-                                                <td align="center" ng-bind="$index+1"></td>
+                                                <!-- <td align="center" ng-bind="$index+1"></td>
                                                 <td ng-bind="item.ondate"></td>
                                                 <td class="col-md-2" ng-bind="item.name" ></td>
                                                 <td  ng-bind="item.invoice"></td>
@@ -542,23 +531,24 @@
                                                 <td  align="center"><i ng-show="item.done == 1" class="material-icons" style="color: #4caf50;">playlist_add_check</i><i ng-show="item.done == 0" class="material-icons"  style="color: #ff9800;">schedule</i></td>
                                                 <td  align="center"><button ng-show="item.approved == 0" data-toggle="modal" data-target="#approved" ng-click="approve(item)" class="btn btn-info btn-sm" style="text-transform: capitalize;">Approve</button><span style="color: #00bcd4" ng-show="item.approved == 1" ng-bind="item.approve_by"></span></td>
                                                
-                                                <td class="field" ></td>
+                                                <td class="field" ></td> -->
                                             </tr>
                                            
-                                              
-                                              <td colspan="8" class="field" style="font-weight: bold;" align="right">Grand Total</td>
+                                            <tr > 
+                                               
+                                              <td class="field" style="font-weight: bold;" align="right">Grand Total</td>
                                               <td class="field" style="font-weight: bold;" align="right" ng-bind="total_tamount | currency:'':0"></td>
-                                              <td class="field" style="font-weight: bold;" align="center" >-</td>
+                                              <!-- <td class="field" style="font-weight: bold;" align="center" >-</td> -->
                                               <td class="field" style="font-weight: bold;" align="right" ng-bind="total_tnet | currency:'':0"></td>
-                                              <td class="field" style="font-weight: bold;" align="center" >=</td>
+                                              <!-- <td class="field" style="font-weight: bold;" align="center" >=</td> -->
                                               
                                              
                                               <td class="field" style="font-weight: bold;" align="right" ng-bind="total_tprofit | currency:'':0"></td>
-                                              <td class="field" ></td>
+                                             </tr>
                                         </tbody>
                                     </table>
 
-                                </div> -->
+                                </div>
                                 <!-- <uib-pagination   id="page" total-items="selsedataformonth.length" ng-model="currentPage" items-per-page="pageSize" total-items="totalItems"  max-size="maxSize" class="pagination-sm" boundary-links="true" rotate="false" num-pages="numPages" >                        
                             </uib-pagination> -->
                             </div>
