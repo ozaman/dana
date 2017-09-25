@@ -682,6 +682,7 @@
                                                 <td align="right">Money Received</td>
                                             </thead>
                                             <tbody>
+                                                <tr>
                                                 <td class="field" style="font-weight: bold;" align="right">Grand Total</td>
                                                 <td class="field" style="font-weight: bold;" align="right" ng-bind="total_omosab_amount | currency:'':0"></td>
                                                 <!-- <td class="field" style="font-weight: bold;" align="center" >-</td> -->
@@ -693,6 +694,18 @@
                                                      <span style="    border-bottom: 1px solid;
     color: #ff9800;" ng-bind="total_omosab_profit | currency:'':0"></span>
                                                  </td>
+                                             </tr>
+                                             <tr>
+                                                 <td align="right" style="font-weight: bold;" colspan="2">Pay booking owner for medhat <span ng-bind="free_booking"></span>  <span>booking</span></td>
+                                                 <td style="font-weight: bold;" align="center"><span>Total price</span></td>
+                                                <td style="font-weight: bold;" align="right"><span style="border-bottom: 1px solid;
+    color: #ff9800;" ng-bind="'-'+total_free_booking | currency:'':0"></span></td>
+                                             </tr>
+                                             <tr>
+                                                <td align="right" l colspan="3">Total</td>
+                                                 <td style="font-weight: bold;" align="right"><span style="border-bottom: 1px solid;
+    color: #ff9800;" ng-bind="total_omosab_profit-total_free_booking | currency:'':0"></span></td>
+                                             </tr>
                                             </tbody>
                                         </table>
                                         </div>
@@ -704,14 +717,17 @@
     border-bottom: none;background: #ddd;">Owner Medhat</div>
                                             <table class="table" >
                                             <thead class="">
+                                                <tr>
                                                 <td></td>
                                                 <td align="right">Total Amount</td>   
                                                 <!-- <td>Unit price</td> -->
                                             
                                                 <td align="right">Total Net</td>
                                                 <td align="right">Money Received</td>
+                                            </tr>
                                             </thead>
                                             <tbody>
+                                                <tr>
                                                 <td class="field" style="font-weight: bold;" align="right">Grand Total</td>
                                                 <td class="field" style="font-weight: bold;" align="right" ng-bind="total_omedhat_amount | currency:'':0"></td>
                                                 <!-- <td class="field" style="font-weight: bold;" align="center" >-</td> -->
@@ -723,6 +739,13 @@
                                                      <span style="    border-bottom: 1px solid;
     color: #ff9800;" ng-bind="total_omedhat_profit | currency:'':0"></span>
                                                  </td>
+                                             </tr> 
+                                             <tr>
+                                                 <td align="right" style="font-weight: bold;" colspan="2">Free <span ng-bind="free_booking"></span>  <span>booking</span></td>
+                                                 <td style="font-weight: bold;" align="center"><span>Total price</span></td>
+                                                <td style="font-weight: bold;" align="right"><span style="border-bottom: 1px solid;
+    color: #ff9800;" ng-bind="'-'+total_free_booking | currency:'':0"></span></td>
+                                             </tr>
                                             </tbody>
                                         </table>
                                         </div>
@@ -2264,7 +2287,7 @@ label.label-editUser {
             $scope.search.package_name = '';
                     
         }
-        $scope.returnvalue = function (a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q) {
+        $scope.returnvalue = function (a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s) {
             $scope.total_tamount = a;
             $scope.total_tsele = b;
             $scope.total_tnet = c;
@@ -2281,7 +2304,9 @@ label.label-editUser {
             $scope.total_omosab_profit = n;
             $scope.total_omedhat_amount = o;
             $scope.total_omedhat_net = p;
-            $scope.total_omedhat_profit = q;                          
+            $scope.total_omedhat_profit = q;
+            $scope.free_booking = r;
+            $scope.total_free_booking = s;                          
         }
                  
     });
@@ -2308,7 +2333,9 @@ label.label-editUser {
                     var total_omosab_profit = 0;
                     var total_omedhat_amount = 0;
                     var total_omedhat_net = 0;
-                    var total_omedhat_profit = 0;                    
+                    var total_omedhat_profit = 0;
+                    var free_booking = 0;
+                    var total_free_booking = 0;                  
                     //$scope.total_sell = 0;
                     if(input2 != null)
                     {
@@ -2361,6 +2388,10 @@ label.label-editUser {
                                         //total_omedhat_amount +=0;
                                     }
                                     else{
+                                        if (data[i].total_price == 0) {
+                                            free_booking ++;
+                                            total_free_booking  += parseInt(data[i].transfer_price);
+                                        }
                                         total_omedhat_amount += parseInt(data[i].total_amount);
                                         total_omedhat_net += parseInt(data[i].total_net);
                                         total_omedhat_profit += parseInt(data[i].received);
@@ -2382,7 +2413,7 @@ label.label-editUser {
 
 
                                     // }
-                     scope.returnvalue( total_tamount,total_tsele,total_tnet,total_treseive,total_tprofit,tota_sum_transfer,tota_sum_tour,total_tour_expenses,total_transfer_expenses,total_tour_profit,total_transfer_profit,total_omosab_amount,total_omosab_net,total_omosab_profit,total_omedhat_amount,total_omedhat_net,total_omedhat_profit);
+                     scope.returnvalue( total_tamount,total_tsele,total_tnet,total_treseive,total_tprofit,tota_sum_transfer,tota_sum_tour,total_tour_expenses,total_transfer_expenses,total_tour_profit,total_transfer_profit,total_omosab_amount,total_omosab_net,total_omosab_profit,total_omedhat_amount,total_omedhat_net,total_omedhat_profit,free_booking,total_free_booking);
                                 
                                 result.push(data[i]);
                             }
