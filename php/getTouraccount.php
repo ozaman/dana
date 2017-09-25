@@ -1,6 +1,11 @@
 <?php
 include("../config.php");
-	$sql = "select * from dn_booking as TB_booking WHERE owner = 'mosab' AND type = 'Tour' AND status != 2  ORDER BY ondate ASC	";
+ $midnight = mktime(0,0,0,date('m'),date('d'),date('Y'));
+                $date = date('01/01/2017 H:i:s',$midnight);
+                $date2 =  date('31/01/Y H:i:s',($midnight+(60*60*24))-1);
+                //echo $date.'-'.$date2;
+    // $sql = "select * from dn_booking WHERE  AND status = 1 ORDER BY id ASC ";
+	$sql = "select * from dn_booking as TB_booking WHERE booking_date BETWEEN '".$date."' AND  '".$date2."'  AND type = 'Tour' AND status != 2  ORDER BY ondate ASC	";
 	$Objquery = mysql_query($sql,$conndb);
 	//echo $Objquery;
 	//$row = mysql_num_rows($Objquery); // นับจำนวนแถว

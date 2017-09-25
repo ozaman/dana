@@ -1477,6 +1477,7 @@ label.label-editUser {
                             }
                              else{
                                $scope.total_amount = 0; 
+                                $scope.total_net = 0;
                             }
                             
                         }
@@ -1492,14 +1493,16 @@ label.label-editUser {
                                 }
                              }
                              else{
-                                 $scope.total_amount = 0; 
+                                 $scope.total_amount = 0;
+                                 $scope.total_net = 0; 
                              }
                             
                         }
+                        data.total_net = $scope.total_net;
                         data.received =  $scope.total_amount - $scope.total_net;
                         data.sum_transfer = parseInt($scope.total_amount);
                        data.sum_tour = 0;
-                       data.transfer_expenses = data.total_price;
+                       data.transfer_expenses = $scope.total_net;
                        data.tour_expenses = 0;
                         data.total_amount = $scope.total_amount;
 

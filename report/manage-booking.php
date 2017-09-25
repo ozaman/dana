@@ -535,7 +535,7 @@
                                             <th>Money Received</th>
                                             <th>Pay by</th>                                         
                                            
-                                            <th>Done</th>
+                                            <th>Paid</th>
                                             <th>Approved by</th>
                                             
                                             <!-- <th>Profit</th> -->
@@ -1259,25 +1259,43 @@ label.label-editUser {
                         data.total_net = data.transfer_price*data.listcar;
                         $scope.total_net =  data.transfer_price*data.listcar;
                         if (data.agent_name != 'Magic World') {
-                            if(data.province == 'Phuket'){
-                                data.total_amount = $scope.total_price+(23*33);
-                                $scope.total_amount = $scope.total_price+(23*33);
+                            if (data.total_price != 0) {
+                                if(data.province == 'Phuket'){
+                                data.total_amount = parseInt($scope.total_price)+(23*33);
+                                    $scope.total_amount = parseInt($scope.total_price)+(23*33);
+                                }
+                                else{
+                                     data.total_amount = parseInt($scope.total_price)+(35*33);
+                                     $scope.total_amount = parseInt($scope.total_price)+(35*33);
+                                }
+
                             }
-                            else{
-                                 data.total_amount = $scope.total_price+(35*33);
-                                 $scope.total_amount = $scope.total_price+(35*33);
+                             else{
+
+                               $scope.total_amount = 0; 
+                               $scope.total_net = 0;
                             }
+                            
                         }
                         else{
-                             if(data.province == 'Phuket'){
-                                data.total_amount = $scope.total_price+(20*33);
-                                $scope.total_amount = $scope.total_price+(20*33);
-                            }
-                            else{
-                                 data.total_amount = $scope.total_price+(35*33);
-                                 $scope.total_amount = $scope.total_price+(35*33);
-                            }
+                             if (data.total_price != 0) {
+                                 if(data.province == 'Phuket'){
+                                data.total_amount = parseInt($scope.total_price)+(20*33);
+                                $scope.total_amount = parseInt($scope.total_price)+(20*33);
+                                }
+                                else{
+                                     data.total_amount = parseInt($scope.total_price)+(35*33);
+                                     $scope.total_amount = parseInt($scope.total_price)+(35*33);
+                                }
+                             }
+                             else{
+                                 $scope.total_amount = 0; 
+                                 $scope.total_net = 0;
+                             }
+                            
                         }
+                         data.total_net = $scope.total_net;
+                        data.total_amount = $scope.total_amount;
                         data.received =  $scope.total_amount - $scope.total_net;
                         // if()data.total_amount = $scope.total_price;
                     }

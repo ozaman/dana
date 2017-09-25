@@ -1227,12 +1227,15 @@ label.label-editUser {
                        data.total_net =  data.adult_price; 
                         data.received =  0;
                          data.total_amount = data.adult_price;
+
                     }
                     else{
                          if(data.total_price == '0'){
                            
                              data.received = 0;
                               data.total_net = 0;
+                               data.total_amount = 0;
+                              // $scope.total_amount = 0;
                             
                            
                         }
