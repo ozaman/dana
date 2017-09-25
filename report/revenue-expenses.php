@@ -1377,6 +1377,7 @@ label.label-editUser {
             $scope.total_tnet = 0;
             $scope.total_treseive = 0;
             $scope.total_tprofit = 0;
+            $scope.total_amount = 0;
            
              var today = new Date();
                 var date = new Date(today.getFullYear()+'-'+(today.getMonth()+1)+'-1');
@@ -1465,12 +1466,12 @@ label.label-editUser {
                         if (data.agent_name != 'Magic World') {
                             if (data.total_price != 0) {
                                 if(data.province == 'Phuket'){
-                                data.total_amount = $scope.total_price+(23*33);
-                                    $scope.total_amount = $scope.total_price+(23*33);
+                                data.total_amount = parseInt($scope.total_price)+(23*33);
+                                    $scope.total_amount = parseInt($scope.total_price)+(23*33);
                                 }
                                 else{
-                                     data.total_amount = $scope.total_price+(35*33);
-                                     $scope.total_amount = $scope.total_price+(35*33);
+                                     data.total_amount = parseInt($scope.total_price)+(35*33);
+                                     $scope.total_amount = parseInt($scope.total_price)+(35*33);
                                 }
 
                             }
@@ -1482,12 +1483,12 @@ label.label-editUser {
                         else{
                              if (data.total_price != 0) {
                                  if(data.province == 'Phuket'){
-                                data.total_amount = $scope.total_price+(20*33);
-                                $scope.total_amount = $scope.total_price+(20*33);
+                                data.total_amount = parseInt($scope.total_price)+(20*33);
+                                $scope.total_amount = parseInt($scope.total_price)+(20*33);
                                 }
                                 else{
-                                     data.total_amount = $scope.total_price+(35*33);
-                                     $scope.total_amount = $scope.total_price+(35*33);
+                                     data.total_amount = parseInt($scope.total_price)+(35*33);
+                                     $scope.total_amount = parseInt($scope.total_price)+(35*33);
                                 }
                              }
                              else{
@@ -1765,7 +1766,7 @@ label.label-editUser {
                                 data.received =  $scope.total_amount - $scope.total_net;
                                 // data.received =  $scope.total_amount- $scope.total_net;
                                  data.total_net = (data.net_price_adult*data.adult) + (data.net_price_child*data.child);
-                                 data.total_amount = $scope.total_price;
+                                 // data.total_amount = $scope.total_price;
                                 $scope.total_amount = data.total_price;
                                  // $scope.total_net =(data.net_price_adult*data.adult) + (data.net_price_child*data.child);
                                  
@@ -1872,6 +1873,7 @@ label.label-editUser {
             var total_tnet = 0;
             var total_treseive = 0;
             var total_tprofit = 0;
+
             
             angular.forEach($scope.databook, function(data){
             if(agent == data.agent_name)
@@ -2356,7 +2358,7 @@ label.label-editUser {
                         for (var i=0; i<data.length; i++){
                             if(data[i].post_date *1000 > setx && data[i].post_date*1000 < new Date(y).getTime())
                             {
-                                console.log(data);
+                                // console.log(data);
                                 //console.log(new Date(data[i].booking_date).getTime());
                                 //console.log('Round'+i);
                                 // console.log(data[i].total_price);
@@ -2371,6 +2373,10 @@ label.label-editUser {
                                    total_treseive += parseInt(data[i].received);
                                // }
                                     total_tamount += parseInt(data[i].total_amount);
+                                    if (data[i].total_amount == undefined) {
+                                    console.log(data[i])
+
+                                    }
                                     total_tsele += parseInt(data[i].adult_price);
                                     total_tnet += parseInt(data[i].total_net);
                                     // total_treseive += parseInt(data[i].received);
