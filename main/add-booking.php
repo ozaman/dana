@@ -393,7 +393,7 @@
 
                                     
                                 <div >
-                                    <div class="form-group form-inline" ng-show="checktour" >
+                                    <div class="form-group form-inline"  >
                                         <label for="name" class="label-tour">Response by<span>:</span></label>
                                         <!-- <input type="text" class=" form-control" size="100" maxlength="200" placeholder = "Max length 200 characters" id="name" name="topic" ng-model="topic" required/> -->
                                          <select class="form-control" ng-change="changeowner(selectowner)" id="label-addbooking" ng-model="selectowner" data-ng-options="i as i.name for i in dataowner" >
