@@ -400,7 +400,7 @@
                                   <div class='span6'>                                      
                                       <label type="text" class="form-control" placeholder="Search By"  ng-click="openlist()"  x-webkit-speech  style="width: 100%;margin: 0"><span ng-bind="search_box_list"></span><i class="fa fa-sort-desc"></i></label>
                                       <ul class="search_list">
-                                          <li ng-click="clicklist('Booking ID')">Booking ID</li>
+                                          <!-- <li ng-click="clicklist('Booking ID')">Booking ID</li> -->
                                                <li ng-click="clicklist('Invoice')">Invoice</li>
                                                 <li ng-click="clicklist('Package Name')">Package Name</li>
                                                 <li ng-click="clicklist('Agent Name')">Agent Name</li>
