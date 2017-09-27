@@ -169,6 +169,16 @@
                                     </a>
 
                                 </li>
+                                <li >
+                                    <a href="hotel.php">
+                                       <i class="material-icons">location_city</i>Hotels
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="hotels-package.php">
+                                       <i class="material-icons">hotel</i>Hotels package
+                                    </a>
+                                </li>
 
                                 <li>
 
@@ -743,7 +753,7 @@
 
                                 <label class="label-company">Company Name<span> :</span></label>
 
-                                <input type="text" class="cn-view form-control" size="100" maxlength="100" name="company_name" ng-model="company_name" placeholder="Company Name" required oninvalid="this.setCustomValidity('This information is required.')" oninput="setCustomValidity('')">
+                                <input type="text" class="cn-view form-control" size="100" maxlength="100" name="company_name" ng-model="company_name" placeholder="Company Name" >
 
                             </div>
 
@@ -799,7 +809,7 @@
 
                                                  
 
-                                                        <input type="text" class="form-control" name="phone" ng-model="phone" id="InputPassPhone" placeholder="Phone" size="49.5" required oninvalid="this.setCustomValidity('This information is required.')" oninput="setCustomValidity('')" pattern="^[0-9]{8,9}$" title="Please input Phone No. 9 or 10 digits.And first digits must be 0">
+                                                        <input type="text" class="form-control" name="phone" ng-model="phone" id="InputPassPhone" placeholder="Phone"  title="Please input Phone No. 9 or 10 digits.And first digits must be 0">
 
                                                        
 
@@ -849,7 +859,7 @@
 
                                 <label class="label-company">Address<span> :</span></label>
 
-                                <textarea class="cn-view form-control" rows="2" cols="100" name="address" ng-model="address" placeholder="Address" required oninvalid="this.setCustomValidity('This information is required.')" oninput="setCustomValidity('')"></textarea>
+                                <textarea class="cn-view form-control" rows="2" cols="100" name="address" ng-model="address" placeholder="Address" ></textarea>
 
                             </div>
 
@@ -859,7 +869,7 @@
 
                                 <label class="label-company">Email<span> :</span></label>
 
-                                <input type="email" class="cn-view form-control" size="100" maxlength="100" name="email" ng-model="email" placeholder="example@example.com" required oninvalid="this.setCustomValidity('This information is required.')" oninput="setCustomValidity('')">
+                                <input type="email" class="cn-view form-control" size="100" maxlength="100" name="email" ng-model="email" placeholder="example@example.com" >
 
                             </div>
 
@@ -879,7 +889,7 @@
 
                                 <label class="label-company">Operating Hours<span> :</span></label>
 
-                                <input type="text" class="cn-view form-control" name="operation" ng-model="operation" size="100"placeholder="Operation" required oninvalid="this.setCustomValidity('This information is required.')" oninput="setCustomValidity('')">
+                                <input type="text" class="cn-view form-control" name="operation" ng-model="operation" size="100" placeholder="Operation">
 
                             </div>
 

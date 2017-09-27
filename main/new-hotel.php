@@ -169,7 +169,7 @@
                                     </a>
 
                                 </li>
-                                <li >
+                                 <li class="active">
                                     <a href="hotel.php">
                                        <i class="material-icons">location_city</i>Hotels
                                     </a>
@@ -190,7 +190,7 @@
 
                                 </li>
 
-                                <li>
+                                <li >
 
                                     <a href="company.php">
 
@@ -200,7 +200,7 @@
 
                                 </li>
 
-                                <li class="active">
+                                <li>
 
                                     <a href="agent.php">
 
@@ -212,7 +212,7 @@
 
                                 
 
-                                <li >
+                                <li>
 
                                     <a href="users.php">
 
@@ -293,13 +293,13 @@
                                 </li>
                                 <li >
                                     <a href="../report/account-tour.php">
-                                   <i class="material-icons">business_center</i>
+                                    <i class="material-icons">business_center</i>
                                          Account Tours
                                     </a>
                                 </li>
                                 <li >
                                     <a href="../report/manage-booking.php">
-                                    <i class="material-icons">dvr</i>
+                                     <i class="material-icons">dvr</i>
                                          Manage Booking
                                     </a>
                                 </li>
@@ -334,7 +334,7 @@
 
                             <ul class="nav">
 
-                              <!--  <li>
+                               <!-- <li>
 
                                     <a href="../logs/add-booking.php">
 
@@ -534,9 +534,9 @@
 
                                     </li>
 
-                                    <li>
+                                    <li data-toggle="modal" data-target="#logout">
 
-                                         <a href="" data-toggle="modal" data-target="#logout">
+                                         <a >
 
                                             <i class="material-icons">power_settings_new</i>Logout
 
@@ -604,11 +604,11 @@
 
              <style>
 
-                        label.label-user {
+                        label.label-company {
 
     text-align: right;
 
-    width: 125px;
+    width: 115px;
 
     margin-right: 10px;
 
@@ -621,6 +621,50 @@
   padding-bottom: 10px;
 
   margin: 20px 0 0 0;
+
+}
+
+@media screen and (max-width: 767px){
+
+    label.label-company {
+
+    text-align: left;
+
+}
+
+ #InputPassPhone{
+
+        /*margin-bottom: 20px;*/
+
+
+
+    }
+
+    #select-country {
+
+   
+
+     margin-bottom: 20px; 
+
+}
+
+       
+
+#labelcun{
+
+   
+
+    margin-bottom: 20px;
+
+       
+
+}
+
+#labelcun{
+
+    margin-bottom: 20px !important;
+
+}
 
 }
 
@@ -644,15 +688,15 @@
 
                                     <div class="navigate" >
 
-                                        <a href="users.php">
+                                        <a href="hotel.php">
 
-                                            <button type="button" class="btn btn-rose btn-sm" style="z-index: 100"><i class="fa fa-sign-out fa-fw"></i> Back</button></a>
+                                            <button type="button" class="btn btn-rose btn-sm" style=""><i class="fa fa-sign-out fa-fw"></i> Back</button></a>
 
                                         <ol class="breadcrumb" style="margin: 0;padding: 11px;padding-bottom: 0;background: #fff; display: inline-block; ">
 
                                             <!-- <li><a href="package.php">Main Menu</a></li> -->
 
-                                            <li class="active"> / New Agent</li>
+                                            <li class="active"> / New Hotels</li>
 
                                         </ol>
 
@@ -668,57 +712,66 @@
 
                      <div class="col-lg-12">
 
-                        <div class="modal-header">
+                        <form class="form-inline">
 
-                                
 
-                                <h4 class="modal-title">Create a New agent</h4>
+
+                          <div class="form-group">
+
+                            <input type="hidden" class="form-control" name="token" value="{{token}}">
+
+                            <input type="hidden" class="form-control" name="city" value="{{city}}">
+
+                          </div>
+
+                          <div>
+
+                              <div class="form-inline btn-group " style="width: 100%">
+
+                                            <label for="class" class="label-company" >Province<span> :</span></label>
+
+                                            <select name="city" id="city"  class="form-control col-md-8" required style=" border: 1px solid #ccc; border-radius: 5px;" ng-model="city">
+
+                                                <option>Phuket</option>
+
+                                                <option>Phang nga</option>
+
+                                                <option>Krabi</option>
+
+                                                <option>Phi Phi island</option>
+                                                <option>Bangkok</option>
+
+                                                <!--<option>Standard Class</option>-->
+
+                                            </select>
+
+                                        </div>
+
+                          </div>
+
+                            <div class="form-group form-inline">
+
+                                <label class="label-company">Hotel Name<span> :</span></label>
+
+                                <input type="text" class="cn-view form-control" size="100" maxlength="100" name="company_name" ng-model="hotel_name" placeholder="Hotel Name" required oninvalid="this.setCustomValidity('This information is required.')" oninput="setCustomValidity('')">
 
                             </div>
 
-                            <form class="form-inline" >
-
-                                
-
-                                    <!-- <input type="hidden" class="form-control" name="id" value="{{companyId}}">
-
-                                    <input type="hidden" class="form-control" name="token" value="{{token}}"> -->
 
 
+                            <!-- <div class="form-group form-inline">
 
-                                    <div class="form-group">
+                                <label class="label-company">TAT Number<span> :</span></label>
 
-                                        <label class="label-user">First Name<span> :</span></label>
+                                <input type="text" class="cn-view form-control" size="100" maxlength="20" name="tat_number" ng-model="tat_number" placeholder="TAT Number" id="tat_number" required oninvalid="this.setCustomValidity('This information is required.')" oninput="setCustomValidity('')" pattern="^[0-9]+$" title="Please input number only.">
 
-                                        <input type="text" class="form-control" name="firstname" ng-model="firstname" placeholder="First Name" pattern="^[a-z A-Z ก-๙]+$" title="Please input character only." required oninvalid="this.setCustomValidity('This information is required.')" oninput="setCustomValidity('')" size="100">
-
-                                    </div>
+                            </div> -->
 
 
 
-                                    <div class="form-group">
+                            <div class="form-group form-inline">
 
-                                        <label class="label-user">Last Name<span> :</span></label>
-
-                                        <input type="text" class="form-control" name="lastname" ng-model="lastname" placeholder="Last Name" pattern="^[a-z A-Z ก-๙]+$" title="Please input character only." required oninvalid="this.setCustomValidity('This information is required.')" oninput="setCustomValidity('')" size="100">
-
-                                    </div>
-
-
-
-                                    <!-- <div class="form-group">
-
-                                        <label class="label-user">ID Card No.<span> :</span></label>
-
-                                        <input type="text" class="form-control" name="idcard" placeholder="ID Card No." pattern="^[0-9]{13}$" title="Please input ID Card No. 13 digits." required size="100">
-
-                                    </div> -->
-
-
-
-                                    <div class="form-group" style="width: 100%">
-
-                                        <label class="label-user">Phone<span> :</span></label>
+                                <label class="label-company">Phone<span> :</span></label>
 
                                            
 
@@ -756,133 +809,111 @@
 
                                                  
 
-                                                        <input type="text" class="form-control" name="phone" ng-model="phone" id="InputPassPhone" placeholder="Phone" size="49.5">
+                                                        <input type="text" class="form-control" name="phone" ng-model="phone" id="InputPassPhone" placeholder="Phone" size="49.5" title="Please input Phone No. 9 or 10 digits.And first digits must be 0">
 
                                                        
 
                                                         
 
-                                    </div>
-
-                                    <!--  <div class="form-group">
-
-                                        <label class="label-user">Phone2<span> :</span></label>
-
-
-
-                                        <input type="phone2" id="phone2" class="form-control" name="phone2" placeholder="Phone2" pattern="^[0-9]{9,10}$" title="Please input Phone No. 9 or 10 digits." size="100">
-
-
-
-                                     </div> -->
-
-                                     <div class="form-group" style="margin-top: 0 ">
-
-                                        <label class="label-user">Email<span> :</span></label>
-
-
-
-                                        <input type="email" class="form-control" name="email" ng-model="email" placeholder="Email" size="100" placehoder="exam@exam" required>
-
-
-
-
-
-
-
-                                    </div>
-
-                                     <div class="form-group">
-
-                                        <label class="label-user">Company<span> :</span></label>
-
-                                        <input type="text" class="form-control" name="company" ng-model="company" placeholder="Company" required size="100">
-
-                                    </div>
-
-                                     <div class="form-group">
-
-                                        <label class="label-user">Address<span> :</span></label>
-
-                                        <textarea type="text" class="form-control" rows="4" cols="100" name="address" ng-model="address" placeholder="Address" required size="100"></textarea>
-
-                                    </div>
-
-                                   
-
-
-
-                                  <!--   <div class="form-group">
-
-                                        <label class="label-user">Password<span> :</span></label>
-
-                                        <input type="password" class="form-control" name="password" ng-model="password"  id="pass1" placeholder="Password" required size="100">
-
-                                    </div>
-
-
-
-                                    <div class="form-group">
-
-                                        <label class="label-user">Confirm Password<span> :</span></label>
-
-                                        <input type="password" class="form-control" id="pass2" ng-model="password2" ng-change="confirmpassword(password2)" placeholder="Confirm Password" required size="100">
-
-                                    </div> -->
-
-
-
-
-
-                                    <!-- <div class="form-group" style="width: 100%">
-
-                                        <label class="label-user" size="100">User Type<span> :</span></label>
-
-                                        <select class="form-control" name="role" ng-model="role" id="level" required>
-
-
-
-                                            <option  value="0">None</option>
-
-
-
-                                            <option value="1" ng-if="isSuperAdmin">System Supper Admin</option>
-
-                                            <option value="2" ng-if="isSuperAdmin || isAdmin">System Admin</option>
-
-                                            <option value="3">System User</option>
-
-                                            <option value="4">System User Lab</option>
-
-
-
-                                            
-
-                                        </select>
-
-                                    </div> -->
-
-
-
                                     
 
-<br>
-
-                               
-
-                                <div style="float: right;   margin-right: 9.5%;">
-
-                                    <button  type="submit" class="btn btn-success" id="bt-view" ng-click="savenewagent()" >
-
-                                        <span class="fa2 fa fa-floppy-o" aria-hidden="true" ></span> Save</button>
-
-                                    <button type="reset" class="btn btn-default" data-dismiss="modal" onclick="reset()" id="bt-view">Cancel</button>
 
 
 
-                                </div>
 
-                            </form>
+                                
+
+                            </div>
+
+                            <!-- <div class="form-group form-inline">
+
+                                <label class="label-company">Phone2<span> :</span></label>
+
+                                <input id="phone2" type="tel" class="cn-view form-control" size="100" maxlength="14" name="phone2" placeholder="Phone2 No." pattern="^[0][0-9]{8,9}$" title="Please input Phone No. 9 or 10 digits.And first digits must be 0">
+
+                            </div>
+
+ -->
+
+                            <div class="form-group form-inline">
+
+                                <label class="label-company">Fax<span> :</span></label>
+
+                                <input type="text" class="cn-view form-control" size="100" maxlength="20" name="fax" ng-model="fax" placeholder="Fax" id="fax" title="Please input number only.">
+
+                            </div>
+
+
+
+                            <div class="form-group form-inline">
+
+                                <label class="label-company">Detail<span> :</span></label>
+
+                                <textarea class="cn-view form-control"  rows="2" cols="100" name="detail" ng-model="detail" placeholder="Detail"></textarea>
+
+                            </div>
+
+
+
+                            <div class="form-group form-inline">
+
+                                <label class="label-company">Address<span> :</span></label>
+
+                                <textarea class="cn-view form-control" rows="2" cols="100" name="address" ng-model="address" placeholder="Address" ></textarea>
+
+                            </div>
+
+
+
+                            <div class="form-group form-inline">
+
+                                <label class="label-company">Email<span> :</span></label>
+
+                                <input type="email" class="cn-view form-control" size="100" maxlength="100" name="email" ng-model="email" placeholder="example@example.com" >
+
+                            </div>
+
+
+
+                            <div class="form-group form-inline">
+
+                                <label class="label-company">Website<span> :</span></label>
+
+                                <input type="text"  class="cn-view form-control" size="100" maxlength="40" name="website" ng-model="website" placeholder="http://www.example.com">
+
+                            </div>
+
+
+
+                            <div class="form-group form-inline">
+
+                                <label class="label-company">Operating Hours<span> :</span></label>
+
+                                <input type="text" class="cn-view form-control" name="operation" ng-model="operation" size="100" placeholder="Operation">
+
+                            </div>
+
+
+
+
+
+                        <div style="float: right;   margin-right: 9.5%;">
+
+                            <button type="submit" class="bt-comnew btn btn-success" id="bt-view" ng-click="savenewhotel()">
+
+                            <span class="fa2 fa fa-floppy-o" ></span> Save</button>
+
+
+
+                          <button type="button" class="btn btn-default" id="bt-view">Cancel</button>
+
+                        </div>
+
+
+
+                          
+
+                        </form>
 
 
 
@@ -1130,11 +1161,19 @@
 
     </body>
 
-    <style >
+   
+
+            <style >
+
+            #InputPassPhone {
+
+    /*margin-bottom: 20px;*/
+
+}
 
     #InputPassPhone{
 
-        margin-bottom: 20px;
+        /*margin-bottom: 20px;*/
 
 
 
@@ -1156,7 +1195,7 @@
 
     /* margin-left: 5%; */
 
-     margin-bottom: 20px; 
+     /*margin-bottom: 20px; */
 
 }
 
@@ -1176,7 +1215,7 @@
 
     padding-left: 0;
 
-    border: 1px solid #ddd;
+    border: 1px solid #ccc;
 
     position: absolute;
 
@@ -1200,9 +1239,9 @@
 
     margin: 0;
 
-    margin-bottom: 20px;
+    /*margin-bottom: 20px;*/
 
-        border-bottom: 1px solid #ddd;
+        border-bottom: 1px solid #ccc;
 
 }
 
@@ -1219,26 +1258,6 @@
     background: #e91e63;
 
     color: #fff !important;
-
-}
-
-@media screen and (max-width: 767px){
-
-
-
-
-
-.cu-name{
-
-     margin-left: 0;
-
-}
-
- label.label-user {
-
-    text-align: left;
-
-}
 
 }
 
@@ -1268,79 +1287,87 @@
 
     }
 
-    // validate = function(){
+    validate = function(){
 
-    //     var phone1 = document.getElementById("phone1").value;
+        var phone1 = document.getElementById("phone1").value;
 
-    //     var phone2 = document.getElementById("phone2").value;
+        var phone2 = document.getElementById("phone2").value;
 
-    //     var ok = true;
+        var ok = true;
 
-    //     if (phone1 == phone2){
+        if (phone1 == phone2){
 
-    //         alert("Phone2 is same phone")
+            alert("Phone2 is same phone")
 
-    //         document.getElementById("phone1").style.borderColor = "#E34234";
+            document.getElementById("phone1").style.borderColor = "#E34234";
 
-    //         document.getElementById("phone2").style.borderColor = "#E34234";
+            document.getElementById("phone2").style.borderColor = "#E34234";
 
-    //         ok = false;
+            ok = false;
 
-    //     }
+        }
 
-    //     if (phone1 != phone2){
+        if (phone1 != phone2){
 
-    //         document.getElementById("phone1").style.borderColor = "#CCC";
+            document.getElementById("phone1").style.borderColor = "#CCC";
 
-    //         document.getElementById("phone2").style.borderColor = "#CCC";
+            document.getElementById("phone2").style.borderColor = "#CCC";
 
-    //     }
+        }
 
-    //     return ok;
+        return ok;
 
 
 
-    // }
+    }
 
     var app = angular.module('myApp',['ngCookies']);
 
     app.controller('myCtrl', function($scope, $http, $cookies, $window,$filter){
 
-        //loadpage();
-
-        loadpage();
-
-         $scope.dataphonecode;
+        
 
         $scope.imgcoutry = '';
 
-        $scope.btnsave = false;
+         $scope.Countryfont = "      Please select country";
 
-        $scope.url = 'http://localhost/dana/';
+                 loadpage();
 
-    function loadpage(){
+        function loadpage(){
 
-        $scope.Countryfont = "      Please select country";
+            if($cookies.get('login'))
 
-      if($cookies.get('login'))
+            {
 
-      {
+                //console.log("in case login")
 
-        $scope.loginstatus = false;
+                
 
-        $scope.token = $cookies.get('login');
+       
 
-        $http({
+                $http({
 
-                method:'post',
+                    method: 'post',
 
-                url: "../php/getUserbyid.php",
+                    url: "../php/getUserbyid.php",
 
-                data: $.param({id: $cookies.get('login')}),
+                    data: $.param({'id': $cookies.get('login')}),
 
-                headers : {'Content-Type': 'application/x-www-form-urlencoded'}
+                    headers: {'Content-Type': 'application/x-www-form-urlencoded'}
 
-            }).success(function(res){
+                }).success(function (res) {
+
+                    if (res == "invalid") {
+
+                        location.href = "/login";
+
+                        return;
+
+                    }
+
+                    //console.log(res)
+
+
 
                     //console.log(res[0].role)
 
@@ -1388,9 +1415,11 @@
 
                     }
 
-            });
+                    
 
-            $http({
+             });
+
+                $http({
 
                     method : 'POST',
 
@@ -1408,129 +1437,25 @@
 
             });
 
-      }
+             
 
-      else
 
-      {
 
-        $scope.loginstatus = true;
 
-        $window.location.href="../login.php";
 
-      }
+            }
 
-    }
+            else
 
-     $scope.profile = function(){
+            {
 
-        location.href="profile";
+                $window.location.href = '../login.php';
 
+            }
 
+        }
 
-    }
-
-    $scope.savenewagent = function(){
-
-        //console.log($scope.firstname )
-
-        //console.log($scope.lastname )
-
-        //console.log($scope.phone )
-
-        //console.log($scope.phone2 )
-
-        //console.log($scope.email )
-
-        
-
-        //console.log($scope.company)
-
-        //console.log($scope.address)
-
-        //console.log($scope.dataphonecode)
-
-
-
-
-
-        $http({
-
-                method : 'POST',
-
-                url : "../php/addAgent.php",
-
-                data: $.param({'firstname': $scope.firstname
-
-                            ,'lastname': $scope.lastname
-
-                            ,'phone': $scope.phone
-
-                            ,'email': $scope.email
-
-                            ,'company': $scope.company
-
-                            ,'phonecode':$scope.dataphonecode
-
-                            ,'address': $scope.address
-
-                            
-
-
-
-                            
-
-                            }), 
-
-
-
-                headers: {'Content-Type': 'application/x-www-form-urlencoded'}
-
-                }).success(function(res){
-
-                 //console.log(res)
-
-                 ////console.log("asasasasas")
-
-                 $window.location.href='agent.php';
-
-                 
-
-                       
-
-            });
-
-    }
-
-    
-
-    $scope.confirmpassword = function(req){
-
-                        if ($scope.password != $scope.password2) {
-
-                            //alert("Passwords Do not match");
-
-                            document.getElementById("pass1").style.borderColor = "#E34234";
-
-                            document.getElementById("pass2").style.borderColor = "#E34234";
-
-                            ok = false;
-
-                        }
-
-                        if ($scope.password == $scope.password2) {
-
-                            document.getElementById("pass1").style.borderColor = "#4caf50";
-
-                            document.getElementById("pass2").style.borderColor = "#4caf50";
-
-                            $scope.btnsave = true;
-
-                        }    
-
-                      }
-
-     $scope.Country = function(){      
+         $scope.Country = function(){      
 
       $scope.countrybox = { 'display':'block'};
 
@@ -1578,91 +1503,66 @@
 
     }
 
-    // $scope.login = function(){
+        $scope.savenewhotel = function(){
 
-    //    //angular.element(document.querySelector('#inTurnFadingTextG')).css('display', 'block');
 
-    //   if($scope.username!=undefined&&$scope.password!=undefined)
+        console.log($scope.hotel_name )
 
-    //   {
+        console.log($scope.city )
 
-    //         $http({
+        console.log($scope.phone )
 
-    //                 method: 'post',
+        console.log($scope.email )
 
-    //                 url: "../php/getUserid.php",
+        console.log($scope.fax )
 
-    //                 data: $.param({token: $cookies.get('login')}),
+        console.log($scope.detail )
 
-    //                 headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+        console.log($scope.website )
 
-    //             }).success(function (res) {
+        console.log($scope.operation )
 
-    //                 if (res == "invalid") {
+        console.log($scope.dataphonecode)
 
-    //                     location.href = "/login";
+        console.log($scope.address)
 
-    //                     return;
-
-    //                 }
-
-    //                 // //console.log(res)
-
-    //                 // $scope.isSuperAdmin = (res[0].role = 0) ? false : true;
-
-    //                 // $scope.isAdmin = (res[0].role = 2) ? false : true;
-
-                    
-
-    //                 // if(res[0].role==0)
-
-    //                 //     $scope.role = 'SYSTEM SUPER ADMIN';
-
-    //                 // else if(res[0].role==2)
-
-    //                 //     $scope.role = 'SYSTEM ADMIN';
-
-    //                 // else 
-
-    //                 //     $scope.role = 'COUNTER ADMIN';
-
-                  
-
-                   
-
-    //                 // if(res[0].email != undefined){
-
-    //                 //     $scope.name = (res[0].email).split('@');
-
-    //                 //     $scope.Username = $scope.name[0];
-
-    //                 //     //console.log($scope.Username)
-
-    //                 // }
-
-    //                 // $scope.Menu = res[1];
-
-    //                 // //console.log($scope.Menu)
-
-                    
-
-    //          });
-
-    //     }
-
-    //     }
-
-        
+// '".$_POST[name]."','".$_POST[detail]."','".$_POST[phone]."','".$_POST[email]."','".$_POST[fax]."','".$_POST[province]."','".$_POST[address]."','".$_POST[operation]."','".$_POST[website]."','".$_POST[phonecode]."
 
 
 
+        $http({
+
+                method : 'POST',
+                url : "../php/addHotel.php",
+                data: $.param({'name': $scope.hotel_name
+                            ,'province': $scope.city
+                            ,'phone': $scope.phone 
+                            ,'email': $scope.email
+                            ,'fax': $scope.fax
+                            ,'detail': $scope.detail
+                            ,'website': $scope.website
+                            ,'operation': $scope.operation
+                            ,'phonecode':$scope.dataphonecode
+                            ,'address': $scope.address
+                            }), 
 
 
 
+                headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+                }).success(function(res){
+                 console.log(res)
 
+                 ////console.log("asasasasas")
 
+                 $window.location.href='hotel.php';
 
+                 
 
+                       
+
+            });
+
+    }
 
         $scope.logout = function(){
 
@@ -1674,207 +1574,27 @@
 
         }
 
+        $scope.edituser = function(id){
+
+            localStorage.setItem("usereditid", id);
+
+            $window.location.href = 'edituser';
+
+        }
+
+        $scope.zoombook = function(id){
+
+            localStorage.setItem("booking-view", id);
+
+            $window.location.href = 'booking-view?bookingid='+id;
+
+        }
+
         
 
-        $scope.genpass = function(){
 
-                      //alert('xxxx');
 
-                      var y;
-
-                      var sales;
-
-                      var count;
-
-                      var check = 0;
-
-                      var round = 0;
-
-                      var start = 0;
-
-
-
-                            $http({
-
-                                method: 'POST',
-
-                                url : "/api/getallsales",
-
-                                
-
-                                headers : {'Content-Type': 'application/x-www-form-urlencoded'}
-
-                            }).success(function(res) {
-
-
-
-                                for(var i = 0 ; i < res.length ; i++)
-
-                                {
-
-                                    round++;
-
-                                    sales = res[i].sales_id;
-
-                                    if(res[i].sales_id != null)
-
-                                    {
-
-                                        if(check<=parseInt(res[i].sales_id))
-
-                                        {
-
-                                            check = parseInt(res[i].sales_id);
-
-                                        }
-
-                                    }
-
-                                    if(round==res.length)
-
-                                    {
-
-                                        start = 1;
-
-                                    }
-
-
-
-                                }
-
-                                
-
-                                if( start == 1 )
-
-                                {
-
-                                    count = check+1;
-
-                                    ////console.log("y"+count);
-
-                                    
-
-                                    var n = count.toString();
-
-                                    //console.log("n"+n);
-
-                                    var zero = 6 - n.length;
-
-                                    //console.log("zero"+zero);
-
-                                    var newcode;
-
-                                    for ( var i = 0;i < zero;i++ )
-
-                                    {
-
-                                        if(i==0)
-
-                                        {
-
-                                            newcode = '0';
-
-                                        }
-
-                                        else
-
-                                        {
-
-                                            newcode += '0';
-
-                                        }
-
-                                    }
-
-                                    var code = newcode + n;
-
-                                    $scope.passgen = code;
-
-                                    //var finalcode = booking + code;
-
-                                    //console.log(code);
-
-                                }
-
-                                //$scope.passgen = code;
-
-                                /*for(var i = 0 ; i < sales.length ; i++)
-
-                                    {
-
-                                         //sales = res[i].sales_id;
-
-                                        ////console.log(sales);
-
-                                        if(res[i].sales_id != null&& res[i].sales_id != code)
-
-                                        {
-
-                                            //count++;
-
-                                            $scope.passgen = code;
-
-                                            //console.log($scope.passgen);
-
-                                            
-
-                                            
-
-                                        }
-
-                                        else{
-
-                                            
-
-                                            var x = parseInt(code)+1;
-
-                                            var y = x.toString();
-
-                                            //$scope.passgen  = x+1
-
-                                            var zero = 6 - y.length;
-
-                                            //console.log("zero"+zero);
-
-                                            var newcode2;
-
-                                            for ( var i = 0;i < zero;i++ )
-
-                                            {
-
-                                                if(i==0)
-
-                                                {
-
-                                                    newcode2 = '0';
-
-                                                }
-
-                                                else
-
-                                                {
-
-                                                    newcode2 += '0';
-
-                                                }
-
-                                            }
-
-                                            var code2 = newcode2 + x;
-
-                                            //console.log(x);
-
-                                            $scope.passgen  = code2;
-
-                                        }
-
-
-
-                                    }*/
-
-                            });
-
-                    } 
+       
 
                  
 

@@ -169,6 +169,16 @@
                                     </a>
 
                                 </li>
+                                <li >
+                                    <a href="hotel.php">
+                                       <i class="material-icons">location_city</i>Hotels
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="hotels-package.php">
+                                       <i class="material-icons">hotel</i>Hotels package
+                                    </a>
+                                </li>
 
                                 <li>
 

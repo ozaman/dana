@@ -91,6 +91,16 @@
                                         <i class="material-icons">directions_car</i> Transfer Packages
                                     </a>
                                 </li>
+                                <li >
+                                    <a href="hotel.php">
+                                       <i class="material-icons">location_city</i>Hotels
+                                    </a>
+                                </li>
+                                 <li>
+                                    <a href="hotels-package.php">
+                                       <i class="material-icons">hotel</i>Hotels package
+                                    </a>
+                                </li>
                                 <li class="active">
                                     <a href="add-booking.php">
                                         <i class="material-icons">note_add</i>Add Bookings
@@ -1404,10 +1414,19 @@ $(document).ready(function(){
     }
     $scope.changenumperson = function(person){
             if ($scope.checktype == 'Tour') {
-            $scope.adult = person;
-            $scope.total_price_adult = $scope.sale_price_adult*person;
-            $scope.total_price = $scope.total_price_adult + $scope.total_price_child;
-            //console.log($scope.adult)
+                $scope.adult = person;
+                $scope.total_price_adult = $scope.sale_price_adult*person;
+                if ($scope.selectpackage.name == "City Tour") {
+                     console.log($scope.selectpackage.name)
+                     $scope.total_price = $scope.selectpackage.sale_price_adult;
+                }
+                else{
+                    $scope.total_price = $scope.total_price_adult + $scope.total_price_child;
+                }
+               
+            
+           
+            console.log($scope.total_price)
         }
         if ($scope.checktype == 'Transfer') {
             if ( $scope.child+$scope.adult > $scope.person) {
@@ -1421,7 +1440,15 @@ $(document).ready(function(){
          if ($scope.checktype == 'Tour') {
             $scope.child = person2;
             $scope.total_price_child = $scope.sale_price_child*person2;
-            $scope.total_price = $scope.total_price_adult + $scope.total_price_child;
+            if ($scope.selectpackage.name == "City Tour") {
+                     //console.log($scope.selectpackage)
+                     $scope.total_price = $scope.selectpackage.sale_price_adult;
+                }
+                else{
+                    $scope.total_price = $scope.total_price_adult + $scope.total_price_child;
+                }
+            
+            
             //console.log($scope.child)
         }
         if ($scope.checktype == 'Transfer') {
@@ -1488,6 +1515,8 @@ $(document).ready(function(){
     
     $scope.adultSelect = function(person){person
         if ($scope.checktype == 'Tour') {
+
+            // if ($scope.selectpackage == ) {}
             //console.log(person)
             $scope.adultshow = person;
             $scope.sumadult = (person * $scope.sumprice_adult);
@@ -1564,29 +1593,29 @@ $(document).ready(function(){
     }
     $scope.saveAddbooking =function(){
        
-            if ($scope.time_h == undefined) {
+        if ($scope.time_h == undefined) {
                 $scope.time_h = '00';
-            }
-            if ($scope.time_m == undefined) {
+        }
+        if ($scope.time_m == undefined) {
                 $scope.time_m = '00';
-            }
-            if ($scope.time_h2 == undefined) {
+        }
+        if ($scope.time_h2 == undefined) {
                 $scope.time_h2 = '00';
-            }
-            if ($scope.time_m2 == undefined) {
-                $scope.time_m2 = '00';
-            }
+        }
+        if ($scope.time_m2 == undefined) {
+            $scope.time_m2 = '00';
+        }
             
-            if ($scope.child == undefined) {
-                $scope.child = 0;
-            }
-            if ($scope.adult == undefined) {
-                $scope.adult = 0;
-            }
-            if($scope.phonecode == '' || $scope.phonecode == undefined){
-                $scope.phonecode = $scope.tcountryValue;
-            }
-             if ($scope.checktype == 'Tour') {
+        if ($scope.child == undefined) {
+            $scope.child = 0;
+        }
+        if ($scope.adult == undefined) {
+            $scope.adult = 0;
+        }
+        if($scope.phonecode == '' || $scope.phonecode == undefined){
+            $scope.phonecode = $scope.tcountryValue;
+        }
+         if ($scope.checktype == 'Tour'){
            
            
         }
@@ -1595,6 +1624,7 @@ $(document).ready(function(){
             
             $scope.total_price = $scope.total_pricetransfer;
         }
+
             
             
             ////console.log('aaa'+ $('#datetimepicker11').val())

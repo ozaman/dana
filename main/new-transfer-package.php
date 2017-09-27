@@ -85,6 +85,16 @@
                                         <i class="material-icons">directions_car</i> Transfer Packages
                                     </a>
                                 </li>
+                                <li >
+                                    <a href="hotel.php">
+                                       <i class="material-icons">location_city</i>Hotels
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="hotels-package.php">
+                                       <i class="material-icons">hotel</i>Hotels package
+                                    </a>
+                                </li>
                                 <li>
                                     <a href="add-booking.php">
                                         <i class="material-icons">note_add</i>Add Bookings

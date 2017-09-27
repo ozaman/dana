@@ -174,10 +174,14 @@
                                        <i class="material-icons">location_city</i>Hotels
                                     </a>
                                 </li>
-                                <li>
+                                 <li class="active">
+
                                     <a href="hotels-package.php">
+
                                        <i class="material-icons">hotel</i>Hotels package
+
                                     </a>
+
                                 </li>
 
                                 <li>
@@ -200,7 +204,7 @@
 
                                 </li>
 
-                                <li class="active">
+                                <li>
 
                                     <a href="agent.php">
 
@@ -212,7 +216,7 @@
 
                                 
 
-                                <li >
+                                <li>
 
                                     <a href="users.php">
 
@@ -293,13 +297,13 @@
                                 </li>
                                 <li >
                                     <a href="../report/account-tour.php">
-                                   <i class="material-icons">business_center</i>
+                                    <i class="material-icons">business_center</i>
                                          Account Tours
                                     </a>
                                 </li>
                                 <li >
                                     <a href="../report/manage-booking.php">
-                                    <i class="material-icons">dvr</i>
+                                     <i class="material-icons">dvr</i>
                                          Manage Booking
                                     </a>
                                 </li>
@@ -334,7 +338,7 @@
 
                             <ul class="nav">
 
-                              <!--  <li>
+                               <!-- <li>
 
                                     <a href="../logs/add-booking.php">
 
@@ -524,7 +528,7 @@
 
                                     <li class="">
 
-                                        <a href="users.php" >
+                                       <a href="users.php" >
 
                                        <i class="material-icons">settings</i>Settings
 
@@ -602,29 +606,7 @@
 
             </nav>
 
-             <style>
-
-                        label.label-user {
-
-    text-align: right;
-
-    width: 125px;
-
-    margin-right: 10px;
-
-}
-
-.form-group {
-
-  margin: 0;
-
-  padding-bottom: 10px;
-
-  margin: 20px 0 0 0;
-
-}
-
-                    </style>
+            <style ></style>
 
           
 
@@ -634,8 +616,6 @@
 
                     <div class="row">
 
-                        
-
                         <div class="col-md-12"> 
 
                             <div class="row">                            
@@ -644,15 +624,15 @@
 
                                     <div class="navigate" >
 
-                                        <a href="users.php">
+                                        <a href="new-hotel-package.php">
 
-                                            <button type="button" class="btn btn-rose btn-sm" style="z-index: 100"><i class="fa fa-sign-out fa-fw"></i> Back</button></a>
+                                            <button type="button" class="btn btn-success btn-sm" style=""><i class="fa fa-plus padding-icon" aria-hidden="true"></i> New</button></a>
 
                                         <ol class="breadcrumb" style="margin: 0;padding: 11px;padding-bottom: 0;background: #fff; display: inline-block; ">
 
                                             <!-- <li><a href="package.php">Main Menu</a></li> -->
 
-                                            <li class="active"> / New Agent</li>
+                                            <li class="active"><span>/</span> Hotels Package</li>
 
                                         </ol>
 
@@ -664,237 +644,142 @@
 
                         </div>
 
-                    
+                     
 
-                     <div class="col-lg-12">
+                      
 
-                        <div class="modal-header">
+                       <div class="col-md-12">
 
-                                
 
-                                <h4 class="modal-title">Create a New agent</h4>
 
-                            </div>
+                    <div class="booking_searchengine">
 
-                            <form class="form-inline" >
+                            <p style="font-weight: 300;display: inline-block;margin-right:15px;">Search</p>
 
-                                
+                            <div class="select" >
 
-                                    <!-- <input type="hidden" class="form-control" name="id" value="{{companyId}}">
+                          <div class='span6'>
 
-                                    <input type="hidden" class="form-control" name="token" value="{{token}}"> -->
+                              <i class="fa fa-sort-desc"></i>
 
+                              <input type="text" class="form-control" size="17" placeholder="Search By" value="{{search_box_list}}" ng-click="openlist()" style="color: transparent;" x-webkit-speech />
 
+                              <ul class="search_list">
 
-                                    <div class="form-group">
+                                  <li ng-click="clicklist('Package Name')">Package Name</li>
 
-                                        <label class="label-user">First Name<span> :</span></label>
+                                  <li ng-click="clicklist('Company Name')">Company Name</li>
 
-                                        <input type="text" class="form-control" name="firstname" ng-model="firstname" placeholder="First Name" pattern="^[a-z A-Z ก-๙]+$" title="Please input character only." required oninvalid="this.setCustomValidity('This information is required.')" oninput="setCustomValidity('')" size="100">
+                                  
 
-                                    </div>
+                              </ul>
 
+                          </div>
 
+                      </div>
 
-                                    <div class="form-group">
+                      <div class="search-box">
 
-                                        <label class="label-user">Last Name<span> :</span></label>
+                          <input type="text" class="search_tourname form-control" ng-model="search.name" placeholder="Package Name">
 
-                                        <input type="text" class="form-control" name="lastname" ng-model="lastname" placeholder="Last Name" pattern="^[a-z A-Z ก-๙]+$" title="Please input character only." required oninvalid="this.setCustomValidity('This information is required.')" oninput="setCustomValidity('')" size="100">
+                         
 
-                                    </div>
+                          <input type="text" class="search_company form-control" ng-model="search.company_name" placeholder="Company Name">
 
+                          
 
+                         <!--  <a ng-click="reset_search_click()" class="reset_search">Reset</a> -->
 
-                                    <!-- <div class="form-group">
+                      </div>
 
-                                        <label class="label-user">ID Card No.<span> :</span></label>
+                            <a ng-click="reset_search_click()" class="reset_search">Reset</a>
 
-                                        <input type="text" class="form-control" name="idcard" placeholder="ID Card No." pattern="^[0-9]{13}$" title="Please input ID Card No. 13 digits." required size="100">
+                        </div>
 
-                                    </div> -->
+                            <div class="card">
 
+                                <!-- <div class="card-header card-header-icon" data-background-color="rose">
 
+                                    <i class="material-icons">assignment</i>
 
-                                    <div class="form-group" style="width: 100%">
+                                </div> -->
 
-                                        <label class="label-user">Phone<span> :</span></label>
+                                <!-- <h4 class="card-title">Simple Table</h4> -->
 
-                                           
-
-                                            <div id="select-country" class="form-control " ng-click="Country()" size="100" >
-
-                                                <span><img ng-if="imgcoutry != ''" src="../files/img/flag/icon/{{imgcoutry}}.png" width="22" style="margin-right: 5px"></span>
-
-                                                <span ng-bind="Countryfont"></span>
-
-                                           </div>
-
-                                              <ul class="cu-name" ng-style="countrybox">
-
-                                                  <li ng-repeat="i in country" ng-click="numCountryselect(i,$event)">
-
-                                                  <span><img src="../files/img/flag/icon/{{i.country_code}}.png" width="25"></span>
-
-                                                    <!-- <span id="flagstrap-icon" class="flagstrap-icon-{{i.iso}}"></span> -->
-
-                                                    <span>(+{{i.phonecode}})<span id="name-cu">{{i.name_en}}</span></span>
-
-                                                  </li>
-
-                                              </ul>
-
-                  
-
-                
-
-                                               
-
-                                                        <input type="text" class="form-control " name="selectcountryValue" id="labelcun" name="phonecode"  ng-value="selectcountryValue"  disabled  size="10"  placeholder="Code country">
-
-                                                           
-
-                                                 
-
-                                                        <input type="text" class="form-control" name="phone" ng-model="phone" id="InputPassPhone" placeholder="Phone" size="49.5">
-
-                                                       
-
-                                                        
-
-                                    </div>
-
-                                    <!--  <div class="form-group">
-
-                                        <label class="label-user">Phone2<span> :</span></label>
-
-
-
-                                        <input type="phone2" id="phone2" class="form-control" name="phone2" placeholder="Phone2" pattern="^[0-9]{9,10}$" title="Please input Phone No. 9 or 10 digits." size="100">
-
-
-
-                                     </div> -->
-
-                                     <div class="form-group" style="margin-top: 0 ">
-
-                                        <label class="label-user">Email<span> :</span></label>
-
-
-
-                                        <input type="email" class="form-control" name="email" ng-model="email" placeholder="Email" size="100" placehoder="exam@exam" required>
-
-
-
-
-
-
-
-                                    </div>
-
-                                     <div class="form-group">
-
-                                        <label class="label-user">Company<span> :</span></label>
-
-                                        <input type="text" class="form-control" name="company" ng-model="company" placeholder="Company" required size="100">
-
-                                    </div>
-
-                                     <div class="form-group">
-
-                                        <label class="label-user">Address<span> :</span></label>
-
-                                        <textarea type="text" class="form-control" rows="4" cols="100" name="address" ng-model="address" placeholder="Address" required size="100"></textarea>
-
-                                    </div>
-
-                                   
-
-
-
-                                  <!--   <div class="form-group">
-
-                                        <label class="label-user">Password<span> :</span></label>
-
-                                        <input type="password" class="form-control" name="password" ng-model="password"  id="pass1" placeholder="Password" required size="100">
-
-                                    </div>
-
-
-
-                                    <div class="form-group">
-
-                                        <label class="label-user">Confirm Password<span> :</span></label>
-
-                                        <input type="password" class="form-control" id="pass2" ng-model="password2" ng-change="confirmpassword(password2)" placeholder="Confirm Password" required size="100">
-
-                                    </div> -->
-
-
-
-
-
-                                    <!-- <div class="form-group" style="width: 100%">
-
-                                        <label class="label-user" size="100">User Type<span> :</span></label>
-
-                                        <select class="form-control" name="role" ng-model="role" id="level" required>
-
-
-
-                                            <option  value="0">None</option>
-
-
-
-                                            <option value="1" ng-if="isSuperAdmin">System Supper Admin</option>
-
-                                            <option value="2" ng-if="isSuperAdmin || isAdmin">System Admin</option>
-
-                                            <option value="3">System User</option>
-
-                                            <option value="4">System User Lab</option>
-
-
-
-                                            
-
-                                        </select>
-
-                                    </div> -->
-
-
+                                <!-- <div class="card-header" data-background-color="blue"> -->
 
                                     
 
-<br>
+                                    <!-- <h4 class="title">Users </h4> -->
 
-                               
+                                    <!-- <p class="category">Here is a subtitle for this table</p> -->
 
-                                <div style="float: right;   margin-right: 9.5%;">
+                                <!-- </div> -->
 
-                                    <button  type="submit" class="btn btn-success" id="bt-view" ng-click="savenewagent()" >
+                                <div class="card-content table-responsive">
 
-                                        <span class="fa2 fa fa-floppy-o" aria-hidden="true" ></span> Save</button>
+                                    <table class="table">
 
-                                    <button type="reset" class="btn btn-default" data-dismiss="modal" onclick="reset()" id="bt-view">Cancel</button>
+                                        <thead class="text-primary" >
+
+                                            
+
+                                           
+
+                                            <th align="center" ></th>
+                                            <th align="center" >Package Name</th>
+                                            <th align="center" >Hotel Name</th>
+                                            <th align="center" >Province</th>
+                                            <th align="center" >Company Name</th>
+                                            <th align="center" >Night</th>
+                                            <th align="center" >Room Type</th>
+                                            <th align="center" >Class</th>
+                                            <th align="center" style="text-align: center;" >Net Price</th>
+                                            <th align="center" style="text-align: center;" >Sale Price</th>
+                                            <th>Actions</th>
+                                            <!-- <th></th> -->
+
+                                        </thead>
+
+                                        <tbody>
+
+                                            <tr ng-repeat="item in datahotel | filter:search:strict ">
+
+                                                <!-- <td>{{$index+1}}</td> -->
+                                                <td class="col-sm-1" align="center" ng-bind="$index+1"></td>
+                                                <td class="col-lg-2 col-md-3" ><span ng-bind="item.topic"></span></td>
+                                                 <td class="col-md-1"><span ng-bind="item.hotel_name"></span></td>
+                                                <td class="col-md-1"><span ng-bind="item.province"></span></td>
+                                                <td class="col-lg-1 col-md-1"><span ng-bind="item.company_name"></span></td>
+                                                <td align="center" class="col-md-1"><span ng-bind="item.night"></span></td>
+                                                <td class="col-lg-2 col-md-2"><span ng-bind="item.room_type"></span></td>
+                                                <td class="col-lg-1 col-md-1"><span ng-bind="item.classs"></span></td>
+                                                <td align="right" class="col-lg-1 col-md-1"><span ng-bind="item.net_price | currency:'':0"></span></td>
+                                                <td align="right" class="col-lg-1 col-md-1"><span ng-bind="item.sale_price | currency:'':0"></span></td>
+                                                <td align="center"><i ng-click="deletehotel(item)"  class="material-icons" style="color: #e91e1e;  font-size: 30px;">delete_forever</i></td>
+
+                                                <!-- <td class="col-sm-1" align="center"><a href="view-transfer-package.php#?data={{item.id}}"><i class="material-icons"  style="color: #9E9E9E; font-size: 25px;">find_in_page</i></a><!-- <a style="cursor: pointer;" ng-click="remove(item)"><i class="material-icons" style="color: #e91e1e;  font-size: 30px;">delete_forever</i></a> --><!-- </td> -->
+                                                
+
+                                                
+
+
+
+                                            </tr>
+
+                                            
+
+                                        </tbody>
+
+                                    </table>
 
 
 
                                 </div>
 
-                            </form>
+                            </div>
 
-
-
-
-
-                    </div>
-
-                      
-
-                     
-
-
+                        </div>
 
                     </div>
 
@@ -903,6 +788,45 @@
                 </div>
 
             </div>
+            <div class="modal fade" id="remove">
+
+                    <div class="modal-dialog">
+
+                        <!-- Modal content-->
+
+                        <div class="modal-content">
+
+                            <div class="modal-header">
+
+                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+
+                                <h4 class="modal-title" >Hotel</h4>
+
+                            </div>
+
+                            <div class="modal-body" >
+
+                                <div>Are you sure to delete Hotel name:  {{datahotelDelete}}</div>
+
+                            </div>
+
+                           
+
+                            <div class="modal-footer">
+
+                                <button type="button" class="btn btn-danger" data-dismiss="modal"  ng-click="deletehotelbyid(hotelId)">Remove</button>
+
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+
+                            </div>
+
+                            
+
+                        </div>
+
+                    </div>
+
+                </div>
 
              <div class="modal fade" id="logout">
 
@@ -929,6 +853,42 @@
                             <div class="modal-footer">
 
                                 <button type="button" class="btn btn-danger" data-dismiss="modal" ng-click="logout()">Yes</button>
+
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            <div class="modal fade" id="remove">
+
+                    <div class="modal-dialog">
+
+                        <!-- Modal content-->
+
+                        <div class="modal-content">
+
+                            <div class="modal-header">
+
+                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+
+                                <h4 class="modal-title" >Tour</h4>
+
+                            </div>
+
+                            <div class="modal-body">
+
+                                <div>Are you sure to delete tour {{namedelete}}</div>
+
+                            </div>
+
+                            <div class="modal-footer">
+
+                                <button type="button" class="btn btn-danger" data-dismiss="modal" ng-click="deletePackage(iddelete)">Remove</button>
 
                                 <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
 
@@ -1130,217 +1090,49 @@
 
     </body>
 
-    <style >
-
-    #InputPassPhone{
-
-        margin-bottom: 20px;
-
-
-
-    }
-
-    #select-country {
-
-        text-align: center;
-
-    border: 1px solid #cccccc;
-
-    /*border-radius: 5px;*/
-
-    display: inline-block;
-
-    padding: 6px 50px;
-
-     /*width: 65%; */
-
-    /* margin-left: 5%; */
-
-     margin-bottom: 20px; 
-
-}
-
-        .cu-name{
-
-    display: none;
-
-    background: #fff;
-
-    z-index: 1;
-
-    height: 190px;
-
-    overflow-y: scroll;
-
-    /* overflow: hidden; */
-
-    padding-left: 0;
-
-    border: 1px solid #ddd;
-
-    position: absolute;
-
-    margin-left: 138px;
-
-    border-radius: 0 0 5px 5px;
-
-   
-
-   /* margin-top: -16px;
-
-    margin-left: 22.5%;*/
-
-
-
-}
-
-#labelcun{
-
-    background-color: #fff;
-
-    margin: 0;
-
-    margin-bottom: 20px;
-
-        border-bottom: 1px solid #ddd;
-
-}
-
-.cu-name li{
-
-   padding: 3px 35px;
-
-   /*color: #fff; */
-
-}
-
-.cu-name li:hover{
-
-    background: #e91e63;
-
-    color: #fff !important;
-
-}
-
-@media screen and (max-width: 767px){
-
-
-
-
-
-.cu-name{
-
-     margin-left: 0;
-
-}
-
- label.label-user {
-
-    text-align: left;
-
-}
-
-}
-
-    </style>
-
     <script>
-
-    function checkURL (abc) {
-
-      var string = abc.value;
-
-        if (!~string.indexOf("www")){
-
-          string = "http://" + "www." + string;
-
-        }
-
-        else if (~string.indexOf("www")){
-
-          string = "http://" + string;
-
-        }
-
-        abc.value = string;
-
-        return abc
-
-    }
-
-    // validate = function(){
-
-    //     var phone1 = document.getElementById("phone1").value;
-
-    //     var phone2 = document.getElementById("phone2").value;
-
-    //     var ok = true;
-
-    //     if (phone1 == phone2){
-
-    //         alert("Phone2 is same phone")
-
-    //         document.getElementById("phone1").style.borderColor = "#E34234";
-
-    //         document.getElementById("phone2").style.borderColor = "#E34234";
-
-    //         ok = false;
-
-    //     }
-
-    //     if (phone1 != phone2){
-
-    //         document.getElementById("phone1").style.borderColor = "#CCC";
-
-    //         document.getElementById("phone2").style.borderColor = "#CCC";
-
-    //     }
-
-    //     return ok;
-
-
-
-    // }
 
     var app = angular.module('myApp',['ngCookies']);
 
     app.controller('myCtrl', function($scope, $http, $cookies, $window,$filter){
 
-        //loadpage();
-
         loadpage();
 
-         $scope.dataphonecode;
+        function loadpage(){
 
-        $scope.imgcoutry = '';
+            if($cookies.get('login'))
 
-        $scope.btnsave = false;
+            {
 
-        $scope.url = 'http://localhost/dana/';
+                //console.log("in case login")
 
-    function loadpage(){
+                
 
-        $scope.Countryfont = "      Please select country";
+       
 
-      if($cookies.get('login'))
+                $http({
 
-      {
+                    method: 'post',
 
-        $scope.loginstatus = false;
+                    url: "../php/getUserbyid.php",
 
-        $scope.token = $cookies.get('login');
+                    data: $.param({'id': $cookies.get('login')}),
 
-        $http({
+                    headers: {'Content-Type': 'application/x-www-form-urlencoded'}
 
-                method:'post',
+                }).success(function (res) {
 
-                url: "../php/getUserbyid.php",
+                    if (res == "invalid") {
 
-                data: $.param({id: $cookies.get('login')}),
+                        location.href = "/login";
 
-                headers : {'Content-Type': 'application/x-www-form-urlencoded'}
+                        return;
 
-            }).success(function(res){
+                    }
+
+                    //console.log(res)
+
+
 
                     //console.log(res[0].role)
 
@@ -1388,101 +1180,17 @@
 
                     }
 
-            });
+                    
 
-            $http({
+             });
 
-                    method : 'POST',
-
-                    url : "../php/getCountry.php",
-
-                    //data: $.param({sv: $scope.dataSV}),
-
-                    headers: {'Content-Type': 'application/x-www-form-urlencoded'}
-
-                    }).success(function(res){
-
-                        $scope.country = res;
-
-                        //console.log(res)
-
-            });
-
-      }
-
-      else
-
-      {
-
-        $scope.loginstatus = true;
-
-        $window.location.href="../login.php";
-
-      }
-
-    }
-
-     $scope.profile = function(){
-
-        location.href="profile";
-
-
-
-    }
-
-    $scope.savenewagent = function(){
-
-        //console.log($scope.firstname )
-
-        //console.log($scope.lastname )
-
-        //console.log($scope.phone )
-
-        //console.log($scope.phone2 )
-
-        //console.log($scope.email )
-
-        
-
-        //console.log($scope.company)
-
-        //console.log($scope.address)
-
-        //console.log($scope.dataphonecode)
-
-
-
-
-
-        $http({
+             $http({
 
                 method : 'POST',
 
-                url : "../php/addAgent.php",
+                url : "../php/gethotels.php",
 
-                data: $.param({'firstname': $scope.firstname
-
-                            ,'lastname': $scope.lastname
-
-                            ,'phone': $scope.phone
-
-                            ,'email': $scope.email
-
-                            ,'company': $scope.company
-
-                            ,'phonecode':$scope.dataphonecode
-
-                            ,'address': $scope.address
-
-                            
-
-
-
-                            
-
-                            }), 
-
-
+                //data: $.param({sv: $scope.dataSV}),
 
                 headers: {'Content-Type': 'application/x-www-form-urlencoded'}
 
@@ -1490,179 +1198,29 @@
 
                  //console.log(res)
 
-                 ////console.log("asasasasas")
+                 $scope.datahotel = res;
 
-                 $window.location.href='agent.php';
-
-                 
+                 //$scope.allTour = res;
 
                        
 
             });
 
-    }
 
-    
 
-    $scope.confirmpassword = function(req){
 
-                        if ($scope.password != $scope.password2) {
 
-                            //alert("Passwords Do not match");
+            }
 
-                            document.getElementById("pass1").style.borderColor = "#E34234";
+            else
 
-                            document.getElementById("pass2").style.borderColor = "#E34234";
+            {
 
-                            ok = false;
+                $window.location.href = '../login.php';
 
-                        }
+            }
 
-                        if ($scope.password == $scope.password2) {
-
-                            document.getElementById("pass1").style.borderColor = "#4caf50";
-
-                            document.getElementById("pass2").style.borderColor = "#4caf50";
-
-                            $scope.btnsave = true;
-
-                        }    
-
-                      }
-
-     $scope.Country = function(){      
-
-      $scope.countrybox = { 'display':'block'};
-
-      
-
-    }
-
-    $scope.numCountryselect = function(i ,$event){
-
-      $scope.countrybox = { 'display':'none'};
-
-      //$scope.imgcoutry = i.
-
-      //if ($scope.flagcheck ==1) {
-
-         $scope.Countryfont = ' ' + '(' + '+' + i.phonecode + ')' + i.name_en;
-
-      //}
-
-      // if ($scope.flagcheck ==2) {
-
-      //    $scope.Countryfont = ' ' + '(' + '+' + i.phonecode + ')' + i.name_th;
-
-      // }
-
-      // if ($scope.flagcheck ==3) {
-
-      //    $scope.Countryfont = ' ' + '(' + '+' + i.phonecode + ')' + i.name_cn;
-
-      // }
-
-      $scope.selectcountryValue = '+'+i.phonecode;
-
-      $scope.tcountryValue = '+'+i.phonecode;
-
-      $scope.imgcoutry = i.country_code;
-
-        $scope.dataphonecode = i.phonecode;
-
-      $scope.phonesend = $scope.selectcountryValue;
-
-     
-
-      //console.log($scope.selectcountryValue)
-
-    }
-
-    // $scope.login = function(){
-
-    //    //angular.element(document.querySelector('#inTurnFadingTextG')).css('display', 'block');
-
-    //   if($scope.username!=undefined&&$scope.password!=undefined)
-
-    //   {
-
-    //         $http({
-
-    //                 method: 'post',
-
-    //                 url: "../php/getUserid.php",
-
-    //                 data: $.param({token: $cookies.get('login')}),
-
-    //                 headers: {'Content-Type': 'application/x-www-form-urlencoded'}
-
-    //             }).success(function (res) {
-
-    //                 if (res == "invalid") {
-
-    //                     location.href = "/login";
-
-    //                     return;
-
-    //                 }
-
-    //                 // //console.log(res)
-
-    //                 // $scope.isSuperAdmin = (res[0].role = 0) ? false : true;
-
-    //                 // $scope.isAdmin = (res[0].role = 2) ? false : true;
-
-                    
-
-    //                 // if(res[0].role==0)
-
-    //                 //     $scope.role = 'SYSTEM SUPER ADMIN';
-
-    //                 // else if(res[0].role==2)
-
-    //                 //     $scope.role = 'SYSTEM ADMIN';
-
-    //                 // else 
-
-    //                 //     $scope.role = 'COUNTER ADMIN';
-
-                  
-
-                   
-
-    //                 // if(res[0].email != undefined){
-
-    //                 //     $scope.name = (res[0].email).split('@');
-
-    //                 //     $scope.Username = $scope.name[0];
-
-    //                 //     //console.log($scope.Username)
-
-    //                 // }
-
-    //                 // $scope.Menu = res[1];
-
-    //                 // //console.log($scope.Menu)
-
-                    
-
-    //          });
-
-    //     }
-
-    //     }
-
-        
-
-
-
-
-
-
-
-
-
-
+        }
 
         $scope.logout = function(){
 
@@ -1674,207 +1232,285 @@
 
         }
 
-        
+        $scope.edituser = function(id){
 
-        $scope.genpass = function(){
+            localStorage.setItem("usereditid", id);
 
-                      //alert('xxxx');
+            $window.location.href = 'edituser';
 
-                      var y;
+        }
 
-                      var sales;
+        $scope.zoombook = function(id){
 
-                      var count;
+            localStorage.setItem("booking-view", id);
 
-                      var check = 0;
+            $window.location.href = 'booking-view?bookingid='+id;
 
-                      var round = 0;
+        }
 
-                      var start = 0;
+         $scope.remove = function(x){
 
+            $scope.iddelete = x.id;
 
+            $scope.namedelete = x.name;
 
-                            $http({
+            $("#remove").modal('show');
 
-                                method: 'POST',
+        }
 
-                                url : "/api/getallsales",
+         $scope.deletetransport = function(data){
 
-                                
+    //console.log(data)
 
-                                headers : {'Content-Type': 'application/x-www-form-urlencoded'}
+    $http({
 
-                            }).success(function(res) {
+                            method : 'POST',
 
+                            url : "../php/removePackage.php",
 
+                            data: $.param({'id': $scope.data}),
 
-                                for(var i = 0 ; i < res.length ; i++)
+                            headers: {'Content-Type': 'application/x-www-form-urlencoded'}
 
-                                {
+                            }).success(function(res){
 
-                                    round++;
+                                //console.log(res)
 
-                                    sales = res[i].sales_id;
-
-                                    if(res[i].sales_id != null)
-
-                                    {
-
-                                        if(check<=parseInt(res[i].sales_id))
-
-                                        {
-
-                                            check = parseInt(res[i].sales_id);
-
-                                        }
-
-                                    }
-
-                                    if(round==res.length)
-
-                                    {
-
-                                        start = 1;
-
-                                    }
-
-
-
-                                }
-
-                                
-
-                                if( start == 1 )
-
-                                {
-
-                                    count = check+1;
-
-                                    ////console.log("y"+count);
-
-                                    
-
-                                    var n = count.toString();
-
-                                    //console.log("n"+n);
-
-                                    var zero = 6 - n.length;
-
-                                    //console.log("zero"+zero);
-
-                                    var newcode;
-
-                                    for ( var i = 0;i < zero;i++ )
-
-                                    {
-
-                                        if(i==0)
-
-                                        {
-
-                                            newcode = '0';
-
-                                        }
-
-                                        else
-
-                                        {
-
-                                            newcode += '0';
-
-                                        }
-
-                                    }
-
-                                    var code = newcode + n;
-
-                                    $scope.passgen = code;
-
-                                    //var finalcode = booking + code;
-
-                                    //console.log(code);
-
-                                }
-
-                                //$scope.passgen = code;
-
-                                /*for(var i = 0 ; i < sales.length ; i++)
-
-                                    {
-
-                                         //sales = res[i].sales_id;
-
-                                        ////console.log(sales);
-
-                                        if(res[i].sales_id != null&& res[i].sales_id != code)
-
-                                        {
-
-                                            //count++;
-
-                                            $scope.passgen = code;
-
-                                            //console.log($scope.passgen);
-
-                                            
-
-                                            
-
-                                        }
-
-                                        else{
-
-                                            
-
-                                            var x = parseInt(code)+1;
-
-                                            var y = x.toString();
-
-                                            //$scope.passgen  = x+1
-
-                                            var zero = 6 - y.length;
-
-                                            //console.log("zero"+zero);
-
-                                            var newcode2;
-
-                                            for ( var i = 0;i < zero;i++ )
-
-                                            {
-
-                                                if(i==0)
-
-                                                {
-
-                                                    newcode2 = '0';
-
-                                                }
-
-                                                else
-
-                                                {
-
-                                                    newcode2 += '0';
-
-                                                }
-
-                                            }
-
-                                            var code2 = newcode2 + x;
-
-                                            //console.log(x);
-
-                                            $scope.passgen  = code2;
-
-                                        }
-
-
-
-                                    }*/
+                                //$window.location.href = 'tours-package.php';
 
                             });
 
-                    } 
+                       
+
+
+
+  }
+  $scope.deletehotel = function(data){
+        $('#remove').modal('show')
+        console.log(data)
+
+
+
+        $scope.hotelId = data.id;
+
+        $scope.datahotelDelete = data.hotel_name;
+    }
+$scope.deletehotelbyid = function(data){
+        console.log(data)
+    $http({
+
+                            method : 'POST',
+                            url : "../php/removeHotelpackage.php",
+                            data: $.param({'id': data}),
+                            headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+                            }).success(function(res){
+                                console.log(res)
+
+                                $window.location.reload();
+
+                            });
+  }
+        
+
+
+
+       $scope.openlist = function(){
+
+                        var result = document.getElementsByClassName("search_list");
+
+                        if($scope.list == true)
+
+                        {
+
+                            angular.element(result).css('display','none');
+
+                            $scope.list = false;
+
+                        }
+
+                        else
+
+                        {
+
+                            angular.element(result).css('display','block');
+
+                            $scope.list = true;
+
+                        }
+
+                    }
+
+                    $scope.clicklist = function(input){
+
+                        var result;
+
+                        $scope.search_box_list = input;
+
+                        if(input=='Package Name')
+
+                        {
+
+                          result = document.getElementsByClassName("search_tourname");
+
+                          angular.element(result).css('display','inline-block');
+
+                          // result = document.getElementsByClassName("search_tourid");
+
+                          // angular.element(result).css('display','none');
+
+                          // result = document.getElementsByClassName("search_class");
+
+                          // angular.element(result).css('display','none');
+
+                          result = document.getElementsByClassName("search_company");
+
+                          angular.element(result).css('display','none');
+
+                          // result = document.getElementsByClassName("search_status");
+
+                          // angular.element(result).css('display','none');
+
+                          result = document.getElementsByClassName("search_list");
+
+                          angular.element(result).css('display','none');
+
+                          result = document.getElementsByClassName("reset_search");
+
+                          angular.element(result).css('display','inline-block');
+
+                          $scope.list = false;
+
+                          //$scope.search.name = '';
+
+                        
+
+                         
+
+                          $scope.search.company_name = '';
+
+                          // $scope.search.tour_date = '';
+
+                        }
+
+                        
+
+                        else if(input=='Company Name')
+
+                        {
+
+                          result = document.getElementsByClassName("search_tourname");
+
+                          angular.element(result).css('display','none');
+
+                        
+
+                         
+
+                          result = document.getElementsByClassName("search_company");
+
+                          angular.element(result).css('display','inline-block');
+
+                         
+
+                          result = document.getElementsByClassName("search_list");
+
+                          angular.element(result).css('display','none');
+
+                          result = document.getElementsByClassName("reset_search");
+
+                          angular.element(result).css('display','inline-block');
+
+                          $scope.list = false;
+
+                          $scope.search.name = '';
+
+                          
+
+                        
+
+                          //$scope.search.company_name = '';
+
+                        
+
+                        }
+
+                       
+
+                        else
+
+                        {
+
+                          result = document.getElementsByClassName("search_tourname");
+
+                          angular.element(result).css('display','inline-block');
+
+                        
+
+                      
+
+                          result = document.getElementsByClassName("search_company");
+
+                          angular.element(result).css('display','inline-block');
+
+                       
+
+                          result = document.getElementsByClassName("search_list");
+
+                          angular.element(result).css('display','none');
+
+                          result = document.getElementsByClassName("reset_search");
+
+                          angular.element(result).css('display','inline-block');
+
+                          $scope.list = false;
+
+                          $scope.search.name = '';
+
+                         
+
+                          $scope.search.company_name = '';
+
+                         
+
+                        }
+
+                      }
+
+                      $scope.reset_search_click = function(){
+
+                          $scope.search_box_list = null;
+
+                          result = document.getElementsByClassName("search_tourname");
+
+                          angular.element(result).css('display','none');
+
+                         
+
+                          result = document.getElementsByClassName("search_company");
+
+                          angular.element(result).css('display','none');
+
+                         
+
+                          result = document.getElementsByClassName("search_list");
+
+                          angular.element(result).css('display','none');
+
+                          result = document.getElementsByClassName("reset_search");
+
+                          angular.element(result).css('display','none');
+
+                          $scope.list = false;
+
+                          $scope.search.name = '';
+
+                         
+
+                          $scope.search.company_name= '';
+
+                          
+
+                      }
 
                  
 
