@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <!-- saved from url=(0076)http://demos.creative-tim.com/material-dashboard-pro/examples/dashboard.html -->
 <html lang="en" class="perfect-scrollbar-on"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     
@@ -360,16 +360,23 @@
                                    <!--  <input type="hidden" value="{{city}}" name="city"/> -->
                                     <div class="form-group form-inline">
                                     <div class="radio" id="radioin">
-                                        <label style="padding: 0px 30px;">
+                                        <label style="padding: 0px 40px;">
                                             <input type="radio" name="typeRadios" ng-change="logtype(checktype)" ng-model="checktype" value="Tour" >
                                             Tour
                                         </label>
                                     </div>
 
-                                    <div class="radio">
-                                        <label style="padding: 0px 30px;">
+                                    <div class="radio" id="radioin">
+                                        <label style="padding: 0px 40px;">
                                             <input type="radio" name="typeRadios" ng-change="logtype(checktype)" ng-model="checktype" value="Transfer">
                                             Transfer
+                                        </label>
+                                    </div>
+
+                                    <div class="radio" id="radioin">
+                                        <label style="padding: 0px 40px;">
+                                            <input type="radio" name="typeRadios" ng-change="logtype(checktype)" ng-model="checktype" value="Hotel">
+                                            Hotel
                                         </label>
                                     </div>
                                     </div>
@@ -410,7 +417,7 @@
                                                     <option value="">- None -</option>
                                               </select>
                                     </div>
-                                <div class="form-group form-inline" ng-show="checktransfer">
+                                <div class="form-group form-inline" ng-show="checktransfer || checkhotel">
                                         <label for="name" class="label-tour">Province<span> :</span></label>
                                        
                                          <select class="form-control" ng-change="changeprovince(selectprovince)" id="selectprovince" ng-model="selectprovince" data-ng-options="i as i.name for i in dataprovince" style="width: 150px;">
@@ -423,6 +430,37 @@
                                          <select class="form-control" ng-change="changepackage(selectpackage)" id="selectpackage" ng-model="selectpackage" data-ng-options="i as i.name+'('+i.company_name+')' for i in dataselectransfer" >
                                                     <option value="">- None -</option>
                                               </select>
+                                    </div>
+                                    <div class="form-group form-inline" ng-show="checkhotel">
+                                        <label for="name" class="label-tour">Hotel Name<span>:</span></label>
+                                        <!-- <input type="text" class=" form-control" size="100" maxlength="200" placeholder = "Max length 200 characters" id="name" name="topic" ng-model="topic" required/> -->
+                                         <select class="form-control" ng-change="changehotel(selecthotel)" id="selectpackage" ng-model="selecthotel" data-ng-options="i as i.name+'('+i.province+')' for i in dataselecthotel" >
+                                                    <option value="">- None -</option>
+                                              </select>
+                                    </div>
+                                     <div class="form-group form-inline" ng-show="checkhotel">
+                                        <label for="name" class="label-tour">Package<span>:</span></label>
+                                        <!-- <input type="text" class=" form-control" size="100" maxlength="200" placeholder = "Max length 200 characters" id="name" name="topic" ng-model="topic" required/> -->
+                                         <select class="form-control" ng-change="changepackage(selectpackage)" id="selectpackage" ng-model="selectpackage" data-ng-options="i as i.topic+'('+i.hotel_name+')' for i in dataselecthotelpackage" >
+                                                    <option value="">- None -</option>
+                                              </select>
+                                    </div>
+                                    <div class="form-group form-inline" ng-show="checkhotel">
+                                        <label for="name" class="label-tour">Net price<span> :</span></label>
+                                        <label class="form-control"   id="label-addbooking" >
+                                        <span ng-bind="net_price_hotel | currency:'':0"></span></label>
+                                        <!-- <input type="text" class=" form-control" size="100" maxlength="200" placeholder = "2x,xxx" id="price" name="price" ng-model="price" required/> -->
+                                    </div>
+                                    <div class="form-group form-inline" ng-show="checkhotel">
+                                        <label for="name" class="label-tour">Sale price<span> :</span></label>
+                                        <input class="form-control"  id="label-addbooking" ng-value="sale_price_adult | currency:'':0" ng-change="saleprice(sale_price)" ng-model="sale_price_hotel">
+                                        <!-- <span ng-bind="sale_price_adult | currency:'':0"></span></label> -->
+                                        <!-- <input type="text" class=" form-control" size="100" maxlength="200" placeholder = "2x,xxx" id="price" name="price" ng-model="price" required/> -->
+                                    </div>
+                                    <div class="form-group form-inline" ng-show="checkhotel">
+                                        <label for="name" class="label-tour">Total price<span> :</span></label>
+                                        <label class="form-control "  id="label-addbooking" ><span ng-bind="total_price_hotel | currency:'':0"></span></label>
+                                        <!-- <input type="text" class=" form-control" size="100" maxlength="200" placeholder = "2x,xxx" id="price" name="price" ng-model="price" required/> -->
                                     </div>
                                     <div class="form-group form-inline" ng-show="checktransfer">
                                         <label for="name" class="label-tour">Person<span> :</span></label>
@@ -461,6 +499,7 @@
                                         <!-- <span ng-bind="sale_price_adult | currency:'':0"></span></label> -->
                                         <!-- <input type="text" class=" form-control" size="100" maxlength="200" placeholder = "2x,xxx" id="price" name="price" ng-model="price" required/> -->
                                     </div>
+
                                     <div class="form-group form-inline" ng-show="checktour">
                                         <label for="name" class="label-tour">Net child price<span> :</span></label>
                                          <label class="form-control"  id="label-addbooking" ><span ng-bind="net_price_child | currency:'':0"></span></label>
@@ -494,20 +533,54 @@
                                     
 
                                
-                                 <div class="form-group form-inline">
+                                 <div class="form-group form-inline" ng-show="!checkhotel">
                                             <label  class="label-tour">date :</label>
                                            
                                             <!-- <span ng-if="flagcheck == 2">วันที่ :</span>
                                             <span ng-if="flagcheck == 3">日期 :</span> -->
                                      
                                             <div class='input-group date' id='datetimepicker1' >
-                                                    <input type='text' class="form-control" id="on_date"  name="ondate"  ng-model="ondate" value="ondate"  required >
+                                                    <input type='text' class="form-control" id="on_date"  name="ondate"  ng-model="ondate" value="ondate" >
                                                     <span class="input-group-addon" id="icon-calen" style="">
                                                         <i class="fa fa-calendar" id="calen" aria-hidden="true" style="color: #9E9E9E"></i>
                                                     </span>
                                                 </div>
                                                 
                                 </div>
+                                <div class="form-group form-inline" ng-show="checkhotel">
+                                            <label  class="label-tour">Check In :</label>
+                                           
+                                            <!-- <span ng-if="flagcheck == 2">วันที่ :</span>
+                                            <span ng-if="flagcheck == 3">日期 :</span> -->
+                                     
+                                            <div class='input-group date' id='datetimepicker4' >
+                                                    <input type='text' class="form-control" id="checkin"  name="ondate"  ng-model="checkin" value="checkin"  >
+                                                    <span class="input-group-addon" id="icon-calen" style="">
+                                                        <i class="fa fa-calendar" id="calen" aria-hidden="true" style="color: #9E9E9E"></i>
+                                                    </span>
+                                                </div>
+                                                
+                                </div>
+                                <div class="form-group form-inline" ng-show="checkhotel">
+                                            <label  class="label-tour">Check Out :</label>
+                                           
+                                            <!-- <span ng-if="flagcheck == 2">วันที่ :</span>
+                                            <span ng-if="flagcheck == 3">日期 :</span> -->
+                                     
+                                            <div class='input-group date' id='datetimepicker5' >
+                                                    <input type='text' class="form-control" id="checkout"  name="ondate"  ng-model="checkout" value="checkout"  >
+                                                    <span class="input-group-addon" id="icon-calen" style="">
+                                                        <i class="fa fa-calendar" id="calen" aria-hidden="true" style="color: #9E9E9E"></i>
+                                                    </span>
+                                                </div>
+                                                
+                                </div>
+                                 <div class=" form-group form-inline " ng-show="checkhotel">
+                                                <label class="label-tour">Night:</label> 
+                                            <select class="form-control" ng-change="changenumnight(hotel_night)" id="numnight" ng-model="hotel_night" data-ng-options="i  for i in numnight" style="width: 180px;">
+                                                    <option value="">0</option>
+                                              </select>
+                                    </div>
                                    
                                            
                                                 
@@ -552,7 +625,7 @@
                                                     <option value="">- None -</option>
                                               </select>
                                     </div>
-                                    <div class="form-group form-inline" >
+                                    <div class="form-group form-inline" ng-show="!checkhotel">
                                         <label class="label-tour" id="title-around">Pickup time : </label> 
                                             
                                             <!-- <span ng-if="flagcheck == 2">ช่วงเวลา : </span> -->
@@ -594,19 +667,19 @@
                                           <option value="">{{listcar}}</option>            
                                         </select> -->
                                     </div>
-                                    <div class="form-group form-inline">
+                                    <div class="form-group form-inline"  ng-show="!checkhotel">
                                         <label class="label-tour">Room number<span> :</span></label>
                                         <input type="text"  class="form-control" placeholder="A130" name="room" ng-change="roomnumber(room)" ng-model="room" id="room" ng-value="room" id="label-addbooking">
                                         <!-- <label class="typeUser" >{{edit_du.email}}</label> -->
                                     </div>
-                                    <div class="form-group form-inline">
+                                    <div class="form-group form-inline" ng-show="!checkhotel">
                                         <label for="name" class="label-tour">Pickup place<span> :</span></label>
-                                        <input type="text" class=" form-control" size="100" maxlength="200" placeholder = "Type airport,hotel name, or location." ng-change="pickupplacetour(pickupplace)" id="pickupplace" name="pickupplace" ng-model="pickupplace" required/>
+                                        <input type="text" class=" form-control" size="100" maxlength="200" placeholder = "Type airport,hotel name, or location." ng-change="pickupplacetour(pickupplace)" id="pickupplace" name="pickupplace" ng-model="pickupplace" />
                                     </div>
                                  
-                                 <div class="form-group form-inline">
+                                 <div class="form-group form-inline" ng-show="!checkhotel">
                                         <label for="name" class="label-tour">To place<span> :</span></label>
-                                        <input type="text" class=" form-control" size="100" maxlength="200" placeholder = "Type airport,hotel name, or location." ng-change="pickupplacetotour(toplace)" id="toplace" name="toplace" ng-model="toplace" required/>
+                                        <input type="text" class=" form-control" size="100" maxlength="200" placeholder = "Type airport,hotel name, or location." ng-change="pickupplacetotour(toplace)" id="toplace" name="toplace" ng-model="toplace" />
                                     </div>
                                     <!-- <hr/ > -->
                                     <div class="form-group form-inline">
@@ -1080,6 +1153,16 @@ $(document).ready(function(){
               
                 // daysOfWeekDisabled: [0, 6]
             });
+     $('#datetimepicker4').datetimepicker({
+               format: 'DD/MM/YYYY'
+              
+                // daysOfWeekDisabled: [0, 6]
+            });
+     $('#datetimepicker5').datetimepicker({
+               format: 'DD/MM/YYYY'
+              
+                // daysOfWeekDisabled: [0, 6]
+            });
  });
 </script>
 
@@ -1112,12 +1195,21 @@ $(document).ready(function(){
         $scope.transferplace = [];
          $scope.checktype = 'Tour';
          $scope.dataselectransfer = [];
+         $scope.dataselecthotel = [];
+
+         $scope.dataselecthotelpackage = [];
           $scope.total_pricetransfer = 0;
+          $scope.total_hotel = 0;
           $scope.adultshow = 0;
           $scope.childshow = 0;
           $scope.person = 0;
           $scope.costpackage = 0;
           $scope.total_price;
+          $scope.hotel_price = 0;
+          $scope.net_price_hotel = 0;
+          $scope.sale_price_hotel = 0;
+          $scope.total_price_hotel = 0;
+
          //$scope.checktype;
         
         
@@ -1146,6 +1238,12 @@ $(document).ready(function(){
                     '21','22','23','24','25','26','27','28','29','30','31','32','33','34','35','36','37','38','39','40',
                     '41','42','43','44','45','46','47','48','49','50','51','52','53','54','55','56','57','58','59'];
         $scope.Countryfont = "      Please select country";
+         $scope.numnight = [];
+                    var x = 31;
+            for (var i = 1; i <= x; i++) {
+              $scope.numnight.push(i);
+              
+            }
       if($cookies.get('login'))
       {
         $scope.loginstatus = false;
@@ -1194,7 +1292,7 @@ $(document).ready(function(){
                 //data: $.param({sv: $scope.dataSV}),
                 headers: {'Content-Type': 'application/x-www-form-urlencoded'}
                 }).success(function(res){
-                 //console.log(res)
+                 console.log(res)
                  $scope.dataTour = res;
                  
                        
@@ -1229,6 +1327,29 @@ $(document).ready(function(){
                 }).success(function(res){
                  //console.log(res)
                  $scope.datatransport = res;
+                 //$scope.allTour = res;
+                       
+            });
+                $http({
+                method : 'POST',
+                url : "../php/gethotels.php",
+                //data: $.param({sv: $scope.dataSV}),
+                headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+                }).success(function(res){
+                 console.log(res)
+                 $scope.datahotelpackage = res;
+                 //$scope.allTour = res;
+
+                       
+            });
+                 $http({
+                method : 'POST',
+                url : "../php/getHotel.php",
+                //data: $.param({sv: $scope.dataSV}),
+                headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+                }).success(function(res){
+                 console.log(res)
+                 $scope.datahotel = res;
                  //$scope.allTour = res;
                        
             });
@@ -1273,6 +1394,13 @@ $(document).ready(function(){
             location.href="../login.php";
           }
     }
+    $scope.changenumnight=function(x){
+            $scope.night = x;
+            // total_price_hotel 
+           $scope.total_price_hotel = $scope.sale_price_hotel*x;
+           console.log($scope.night);
+           // if (true) {}
+    }
      $scope.profile = function(){
         location.href="profile";
 
@@ -1284,9 +1412,15 @@ $(document).ready(function(){
     }
     $scope.saleprice = function(x){
         console.log(x)
-        console.log($scope.sale_price_adult)
-          $scope.total_price_adult = x*$scope.adult;
+        if ($scope.checktype != 'Tour' ) {
+            $scope.hotel_price = x;
+        }
+        else{
+            console.log($scope.sale_price_adult)
+            $scope.total_price_adult = x*$scope.adult;
             $scope.total_price = $scope.total_price_adult + $scope.total_price_child;
+        }
+        
 
     }
      $scope.salepricechild = function(x){
@@ -1321,14 +1455,21 @@ $(document).ready(function(){
         }
     $scope.logtype=function(x){
         $scope.checktype = x;
-        //console.log($scope.checktype)
+        console.log($scope.checktype)
         if ($scope.checktype == 'Tour') {
             $scope.checktour = true;             
             $scope.checktransfer = false;
+             $scope.checkhotel = false;
         }
          if ($scope.checktype == 'Transfer') {
             $scope.checktour = false;             
             $scope.checktransfer = true;
+             $scope.checkhotel = false;
+         }
+         if ($scope.checktype == 'Hotel') {
+            $scope.checktour = false;             
+            $scope.checktransfer = false;
+            $scope.checkhotel = true;
          }
         
        
@@ -1349,18 +1490,53 @@ $(document).ready(function(){
 
     }
     $scope.changeprovince = function(select){
-        //console.log(select)
-        $scope.province = select.name;
-        $scope.province_id = select.id;
-        angular.forEach($scope.datatransport, function(data){
+        console.log(select)
+        if ($scope.checktype == 'Transfer') {
+           $scope.province = select.name;
+            $scope.province_id = select.id;
+            angular.forEach($scope.datatransport, function(data){
             if(select.id == data.pro_id)
             {   
                 $scope.dataselectransfer.push(data)
                  
             }
-        });
+            }); 
+        }
+        if ($scope.checktype == 'Hotel') {
+            $scope.province = select.name;
+            $scope.province_id = select.id;
+            angular.forEach($scope.datahotel, function(data){
+            if(select.name == data.province)
+            {   
+                $scope.dataselecthotel.push(data)
+                 
+            }
+            });
+            
+        }
+        
 
     }
+    $scope.changehotel = function(select){
+        console.log(select)
+        
+           $scope.hotel_name = select.name;
+           //$scope.province_id = select.id;
+        console.log($scope.datahotelpackage)
+
+            angular.forEach($scope.datahotelpackage, function(data){
+            if(select.name == data.hotel_name)
+            {   
+                console.log('in case')
+                $scope.dataselecthotelpackage.push(data)
+                 
+            }
+            }); 
+    }
+        
+        
+
+    
  
 
     $scope.Country = function(){      
@@ -1413,7 +1589,7 @@ $(document).ready(function(){
 
     }
     $scope.changenumperson = function(person){
-            if ($scope.checktype == 'Tour') {
+        if ($scope.checktype == 'Tour') {
                 $scope.adult = person;
                 $scope.total_price_adult = $scope.sale_price_adult*person;
                 if ($scope.selectpackage.name == "City Tour") {
@@ -1507,6 +1683,24 @@ $(document).ready(function(){
             $scope.company_id = package.company_id;
             $scope.company_name = package.company_name;
             $scope.area = package.flight;
+        }
+        if ($scope.checktype == 'Hotel') {
+            console.log(package)
+            $scope.sale_price_hotel = package.sale_price;
+            $scope.net_price_hotel = package.net_price;
+            //$scope.costpackage = package.price;
+            $scope.packagename = package.topic;
+            $scope.packageid = package.id;
+            $scope.roomtype = package.room_type;
+            //console.log($scope.packageid)
+            $scope.total_price_hotel = package.sale_price;
+
+            $scope.list ={'display':'block'};
+            $scope.person =  $scope.capa;
+            $scope.checknight = package.night;
+            $scope.classs = package.classs;
+            $scope.company_name = package.company_name;
+            //$scope.area = package.flight;
         }
             
 
@@ -1624,39 +1818,65 @@ $(document).ready(function(){
             
             $scope.total_price = $scope.total_pricetransfer;
         }
+        // if ($scope.checktype == 'Transfer') {
+           
+            
+        //     $scope.total_price = $scope.total_pricetransfer;
+        // }
 
             
             
             ////console.log('aaa'+ $('#datetimepicker11').val())
             $scope.ontime = $scope.time_h+':'+$scope.time_m+ '-' + $scope.time_h2+':'+$scope.time_m2;
             $scope.ondates = $('#on_date').val();
-            //console.log($scope.checktype)
-            //console.log($scope.packageid)
-            //console.log($scope.time_h+':'+$scope.time_m)
-            //console.log($scope.ondates)
-            //console.log($scope.adult)
-            //console.log($scope.child)
-            ////console.log($scope.price)
-            //console.log($scope.agentid)
-            //console.log($scope.tourpplace)
-            //console.log($scope.tourpplaceto)
-            //console.log($scope.name)
-            //console.log($scope.phone)
-            //console.log($scope.phonecode)
-            //console.log($scope.email)
-            //console.log($cookies.get('login'));
-            //console.log($scope.uname)
-            //console.log( $scope.nameagent)
-            //console.log($scope.packagename )
-            //console.log($scope.costpackage )
+            $scope.checkin = $('#checkin').val();
+            $scope.checkout = $('#checkout').val();
+            console.log($scope.checktype)
+            console.log($scope.packageid)
+            console.log($scope.time_h+':'+$scope.time_m)
+            console.log($scope.ondates)
+            console.log($scope.adult)
+            console.log($scope.child)
+            //console.log($scope.price)
+            console.log($scope.agentid)
+            console.log($scope.tourpplace)
+            console.log($scope.tourpplaceto)
+            console.log($scope.name)
+            console.log($scope.phone)
+            console.log($scope.phonecode)
+            console.log($scope.email)
+            console.log($cookies.get('login'));
+            console.log($scope.uname)
+            console.log( $scope.nameagent)
+            // console.log($scope.packagename )
+            console.log($scope.costpackage )
             $scope.sumtotal = parseInt($scope.adult)+ parseInt($scope.child);
-            //console.log($scope.sumtotal)
-            //console.log($scope.sale_price_adult)
-            //console.log($scope.sale_price_child)
-            //console.log($scope.total_price)
-            //console.log($scope.roomtour)
-            ////console.log($scope.roomtour)
-            //console.log($scope.province_id)
+            console.log($scope.sumtotal)
+
+
+            console.log("-------------------------------------")
+            // console.log($scope.sale_price_adult)
+            // console.log($scope.sale_price_child)
+            // console.log($scope.total_price)
+            console.log($scope.roomtype)
+            console.log($scope.packagename)
+            console.log($scope.province)
+            console.log($scope.hotel_name)
+            console.log($scope.checkin)
+            console.log($scope.checkout)
+            console.log($scope.night)
+            console.log($scope.total_price_hotel)
+            console.log($scope.sale_price_hotel)
+            console.log($scope.net_price_hotel)
+            
+            if ($scope.checktype == 'Hotel') {
+                $scope.total_price = $scope.total_price_hotel;
+                $scope.sale_price_adult = $scope.sale_price_hotel;
+               $scope.net_price_adult = $scope.net_price_hotel;
+               $scope.ondates = $scope.checkin;
+            }
+
+
 
 
             //console.log($scope.province)
@@ -1665,7 +1885,7 @@ $(document).ready(function(){
             
              $http({
                     method : 'POST',
-                    url : "../php/addBooking.php",
+                    url : "../php/addBooking2.php",
                     data: $.param({'program': $scope.packageid
                                 ,'ondate': $scope.ondates
                                 ,'ontime': $scope.ontime
@@ -1700,6 +1920,13 @@ $(document).ready(function(){
                                 ,'flight': $scope.flightname
                                 ,'owner': $scope.ownername
                                 ,'listcar': $scope.listcar
+                                ,'checkin': $scope.checkin
+                                ,'checkout': $scope.checkout
+                                ,'night': $scope.night
+                                ,'hotel_name': $scope.hotel_name
+                                ,'room_type': $scope.roomtype
+
+                                
 
             
 
@@ -1711,7 +1938,7 @@ $(document).ready(function(){
 
                     headers: {'Content-Type': 'application/x-www-form-urlencoded'}
                     }).success(function(res){
-                     //console.log(res)
+                     console.log(res)
                      $window.location.href="../report/new-booking.php"
                    
                            
