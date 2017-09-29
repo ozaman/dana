@@ -148,6 +148,11 @@
                                         <i class="material-icons">cancel</i> Cancel Bookings
                                     </a>
                                 </li>
+                                <li >
+                                    <a href="reservation-invoice.php">
+                                        <i class="material-icons">notifications_active</i> Seservation - Invoice
+                                    </a>
+                                </li>
                                 <li>
                                     <a href="account.php">
                                     <i class="material-icons">account_balance_wallet</i>
@@ -169,7 +174,7 @@
                                 <li >
                                     <a href="revenue-expenses.php">
                                    <i class="material-icons">monetization_on</i>
-                                         Revenue-Expenses
+                                         Revenue - Expenses
                                     </a>
                                 </li>
                             </ul>

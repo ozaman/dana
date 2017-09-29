@@ -281,6 +281,11 @@
                                     </a>
 
                                 </li>
+                                <li >
+                                    <a href="../report/reservation-invoice.php">
+                                        <i class="material-icons">notifications_active</i> Seservation - Invoice
+                                    </a>
+                                </li>
 
                                  <li>
 
@@ -308,7 +313,7 @@
                                 <li >
                                     <a href="../report/revenue-expenses.php">
                                    <i class="material-icons">monetization_on</i>
-                                         Revenue-Expenses
+                                         Revenue - Expenses
                                     </a>
                                 </li>
 
