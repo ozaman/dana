@@ -355,6 +355,12 @@
                                             Transfer
                                         </label>
                                     </div>
+                                    <div class="radio" id="radiotarnsfer">
+                                        <label style="padding: 0px 35px;">
+                                            <input type="radio" name="typeRadios" ng-change="logtype(checktype)" ng-model="checktype" value="Hotel">
+                                            Hotel
+                                        </label>
+                                    </div>
                                     <div class="radio" id="radioall">
                                         <label style="padding: 0px 35px;">
                                             <input type="radio" name="typeRadios" ng-change="logtype(checktype)" ng-model="checktype" value="All">
@@ -1309,7 +1315,7 @@ label.label-editUser {
                         data.received =  $scope.total_amount - $scope.total_net;
                         // if()data.total_amount = $scope.total_price;
                     }
-                    else{
+                    else if(data.type == 'Tour'){
                         if(data.package_name == 'City Tour'){
                        data.total_net =  data.adult_price; 
                         data.received =  0;
@@ -1348,6 +1354,26 @@ label.label-editUser {
                         // $scope.total_net =(data.net_price_adult*data.adult) + (data.net_price_child*data.child);
                         //data.total_amount = $scope.total_price;
                         //$scope.total_amount = data.total_price;
+                    }
+                    else if(data.type == 'Hotel'){
+                         $scope.total_net = (data.net_price_adult*data.nights) + (data.net_price_child*data.nights);
+                                $scope.total_amount = data.total_price;
+                                data.total_amount = $scope.total_price;
+                                data.received =  $scope.total_amount - $scope.total_net;
+                                // data.received =  $scope.total_amount- $scope.total_net;
+                                 data.total_net = (data.net_price_adult*data.nights) + (data.net_price_child*data.nights);
+                                 data.total_amount = $scope.total_price;
+                                $scope.total_amount = data.total_price;
+                    }
+                    else{
+                         $scope.total_net = (data.net_price_adult*data.adult) + (data.net_price_child*data.child);
+                                $scope.total_amount = data.total_price;
+                                data.total_amount = $scope.total_price;
+                                data.received =  $scope.total_amount - $scope.total_net;
+                                // data.received =  $scope.total_amount- $scope.total_net;
+                                 data.total_net = (data.net_price_adult*data.adult) + (data.net_price_child*data.child);
+                                 data.total_amount = $scope.total_price;
+                                $scope.total_amount = data.total_price;
                     }  
                     //data.total_amount = $scope.total_price;
                     
@@ -1471,6 +1497,20 @@ label.label-editUser {
                                     
                 });
              }
+             if ($scope.checktype == 'Hotel') {
+                $scope.checktour = false;             
+                $scope.checktransfer = true;
+                angular.forEach($scope.databook, function (data) {
+
+                    if (x == data.type) {
+                         //alert(x)
+                        $scope.selsedataformonth.push(data)
+                    }
+                    
+                                 
+                                    
+                });
+             }
              if ($scope.checktype == 'All') {
                 // $scope.checktour = false;             
                 // $scope.checktransfer = true;
@@ -1535,9 +1575,9 @@ label.label-editUser {
                         data.received =  $scope.total_amount - $scope.total_net;
                         // if()data.total_amount = $scope.total_price;
                     }
-                    else{
+                    else if(data.package_name == 'Tour'){
                         if(data.package_name == 'City Tour'){
-                       data.total_net =  data.adult_price; 
+                        data.total_net =  data.adult_price; 
                         data.received =  0;
                          data.total_amount = data.adult_price;
                          $scope.total_amount = data.adult_price;
@@ -1573,6 +1613,16 @@ label.label-editUser {
                         // $scope.total_net =(data.net_price_adult*data.adult) + (data.net_price_child*data.child);
                         //data.total_amount = $scope.total_price;
                         //$scope.total_amount = data.total_price;
+                    }
+                    else{
+                        $scope.total_net = (data.net_price_adult*data.adult) + (data.net_price_child*data.child);
+                                $scope.total_amount = data.total_price;
+                                data.total_amount = $scope.total_price;
+                                data.received =  $scope.total_amount - $scope.total_net;
+                                // data.received =  $scope.total_amount- $scope.total_net;
+                                 data.total_net = (data.net_price_adult*data.adult) + (data.net_price_child*data.child);
+                                 data.total_amount = $scope.total_price;
+                                $scope.total_amount = data.total_price;
                     }
                     // if(data.package_name == 'City Tour'){
                     //    data.total_net =  data.adult_price; 

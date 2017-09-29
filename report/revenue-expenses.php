@@ -577,9 +577,9 @@
                                                       <thead>
                                                           <tr>
                                                             <td></td>
-                                                             <td align="center">Transfer Revenue </td>
-                                                            <td align="center">Transfer expenses</td>
-                                                            <td align="center">Transfer profit </td>
+                                                             <td align="center">Transfers Revenue </td>
+                                                            <td align="center">Transfers expenses</td>
+                                                            <td align="center">Transfers profit </td>
                                                           </tr>
                                                       </thead>
                                                       <tbody>
@@ -602,9 +602,9 @@
                                                       <thead>
                                                           <tr>
                                                              <td></td>
-                                                             <td align="center">Tour Revenue  </td>
-                                                             <td align="center">Tour expenses</td>
-                                                             <td align="center">Tour profit </td> 
+                                                             <td align="center">Tours Revenue  </td>
+                                                             <td align="center">Tours expenses</td>
+                                                             <td align="center">Tours profit </td> 
                                                           </tr>
                                                       </thead>
                                                       <tbody>
@@ -621,23 +621,52 @@
                                           </div>
                                       </div>
                                       <div class="col-md-6" style="margin-top: 30px">
+                                                <div style="padding: 8px;
+    font-weight: 500;
+    border: 1px solid #ddd;
+    border-bottom: none;background: #ddd;">Hotels</div>
+                                                  <table class="table">
+                                                      <thead>
+                                                          <tr>
+                                                             <td></td>
+                                                             <td align="center">Hotels Revenue  </td>
+                                                             <td align="center">Hotels expenses</td>
+                                                             <td align="center">Hotels profit </td> 
+                                                          </tr>
+                                                      </thead>
+                                                      <tbody>
+                                                          <tr>
+                                                                 <td class="field" style="font-weight: bold;" align="center">Grand Total</td>
+                                                              <td align="right" ng-bind="tota_sum_hotel | currency:'':0"></td>
+                                                              <td align="right" ng-bind="total_hotel_expenses | currency:'':0"></td>
+                                                              <td align="right" ><span style="    border-bottom: 1px solid;
+    color: #ff9800;" ng-bind="total_hotel_profit | currency:'':0"></span></td>
+                                                          </tr>
+                                                      </tbody>
+                                                  </table>
+                                              </div>
+                                      <div class="col-md-6" style="margin-top: 30px">
                                         <div style="padding: 8px;
     font-weight: 500;
     border: 1px solid #ddd;
     border-bottom: none;background: #ddd;">Total Revenue</div>
                                           <table class="table">
                                           <tr>
-                                              <td align="center">Transfer profit</td>
+                                              <td align="center">Transfers profit</td>
                                               <td align="right" ng-bind="total_transfer_profit | currency:'':0"></td>
                                           </tr>
                                           <tr>
-                                              <td align="center">Tour profit</td>
+                                              <td align="center">Tours profit</td>
                                               <td align="right" ng-bind="total_tour_profit | currency:'':0"></td>
+                                          </tr>
+                                          <tr>
+                                              <td align="center">Hotels profit</td>
+                                              <td align="right" ng-bind="total_hotel_profit | currency:'':0"></td>
                                           </tr>
                                           <tr>
                                               <td align="center">Total </td>
                                               <td align="right"><span style="    border-bottom: 1px solid;
-    color: #ff9800;" ng-bind="total_tour_profit+total_transfer_profit | currency:'':0"></span></td>
+    color: #ff9800;" ng-bind="total_tour_profit+total_transfer_profit+total_hotel_profit | currency:'':0"></span></td>
                                           </tr>
                                       </table>
                                       </div>
@@ -1514,6 +1543,9 @@ label.label-editUser {
                        data.sum_tour = 0;
                        data.transfer_expenses = $scope.total_net;
                        data.tour_expenses = 0;
+                       data.sum_hotel = 0;
+                       data.hotel_expenses = 0;
+
                         data.total_amount = $scope.total_amount;
 
                        // console.log($scope.total_amount)
@@ -1521,7 +1553,7 @@ label.label-editUser {
 
                         // if()data.total_amount = $scope.total_price;
                     }
-                    else{
+                    else if(data.type == 'Tour'){
                         // if (data.total_price != 0) {
 
                         // }
@@ -1554,6 +1586,7 @@ label.label-editUser {
                                  data.total_net = (data.net_price_adult*data.adult) + (data.net_price_child*data.child);
                                  data.total_amount = $scope.total_price;
                                 $scope.total_amount = data.total_price;
+
                                  // $scope.total_net =(data.net_price_adult*data.adult) + (data.net_price_child*data.child);
                                  
                                 // $scope.total_amount = data.total_price;
@@ -1565,14 +1598,31 @@ label.label-editUser {
 
                         }
                         data.transfer_expenses =0;
-                       data.tour_expenses = $scope.total_net;
+                        data.tour_expenses = $scope.total_net;
                         data.sum_transfer = 0;
                         data.sum_tour = parseInt($scope.total_amount);
+                        data.sum_hotel = 0;
+                       data.hotel_expenses = 0;
                         // data.total_net = (data.net_price_adult*data.adult) + (data.net_price_child*data.child);
                         // $scope.total_net =(data.net_price_adult*data.adult) + (data.net_price_child*data.child);
                         //data.total_amount = $scope.total_price;
                         //$scope.total_amount = data.total_price;
-                    }  
+                    } 
+                    else if(data.type == 'Hotel'){
+                        data.total_amount = $scope.total_price;
+                        data.sum_tour = 0;
+                        data.tour_expenses = 0;
+
+                        data.sum_transfer = 0;
+                        data.transfer_expenses = 0;
+
+                        $scope.total_amount = data.total_price;
+                        data.sum_hotel =  parseInt($scope.total_amount);
+                        data.hotel_expenses = data.net_price_adult*data.nights;
+                        data.total_net = data.net_price_adult*data.nights;
+                        $scope.total_net = data.net_price_adult*data.nights;
+                        data.received =  $scope.total_amount - $scope.total_net;
+                    } 
                     //data.total_amount = $scope.total_price;
                     
 
@@ -2304,7 +2354,7 @@ label.label-editUser {
             $scope.search.package_name = '';
                     
         }
-        $scope.returnvalue = function (a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s) {
+        $scope.returnvalue = function (a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t,u,v) {
             $scope.total_tamount = a;
             $scope.total_tsele = b;
             $scope.total_tnet = c;
@@ -2323,7 +2373,10 @@ label.label-editUser {
             $scope.total_omedhat_net = p;
             $scope.total_omedhat_profit = q;
             $scope.free_booking = r;
-            $scope.total_free_booking = s;                          
+            $scope.total_free_booking = s;
+            $scope.total_hotel_expenses = t;
+            $scope.tota_sum_hotel = u;
+            $scope.total_hotel_profit = v;                             
         }
                  
     });
@@ -2352,7 +2405,10 @@ label.label-editUser {
                     var total_omedhat_net = 0;
                     var total_omedhat_profit = 0;
                     var free_booking = 0;
-                    var total_free_booking = 0;                  
+                    var total_free_booking = 0;
+                    var total_hotel_expenses = 0;
+                    var tota_sum_hotel = 0;
+                    var total_hotel_profit = 0;                 
                     //$scope.total_sell = 0;
                     if(input2 != null)
                     {
@@ -2396,12 +2452,19 @@ label.label-editUser {
                                     total_tnet += parseInt(data[i].total_net);
                                     // total_treseive += parseInt(data[i].received);
                                     total_tprofit += parseInt(data[i].received);
+
                                     tota_sum_transfer += parseInt(data[i].sum_transfer);
-                                    tota_sum_tour += parseInt(data[i].sum_tour);
-                                    total_tour_expenses += parseInt(data[i].tour_expenses);
                                     total_transfer_expenses += parseInt(data[i].transfer_expenses);
-                                    total_tour_profit += parseInt(data[i].sum_tour)-parseInt(data[i].tour_expenses);;
                                     total_transfer_profit += parseInt(data[i].sum_transfer)-parseInt(data[i].transfer_expenses);
+
+                                    total_tour_expenses += parseInt(data[i].tour_expenses);
+                                    tota_sum_tour += parseInt(data[i].sum_tour);
+                                    total_tour_profit += parseInt(data[i].sum_tour)-parseInt(data[i].tour_expenses);
+
+                                    total_hotel_expenses += parseInt(data[i].hotel_expenses);
+                                    tota_sum_hotel += parseInt(data[i].sum_hotel);
+                                    total_hotel_profit += parseInt(data[i].sum_hotel)-parseInt(data[i].hotel_expenses);
+                                    
                                     if (data[i].owner == 'mosab') {
                                         total_omosab_amount += parseInt(data[i].total_amount);
                                         total_omosab_net += parseInt(data[i].total_net);
@@ -2434,7 +2497,8 @@ label.label-editUser {
 
 
                                     // }
-                     scope.returnvalue( total_tamount,total_tsele,total_tnet,total_treseive,total_tprofit,tota_sum_transfer,tota_sum_tour,total_tour_expenses,total_transfer_expenses,total_tour_profit,total_transfer_profit,total_omosab_amount,total_omosab_net,total_omosab_profit,total_omedhat_amount,total_omedhat_net,total_omedhat_profit,free_booking,total_free_booking);
+                                   
+                     scope.returnvalue( total_tamount,total_tsele,total_tnet,total_treseive,total_tprofit,tota_sum_transfer,tota_sum_tour,total_tour_expenses,total_transfer_expenses,total_tour_profit,total_transfer_profit,total_omosab_amount,total_omosab_net,total_omosab_profit,total_omedhat_amount,total_omedhat_net,total_omedhat_profit,free_booking,total_free_booking,total_hotel_expenses,tota_sum_hotel,total_hotel_profit);
                                 
                                 result.push(data[i]);
                             }
