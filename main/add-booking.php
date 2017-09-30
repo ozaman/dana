@@ -153,7 +153,7 @@
                                 </li>
                                  <li >
                                     <a href="../report/reservation-invoice.php">
-                                        <i class="material-icons">notifications_active</i> Seservation - Invoice
+                                        <i class="material-icons">notifications_active</i> Reservation - Invoice
                                     </a>
                                 </li>
                                  <li>
@@ -464,7 +464,8 @@
                                     </div>
                                     <div class="form-group form-inline" ng-show="checkhotel">
                                         <label for="name" class="label-tour">Total price<span> :</span></label>
-                                        <label class="form-control "  id="label-addbooking" ><span ng-bind="total_price_hotel | currency:'':0"></span></label>
+                                        <input class="form-control"  id="label-addbooking" ng-value="total_pricetransfer | currency:'':0" ng-change="totalpricetransfer(total_pricetransfer)" ng-model="total_pricetransfer">
+                                       <!--  <label class="form-control "  id="label-addbooking" ><span ng-bind="total_price_hotel | currency:'':0"></span></label> -->
                                         <!-- <input type="text" class=" form-control" size="100" maxlength="200" placeholder = "2x,xxx" id="price" name="price" ng-model="price" required/> -->
                                     </div>
                                     <div class="form-group form-inline" ng-show="checktransfer">
@@ -480,7 +481,7 @@
                                     <div class="form-group form-inline" ng-show="checktransfer">
                                         <label for="name" class="label-tour">Total price<span> :</span></label>
 
-                                         <input class="form-control"  id="label-addbooking" ng-value="total_pricetransfer | currency:'':0" ng-change="totalpricetransfer(total_pricetransfer)" ng-model="total_pricetransfer">
+                                         <input class="form-control"  id="label-addbooking" ng-value="total_pricetransfer | currency:'':0" ng-change="totalpricehotel(total_pricetransfer)" ng-model="total_pricetransfer">
                                        
                                         <!-- <label class="form-control "  id="label-addbooking" "><span ng-bind="total_pricetransfer | currency:'':0"></span></label> -->
                                         <!-- <input type="text" class=" form-control" size="100" maxlength="200" placeholder = "2x,xxx" id="price" name="price" ng-model="price" required/> -->
@@ -581,7 +582,7 @@
                                                 
                                 </div>
                                  <div class=" form-group form-inline " ng-show="checkhotel">
-                                                <label class="label-tour">Night:</label> 
+                                                <label class="label-tour">Rooms:</label> 
                                             <select class="form-control" ng-change="changenumnight(hotel_night)" id="numnight" ng-model="hotel_night" data-ng-options="i  for i in numnight" style="width: 180px;">
                                                     <option value="">0</option>
                                               </select>
@@ -1244,7 +1245,7 @@ $(document).ready(function(){
                     '41','42','43','44','45','46','47','48','49','50','51','52','53','54','55','56','57','58','59'];
         $scope.Countryfont = "      Please select country";
          $scope.numnight = [];
-                    var x = 31;
+                    var x = 10;
             for (var i = 1; i <= x; i++) {
               $scope.numnight.push(i);
               
@@ -1415,6 +1416,11 @@ $(document).ready(function(){
         $scope.total_price = x;
 
     }
+    $scope.totalpricehotel = function(x){
+        console.log(x)
+        $scope.total_price = x;
+
+    }
     $scope.saleprice = function(x){
         console.log(x)
         if ($scope.checktype != 'Tour' ) {
@@ -1434,7 +1440,7 @@ $(document).ready(function(){
             $scope.total_price = $scope.total_price_adult + $scope.total_price_child;
 
     }
-    $scope.listcar = 1;
+    $scope.listcar = 0;
     $scope.changevalue = function(item){            
             var pax;
             if (item == undefined) {

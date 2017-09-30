@@ -150,7 +150,7 @@
                                 </li>
                                 <li class="active">
                                     <a href="reservation-invoice.php">
-                                        <i class="material-icons">notifications_active</i> Seservation - Invoice
+                                        <i class="material-icons">notifications_active</i> Reservation - Invoice
                                     </a>
                                 </li>
                                 <li>
@@ -346,7 +346,7 @@
                      
                       
                        <div class="col-md-12">
-                       <div class="form-group form-inline">
+                       <!-- <div class="form-group form-inline">
                                     <div class="radio" id="radioin" >
                                         <label style="padding: 0px 35px;">
                                             <input type="radio" name="typeRadios" ng-change="logtype(checktype)" ng-model="checktype" value="Tour" >
@@ -372,7 +372,7 @@
                                             All
                                         </label>
                                     </div>
-                            </div>
+                            </div> -->
                             <div class="row form-group form-inline" style="padding-bottom: 0">
                                 <div class="col-md-6 col-md-4 col-md-3 " style="padding-bottom: 20px">
                                     <table width="100%">
@@ -537,9 +537,14 @@
                                     <table class="table">
                                         <thead class="text-primary">
                                              <th></th>
+                                             <th>Pay by</th>                                         
+                                           
+                                            <th>Paid</th>
+                                            <th>Approved by</th>
                                              <!-- <th></th> -->
                                             <!-- <th>Status</th> -->
-                                            <th>Departure Date</th>
+                                            <th>Check In</th>
+                                            <th>Check Our</th>
                                             <th>Customer name</th> 
                                             <th>Invoice</th>
                                             <th>Agent Name</th>
@@ -548,16 +553,13 @@
                                             <!-- <th>Adult</th>
                                             <th>Child</th> -->
                                              <th>No. of Guest</th>
-                                             <th>No. of Car</th>
+                                             <!-- <th>No. of Car</th> -->
                                             <th>Total Amount</th>   
                                             <th>Unit price</th>
                                             <th>Total Net</th>
-                                            <th>Transfer price</th>
+                                            <!-- <th>Transfer price</th> -->
                                             <th>Money Received</th>
-                                            <th>Pay by</th>                                         
-                                           
-                                            <th>Paid</th>
-                                            <th>Approved by</th>
+                                            
                                             
                                             <!-- <th>Profit</th> -->
                                             <th></th>
@@ -569,7 +571,12 @@
                                             <tr ng-repeat="item in selsedataformonth | filter:search:strict | dateselect:dateselectionfrom:dateselectionto:this ">
                                                 <!-- | startFrom:(currentPage -1) * pageSize | limitTo:pageSize -->
                                                 <td align="center" ng-bind="$index+1"></td>
-                                                <td ng-bind="item.ondate"></td>
+
+                                                <td  align="center"><span style="color: #9c27b0" ng-show="item.status_invoice == 1 || item.total_price == 0" ng-bind="item.pay_by"></span><!-- <i ng-show="item.status_invoice == 1 || item.total_price == 0" class="material-icons" style="color: #4caf50;">playlist_add_check</i> --><button ng-show="item.status_invoice == 0 && item.total_price != 0" data-toggle="modal" data-target="#payproduct" ng-click="pay(item)" class="btn btn-primary btn-sm" style="text-transform: capitalize;">Pay</button></td>
+                                                <td  align="center"><i ng-show="item.done == 1" class="material-icons" style="color: #4caf50;">playlist_add_check</i><i ng-show="item.done == 0" class="material-icons"  style="color: #ff9800;">schedule</i></td>
+                                                <td  align="center"><button ng-show="item.approved == 0" data-toggle="modal" data-target="#approved" ng-click="approve(item)" class="btn btn-info btn-sm" style="text-transform: capitalize;">Approve</button><span style="color: #00bcd4" ng-show="item.approved == 1" ng-bind="item.approve_by"></span></td>
+                                                <td ng-bind="item.checkin"></td>
+                                                <td ng-bind="item.checkout"></td>
                                                 <td class="col-md-2" ng-bind="item.name" ></td>
                                                 <td  ng-bind="item.invoice"></td>
                                                 <td ><span ng-bind="item.agent_name"></span></td>
@@ -577,27 +584,25 @@
                                                 <!--  <td align="center"  ng-bind="item.adult"></td>
                                                 <td align="center" ng-bind="item.child"></td> -->
                                                  <td ng-bind="item.total"></td>
-                                                 <td ng-bind="item.listcar"></td>
+                                                 <!-- <td ng-bind="item.listcar"></td> -->
                                                 <td align="right" class="col-md-2" ng-bind="item.total_amount | currency:'':0" ></td>
                                                 <td align="right" class="col-md-2" ng-bind="item.adult_price | currency:'':0" ></td>
                                                
 
                                                 <td align="right" ng-bind="item.total_net  | currency:'':0"></td>
-                                                <td align="right" ng-bind="item.transfer_price  | currency:'':0"></td>
-                                               <td align="right" ng-bind="item.received  | currency:'':0"></td>
-                                                <td  align="center"><span style="color: #9c27b0" ng-show="item.status_invoice == 1 || item.total_price == 0" ng-bind="item.pay_by"></span><!-- <i ng-show="item.status_invoice == 1 || item.total_price == 0" class="material-icons" style="color: #4caf50;">playlist_add_check</i> --><button ng-show="item.status_invoice == 0 && item.total_price != 0" data-toggle="modal" data-target="#payproduct" ng-click="pay(item)" class="btn btn-primary btn-sm" style="text-transform: capitalize;">Pay</button></td>
-                                                <td  align="center"><i ng-show="item.done == 1" class="material-icons" style="color: #4caf50;">playlist_add_check</i><i ng-show="item.done == 0" class="material-icons"  style="color: #ff9800;">schedule</i></td>
-                                                <td  align="center"><button ng-show="item.approved == 0" data-toggle="modal" data-target="#approved" ng-click="approve(item)" class="btn btn-info btn-sm" style="text-transform: capitalize;">Approve</button><span style="color: #00bcd4" ng-show="item.approved == 1" ng-bind="item.approve_by"></span></td>
+                                                <!-- <td align="right" ng-bind="item.transfer_price  | currency:'':0"></td> -->
+                                                 <td align="right" ng-bind="item.received  | currency:'':0"></td>
+                                               
                                                 <!-- <td align="right" ng-bind="item.received  | currency:'':0"></td> -->
                                                 <td class="field" ></td>
                                             </tr>
                                            
                                               
-                                              <td colspan="8" class="field" style="font-weight: bold;" align="right">Grand Total</td>
+                                              <td colspan="11" class="field" style="font-weight: bold;" align="right">Grand Total</td>
                                               <td class="field" style="font-weight: bold;" align="right" ng-bind="total_tamount | currency:'':0"></td>
                                               <td class="field" style="font-weight: bold;" align="center" >-</td>
                                               <td class="field" style="font-weight: bold;" align="right" ng-bind="total_tnet | currency:'':0"></td>
-                                              <td class="field" style="font-weight: bold;" align="center" >=</td>
+                                              <!-- <td class="field" style="font-weight: bold;" align="center" >=</td> -->
                                                <!-- <td class="field" ></td>
                                               <td class="field" ></td>
                                               <td class="field" ></td> -->
@@ -1197,7 +1202,7 @@ label.label-editUser {
             $scope.total_tprofit = 0;
            
              var today = new Date();
-                var date = new Date(today.getFullYear()+'-'+(today.getMonth()+1)+'-1');
+                var date = new Date(today.getFullYear()+'-'+(today.getMonth()-1)+'-1');
                 console.log(today);
                 console.log(date);
                 $scope.dateselectionfrom = date;
@@ -1257,7 +1262,7 @@ label.label-editUser {
             // });
                  $http({
                 method : 'POST',
-                url : "../php/getManagebooking.php",
+                url : "../php/getReservation.php",
                 //data: $.param({sv: $scope.dataSV}),
                 headers: {'Content-Type': 'application/x-www-form-urlencoded'}
                 }).success(function(res){

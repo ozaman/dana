@@ -14,9 +14,8 @@ include("../config.php");
     $midnight = mktime(0,0,0,date('m'),date('d'),date('Y'));
     $date = date('01/'.$final.'/Y H:i:s',$midnight);
     $date2 =  date('d/m/Y H:i:s',($midnight+(60*60*24))-1);
-    // echo  $date.'<br>'. $date2.'<br>'.$m;
-	$sql = "select * from dn_booking as TB_booking WHERE status != 2  ORDER BY ondate ASC	";
-	// AND booking_date BETWEEN '".$date."' AND  '".$date2."'
+    //echo  $date.'<br>'. $date2.'<br>'.$m;
+	$sql = "select * from dn_booking as TB_booking WHERE status != 2 AND type = 'Hotel' AND status_invoice != '1' ORDER BY ondate ASC	";
 	$Objquery = mysql_query($sql,$conndb);
 	//echo $Objquery;
 	//$row = mysql_num_rows($Objquery); // นับจำนวนแถว

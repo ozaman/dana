@@ -149,7 +149,7 @@
                                 </li>
                                 <li >
                                     <a href="reservation-invoice.php">
-                                        <i class="material-icons">notifications_active</i> Seservation - Invoice
+                                        <i class="material-icons">notifications_active</i> Reservation - Invoice
                                     </a>
                                 </li>
                                 <li>
@@ -357,6 +357,12 @@
                                         <label style="padding: 0px 35px;">
                                             <input type="radio" name="typeRadios" ng-change="logtype(checktype)" ng-model="checktype" value="Transfer">
                                             Transfer
+                                        </label>
+                                    </div>
+                                    <div class="radio" id="radiotarnsfer">
+                                        <label style="padding: 0px 35px;">
+                                            <input type="radio" name="typeRadios" ng-change="logtype(checktype)" ng-model="checktype" value="Hotel">
+                                            Hotel
                                         </label>
                                     </div>
                                     <div class="radio" id="radioall">
@@ -992,7 +998,7 @@ label.label-editUser {
             $scope.checktype = 'All';
              $scope.selsedataformonth = [];
              var today = new Date();
-                var date = new Date(today.getFullYear()+'-'+(today.getMonth()+1)+'-1');
+                var date = new Date(today.getFullYear()+'-'+(today.getMonth()-1)+'-1');
                 //console.log(today);
                 //console.log(date);
                 $scope.dateselectionfrom = date;
@@ -1137,6 +1143,20 @@ label.label-editUser {
                 });
             }
              if ($scope.checktype == 'Transfer') {
+                $scope.checktour = false;             
+                $scope.checktransfer = true;
+                angular.forEach($scope.databook, function (data) {
+
+                    if (x == data.type) {
+                         //alert(x)
+                        $scope.selsedataformonth.push(data)
+                    }
+                    
+                                 
+                                    
+                });
+             }
+             if ($scope.checktype == 'Hotel') {
                 $scope.checktour = false;             
                 $scope.checktransfer = true;
                 angular.forEach($scope.databook, function (data) {

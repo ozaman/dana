@@ -285,7 +285,7 @@
                                 </li>
                                 <li >
                                     <a href="../report/reservation-invoice.php">
-                                        <i class="material-icons">notifications_active</i> Seservation - Invoice
+                                        <i class="material-icons">notifications_active</i> Reservation - Invoice
                                     </a>
                                 </li>
 

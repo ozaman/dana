@@ -148,7 +148,7 @@
                                 </li>
                                 <li >
                                     <a href="reservation-invoice.php">
-                                        <i class="material-icons">notifications_active</i> Seservation - Invoice
+                                        <i class="material-icons">notifications_active</i> Reservation - Invoice
                                     </a>
                                 </li>
                                 <li class="active">
@@ -996,7 +996,7 @@ label.label-editUser {
             $scope.total_transfer_price = 0;
             $scope.checktype = 'All';
             var today = new Date();
-                var date = new Date(today.getFullYear()+'-'+(today.getMonth()+1)+'-1');
+                var date = new Date(today.getFullYear()+'-'+(today.getMonth()-1)+'-1');
                 console.log(today);
                 console.log(date);
                 $scope.dateselectionfrom = date;
