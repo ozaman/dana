@@ -1063,6 +1063,9 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-filter/0.5.8/angular-filter.min.js"></script>
  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-filter/0.5.8/angular-filter.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.14.3/ui-bootstrap-tpls.min.js"></script>
+  <script src="https://cdn.rawgit.com/niklasvh/html2canvas/0.5.0-alpha2/dist/html2canvas.min.js"></script>
+   <script src="../bower_components/jsPDF/dist/jspdf.debug.js"></script>
+   <script src="../dist/saveHtmlToPdf.min.js"></script>
 
 <!-- <script src="../files/js-/main.js?v=<?=time()?>"></script> -->
 <!-- <script type="text/javascript">
