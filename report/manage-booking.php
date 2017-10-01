@@ -425,7 +425,7 @@
                                           <!-- <li ng-click="clicklist('Booking ID')">Booking ID</li> -->
                                                <li ng-click="clicklist('Invoice')">Invoice</li>
                                                 <li ng-click="clicklist('Package Name')">Package Name</li>
-                                                <li ng-click="clicklist('Agent Name')">Agent Name</li>
+                                                <!-- <li ng-click="clicklist('Agent Name')">Agent Name</li> -->
                                                 <li ng-click="clicklist('Customer name')">Customer name</li>
                                                 <li ng-click="clicklist('Own name')">Own name</li>
                                           
@@ -448,12 +448,12 @@
                                             <td valign="top">
                                                 <div class="search-box">
                              
-                                                <input type="text" class="search_booking form-control"  ng-model="search.id" placeholder="Booking ID" style="width: 100%">
-                                                <input type="text" class="search_product form-control"  ng-model="search.invoice" placeholder="Invoice" style="width: 100%">
-                                                <input type="text" class="search_name form-control"  ng-model="search.package_name" placeholder="Package Name" style="width: 100%">
-                                                <input type="text" class="search_agentname form-control"  ng-model="search.agent_name" placeholder="Agent Name" style="width: 100%">
-                                                <input type="text" class="search_castomername form-control"  ng-model="search.name" placeholder="Customer name" style="width: 100%">
-                                                <input type="text" class="search_ownername form-control"  ng-model="search.owner" placeholder="Own name" style="width: 100%">
+                                                <input type="text" class="search_booking form-control"  ng-model="search.id" placeholder="Booking ID" style="width: 100%" ng-change="changenameinput(search.id)">
+                                                <input type="text" class="search_product form-control"  ng-model="search.invoice" placeholder="Invoice" style="width: 100%" ng-change="changenameinput(search.invoice)">
+                                                <input type="text" class="search_name form-control"  ng-model="search.package_name" placeholder="Package Name" style="width: 100%" ng-change="changenameinput(search.package_name)">
+                                                <input type="text" class="search_agentname form-control"  ng-model="search.agent_name" placeholder="Agent Name" style="width: 100%" ng-change="changenameinput(search.agent_name)">
+                                                <input type="text" class="search_castomername form-control"  ng-model="search.name" placeholder="Customer name" style="width: 100%" ng-change="changenameinput(search.name)">
+                                                <input type="text" class="search_ownername form-control"  ng-model="search.owner" placeholder="Own name" style="width: 100%" ng-change="changenameinput(search.owner)">
                                 
                                 
                                
@@ -505,6 +505,52 @@
                             <input type="date" class="search_date form-control" ng-model="datepdf" placeholder="Date" />
                         </div>
                         <button type="reset" class="btn btn-default" data-dismiss="modal" onclick="getPrintPDF()"><i class="material-icons">picture_as_pdf</i>Print</button>-->
+                                    </div>
+                                     <div class="form-group form-inline " style="width: 100%;border-top: 1px solid #fff;
+    padding-top: 15px;
+    padding-bottom: 0;">
+                                            
+                                                <label for="class" class="label-tour" style="    margin-right: 4px;color: #555">Print Booking </label>
+                                                <table width="100%">
+                                                    <tr>
+                                                        <td align="right" width="50">
+                                                            <span>Date :</span>
+                                                        </td>
+                                                       
+                                                        <td align="center" width="100">
+                                                            <span ng-bind="dateselectionfrom | date:'dd-MM-yyyy'"></span>
+                                                        </td>
+                                                        <td align="center" width="5">
+                                                            <span>-</span>
+                                                        </td>
+                                                        <td align="center" width="100"> 
+                                                            <span ng-bind="dateselectionto | date:'dd-MM-yyyy'" ></span>
+                                                        </td>
+                                                        <td>
+                                                            <button type="reset" class="btn btn-info "  ng-click="getPrintPDF()" style="padding: 3px 15px;margin-left: 15px;">
+                                                                <i class="material-icons" style="font-size: 28px;">picture_as_pdf</i>
+                                                            </button>
+                                                        </td>
+                                                        <!-- <td><span>From</span></td> -->
+                                                    </tr>
+                                                </table>
+                        <!-- <div class="search-box-date" style="    display: inline-block;">
+                            <input type="date" class="search_date form-control" ng-model="datepdf" placeholder="Date" />
+                        </div> -->
+
+                                            <!-- <select name="class" id="class"  class="form-control col-md-8"  style=" border: 1px solid #ccc; border-radius: 5px;display: inline-block" ng-model="typebook">
+
+                                                <option value="">-None-</option>
+                                                <option value="Transfer">Transfer</option>
+
+                                                <option value="Tour">Tour</option>
+
+                                             
+
+                                             
+
+                                            </select> -->
+                        
                                     </div>
                                     
                             <div class="card">
@@ -1203,7 +1249,7 @@ label.label-editUser {
             $scope.total_tprofit = 0;
            
              var today = new Date();
-                var date = new Date(today.getFullYear()+'-'+(today.getMonth()+1)+'-1');
+                var date = new Date(today.getFullYear()+'-'+(today.getMonth()-1)+'-1');
                 console.log(today);
                 console.log(date);
                 $scope.dateselectionfrom = date;
@@ -1447,6 +1493,15 @@ label.label-editUser {
                  
                        
             });
+            $http({
+                    method: 'post',
+                    url: "../php/getAgent.php", 
+                    headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+                }).success(function (res) {
+                    $scope.dataAgentsearch = res;
+                    console.log($scope.dataAgentseach)
+
+             }); 
              
             }
             else
@@ -1454,27 +1509,12 @@ label.label-editUser {
                 $window.location.href = '../login.php';
             }
         }
-        $scope.getPrintPDF = function(){
-            console.log($scope.typebook)
-            console.log($scope.datepdf)
-             console.log($filter('date')(new Date($scope.datepdf),'dd/MM//yyyy'));
-                $scope.ondatepdf = $filter('date')(new Date($scope.datepdf),'dd/MM/yyyy')
-            if ($scope.typebook == undefined) {
-                $('#selecttype').modal('show')
-            }
-            else{
-               
-                if($scope.ondatepdf != 'undefined'){
-                    $window.open('printPDF.php?date=' + $scope.ondatepdf+'&type='+$scope.typebook);
+        $scope.changenameinput = function(x){
+            console.log(x)
+            $scope.searchBy = x;
 
-                    //$window.location.href="http://danatoursasia.com/back/report/printPDF.php?date="+$scope.ondatepdf;
-                }
-                else{
-                     $('#selecttype').modal('show')
-                }
-            }
-            
         }
+
         $scope.logtype=function(x){
 
             $scope.selsedataformonth = [];
@@ -1717,7 +1757,9 @@ label.label-editUser {
          }
          $scope.changeagent = function(agent){
             // $('.clear').css('display','inline-block');
-
+            console.log('==========')
+            console.log(agent)
+            $scope.searchagent = agent;
            $scope.agentid = agent;
             $scope.selsedataformonth = [];
             var total_tamount = 0;
@@ -1971,6 +2013,79 @@ label.label-editUser {
            }
             
         }
+        $scope.getPrintPDF = function(){
+            // console.log($scope.typebook)
+            // console.log($scope.datepdf)
+            // console.log( $scope.dateselectionfrom)
+            // console.log( $scope.dateselectionto)
+            console.log($scope.searchBy)
+            console.log($scope.search_box_list)
+            console.log($scope.searchagent)
+
+             // console.log($filter('date')(new Date($scope.dateselectionfrom),'dd/MM/yyyy'));
+                $scope.ondatepdf = $filter('date')(new Date($scope.dateselectionfrom),'dd/MM/yyyy')
+                $scope.todatepdf = $filter('date')(new Date($scope.dateselectionto),'dd/MM/yyyy')
+                console.log( $scope.ondatepdf)
+                console.log( $scope.todatepdf)
+                var search,datasearch;
+
+                if ($scope.searchagent == undefined) {
+                    search = $scope.search_box_list;
+                    datasearch = $scope.searchBy; 
+                }
+                else{
+                    search = 'Agent';
+                    
+                     angular.forEach($scope.dataAgentsearch, function (data) {
+                        console.log(data.fname)
+                        if (data.fname == $scope.searchagent) {
+                            datasearch = data.id;
+                            console.log(data)
+
+                        }
+                     });
+                     console.log(datasearch)
+                    
+                    
+                }
+            // if ($scope.typebook == undefined) {
+            //     $('#selecttype').modal('show')
+            // }
+            // else{
+               
+                 if($scope.ondatepdf != 'undefined' || $scope.todatepdf != 'undefined'){
+                   $window.open('printPDF.php?date=' + $scope.ondatepdf+'&dateto='+$scope.todatepdf+'&searchby='+search+'&data='+datasearch);
+
+                     //$window.location.href="http://danatoursasia.com/back/report/printPDF.php?date="+$scope.ondatepdf;
+            }
+            //     else{
+            //          $('#selecttype').modal('show')
+            //     }
+            // }
+            
+        }
+         // $scope.getPrintPDF = function(){
+            // console.log($scope.search_box_list)
+            // console.log($scope.typebook)
+            // console.log($scope.datepdf)
+             // console.log($filter('date')(new Date($scope.datepdf),'dd/MM//yyyy'));
+               // / $scope.ondatepdf = $filter('date')(new Date($scope.datepdf),'dd/MM/yyyy')
+            // if ($scope.typebook == undefined) {
+            //     $('#selecttype').modal('show')
+            // }
+            // else{
+               
+            //     if($scope.ondatepdf != 'undefined'){
+            //         $window.open('printPDF.php?date=' + $scope.ondatepdf+'&type='+$scope.typebook);
+
+            //         //$window.location.href="http://danatoursasia.com/back/report/printPDF.php?date="+$scope.ondatepdf;
+            //     }
+            //     else{
+            //          $('#selecttype').modal('show')
+            //     }
+            // }
+            
+        // }
         $scope.openlist = function(){
             var result = document.getElementsByClassName("search_list");
             if($scope.list == true)
@@ -1986,7 +2101,9 @@ label.label-editUser {
         }
         $scope.clicklist = function(input){
             var result;
+            //$scope.checkprintpdf = input;
             $scope.search_box_list = input;
+            console.log($scope.search_box_list)
             $("#search_input").show();
             // result = document.getElementsByClassName("search_input").show();
             ////console.log($scope.search_box_list);
