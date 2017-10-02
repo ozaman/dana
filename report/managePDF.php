@@ -6,32 +6,6 @@ ob_start();
 ?>
 <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=UTF-8">
 
-<!-- <style type="text/css">
-
-@page rotated { size: landscape; }
-.style1 {
-	font-family: "TH SarabunPSK";
-	font-size: 18pt;
-	font-weight: bold;
-}
-.style2 {
-	font-family: "TH SarabunPSK";
-	font-size: 16pt;
-	font-weight: bold;
-}
-. {
-	font-family: "TH SarabunPSK";
-	font-size: 16pt;
-	
-}
-.style5 {cursor: hand; font-weight: normal; color: #000000;}
-.style9 {font-family: Tahoma; font-size: 13px; }
-.style11 {font-size: 13px}
-.style13 {font-size: 9}
-.style16 {font-size: 9; font-weight: bold; }
-.style17 {font-size: 13px; font-weight: bold; }
-
-</style> -->
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <html>
@@ -71,56 +45,51 @@ echo "date : " .$_GET[date].' - '.$_GET[dateto];
   <tr align="center">
     <td width="30"  align="center" bgcolor="#ddd" style="padding: 15px 8px;    padding: 15px 8px;
     border-left: 1px solid #999;
-    border-top: 1px solid #999;"><strong></strong></td>
-    <td width="" align="center" bgcolor="#ddd" style="padding: 15px 8px;  border-top: 1px solid #999;"><strong>Invoice
+    border-top: 1px solid #999;"></td>
+    <td width="" align="center" bgcolor="#ddd" style="padding: 15px 8px;  border-top: 1px solid #999;">DATE</td>
+    <td width="" align="center" bgcolor="#ddd" style="padding: 15px 8px;  border-top: 1px solid #999;">INVOICE
      
-    </strong></td>
-    <td width="250" align="center" bgcolor="#ddd" style="padding: 15px 8px;  border-top: 1px solid #999;" ><strong>Package Name</strong></td>
-    <td width="" align="center" bgcolor="#ddd" style="padding: 15px 8px;  border-top: 1px solid #999;"><strong>Customer name</strong></td>
-    <td width="" align="center" bgcolor="#ddd" style="padding: 15px 8px;  border-top: 1px solid #999;"><strong>Flight</strong></td>
-    <td width="" align="center" bgcolor="#ddd" style="padding: 15px 8px;  border-top: 1px solid #999;"><strong>Pickup place</strong></td>
-    <td width="" align="center" bgcolor="#ddd" style="padding: 15px 8px;  border-top: 1px solid #999;"><strong>To place</strong></td>
-    <td width="" align="center" bgcolor="#ddd" style="padding: 15px 8px;  border-top: 1px solid #999;"><strong>Agent</strong></td>
-    <td width="" align="center" bgcolor="#ddd" style="padding: 15px 8px;  border-top: 1px solid #999;"><strong>Departure Date</strong></td>
-    <td width="" align="center" bgcolor="#ddd" style="padding: 15px 8px;  border-top: 1px solid #999;"><strong>On time</strong></td>
-    <td width="" align="center" bgcolor="#ddd" style="padding: 15px 8px;  border-top: 1px solid #999;"><strong>No. of Guest</strong></td>
-    <td width="" align="center" bgcolor="#ddd" style="padding: 15px 8px;    padding: 15px 8px;
+    </td>
+    <td width="" align="center" bgcolor="#ddd" style="padding: 15px 8px;  border-top: 1px solid #999;">Name</td>
+    <td width="250" align="center" bgcolor="#ddd" style="padding: 15px 8px;  border-top: 1px solid #999;" >DISCRIPTION</td>
+    
+    <td width="" align="center" bgcolor="#ddd" style="padding: 15px 8px;  border-top: 1px solid #999;">ORDER BY</td>
+   <!--  <td width="" align="center" bgcolor="#ddd" style="padding: 15px 8px;  border-top: 1px solid #999;"><strong>Pickup place</strong></td>
+    <td width="" align="center" bgcolor="#ddd" style="padding: 15px 8px;  border-top: 1px solid #999;"><strong>To place</strong></td> -->
+    <td width="" align="center" bgcolor="#ddd" style="padding: 15px 8px;  border-top: 1px solid #999;">QTY</td>
+    
+    <td width="" align="center" bgcolor="#ddd" style="padding: 15px 8px;  border-top: 1px solid #999;">PRICE/USD</td>
+   
+     
+     
+    <td align="center" bgcolor="#ddd" style="padding: 15px 8px;  border-top: 1px solid #999;">
+             CREDIT
+    </td>
+    <td align="center" bgcolor="#ddd" style="padding: 15px 8px;  border-top: 1px solid #999;">
+             DEBIT
+    </td>
+    <td align="center" bgcolor="#ddd" style="padding: 15px 8px;  border-top: 1px solid #999;">
+             BLANCE
+    </td>
+       
+
+     
+    
+    <td width="" align="center" bgcolor="#ddd" style="padding: 15px 8px;  border-top: 1px solid #999;border-right: 1px solid #999;">REMARK</td>
+    <!-- <td width="" align="center" bgcolor="#ddd" style="padding: 15px 8px;    padding: 15px 8px;
     border-right:  1px solid #999;
-    border-top: 1px solid #999;"><strong>Type</strong></td>
+    border-top: 1px solid #999;">Type</td> -->
     
     </tr>
     <?php
     include("../config.php");
-    //  $date = date('d/m/Y H:i:s');
-    // $d = date_parse_from_format("Y-m-d", $date);
-    // $x =  $d["month"];
-    // $m = $x - 2;
-    // if ($m < 10) {
-    //    $final = '0'.$m;
-    // }
-    // else{
-    //     $final = $m;
-    // }
-    // $midnight = mktime(0,0,0,date('m'),date('d'),date('Y'));
-    // $date = date("".$_GET[date]." H:i:s",$midnight);
-    // $date2 =  date("".$_GET[dateto]." H:i:s",($midnight+(60*60*24))-1);
-    //$midnight = mktime(0,0,0,date('m'),date('d')-1,date('Y'));
-    //$date = date('d/m/Y',$midnight);
-     //$dates = '05/08/2017';
+    
     $date = strtotime($_GET[date]);
     $date2 =  strtotime($_GET[dateto]);
-     echo $date.'==='.$date2.'====='.$_GET[data];
-    // if($_GET[searchby] == 'Agent'){
-    //   $search = 'agent_id'; 
-
-    // }
 
     $sql =  "SELECT * FROM dn_booking WHERE post_date BETWEEN '".$date."' AND '".$date2."' AND status != 2 AND agent_id = '".$_GET[data]."'  ORDER BY invoice ASC"; 
-//$objQuery = mysql_query($sql);
-
                
 $Objquery = mysql_query($sql,$conndb);
-// echo $Objquery;
 $i = 1;
 while($rerow = mysql_fetch_array($Objquery)){
  //echo $rerow['invoice'];?> 
@@ -130,50 +99,114 @@ while($rerow = mysql_fetch_array($Objquery)){
    padding: 8px;
     line-height: 1.42857143;
     vertical-align: top;"><?php echo $i;?></td>
-    <td align="cent" class=""  style="border-bottom: 1px solid #999;font-size:13px;
+    <td align="center" class="" style="border-bottom: 1px solid #999; font-size:13px;
+   padding: 8px;
+    line-height: 1.42857143;
+    vertical-align: top;"><?php 
+   // $now = nateTime($rerow['post_date']);
+echo date('d/m/Y',$rerow['post_date']);
+
+     ?></td>
+    <td align="cent" class=""  style="border-bottom: 1px solid #999; font-size:13px;
    padding: 8px;
     line-height: 1.42857143;
     vertical-align: top;"><?php echo $rerow['invoice']; ?></td>
-    <td align="center" class="" width="250"  style="border-bottom: 1px solid #999;font-size:13px;
-   padding: 8px;
-    line-height: 1.42857143;
-    vertical-align: top;"><?php echo $rerow['package_name']; ?></td>
-    <td align="center" class=""  style="border-bottom: 1px solid #999;font-size:13px;
+     <td align="center" class=""  style="border-bottom: 1px solid #999; font-size:13px;
    padding: 8px;
     line-height: 1.42857143;
     vertical-align: top;"><?php echo $rerow['name']; ?></td>
-    <td align="center" class=""  style="border-bottom: 1px solid #999;font-size:13px;
+    <td align="center" class="" width="250"  style="border-bottom: 1px solid #999; font-size:13px;
    padding: 8px;
     line-height: 1.42857143;
-    vertical-align: top;"><?php echo $rerow['flight']; ?></td>
-    <td align="center" class=""  style="border-bottom: 1px solid #999;font-size:13px;
-   padding: 8px;
-    line-height: 1.42857143;
-    vertical-align: top;"><?php echo $rerow['pickup_place']; ?></td>
-    <td align="center" class="" style="border-bottom: 1px solid #999;font-size:13px;
-   padding: 8px;
-    line-height: 1.42857143;
-    vertical-align: top;"><?php echo $rerow['to_place']; ?></td>
-    <td align="center" class=""  style="border-bottom: 1px solid #999;font-size:13px;
+    vertical-align: top;"><?php echo $rerow['package_name']; ?></td>
+     <td align="center" class=""  style="border-bottom: 1px solid #999; font-size:13px;
    padding: 8px;
     line-height: 1.42857143;
     vertical-align: top;"><?php echo $rerow['agent_name']; ?></td>
-    <td align="center" class=""  style="border-bottom: 1px solid #999;font-size:13px;
-   padding: 8px;
-    line-height: 1.42857143;
-    vertical-align: top;"><?php echo $rerow['ondate']; ?></td>
-    <td align="center" class=""  style="border-bottom: 1px solid #999;font-size:13px;
-   padding: 8px;
-    line-height: 1.42857143;
-    vertical-align: top;"><?php echo $rerow['ontime']; ?></td>
-    <td align="center" class="" style="border-bottom: 1px solid #999;font-size:13px;
+    <td align="center" class="" style="border-bottom: 1px solid #999; font-size:13px;
    padding: 8px;
     line-height: 1.42857143;
     vertical-align: top;"><?php echo $rerow['total']; ?></td>
+    
+   
+    <td align="right" class=""  style="border-bottom: 1px solid #999; font-size:13px;
+   padding: 8px;
+    line-height: 1.42857143;
+    vertical-align: top;"><?php echo $rerow['total_price']/33; ?></td>
+    <!-- <td align="center" class=""  style="border-bottom: 1px solid #999;font-size:13px;
+   padding: 8px;
+    line-height: 1.42857143;
+    vertical-align: top;"><?php //echo $rerow['pickup_place']; ?></td>
     <td align="center" class="" style="border-bottom: 1px solid #999;font-size:13px;
    padding: 8px;
     line-height: 1.42857143;
-    vertical-align: top;    border-right: 1px solid #999;"><?php echo $rerow['type']; ?></td>
+    vertical-align: top;"><?php //echo $rerow['to_place']; ?></td> -->
+   
+    <td colspan="" align="center" class=""  style="border-bottom: 1px solid #999; font-size:13px;
+   padding: 8px;
+    line-height: 1.42857143;
+    vertical-align: top;">-</td>
+    <td colspan="" align="center" class=""  style="border-bottom: 1px solid #999; font-size:13px;
+   padding: 8px;
+    line-height: 1.42857143;
+    vertical-align: top;">-</td>
+    <td colspan="" align="right" class=""  style="border-bottom: 1px solid #999; font-size:13px;
+   padding: 8px;
+    line-height: 1.42857143;
+    vertical-align: top;"><?php 
+    if ($rerow['type'] == 'Transfer') {
+      if ($rerow['agent_name'] != 'Magic World' ) {
+           if ($rerow['total_price'] != 0) {
+              if ($rerow['province'] == 'Phuket') {
+                $total_price = $rerow['total_price']+(23*33);
+              }
+              else{
+                $total_price = $rerow['total_price']+(35*33);
+
+              }
+           }
+
+        
+      }
+      else{
+        if ($rerow['province'] == 'Phuket') {
+                $total_price = $rerow['total_price']+(22*33);
+              }
+              else{
+                $total_price = $rerow['total_price']+(32*33);
+
+              }
+      }
+
+    }
+    else{
+      
+        $total_price = $rerow['total_price'];
+      
+    }
+    $c = $total_price;
+    echo number_format($c);
+   
+    ?></td>
+
+
+
+
+
+
+
+
+
+
+    <td align="center" class=""  style="border-bottom: 1px solid #999; font-size:13px;
+   padding: 8px;
+    line-height: 1.42857143;
+    vertical-align: top;border-right: 1px solid #999;"><?php echo $rerow['remark']; ?></td>
+    
+    <!-- <td align="center" class="" style="border-bottom: 1px solid #999;font-size:13px;
+   padding: 8px;
+    line-height: 1.42857143;
+    vertical-align: top;    border-right: 1px solid #999;"><?php //echo $rerow['type']; ?></td> -->
     </tr>
 
   
@@ -190,27 +223,7 @@ while($rerow = mysql_fetch_array($Objquery)){
 
 </body>
 
-    <!-- <style>
-    th, .table > thead > tr > td, .table > tbody > tr > td, .table > tfoot > tr > td {
-    padding: 13px 8px;
-    vertical-align: middle;
-}
-
-.table>tbody>tr>td{
-    padding: 8px;
-    line-height: 1.42857143;
-    vertical-align: top;
-    border-top: 1px solid #ddd;
-}
-.table>tbody>tr>td>{
-  font-size:14px;
-   padding: 8px;
-    line-height: 1.42857143;
-    vertical-align: top;
-    border-top: 1px solid #ddd;
-}
-
-    </style> -->
+   
 </html>
 <?Php
 $html = ob_get_contents();
@@ -221,5 +234,31 @@ $pdf->SetAutoFont();
 $pdf->WriteHTML($html, 2);
 $pdf->Output();
 ?>   
-       
-<!-- ดาวโหลดรายงานในรูปแบบ PDF <a href="MyPDF/MyPDF.pdf">คลิกที่นี้</a> -->
+  
+<style type="text/css">
+
+@page rotated { size: landscape; }
+.style1 {
+  font-family: "TH SarabunPSK";
+  font-size: 18pt;
+  font-weight: bold;
+}
+.style2 {
+  font-family: "TH SarabunPSK";
+  font-size: 16pt;
+  font-weight: bold;
+}
+. {
+  font-family: "TH SarabunPSK";
+  font-size: 16pt;
+  
+}
+.style5 {cursor: hand; font-weight: normal; color: #000000;}
+.style9 {font-family: Tahoma; font-size: 13px; }
+.style11 {font-size: 13px}
+.style13 {font-size: 9}
+.style16 {font-size: 9; font-weight: bold; }
+.style17 {font-size: 13px; font-weight: bold; }
+
+
+</style>

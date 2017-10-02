@@ -1263,7 +1263,7 @@ label.label-editUser {
             $scope.total_tprofit = 0;
            
              var today = new Date();
-                var date = new Date(today.getFullYear()+'-'+(today.getMonth()-1)+'-1');
+                var date = new Date(today.getFullYear()+'-'+(today.getMonth())+'-1');
                 console.log(today);
                 console.log(date);
                 $scope.dateselectionfrom = date;
@@ -1732,6 +1732,17 @@ label.label-editUser {
                                  data.total_amount = $scope.total_price;
                                 $scope.total_amount = data.total_price;
                     }
+                    else if(data.type == 'Flights'){
+                        data.total_net =  parseInt(data.total_price) ;
+                         $scope.total_net =  parseInt(data.total_price);
+                                $scope.total_amount =  parseInt(data.total_price)+500;
+                                data.total_amount =  parseInt($scope.total_price)+500;
+                                data.received =  parseInt($scope.total_amount) -  parseInt($scope.total_net);
+                                // data.received =  $scope.total_amount- $scope.total_net;
+                                 
+                                 // data.total_amount = $scope.total_price+500;
+                                // $scope.total_amount = data.total_price+500;
+                    }
                     else{
                          $scope.total_net = (data.net_price_adult*data.adult) + (data.net_price_child*data.child);
                                 $scope.total_amount = data.total_price;
@@ -1800,8 +1811,160 @@ label.label-editUser {
             });
          }
          $scope.changeagent = function(agent){
-            // $('.clear').css('display','inline-block');
-            console.log('==========')
+            $http({
+                method : 'POST',
+                url : "../php/getManagebooking.php",
+                //data: $.param({sv: $scope.dataSV}),
+                headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+                }).success(function(res){
+                 console.log(res)
+                 console.log(res[0].flight)
+                 $scope.datatour = res;
+                  $scope.newdate = $filter('date')(new Date(),'dd/MM/yyyy');
+                    //console.log($scope.newdate)
+                angular.forEach($scope.datatour, function (data) {
+                   // Total Amountitem.adult_price*item.total 
+                   $scope.dataAgentget.push(data.agent_name)
+                    //$scope.dataAgentget.push(data.agent_id)
+                    // console.log(data.adult_price*data.total)
+                    //item.net_price_adult*item.total
+                    // $scope.total_amount = data.adult_price*data.total;
+                    // $scope.total_net =  data.net_price_adult*data.total;
+                    //$scope.dataAgent.push()
+                    $scope.total_price = parseInt(data.total_price);
+                    if(data.type == 'Transfer'){
+                        data.total_net = data.transfer_price*data.listcar;
+                        $scope.total_net =  data.transfer_price*data.listcar;
+                        if (data.agent_name != 'Magic World') {
+                            if (data.total_price != 0) {
+                                if(data.province == 'Phuket'){
+                                data.total_amount = parseInt($scope.total_price)+(23*33);
+                                    $scope.total_amount = parseInt($scope.total_price)+(23*33);
+                                }
+                                else{
+                                     data.total_amount = parseInt($scope.total_price)+(35*33);
+                                     $scope.total_amount = parseInt($scope.total_price)+(35*33);
+                                }
+
+                            }
+                             else{
+
+                               $scope.total_amount = 0; 
+                               $scope.total_net = 0;
+                            }
+                            
+                        }
+                        else{
+                             if (data.total_price != 0) {
+                                 if(data.province == 'Phuket'){
+                                data.total_amount = parseInt($scope.total_price)+(20*33);
+                                $scope.total_amount = parseInt($scope.total_price)+(20*33);
+                                }
+                                else{
+                                     data.total_amount = parseInt($scope.total_price)+(35*33);
+                                     $scope.total_amount = parseInt($scope.total_price)+(35*33);
+                                }
+                             }
+                             else{
+                                 $scope.total_amount = 0; 
+                                 $scope.total_net = 0;
+                             }
+                            
+                        }
+                         data.total_net = $scope.total_net;
+                        data.total_amount = $scope.total_amount;
+                        data.received =  $scope.total_amount - $scope.total_net;
+                        // if()data.total_amount = $scope.total_price;
+                    }
+                    else if(data.type == 'Tour'){
+                        if(data.package_name == 'City Tour'){
+                       data.total_net =  data.adult_price; 
+                        data.received =  0;
+                         data.total_amount = data.adult_price;
+                         $scope.total_amount = data.adult_price;
+                        }
+                        else{
+                             if(data.total_price == '0'){
+                               
+                                 data.received = 0;
+                                  data.total_net = 0;
+                                   data.total_amount = 0;
+                                
+                               
+                            }
+                             else{
+                                $scope.total_net = (data.net_price_adult*data.adult) + (data.net_price_child*data.child);
+                                $scope.total_amount = data.total_price;
+                                data.total_amount = $scope.total_price;
+                                data.received =  $scope.total_amount - $scope.total_net;
+                                // data.received =  $scope.total_amount- $scope.total_net;
+                                 data.total_net = (data.net_price_adult*data.adult) + (data.net_price_child*data.child);
+                                 data.total_amount = $scope.total_price;
+                                $scope.total_amount = data.total_price;
+                                 // $scope.total_net =(data.net_price_adult*data.adult) + (data.net_price_child*data.child);
+                                 
+                                // $scope.total_amount = data.total_price;
+                            }
+                            
+                             
+                             
+                            
+
+                        }
+                        // data.total_net = (data.net_price_adult*data.adult) + (data.net_price_child*data.child);
+                        // $scope.total_net =(data.net_price_adult*data.adult) + (data.net_price_child*data.child);
+                        //data.total_amount = $scope.total_price;
+                        //$scope.total_amount = data.total_price;
+                    }
+                    else if(data.type == 'Hotel'){
+                         $scope.total_net = (data.net_price_adult*data.nights) + (data.net_price_child*data.nights);
+                                $scope.total_amount = data.total_price;
+                                data.total_amount = $scope.total_price;
+                                data.received =  $scope.total_amount - $scope.total_net;
+                                // data.received =  $scope.total_amount- $scope.total_net;
+                                 data.total_net = (data.net_price_adult*data.nights) + (data.net_price_child*data.nights);
+                                 data.total_amount = $scope.total_price;
+                                $scope.total_amount = data.total_price;
+                    }
+                    else if(data.type == 'Flights'){
+                        data.total_net =  parseInt(data.total_price) ;
+                         $scope.total_net =  parseInt(data.total_price);
+                                $scope.total_amount =  parseInt(data.total_price)+500;
+                                data.total_amount =  parseInt($scope.total_price)+500;
+                                data.received =  parseInt($scope.total_amount) -  parseInt($scope.total_net);
+                                // data.received =  $scope.total_amount- $scope.total_net;
+                                 
+                                 // data.total_amount = $scope.total_price+500;
+                                // $scope.total_amount = data.total_price+500;
+                    }
+                    else{
+                         $scope.total_net = (data.net_price_adult*data.adult) + (data.net_price_child*data.child);
+                                $scope.total_amount = data.total_price;
+                                data.total_amount = $scope.total_price;
+                                data.received =  $scope.total_amount - $scope.total_net;
+                                // data.received =  $scope.total_amount- $scope.total_net;
+                                 data.total_net = (data.net_price_adult*data.adult) + (data.net_price_child*data.child);
+                                 data.total_amount = $scope.total_price;
+                                $scope.total_amount = data.total_price;
+                    }  
+                    
+                     $scope.selsedataformonth.push(data)
+                      //data.dateCompare = 'wait';
+                            if ($scope.newdate == data.ondate) { 
+                                data.noti = '1';                                    
+                                $scope.datanoti.push(data);
+                                            
+                            }
+                            else{
+                                data.noti = '0'; 
+                            }
+                        });
+                $scope.databook = $scope.datatour;
+                console.log($scope.databook)
+
+
+
+                console.log('==========')
             console.log(agent)
             $scope.searchagent = agent;
            $scope.agentid = agent;
@@ -1846,6 +2009,17 @@ label.label-editUser {
             
         });
             console.log($scope.dataselectagent)
+
+
+
+                
+            });
+
+
+
+
+            // $('.clear').css('display','inline-block');
+            
            
             
                  
