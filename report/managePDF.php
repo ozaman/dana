@@ -122,10 +122,9 @@ echo "date : " .$_GET[date].' - '.$_GET[dateto];
 $Objquery = mysql_query($sql,$conndb);
 // echo $Objquery;
 $i = 1;
-while($rerow = mysql_fetch_array($Objquery)) 
-
-{ echo $rerow['invoice']; ?>
- 
+while($rerow = mysql_fetch_array($Objquery)){
+ //echo $rerow['invoice'];?> 
+  
   <tr>
     <td height="" width="30" align="center"  style="border-bottom: 1px solid #999; border-left: 1px solid #999;font-size:13px;
    padding: 8px;
@@ -176,9 +175,12 @@ while($rerow = mysql_fetch_array($Objquery))
     line-height: 1.42857143;
     vertical-align: top;    border-right: 1px solid #999;"><?php echo $rerow['type']; ?></td>
     </tr>
+
+  
 	
 		
-	<?php $i++; } ?>
+	<?php $i++; 
+} ?>
    
 </table>
 
@@ -211,13 +213,13 @@ while($rerow = mysql_fetch_array($Objquery))
     </style> -->
 </html>
 <?Php
-/*$html = ob_get_contents();
+$html = ob_get_contents();
 ob_end_clean();
 $pdf = new mPDF('th', 'A4-L', '0', 'THSaraban');
 $pdf->SetAutoFont();
  $pdf->SetDisplayMode('fullpage');
 $pdf->WriteHTML($html, 2);
-$pdf->Output();*/
+$pdf->Output();
 ?>   
        
 <!-- ดาวโหลดรายงานในรูปแบบ PDF <a href="MyPDF/MyPDF.pdf">คลิกที่นี้</a> -->

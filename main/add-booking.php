@@ -384,6 +384,12 @@
                                             Hotel
                                         </label>
                                     </div>
+                                    <div class="radio" id="radioin">
+                                        <label style="padding: 0px 40px;">
+                                            <input type="radio" name="typeRadios" ng-change="logtype(checktype)" ng-model="checktype" value="Flights">
+                                            Flights
+                                        </label>
+                                    </div>
                                     </div>
                                     <!--  <div class="form-group form-inline">
                                     <div class="radio" id="radioin">
@@ -422,12 +428,20 @@
                                                     <option value="">- None -</option>
                                               </select>
                                     </div>
-                                <div class="form-group form-inline" ng-show="checktransfer || checkhotel">
+                                <div class="form-group form-inline" ng-show="checktransfer || checkhotel || checkflights">
                                         <label for="name" class="label-tour">Province<span> :</span></label>
                                        
                                          <select class="form-control" ng-change="changeprovince(selectprovince)" id="selectprovince" ng-model="selectprovince" data-ng-options="i as i.name for i in dataprovince" style="width: 150px;">
                                                     <option value="">None</option>
                                               </select>
+                                    </div>
+                                    <div class="form-group form-inline" ng-show="checkflights">
+                                        <label for="name" class="label-tour">Flight name<span> :</span></label>
+
+                                         <input class="form-control"  size="53"   ng-change="flightnamechange(flightnames)" ng-model="flightnames">
+                                       
+                                        <!-- <label class="form-control "  id="label-addbooking" "><span ng-bind="total_pricetransfer | currency:'':0"></span></label> -->
+                                        <!-- <input type="text" class=" form-control" size="100" maxlength="200" placeholder = "2x,xxx" id="price" name="price" ng-model="price" required/> -->
                                     </div>
                                     <div class="form-group form-inline" ng-show="checktransfer">
                                         <label for="name" class="label-tour">Package<span>:</span></label>
@@ -528,6 +542,14 @@
                                         <input type="text"  class="form-control" placeholder="A130" name="flight" ng-change="changefkight(flight)" ng-model="flight" id="flight" ng-value="flight" style="width: 150px">
                                         <!-- <label class="typeUser" >{{edit_du.email}}</label> -->
                                     </div>
+                                    <div class="form-group form-inline" ng-show="checkflights">
+                                        <label for="name" class="label-tour">Total price<span> :</span></label>
+
+                                         <input class="form-control"  id="label-addbooking"  ng-model="total_flight">
+                                       
+                                        <!-- <label class="form-control "  id="label-addbooking" "><span ng-bind="total_pricetransfer | currency:'':0"></span></label> -->
+                                        <!-- <input type="text" class=" form-control" size="100" maxlength="200" placeholder = "2x,xxx" id="price" name="price" ng-model="price" required/> -->
+                                    </div>
 
 
                                  
@@ -553,6 +575,11 @@
                                                 </div>
                                                 
                                 </div>
+                                 <div class="form-group form-inline" ng-show="checkflights">
+                                        <label class="label-tour">Flight<span> :</span></label>
+                                        <input type="text"  class="form-control" placeholder="A130" name="flight" ng-change="changefkight(flight)" ng-model="flight" id="flight" ng-value="flight" style="width: 150px">
+                                        <!-- <label class="typeUser" >{{edit_du.email}}</label> -->
+                                    </div>
                                 <div class="form-group form-inline" ng-show="checkhotel">
                                             <label  class="label-tour">Check In :</label>
                                            
@@ -631,7 +658,7 @@
                                                     <option value="">- None -</option>
                                               </select>
                                     </div>
-                                    <div class="form-group form-inline" ng-show="!checkhotel">
+                                    <div class="form-group form-inline" ng-show="!checkhotel && !checkflights">
                                         <label class="label-tour" id="title-around">Pickup time : </label> 
                                             
                                             <!-- <span ng-if="flagcheck == 2">ช่วงเวลา : </span> -->
@@ -673,17 +700,17 @@
                                           <option value="">{{listcar}}</option>            
                                         </select> -->
                                     </div>
-                                    <div class="form-group form-inline"  ng-show="!checkhotel">
+                                    <div class="form-group form-inline"  ng-show="!checkhotel && !checkflights">
                                         <label class="label-tour">Room number<span> :</span></label>
                                         <input type="text"  class="form-control" placeholder="A130" name="room" ng-change="roomnumber(room)" ng-model="room" id="room" ng-value="room" id="label-addbooking">
                                         <!-- <label class="typeUser" >{{edit_du.email}}</label> -->
                                     </div>
-                                    <div class="form-group form-inline" ng-show="!checkhotel">
+                                    <div class="form-group form-inline" ng-show="!checkhotel && !checkflights">
                                         <label for="name" class="label-tour">Pickup place<span> :</span></label>
                                         <input type="text" class=" form-control" size="100" maxlength="200" placeholder = "Type airport,hotel name, or location." ng-change="pickupplacetour(pickupplace)" id="pickupplace" name="pickupplace" ng-model="pickupplace" />
                                     </div>
                                  
-                                 <div class="form-group form-inline" ng-show="!checkhotel">
+                                 <div class="form-group form-inline" ng-show="!checkhotel && !checkflights">
                                         <label for="name" class="label-tour">To place<span> :</span></label>
                                         <input type="text" class=" form-control" size="100" maxlength="200" placeholder = "Type airport,hotel name, or location." ng-change="pickupplacetotour(toplace)" id="toplace" name="toplace" ng-model="toplace" />
                                     </div>
@@ -991,7 +1018,7 @@ label.label-editUser {
     margin-top: 10px;
 }
 #radioin{
- margin-left: 120px;
+ margin-left: 20px;
 }
 #label-addbooking{
 	margin-bottom: 0;
@@ -1407,6 +1434,13 @@ $(document).ready(function(){
            console.log($scope.night);
            // if (true) {}
     }
+    $scope.flightnamechange=function(x){
+            $scope.flight_name = x;
+            // total_price_hotel 
+          
+           console.log($scope.flight_name);
+           // if (true) {}
+    }
      $scope.profile = function(){
         location.href="profile";
 
@@ -1471,16 +1505,26 @@ $(document).ready(function(){
             $scope.checktour = true;             
             $scope.checktransfer = false;
              $scope.checkhotel = false;
+             $scope.checkflights = false;
         }
          if ($scope.checktype == 'Transfer') {
             $scope.checktour = false;             
             $scope.checktransfer = true;
              $scope.checkhotel = false;
+              $scope.checkflights = false;
          }
          if ($scope.checktype == 'Hotel') {
             $scope.checktour = false;             
             $scope.checktransfer = false;
             $scope.checkhotel = true;
+             $scope.checkflights = false;
+         }
+         if ($scope.checktype == 'Flights') {
+             $scope.checkflights = true;
+             $scope.checktour = false;             
+            $scope.checktransfer = false;
+            $scope.checkhotel = false;
+
          }
         
        
@@ -1828,6 +1872,10 @@ $(document).ready(function(){
            
             
             $scope.total_price = $scope.total_pricetransfer;
+        }
+        if ($scope.checktype == 'Flights') {
+            $scope.packagename = $scope.flight_name;
+            $scope.total_price = $scope.total_flight;
         }
         // if ($scope.checktype == 'Transfer') {
            

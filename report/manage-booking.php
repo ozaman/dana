@@ -506,12 +506,17 @@
                         </div>
                         <button type="reset" class="btn btn-default" data-dismiss="modal" onclick="getPrintPDF()"><i class="material-icons">picture_as_pdf</i>Print</button>-->
                                     </div>
-                                     <div class="form-group form-inline " style="width: 100%;border-top: 1px solid #fff;
+                                     <div class="form-group form-inline " style="width: 100%;/*border-top: 1px solid #fff;*/
     padding-top: 15px;
     padding-bottom: 0;">
                                             
-                                                <label for="class" class="label-tour" style="    margin-right: 4px;color: #555">Print Booking </label>
+                                                
                                                 <table width="100%">
+                                                    <tr>
+                                                        <td colspan="5" style="border-top: 1px solid #fff;">
+                                                            <label for="class" class="label-tour" style="    margin-left:  14px;color: #555;padding-top: 10px;">Print Booking </label>
+                                                        </td>
+                                                    </tr>
                                                     <tr>
                                                         <td align="right" width="50">
                                                             <span>Date :</span>
@@ -1601,37 +1606,54 @@ label.label-editUser {
                     // $scope.total_amount = data.adult_price*data.total;
                     // $scope.total_net =  data.net_price_adult*data.total;
                     //$scope.dataAgent.push()
-
-                   $scope.total_price = parseInt(data.total_price);
+                    $scope.total_price = parseInt(data.total_price);
                     if(data.type == 'Transfer'){
                         data.total_net = data.transfer_price*data.listcar;
                         $scope.total_net =  data.transfer_price*data.listcar;
                         if (data.agent_name != 'Magic World') {
-                            if(data.province == 'Phuket'){
-                                data.total_amount = $scope.total_price+(23*33);
-                                $scope.total_amount = $scope.total_price+(23*33);
+                            if (data.total_price != 0) {
+                                if(data.province == 'Phuket'){
+                                data.total_amount = parseInt($scope.total_price)+(23*33);
+                                    $scope.total_amount = parseInt($scope.total_price)+(23*33);
+                                }
+                                else{
+                                     data.total_amount = parseInt($scope.total_price)+(35*33);
+                                     $scope.total_amount = parseInt($scope.total_price)+(35*33);
+                                }
+
                             }
-                            else{
-                                 data.total_amount = $scope.total_price+(35*33);
-                                 $scope.total_amount = $scope.total_price+(35*33);
+                             else{
+
+                               $scope.total_amount = 0; 
+                               $scope.total_net = 0;
                             }
+                            
                         }
                         else{
-                             if(data.province == 'Phuket'){
-                                data.total_amount = $scope.total_price+(20*33);
-                                $scope.total_amount = $scope.total_price+(20*33);
-                            }
-                            else{
-                                 data.total_amount = $scope.total_price+(35*33);
-                                 $scope.total_amount = $scope.total_price+(35*33);
-                            }
+                             if (data.total_price != 0) {
+                                 if(data.province == 'Phuket'){
+                                data.total_amount = parseInt($scope.total_price)+(20*33);
+                                $scope.total_amount = parseInt($scope.total_price)+(20*33);
+                                }
+                                else{
+                                     data.total_amount = parseInt($scope.total_price)+(35*33);
+                                     $scope.total_amount = parseInt($scope.total_price)+(35*33);
+                                }
+                             }
+                             else{
+                                 $scope.total_amount = 0; 
+                                 $scope.total_net = 0;
+                             }
+                            
                         }
+                         data.total_net = $scope.total_net;
+                        data.total_amount = $scope.total_amount;
                         data.received =  $scope.total_amount - $scope.total_net;
                         // if()data.total_amount = $scope.total_price;
                     }
-                    else if(data.package_name == 'Tour'){
+                    else if(data.type == 'Tour'){
                         if(data.package_name == 'City Tour'){
-                        data.total_net =  data.adult_price; 
+                       data.total_net =  data.adult_price; 
                         data.received =  0;
                          data.total_amount = data.adult_price;
                          $scope.total_amount = data.adult_price;
@@ -1641,7 +1663,8 @@ label.label-editUser {
                                
                                  data.received = 0;
                                   data.total_net = 0;
-                                    data.total_amount = 0;
+                                   data.total_amount = 0;
+                                
                                
                             }
                              else{
@@ -1668,8 +1691,18 @@ label.label-editUser {
                         //data.total_amount = $scope.total_price;
                         //$scope.total_amount = data.total_price;
                     }
+                    else if(data.type == 'Hotel'){
+                         $scope.total_net = (data.net_price_adult*data.nights) + (data.net_price_child*data.nights);
+                                $scope.total_amount = data.total_price;
+                                data.total_amount = $scope.total_price;
+                                data.received =  $scope.total_amount - $scope.total_net;
+                                // data.received =  $scope.total_amount- $scope.total_net;
+                                 data.total_net = (data.net_price_adult*data.nights) + (data.net_price_child*data.nights);
+                                 data.total_amount = $scope.total_price;
+                                $scope.total_amount = data.total_price;
+                    }
                     else{
-                        $scope.total_net = (data.net_price_adult*data.adult) + (data.net_price_child*data.child);
+                         $scope.total_net = (data.net_price_adult*data.adult) + (data.net_price_child*data.child);
                                 $scope.total_amount = data.total_price;
                                 data.total_amount = $scope.total_price;
                                 data.received =  $scope.total_amount - $scope.total_net;
@@ -1677,30 +1710,7 @@ label.label-editUser {
                                  data.total_net = (data.net_price_adult*data.adult) + (data.net_price_child*data.child);
                                  data.total_amount = $scope.total_price;
                                 $scope.total_amount = data.total_price;
-                    }
-                    // if(data.package_name == 'City Tour'){
-                    //    data.total_net =  data.adult_price; 
-                    //     data.received =  0;
-                    //      data.total_amount = data.adult_price;
-                    // }
-                    // else{
-                    //      if(data.total_price == '0'){
-                           
-                    //          data.received = 0;
-                    //           data.total_net = 0;
-                            
-                           
-                    //     }
-                    //      else{
-                    //         data.received =  $scope.total_amount- $scope.total_net;
-                    //          data.total_net =  $scope.total_net;
-                    //     }
-                        
-                    //       data.total_amount = $scope.total_amount;
-                         
-                        
-
-                    // }
+                    }  
                     
                      $scope.selsedataformonth.push(data)
                       //data.dateCompare = 'wait';
@@ -2032,14 +2042,8 @@ label.label-editUser {
                 console.log( $scope.todatepdf)
                 var search,datasearch;
 
-                if ($scope.searchagent == undefined) {
-                    search = $scope.search_box_list;
-                    datasearch = $scope.searchBy; 
-                }
-                else{
-                    search = 'Agent';
-                    
-                     angular.forEach($scope.dataAgentsearch, function (data) {
+                if ($scope.searchagent != undefined) {
+                   angular.forEach($scope.dataAgentsearch, function (data) {
                         console.log(data.fname)
                         if (data.fname == $scope.searchagent) {
                             datasearch = data.id;
@@ -2047,17 +2051,23 @@ label.label-editUser {
 
                         }
                      });
-                     console.log(datasearch)
-                    
-                    
                 }
+                // else{
+                //     search = 'Agent';
+                    
+                     
+                //      console.log(datasearch)
+                    
+                    
+                // }
             // if ($scope.typebook == undefined) {
             //     $('#selecttype').modal('show')
             // }
+            http://danatoursasia.com/back/report/managePDF.php?date=2017-08-01&dateto=2017-10-01&searchby=Agent&data=28&type=Transfer
             // else{
                
                  if($scope.ondatepdf != 'undefined' || $scope.todatepdf != 'undefined'){
-                   $window.open('printPDF.php?date=' + $scope.ondatepdf+'&dateto='+$scope.todatepdf+'&searchby='+search+'&data='+datasearch);
+                   $window.open('printPDF.php?date=' + $scope.ondatepdf+'&dateto='+$scope.todatepdf+'&search='+search+'&data='+datasearch);
 
                      //$window.location.href="http://danatoursasia.com/back/report/printPDF.php?date="+$scope.ondatepdf;
             }

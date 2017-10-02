@@ -365,6 +365,12 @@
                                             Hotel
                                         </label>
                                     </div>
+                                    <div class="radio" id="radiotarnsfer">
+                                        <label style="padding: 0px 35px;">
+                                            <input type="radio" name="typeRadios" ng-change="logtype(checktype)" ng-model="checktype" value="Flights">
+                                            Flights
+                                        </label>
+                                    </div>
                                     <div class="radio" id="radioall">
                                         <label style="padding: 0px 35px;">
                                             <input type="radio" name="typeRadios" ng-change="logtype(checktype)" ng-model="checktype" value="All">
@@ -1157,6 +1163,20 @@ label.label-editUser {
                 });
              }
              if ($scope.checktype == 'Hotel') {
+                $scope.checktour = false;             
+                $scope.checktransfer = true;
+                angular.forEach($scope.databook, function (data) {
+
+                    if (x == data.type) {
+                         //alert(x)
+                        $scope.selsedataformonth.push(data)
+                    }
+                    
+                                 
+                                    
+                });
+             }
+             if ($scope.checktype == 'Flights') {
                 $scope.checktour = false;             
                 $scope.checktransfer = true;
                 angular.forEach($scope.databook, function (data) {

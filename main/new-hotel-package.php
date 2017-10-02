@@ -80,7 +80,7 @@
                                         <i class="material-icons">local_offer</i> Tour Packages
                                     </a>
                                 </li>
-                                <li class="active">
+                                <li>
                                     <a href="transfer-package.php">
                                         <i class="material-icons">directions_car</i> Transfer Packages
                                     </a>
@@ -90,7 +90,7 @@
                                        <i class="material-icons">location_city</i>Hotels
                                     </a>
                                 </li>
-                                <li>
+                                <li  class="active">
                                     <a href="hotels-package.php">
                                        <i class="material-icons">hotel</i>Hotels package
                                     </a>
@@ -331,7 +331,7 @@
                                             <button type="button" class="btn btn-rose btn-sm" style=""><i class="fa fa-sign-out fa-fw"></i> Back</button></a>
                                         <ol class="breadcrumb" style="margin: 0;padding: 11px;padding-bottom: 0;background: #fff; display: inline-block; ">
                                             <!-- <li><a href="package.php">Main Menu</a></li> -->
-                                            <li class="active"> / New transfers package</li>
+                                            <li class="active"> / New Hotel package</li>
                                         </ol>
                                     </div>
                                 </div>
