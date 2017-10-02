@@ -366,6 +366,12 @@
                                             Hotel
                                         </label>
                                     </div>
+                                    <div class="radio" id="radiotarnsfer">
+                                        <label style="padding: 0px 35px;">
+                                            <input type="radio" name="typeRadios" ng-change="logtype(checktype)" ng-model="checktype" value="Flights">
+                                            Flights
+                                        </label>
+                                    </div>
                                     <div class="radio" id="radioall">
                                         <label style="padding: 0px 35px;">
                                             <input type="radio" name="typeRadios" ng-change="logtype(checktype)" ng-model="checktype" value="All">
@@ -1430,6 +1436,17 @@ label.label-editUser {
                                  data.total_amount = $scope.total_price;
                                 $scope.total_amount = data.total_price;
                     }
+                    else if(data.type == 'Flights'){
+                        data.total_net =  parseInt(data.total_price) ;
+                         $scope.total_net =  parseInt(data.total_price);
+                                $scope.total_amount =  parseInt(data.total_price)+500;
+                                data.total_amount =  parseInt($scope.total_price)+500;
+                                data.received =  parseInt($scope.total_amount) -  parseInt($scope.total_net);
+                                // data.received =  $scope.total_amount- $scope.total_net;
+                                 
+                                 // data.total_amount = $scope.total_price+500;
+                                // $scope.total_amount = data.total_price+500;
+                    }
                     else{
                          $scope.total_net = (data.net_price_adult*data.adult) + (data.net_price_child*data.child);
                                 $scope.total_amount = data.total_price;
@@ -1557,6 +1574,20 @@ label.label-editUser {
                 });
              }
              if ($scope.checktype == 'Hotel') {
+                $scope.checktour = false;             
+                $scope.checktransfer = true;
+                angular.forEach($scope.databook, function (data) {
+
+                    if (x == data.type) {
+                         //alert(x)
+                        $scope.selsedataformonth.push(data)
+                    }
+                    
+                                 
+                                    
+                });
+             }
+             if ($scope.checktype == 'Flights') {
                 $scope.checktour = false;             
                 $scope.checktransfer = true;
                 angular.forEach($scope.databook, function (data) {

@@ -625,6 +625,8 @@
                                               </div>
                                           </div>
                                       </div>
+                                      <div class="col-md-12">
+                                          <div class="row">
                                       <div class="col-md-6" style="margin-top: 30px">
                                                 <div style="padding: 8px;
     font-weight: 500;
@@ -650,7 +652,37 @@
                                                       </tbody>
                                                   </table>
                                               </div>
-                                      <div class="col-md-6" style="margin-top: 30px">
+                                              <div class="col-md-6" style="margin-top: 30px">
+                                                <div style="padding: 8px;
+    font-weight: 500;
+    border: 1px solid #ddd;
+    border-bottom: none;background: #ddd;">Flights</div>
+                                                  <table class="table">
+                                                      <thead>
+                                                          <tr>
+                                                             <td></td>
+                                                             <td align="center">Flights Revenue  </td>
+                                                             <td align="center">Flights expenses</td>
+                                                             <td align="center">Flights profit </td> 
+                                                          </tr>
+                                                      </thead>
+                                                      <tbody>
+                                                          <tr>
+                                                                 <td class="field" style="font-weight: bold;" align="center">Grand Total</td>
+                                                              <td align="right" ng-bind="tota_sum_flight | currency:'':0"></td>
+                                                              <td align="right" ng-bind="total_flight_expenses | currency:'':0"></td>
+                                                              <td align="right" ><span style="    border-bottom: 1px solid;
+    color: #ff9800;" ng-bind="total_flight_profit | currency:'':0"></span></td>
+                                                          </tr>
+                                                      </tbody>
+                                                  </table>
+                                              </div>
+                                      
+                                  </div>
+                              </div>
+                                      <div class="col-md-12">
+                                          <div class="row">
+                                            <div class="col-md-6" style="margin-top: 30px">
                                         <div style="padding: 8px;
     font-weight: 500;
     border: 1px solid #ddd;
@@ -669,11 +701,18 @@
                                               <td align="right" ng-bind="total_hotel_profit | currency:'':0"></td>
                                           </tr>
                                           <tr>
+                                              <td align="center">Flights profit</td>
+                                              <td align="right" ng-bind="total_hotel_profit | currency:'':0"></td>
+                                          </tr>
+                                          <tr>
                                               <td align="center">Total </td>
                                               <td align="right"><span style="    border-bottom: 1px solid;
-    color: #ff9800;" ng-bind="total_tour_profit+total_transfer_profit+total_hotel_profit | currency:'':0"></span></td>
+    color: #ff9800;" ng-bind="total_tour_profit+total_transfer_profit+total_hotel_profit+total_flight_profit | currency:'':0"></span></td>
                                           </tr>
                                       </table>
+                                      </div>
+
+                                          </div>
                                       </div>
                                       
                                       <div class="col-md-12" style="margin-top: 30px">
@@ -1636,7 +1675,7 @@ label.label-editUser {
                         data.received =  $scope.total_amount - $scope.total_net;
                     } 
                     else if(data.type == 'Flights'){
-                        data.total_amount = $scope.total_price;
+                        data.total_amount =  parseInt($scope.total_price);
                         data.sum_tour = 0;
                         data.tour_expenses = 0;
 
@@ -1646,12 +1685,12 @@ label.label-editUser {
                         data.sum_hotel = 0;
                         data.hotel_expenses = 0;
 
-                        $scope.total_amount = data.total_price+500;
-                        data.sum_fligt =  parseInt($scope.total_amount);
-                        data.fligt_expenses = data.net_price_adult*data.nights;
-                        data.total_net = data.net_price_adult*data.nights;
-                        $scope.total_net = data.total_price;
-                        data.received =  $scope.total_amount - $scope.total_net;
+                        $scope.total_amount = parseInt(data.total_price)+500;
+                        data.sum_fligt =  parseInt(data.total_price)+500;
+                        data.fligt_expenses = parseInt(data.total_price);
+                        data.total_net = parseInt(data.total_price);
+                        $scope.total_net = parseInt(data.total_price);
+                        data.received =  parseInt($scope.total_amount) - parseInt($scope.total_net);
                     } 
                     //data.total_amount = $scope.total_price;
                     
@@ -2384,7 +2423,7 @@ label.label-editUser {
             $scope.search.package_name = '';
                     
         }
-        $scope.returnvalue = function (a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t,u,v) {
+        $scope.returnvalue = function (a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t,u,v,w,x,y) {
             $scope.total_tamount = a;
             $scope.total_tsele = b;
             $scope.total_tnet = c;
@@ -2406,7 +2445,10 @@ label.label-editUser {
             $scope.total_free_booking = s;
             $scope.total_hotel_expenses = t;
             $scope.tota_sum_hotel = u;
-            $scope.total_hotel_profit = v;                             
+            $scope.total_hotel_profit = v;
+            $scope.total_flight_expenses = w;
+            $scope.tota_sum_flight = x;
+            $scope.total_flight_profit = y;                             
         }
                  
     });
@@ -2438,7 +2480,10 @@ label.label-editUser {
                     var total_free_booking = 0;
                     var total_hotel_expenses = 0;
                     var tota_sum_hotel = 0;
-                    var total_hotel_profit = 0;                 
+                    var total_hotel_profit = 0;
+                    var total_flight_expenses = 0;
+                    var tota_sum_flight = 0;
+                    var total_flight_profit = 0;                 
                     //$scope.total_sell = 0;
                     if(input2 != null)
                     {
@@ -2494,6 +2539,10 @@ label.label-editUser {
                                     total_hotel_expenses += parseInt(data[i].hotel_expenses);
                                     tota_sum_hotel += parseInt(data[i].sum_hotel);
                                     total_hotel_profit += parseInt(data[i].sum_hotel)-parseInt(data[i].hotel_expenses);
+
+                                    total_flight_expenses += parseInt(data[i].fligt_expenses);
+                                    tota_sum_flight += parseInt(data[i].sum_fligt);
+                                    total_flight_profit += parseInt(data[i].sum_fligt)-parseInt(data[i].fligt_expenses);
                                     
                                     if (data[i].owner == 'mosab') {
                                         total_omosab_amount += parseInt(data[i].total_amount);
@@ -2528,7 +2577,7 @@ label.label-editUser {
 
                                     // }
                                    
-                     scope.returnvalue( total_tamount,total_tsele,total_tnet,total_treseive,total_tprofit,tota_sum_transfer,tota_sum_tour,total_tour_expenses,total_transfer_expenses,total_tour_profit,total_transfer_profit,total_omosab_amount,total_omosab_net,total_omosab_profit,total_omedhat_amount,total_omedhat_net,total_omedhat_profit,free_booking,total_free_booking,total_hotel_expenses,tota_sum_hotel,total_hotel_profit);
+                     scope.returnvalue( total_tamount,total_tsele,total_tnet,total_treseive,total_tprofit,tota_sum_transfer,tota_sum_tour,total_tour_expenses,total_transfer_expenses,total_tour_profit,total_transfer_profit,total_omosab_amount,total_omosab_net,total_omosab_profit,total_omedhat_amount,total_omedhat_net,total_omedhat_profit,free_booking,total_free_booking,total_hotel_expenses,tota_sum_hotel,total_hotel_profit, total_flight_expenses,tota_sum_flight,total_flight_profit);
                                 
                                 result.push(data[i]);
                             }
