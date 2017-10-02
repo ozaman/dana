@@ -1,7 +1,7 @@
 <?php
 include("../config.php");
                             //echo $finalcode;
-      $sql = "UPDATE dn_booking SET status_invoice = '1', pay_by = '".$_POST[pay_by]."' WHERE id = '".$_POST[id]."' " ;
+      $sql = "UPDATE dn_booking SET status_invoice = '1', pay_by = '".$_POST[pay_by]."',invoice_date = '".time()."' WHERE id = '".$_POST[id]."' " ;
       $Objquery = mysql_query($sql,$conndb);
       if($Objquery){
                 
