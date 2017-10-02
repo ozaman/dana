@@ -46,40 +46,40 @@ echo "date :" .date('d/m/Y',''.$f.'').' - '.date('d/m/Y',''.$g.'');
 </table> 
 <table class="table" width="100%" height="20" border="0"  align="center" cellpadding="0" cellspacing="0" class="">
   <tr align="center">
-    <td width="30"  align="center" bgcolor="#ddd" style="padding: 15px 8px;    padding: 15px 8px;
+    <td width="30"  align="center" bgcolor="#ddd" style="padding: 15px 5px;    padding: 15px 5px;
     border-left: 1px solid #999;
     border-top: 1px solid #999;"></td>
-    <td width="" align="center" bgcolor="#ddd" style="padding: 15px 8px;  border-top: 1px solid #999;">DATE</td>
-    <td width="" align="center" bgcolor="#ddd" style="padding: 15px 8px;  border-top: 1px solid #999;">INVOICE
+    <td width="" align="center" bgcolor="#ddd" style="padding: 15px 5px;  border-top: 1px solid #999;">DATE</td>
+    <td width="" align="center" bgcolor="#ddd" style="padding: 15px 5px;  border-top: 1px solid #999;">INVOICE
      
     </td>
-    <td width="" align="center" bgcolor="#ddd" style="padding: 15px 8px;  border-top: 1px solid #999;">Name</td>
-    <td width="250" align="center" bgcolor="#ddd" style="padding: 15px 8px;  border-top: 1px solid #999;" >DISCRIPTION</td>
+    <td width="" align="center" bgcolor="#ddd" style="padding: 15px 5px;  border-top: 1px solid #999;">Name</td>
+    <td width="250" align="center" bgcolor="#ddd" style="padding: 15px 5px;  border-top: 1px solid #999;" >DISCRIPTION</td>
     
-    <td width="" align="center" bgcolor="#ddd" style="padding: 15px 8px;  border-top: 1px solid #999;">ORDER BY</td>
-   <!--  <td width="" align="center" bgcolor="#ddd" style="padding: 15px 8px;  border-top: 1px solid #999;"><strong>Pickup place</strong></td>
-    <td width="" align="center" bgcolor="#ddd" style="padding: 15px 8px;  border-top: 1px solid #999;"><strong>To place</strong></td> -->
-    <td width="" align="center" bgcolor="#ddd" style="padding: 15px 8px;  border-top: 1px solid #999;">QTY</td>
+    <td width="" align="center" bgcolor="#ddd" style="padding: 15px 5px;  border-top: 1px solid #999;">ORDER BY</td>
+   <!--  <td width="" align="center" bgcolor="#ddd" style="padding: 15px 5px;  border-top: 1px solid #999;"><strong>Pickup place</strong></td>
+    <td width="" align="center" bgcolor="#ddd" style="padding: 15px 5px;  border-top: 1px solid #999;"><strong>To place</strong></td> -->
+    <td width="" align="center" bgcolor="#ddd" style="padding: 15px 5px;  border-top: 1px solid #999;">QTY</td>
     
-    <td width="" align="center" bgcolor="#ddd" style="padding: 15px 8px;  border-top: 1px solid #999;">PRICE/USD</td>
+    <td width="" align="center" bgcolor="#ddd" style="padding: 15px 5px;  border-top: 1px solid #999;">PRICE/USD</td>
    
      
      
-    <td align="center" bgcolor="#ddd" style="padding: 15px 8px;  border-top: 1px solid #999;">
+    <td align="center" bgcolor="#ddd" style="padding: 15px 5px;  border-top: 1px solid #999;">
              CREDIT
     </td>
-    <td align="center" bgcolor="#ddd" style="padding: 15px 8px;  border-top: 1px solid #999;">
+    <td align="center" bgcolor="#ddd" style="padding: 15px 5px;  border-top: 1px solid #999;">
              DEBIT
     </td>
-    <td align="center" bgcolor="#ddd" style="padding: 15px 8px;  border-top: 1px solid #999;">
+    <td align="center" bgcolor="#ddd" style="padding: 15px 5px;  border-top: 1px solid #999;">
              BLANCE
     </td>
        
 
      
     
-    <td width="" align="center" bgcolor="#ddd" style="padding: 15px 8px;  border-top: 1px solid #999;border-right: 1px solid #999;">REMARK</td>
-    <!-- <td width="" align="center" bgcolor="#ddd" style="padding: 15px 8px;    padding: 15px 8px;
+    <td width="" align="center" bgcolor="#ddd" style="padding: 15px 5px;  border-top: 1px solid #999;border-right: 1px solid #999;">REMARK</td>
+    <!-- <td width="" align="center" bgcolor="#ddd" style="padding: 15px 5px;    padding: 15px 5px;
     border-right:  1px solid #999;
     border-top: 1px solid #999;">Type</td> -->
     
@@ -99,11 +99,11 @@ while($rerow = mysql_fetch_array($Objquery)){
   
   <tr>
     <td height="" width="30" align="center"  style="border-bottom: 1px solid #999; border-left: 1px solid #999;font-size:13px;
-   padding: 8px;
+   padding: 8px 0;
     line-height: 1.42857143;
     vertical-align: top;"><?php echo $i;?></td>
     <td align="center" class="" style="border-bottom: 1px solid #999; font-size:13px;
-   padding: 8px;
+   padding: 8px 0;
     line-height: 1.42857143;
     vertical-align: top;"><?php 
    // $now = nateTime($rerow['post_date']);
@@ -111,50 +111,50 @@ echo date('d/m/Y',$rerow['post_date']);
 
      ?></td>
     <td align="cent" class=""  style="border-bottom: 1px solid #999; font-size:13px;
-   padding: 8px;
+   padding: 8px 0;
     line-height: 1.42857143;
     vertical-align: top;"><?php echo $rerow['invoice']; ?></td>
      <td align="center" class=""  style="border-bottom: 1px solid #999; font-size:13px;
-   padding: 8px;
+   padding: 8px 0;
     line-height: 1.42857143;
     vertical-align: top;"><?php echo $rerow['name']; ?></td>
     <td align="center" class="" width="250"  style="border-bottom: 1px solid #999; font-size:13px;
-   padding: 8px;
+   padding: 8px 0;
     line-height: 1.42857143;
     vertical-align: top;"><?php echo $rerow['package_name']; ?></td>
      <td align="center" class=""  style="border-bottom: 1px solid #999; font-size:13px;
-   padding: 8px;
+   padding: 8px 0;
     line-height: 1.42857143;
     vertical-align: top;"><?php echo $rerow['agent_name']; ?></td>
     <td align="center" class="" style="border-bottom: 1px solid #999; font-size:13px;
-   padding: 8px;
+   padding: 8px 0;
     line-height: 1.42857143;
     vertical-align: top;"><?php echo $rerow['total']; ?></td>
     
    
     <td align="right" class=""  style="border-bottom: 1px solid #999; font-size:13px;
-   padding: 8px;
+   padding: 8px 0;
     line-height: 1.42857143;
     vertical-align: top;"><?php echo $rerow['total_price']/33; ?></td>
     <!-- <td align="center" class=""  style="border-bottom: 1px solid #999;font-size:13px;
-   padding: 8px;
+   padding: 8px 0;
     line-height: 1.42857143;
     vertical-align: top;"><?php //echo $rerow['pickup_place']; ?></td>
     <td align="center" class="" style="border-bottom: 1px solid #999;font-size:13px;
-   padding: 8px;
+   padding: 8px 0;
     line-height: 1.42857143;
     vertical-align: top;"><?php //echo $rerow['to_place']; ?></td> -->
    
     <td colspan="" align="center" class=""  style="border-bottom: 1px solid #999; font-size:13px;
-   padding: 8px;
+   padding: 8px 0;
     line-height: 1.42857143;
     vertical-align: top;">-</td>
     <td colspan="" align="center" class=""  style="border-bottom: 1px solid #999; font-size:13px;
-   padding: 8px;
+   padding: 8px 0;
     line-height: 1.42857143;
     vertical-align: top;">-</td>
     <td colspan="" align="right" class=""  style="border-bottom: 1px solid #999; font-size:13px;
-   padding: 8px;
+   padding: 8px 0;
     line-height: 1.42857143;
     vertical-align: top;"><?php 
     if ($rerow['type'] == 'Transfer') {
@@ -202,12 +202,12 @@ echo date('d/m/Y',$rerow['post_date']);
 
 
     <td align="center" class=""  style="border-bottom: 1px solid #999; font-size:13px;
-   padding: 8px;
+   padding: 8px 0;
     line-height: 1.42857143;
     vertical-align: top;border-right: 1px solid #999;"><?php echo $rerow['remark']; ?></td>
     
     <!-- <td align="center" class="" style="border-bottom: 1px solid #999;font-size:13px;
-   padding: 8px;
+   padding: 8px 0;
     line-height: 1.42857143;
     vertical-align: top;    border-right: 1px solid #999;"><?php //echo $rerow['type']; ?></td> -->
     </tr>
@@ -244,12 +244,12 @@ $pdf->Output();
 .style1 {
   font-family: "TH SarabunPSK";
   font-size: 18pt;
-  font-weight: bold;
+  /*font-weight: bold;*/
 }
 .style2 {
   font-family: "TH SarabunPSK";
   font-size: 16pt;
-  font-weight: bold;
+  /*font-weight: bold;*/
 }
 . {
   font-family: "TH SarabunPSK";
