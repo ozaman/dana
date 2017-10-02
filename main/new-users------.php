@@ -134,12 +134,12 @@
                                         <i class="material-icons">cancel</i> Cancel Bookings
                                     </a>
                                 </li>
-                                 <li>
+                                 <!-- <li>
                                     <a href="../report/account.php">
                                     <i class="material-icons">account_balance_wallet</i>
                                          Account
                                     </a>
-                                </li>
+                                </li> -->
                             </ul>
                         </div>
                     </li>

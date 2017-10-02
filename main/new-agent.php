@@ -285,7 +285,7 @@
                                     </a>
                                 </li>
 
-                                 <li>
+                                 <!-- <li>
 
                                     <a href="../report/account.php">
 
@@ -295,7 +295,7 @@
 
                                     </a>
 
-                                </li>
+                                </li> -->
                                 <li >
                                     <a href="../report/account-tour.php">
                                    <i class="material-icons">business_center</i>

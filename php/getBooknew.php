@@ -1,6 +1,21 @@
 <?php
 include("../config.php");
-	$sql = "select * from dn_booking as TB_booking  WHERE status  = 0 ORDER BY ondate ASC	";
+ $date = date('d/m/Y H:i:s');
+    $d = date_parse_from_format("Y-m-d", $date);
+    $x =  $d["month"];
+    $m = $x - 2;
+    if ($m < 10) {
+       $final = '0'.$m;
+    }
+    else{
+        $final = $m;
+    }
+    //$midnight = mktime(0,0,0,date('m'),date('d'),date('Y'));
+    $date2 = date('Y-'.$final.'-01 00:00:00');
+    $date3 =  date('Y-m-d 23:59:59');
+     $datefrom = strtotime($date2);
+    $dateto=  strtotime($date3);
+	$sql = "SELECT * FROM dn_booking  WHERE post_date BETWEEN '".$datefrom."' AND '".$dateto."' AND status  = 0 ORDER BY ondate ASC	";
 	$Objquery = mysql_query($sql,$conndb);
 	//echo $Objquery;
 	//$row = mysql_num_rows($Objquery); // นับจำนวนแถว

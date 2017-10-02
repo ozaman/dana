@@ -153,12 +153,12 @@
                                         <i class="material-icons">notifications_active</i> Reservation - Invoice
                                     </a>
                                 </li>
-                                <li>
+                                <!-- <li>
                                     <a href="account.php">
                                     <i class="material-icons">account_balance_wallet</i>
                                          Account
                                     </a>
-                                </li>
+                                </li> -->
                                 <li >
                                     <a href="account-tour.php">
                                     <i class="material-icons">business_center</i>
@@ -1202,7 +1202,7 @@ label.label-editUser {
             $scope.total_tprofit = 0;
            
              var today = new Date();
-                var date = new Date(today.getFullYear()+'-'+(today.getMonth()-1)+'-1');
+                var date = new Date(today.getFullYear()+'-'+(today.getMonth())+'-1');
                 console.log(today);
                 console.log(date);
                 $scope.dateselectionfrom = date;

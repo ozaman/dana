@@ -11,11 +11,13 @@ include("../config.php");
     else{
         $final = $m;
     }
-    $midnight = mktime(0,0,0,date('m'),date('d'),date('Y'));
-    $date = date('01/'.$final.'/Y H:i:s',$midnight);
-    $date2 =  date('d/m/Y H:i:s',($midnight+(60*60*24))-1);
+    //$midnight = mktime(0,0,0,date('m'),date('d'),date('Y'));
+    $date2 = date('Y-'.$final.'-01 00:00:00');
+    $date3 =  date('Y-m-d 23:59:59');
+     $datefrom = strtotime($date2);
+    $dateto=  strtotime($date3);
     //echo  $date.'<br>'. $date2.'<br>'.$m;
-	$sql = "select * from dn_booking as TB_booking WHERE status != 2 AND type = 'Hotel' AND status_invoice != '1' ORDER BY ondate ASC	";
+	$sql = "SELECT * FROM dn_booking WHERE post_date BETWEEN '".$datefrom."' AND '".$dateto."' AND status = 0 AND type = 'Hotel' AND status_invoice = '0' ORDER BY ondate ASC	";
 	$Objquery = mysql_query($sql,$conndb);
 	//echo $Objquery;
 	//$row = mysql_num_rows($Objquery); // นับจำนวนแถว

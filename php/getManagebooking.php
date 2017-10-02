@@ -11,29 +11,27 @@ include("../config.php");
     else{
         $final = $m;
     }
-    $midnight = mktime(0,0,0,date('m'),date('d'),date('Y'));
-    $date = date('01/'.$final.'/Y H:i:s',$midnight);
-    $date2 =  date('d/m/Y H:i:s',($midnight+(60*60*24))-1);
-    // echo  $date.'<br>'. $date2.'<br>'.$m;
-	$sql = "select * from dn_booking as TB_booking WHERE status != 2  ORDER BY ondate ASC	";
+    //$midnight = mktime(0,0,0,date('m'),date('d'),date('Y'));
+    $date2 = date('Y-'.$final.'-01 00:00:00');
+    $date3 =  date('Y-m-d 23:59:59');
+     $datefrom = strtotime($date2);
+    $dateto=  strtotime($date3);
+
+  
+    //echo  $datefrom.'<br>'. $dateto.'<br>'.$date.'-------'.$date2;
+	$sql = "SELECT * FROM dn_booking WHERE post_date BETWEEN '".$datefrom."' AND '".$dateto."' AND status != 2  ORDER BY ondate ASC	";
 	// AND booking_date BETWEEN '".$date."' AND  '".$date2."'
 	$Objquery = mysql_query($sql,$conndb);
-	//echo $Objquery;
-	//$row = mysql_num_rows($Objquery); // นับจำนวนแถว
-$rows = array();
+	
+	$rows = array();
 	if(mysql_num_rows($Objquery) > 0){
-		//$result = mysql_fetch_array($Objquery);
 		
-		//print json_encode($result);
 		while ($result = mysql_fetch_array($Objquery)) {
 			 $rows[] = $result;
                
             }
             print json_encode($rows);
-		// while($result = mysql_fetch_array($Objquery)){
-		// 	$name = $result['username'];
-		// 	//echo $namef;
-		// }
+		
 	}
 	else{
 		echo "not data";

@@ -150,12 +150,12 @@
                                         <i class="material-icons">notifications_active</i> Reservation - Invoice
                                     </a>
                                 </li>
-                                 <li>
+                                 <!-- <li>
                                     <a href="account.php">
                                     <i class="material-icons">account_balance_wallet</i>
                                          Account
                                     </a>
-                                </li>
+                                </li> -->
                                   <li >
                                     <a href="account-tour.php">
                                    <i class="material-icons">business_center</i>
