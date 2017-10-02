@@ -2067,8 +2067,8 @@ label.label-editUser {
             console.log($scope.searchagent)
 
              // console.log($filter('date')(new Date($scope.dateselectionfrom),'dd/MM/yyyy'));
-                $scope.ondatepdf = $filter('date')(new Date($scope.dateselectionfrom),'dd/MM/yyyy')
-                $scope.todatepdf = $filter('date')(new Date($scope.dateselectionto),'dd/MM/yyyy')
+                $scope.ondatepdf = $filter('date')(new Date($scope.dateselectionfrom),'yyyy-MM-dd')
+                $scope.todatepdf = $filter('date')(new Date($scope.dateselectionto),'yyyy-MM-dd')
                 console.log( $scope.ondatepdf)
                 console.log( $scope.todatepdf)
                 var search,datasearch;
@@ -2098,7 +2098,7 @@ label.label-editUser {
             // else{
                
                  if($scope.ondatepdf != 'undefined' || $scope.todatepdf != 'undefined'){
-                   $window.open('printPDF.php?date=' + $scope.ondatepdf+'&dateto='+$scope.todatepdf+'&search='+search+'&data='+datasearch);
+                   $window.open('managePDF.php?date=' + $scope.ondatepdf+'&dateto='+$scope.todatepdf+'&data='+datasearch+'&type='+$scope.checktype);
 
                      //$window.location.href="http://danatoursasia.com/back/report/printPDF.php?date="+$scope.ondatepdf;
             }

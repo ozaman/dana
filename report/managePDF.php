@@ -110,12 +110,12 @@ echo "date : " .$_GET[date].' - '.$_GET[dateto];
     $date = strtotime($_GET[date]);
     $date2 =  strtotime($_GET[dateto]);
      echo $date.'==='.$date2.'====='.$_GET[data];
-    if($_GET[searchby] == 'Agent'){
-      $search = 'agent_id'; 
+    // if($_GET[searchby] == 'Agent'){
+    //   $search = 'agent_id'; 
 
-    }
+    // }
 
-    $sql =  "SELECT * FROM dn_booking WHERE post_date BETWEEN '".$date."' AND '".$date2."' AND status != 2 AND agent_id = 5  ORDER BY invoice ASC"; 
+    $sql =  "SELECT * FROM dn_booking WHERE post_date BETWEEN '".$date."' AND '".$date2."' AND status != 2 AND agent_id = '".$_GET[data]."'  ORDER BY invoice ASC"; 
 //$objQuery = mysql_query($sql);
 
                
