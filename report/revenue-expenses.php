@@ -1552,6 +1552,8 @@ label.label-editUser {
                        data.hotel_expenses = 0;
 
                         data.total_amount = $scope.total_amount;
+                        data.sum_fligt =  0;
+                        data.fligt_expenses = 0;
 
                        // console.log($scope.total_amount)
                        //console.log( $scope.sum_transfer+'=='+$scope.total_amount)
@@ -1608,6 +1610,8 @@ label.label-editUser {
                         data.sum_tour = parseInt($scope.total_amount);
                         data.sum_hotel = 0;
                        data.hotel_expenses = 0;
+                       data.sum_fligt =  0;
+                        data.fligt_expenses = 0;
                         // data.total_net = (data.net_price_adult*data.adult) + (data.net_price_child*data.child);
                         // $scope.total_net =(data.net_price_adult*data.adult) + (data.net_price_child*data.child);
                         //data.total_amount = $scope.total_price;
@@ -1621,11 +1625,32 @@ label.label-editUser {
                         data.sum_transfer = 0;
                         data.transfer_expenses = 0;
 
+                        data.sum_fligt =  0;
+                        data.fligt_expenses = 0;
+
                         $scope.total_amount = data.total_price;
                         data.sum_hotel =  parseInt($scope.total_amount);
                         data.hotel_expenses = data.net_price_adult*data.nights;
                         data.total_net = data.net_price_adult*data.nights;
                         $scope.total_net = data.net_price_adult*data.nights;
+                        data.received =  $scope.total_amount - $scope.total_net;
+                    } 
+                    else if(data.type == 'Flights'){
+                        data.total_amount = $scope.total_price;
+                        data.sum_tour = 0;
+                        data.tour_expenses = 0;
+
+                        data.sum_transfer = 0;
+                        data.transfer_expenses = 0;
+
+                        data.sum_hotel = 0;
+                        data.hotel_expenses = 0;
+
+                        $scope.total_amount = data.total_price+500;
+                        data.sum_fligt =  parseInt($scope.total_amount);
+                        data.fligt_expenses = data.net_price_adult*data.nights;
+                        data.total_net = data.net_price_adult*data.nights;
+                        $scope.total_net = data.total_price;
                         data.received =  $scope.total_amount - $scope.total_net;
                     } 
                     //data.total_amount = $scope.total_price;
