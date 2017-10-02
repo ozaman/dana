@@ -23,7 +23,10 @@ ob_start();
         <span class="style2">Report booking 
       </span>
       <?php
-echo "date : " .$_GET[date].' - '.$_GET[dateto];
+      $f = strtotime($_GET[date]);
+      $g = strtotime($_GET[dateto]);
+      
+echo "date :" .date('d/m/Y',''.$f.'').' - '.date('d/m/Y',''.$g.'');
 //$midnight = mktime(0,0,0,date('m'),date('d')-1,date('Y'));
    //date('d/m/Y',$midnight);
      //echo  $midnight.'==='. $date;
