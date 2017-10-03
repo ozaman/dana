@@ -466,10 +466,16 @@
                                     </div>
                                     <div class="form-group form-inline" ng-show="checkhotel">
                                         <label for="name" class="label-tour">Net price<span> :</span></label>
-                                        <label class="form-control"   id="label-addbooking" >
-                                        <span ng-bind="net_price_hotel | currency:'':0"></span></label>
+                                        <input class="form-control"  id="label-addbooking" ng-value="net_price_hotel | currency:'':0" ng-change="totalnetpricehotel(net_price_hotel)" ng-model="net_price_hotel">
+                                       <!--  <label class="form-control "  id="label-addbooking" ><span ng-bind="total_price_hotel | currency:'':0"></span></label> -->
                                         <!-- <input type="text" class=" form-control" size="100" maxlength="200" placeholder = "2x,xxx" id="price" name="price" ng-model="price" required/> -->
                                     </div>
+                                    <!-- <div class="form-group form-inline" ng-show="checkhotel">
+                                       
+                                        <label class="form-control"   id="label-addbooking" >
+                                        <span ng-bind="net_price_hotel | currency:'':0"></span></label>
+                                        
+                                    </div> -->
                                     <div class="form-group form-inline" ng-show="checkhotel">
                                         <label for="name" class="label-tour">Sale price<span> :</span></label>
                                         <input class="form-control"  id="label-addbooking" ng-value="sale_price_adult | currency:'':0" ng-change="saleprice(sale_price)" ng-model="sale_price_hotel">
@@ -730,6 +736,11 @@
                                         <input type="text" class=" form-control" size="100" maxlength="200" placeholder = "Type airport,hotel name, or location." ng-change="pickupplacetotour(toplace)" id="toplace" name="toplace" ng-model="toplace" />
                                     </div>
                                     <!-- <hr/ > -->
+                                    <div class="form-group form-inline" ng-show="!checkhotel">
+                                        <label class="label-tour">Invoice ref<span> :</span></label>
+                                        <input type="text"  class="form-control" placeholder="01012017xxxx" name="ref" ng-change="invoiceref(ref)" ng-model="ref" id="ref" ng-value="ref" id="label-addbooking">
+                                        <!-- <label class="typeUser" >{{edit_du.email}}</label> -->
+                                    </div>
                                     <div class="form-group form-inline">
                                     <div class="checkbox" style="padding: 0 20px 0 0" id="checkforagent">
                                             <label>
@@ -1470,6 +1481,12 @@ $(document).ready(function(){
         $scope.total_price = x;
 
     }
+    $scope.totalnetpricehotel = function(x){
+        console.log(x)
+        $scope.total_price_hotel = x;
+
+    }
+
     $scope.totalpricehotel = function(x){
         console.log(x)
         $scope.total_price = x;
@@ -1844,6 +1861,10 @@ $(document).ready(function(){
             $scope.roomtour = x;
             //console.log($scope.roomtour)
     }
+    $scope.invoiceref = function(x){
+            $scope.ref = x;
+            console.log($scope.ref)
+    }
     $scope.changefkight = function(x){
             $scope.flightname = x;
             //console.log($scope.flightname)
@@ -2006,6 +2027,7 @@ $(document).ready(function(){
                                 ,'hotel_name': $scope.hotel_name
                                 ,'room_type': $scope.roomtype
                                 ,'duedate' : $scope.duedates
+                                ,'ref' : $scope.ref
 
                                 
 
