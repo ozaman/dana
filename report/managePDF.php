@@ -110,7 +110,7 @@ while($rerow = mysql_fetch_array($Objquery)){
 echo date('d/m/Y',$rerow['post_date']);
 
      ?></td>
-    <td align="cent" class=""  style="border-bottom: 1px solid #999; font-size:13px;
+    <td align="center" class=""  style="border-bottom: 1px solid #999; font-size:13px;
    padding: 8px 0;
     line-height: 1.42857143;
     vertical-align: top;"><?php echo $rerow['invoice']; ?></td>
@@ -135,7 +135,44 @@ echo date('d/m/Y',$rerow['post_date']);
     <td align="right" class=""  style="border-bottom: 1px solid #999; font-size:13px;
    padding: 8px 0;
     line-height: 1.42857143;
-    vertical-align: top;"><?php echo $rerow['total_price']/33; ?></td>
+    vertical-align: top;"><?php 
+    if ($rerow['type'] == 'Transfer') {
+      if ($rerow['agent_name'] != 'Magic World' ) {
+           if ($rerow['total_price'] != 0) {
+              if ($rerow['province'] == 'Phuket') {
+                //$total_price = (23*33);
+                $tatal_usd = 23;
+              }
+              else{
+                //$total_price =(35*33);
+                 $tatal_usd = 35;
+
+              }
+           }
+
+        
+      }
+      else{
+        if ($rerow['province'] == 'Phuket') {
+                //$total_price = (20*33);
+                $tatal_usd = 20;
+              }
+              else{
+                //$total_price = (35*33);
+                $tatal_usd = 35;
+
+              }
+      }
+
+    }
+    else{
+      
+        $tatal_usd = $rerow['total_price']/33;
+      
+    }
+    $u = $tatal_usd;
+    echo $u;
+    //echo $rerow['total_price']/33; ?></td>
     <!-- <td align="center" class=""  style="border-bottom: 1px solid #999;font-size:13px;
    padding: 8px 0;
     line-height: 1.42857143;
@@ -161,10 +198,12 @@ echo date('d/m/Y',$rerow['post_date']);
       if ($rerow['agent_name'] != 'Magic World' ) {
            if ($rerow['total_price'] != 0) {
               if ($rerow['province'] == 'Phuket') {
-                $total_price = $rerow['total_price']+(23*33);
+                $total_price = (23*33);
+                $tatal_usd = 23;
               }
               else{
-                $total_price = $rerow['total_price']+(35*33);
+                $total_price =(35*33);
+                 $tatal_usd = 35;
 
               }
            }
@@ -173,10 +212,12 @@ echo date('d/m/Y',$rerow['post_date']);
       }
       else{
         if ($rerow['province'] == 'Phuket') {
-                $total_price = $rerow['total_price']+(22*33);
+                $total_price = (20*33);
+                $tatal_usd = 20;
               }
               else{
-                $total_price = $rerow['total_price']+(32*33);
+                $total_price = (35*33);
+                $tatal_usd = 35;
 
               }
       }

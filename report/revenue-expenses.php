@@ -702,7 +702,7 @@
                                           </tr>
                                           <tr>
                                               <td align="center">Flights profit</td>
-                                              <td align="right" ng-bind="total_hotel_profit | currency:'':0"></td>
+                                              <td align="right" ng-bind="total_flight_profit | currency:'':0"></td>
                                           </tr>
                                           <tr>
                                               <td align="center">Total </td>
@@ -1549,12 +1549,12 @@ label.label-editUser {
                         if (data.agent_name != 'Magic World') {
                             if (data.total_price != 0) {
                                 if(data.province == 'Phuket'){
-                                data.total_amount = parseInt($scope.total_price)+(23*33);
-                                    $scope.total_amount = parseInt($scope.total_price)+(23*33);
+                                data.total_amount = (23*33);
+                                    $scope.total_amount = (23*33);
                                 }
                                 else{
-                                     data.total_amount = parseInt($scope.total_price)+(35*33);
-                                     $scope.total_amount = parseInt($scope.total_price)+(35*33);
+                                     data.total_amount = (35*33);
+                                     $scope.total_amount = (35*33);
                                 }
 
                             }
@@ -1567,12 +1567,12 @@ label.label-editUser {
                         else{
                              if (data.total_price != 0) {
                                  if(data.province == 'Phuket'){
-                                data.total_amount = parseInt($scope.total_price)+(20*33);
-                                $scope.total_amount = parseInt($scope.total_price)+(20*33);
+                                data.total_amount = (20*33);
+                                $scope.total_amount = (20*33);
                                 }
                                 else{
-                                     data.total_amount = parseInt($scope.total_price)+(35*33);
-                                     $scope.total_amount = parseInt($scope.total_price)+(35*33);
+                                     data.total_amount = (35*33);
+                                     $scope.total_amount = (35*33);
                                 }
                              }
                              else{
@@ -1685,8 +1685,8 @@ label.label-editUser {
                         data.sum_hotel = 0;
                         data.hotel_expenses = 0;
 
-                        $scope.total_amount = parseInt(data.total_price)+500;
-                        data.sum_fligt =  parseInt(data.total_price)+500;
+                        $scope.total_amount = parseInt(data.total_price)+(parseInt(data.total)*500);
+                        data.sum_fligt =  parseInt(data.total_price)+(parseInt(data.total)*500);
                         data.fligt_expenses = parseInt(data.total_price);
                         data.total_net = parseInt(data.total_price);
                         $scope.total_net = parseInt(data.total_price);
@@ -1857,22 +1857,22 @@ label.label-editUser {
                         $scope.total_net =  data.transfer_price*data.listcar;
                         if (data.agent_name != 'Magic World') {
                             if(data.province == 'Phuket'){
-                                data.total_amount = $scope.total_price+(23*33);
-                                $scope.total_amount = $scope.total_price+(23*33);
+                                data.total_amount =(23*33);
+                                $scope.total_amount = (23*33);
                             }
                             else{
-                                 data.total_amount = $scope.total_price+(35*33);
-                                 $scope.total_amount = $scope.total_price+(35*33);
+                                 data.total_amount = (35*33);
+                                 $scope.total_amount = (35*33);
                             }
                         }
                         else{
                              if(data.province == 'Phuket'){
-                                data.total_amount = $scope.total_price+(20*33);
-                                $scope.total_amount = $scope.total_price+(20*33);
+                                data.total_amount = (20*33);
+                                $scope.total_amount = (20*33);
                             }
                             else{
-                                 data.total_amount = $scope.total_price+(35*33);
-                                 $scope.total_amount = $scope.total_price+(35*33);
+                                 data.total_amount = (35*33);
+                                 $scope.total_amount = (35*33);
                             }
                         }
                         data.received =  $scope.total_amount - $scope.total_net;

@@ -575,6 +575,7 @@
                                                 </div>
                                                 
                                 </div>
+                                
                                  <div class="form-group form-inline" ng-show="checkflights">
                                         <label class="label-tour">Flight<span> :</span></label>
                                         <input type="text"  class="form-control" placeholder="A130" name="flight" ng-change="changefkight(flight)" ng-model="flight" id="flight" ng-value="flight" style="width: 150px">
@@ -602,6 +603,20 @@
                                      
                                             <div class='input-group date' id='datetimepicker5' >
                                                     <input type='text' class="form-control" id="checkout"  name="ondate"  ng-model="checkout" value="checkout"  >
+                                                    <span class="input-group-addon" id="icon-calen" style="">
+                                                        <i class="fa fa-calendar" id="calen" aria-hidden="true" style="color: #9E9E9E"></i>
+                                                    </span>
+                                                </div>
+                                                
+                                </div>
+                                <div class="form-group form-inline" ng-show="checkhotel">
+                                            <label  class="label-tour">Due date :</label>
+                                           
+                                            <!-- <span ng-if="flagcheck == 2">วันที่ :</span>
+                                            <span ng-if="flagcheck == 3">日期 :</span> -->
+                                     
+                                            <div class='input-group date' id='duedate' >
+                                                    <input type='text' class="form-control" id="on_date"  name="duedate"  ng-model="duedate" value="duedate" >
                                                     <span class="input-group-addon" id="icon-calen" style="">
                                                         <i class="fa fa-calendar" id="calen" aria-hidden="true" style="color: #9E9E9E"></i>
                                                     </span>
@@ -1192,6 +1207,11 @@ $(document).ready(function(){
                 // daysOfWeekDisabled: [0, 6]
             });
      $('#datetimepicker5').datetimepicker({
+               format: 'DD/MM/YYYY'
+              
+                // daysOfWeekDisabled: [0, 6]
+            });
+      $('#duedate').datetimepicker({
                format: 'DD/MM/YYYY'
               
                 // daysOfWeekDisabled: [0, 6]
@@ -1890,6 +1910,7 @@ $(document).ready(function(){
             $scope.ondates = $('#on_date').val();
             $scope.checkin = $('#checkin').val();
             $scope.checkout = $('#checkout').val();
+            $scope.duedates = $('#duedate').val();
             console.log($scope.checktype)
             console.log($scope.packageid)
             console.log($scope.time_h+':'+$scope.time_m)
@@ -1984,6 +2005,7 @@ $(document).ready(function(){
                                 ,'night': $scope.night
                                 ,'hotel_name': $scope.hotel_name
                                 ,'room_type': $scope.roomtype
+                                ,'duedate' : $scope.duedates
 
                                 
 
