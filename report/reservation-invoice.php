@@ -545,6 +545,7 @@
                                             <!-- <th>Status</th> -->
                                             <th>Check In</th>
                                             <th>Check Our</th>
+                                            <th>Due Date</th>
                                             <th>Customer name</th> 
                                             <th>Invoice</th>
                                             <th>Agent Name</th>
@@ -577,6 +578,7 @@
                                                 <td  align="center"><button ng-show="item.approved == 0" data-toggle="modal" data-target="#approved" ng-click="approve(item)" class="btn btn-info btn-sm" style="text-transform: capitalize;">Approve</button><span style="color: #00bcd4" ng-show="item.approved == 1" ng-bind="item.approve_by"></span></td>
                                                 <td ng-bind="item.checkin"></td>
                                                 <td ng-bind="item.checkout"></td>
+                                                <td ng-bind="item.due_date"></td>
                                                 <td class="col-md-2" ng-bind="item.name" ></td>
                                                 <td  ng-bind="item.invoice"></td>
                                                 <td ><span ng-bind="item.agent_name"></span></td>
