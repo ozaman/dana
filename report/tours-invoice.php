@@ -1327,7 +1327,7 @@ label.label-editUser {
             // });
                  $http({
                 method : 'POST',
-                url : "../php/getManagebooking.php",
+                url : "../php/getTourinvoince.php",
                 //data: $.param({sv: $scope.dataSV}),
                 headers: {'Content-Type': 'application/x-www-form-urlencoded'}
                 }).success(function(res){
@@ -1548,7 +1548,7 @@ label.label-editUser {
 
             $scope.selsedataformonth = [];
             $scope.checktype = x;
-            console.log($scope.checktype)
+            //console.log($scope.checktype)
             if ($scope.checktype == 'Tour') {
             $scope.checktour = true;             
             $scope.checktransfer = false;
@@ -1815,17 +1815,28 @@ label.label-editUser {
             });
          }
          $scope.changeagent = function(agent){
-             $scope.selsedataformonth =[];
-            console.log(agent+'==========================================')
-            console.log($scope.checktype+'==========================================')
-           
-            
-                angular.forEach( $scope.databook, function (data) {
-                  
-                 
+            $http({
+                method : 'POST',
+                url : "../php/getManagebooking.php",
+                //data: $.param({sv: $scope.dataSV}),
+                headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+                }).success(function(res){
+                 console.log(res)
+                 console.log(res[0].flight)
+                 $scope.datatour = res;
+                  $scope.newdate = $filter('date')(new Date(),'dd/MM/yyyy');
+                    //console.log($scope.newdate)
+                angular.forEach($scope.datatour, function (data) {
+                   // Total Amountitem.adult_price*item.total 
+                   $scope.dataAgentget.push(data.agent_name)
+                    //$scope.dataAgentget.push(data.agent_id)
+                    // console.log(data.adult_price*data.total)
+                    //item.net_price_adult*item.total
+                    // $scope.total_amount = data.adult_price*data.total;
+                    // $scope.total_net =  data.net_price_adult*data.total;
+                    //$scope.dataAgent.push()
                     $scope.total_price = parseInt(data.total_price);
-                    if($scope.checktype == 'Transfer' && data.agent_name == agent && $scope.checktype == data.type){
-                        console.log('+++++++++++++++++++++++++++++++++++++++++++++')
+                    if(data.type == 'Transfer'){
                         data.total_net = data.transfer_price*data.listcar;
                         $scope.total_net =  data.transfer_price*data.listcar;
                         if (data.agent_name != 'Magic World') {
@@ -1867,10 +1878,9 @@ label.label-editUser {
                          data.total_net = $scope.total_net;
                         data.total_amount = $scope.total_amount;
                         data.received =  $scope.total_amount - $scope.total_net;
-                         $scope.selsedataformonth.push(data)
                         // if()data.total_amount = $scope.total_price;
                     }
-                    else if($scope.checktype == 'Tour' && data.agent_name == agent && $scope.checktype == data.type){
+                    else if(data.type == 'Tour'){
                         if(data.package_name == 'City Tour'){
                        data.total_net =  data.adult_price; 
                         data.received =  0;
@@ -1909,9 +1919,8 @@ label.label-editUser {
                         // $scope.total_net =(data.net_price_adult*data.adult) + (data.net_price_child*data.child);
                         //data.total_amount = $scope.total_price;
                         //$scope.total_amount = data.total_price;
-                         $scope.selsedataformonth.push(data)
                     }
-                    else if($scope.checktype == 'Hotel' && data.agent_name == agent  && $scope.checktype == data.type){
+                    else if(data.type == 'Hotel'){
                          $scope.total_net = (data.net_price_adult*data.nights) + (data.net_price_child*data.nights);
                                 $scope.total_amount = data.total_price;
                                 data.total_amount = $scope.total_price;
@@ -1920,21 +1929,19 @@ label.label-editUser {
                                  data.total_net = (data.net_price_adult*data.nights) + (data.net_price_child*data.nights);
                                  data.total_amount = $scope.total_price;
                                 $scope.total_amount = data.total_price;
-                                 $scope.selsedataformonth.push(data)
                     }
-                    else if($scope.checktype == 'Flights' && data.agent_name == agent && $scope.checktype == data.type){
+                    else if(data.type == 'Flights'){
                         data.total_net =  parseInt(data.total_price) ;
                          $scope.total_net =  parseInt(data.total_price);
                                 $scope.total_amount =  parseInt(data.total_price)+(parseInt(data.total)*500);
                                 data.total_amount =  parseInt($scope.total_price)+(parseInt(data.total)*500);
                                 data.received =  parseInt($scope.total_amount) -  parseInt($scope.total_net);
                                 // data.received =  $scope.total_amount- $scope.total_net;
-                                 $scope.selsedataformonth.push(data)
                                  
                                  // data.total_amount = $scope.total_price+500;
                                 // $scope.total_amount = data.total_price+500;
                     }
-                    else if($scope.checktype == 'All' && data.agent_name == agent && $scope.checktype == data.type){
+                    else{
                          $scope.total_net = (data.net_price_adult*data.adult) + (data.net_price_child*data.child);
                                 $scope.total_amount = data.total_price;
                                 data.total_amount = $scope.total_price;
@@ -1943,10 +1950,9 @@ label.label-editUser {
                                  data.total_net = (data.net_price_adult*data.adult) + (data.net_price_child*data.child);
                                  data.total_amount = $scope.total_price;
                                 $scope.total_amount = data.total_price;
-                                 $scope.selsedataformonth.push(data)
                     }  
                     
-                    
+                     $scope.selsedataformonth.push(data)
                       //data.dateCompare = 'wait';
                             if ($scope.newdate == data.ondate) { 
                                 data.noti = '1';                                    
@@ -1956,14 +1962,13 @@ label.label-editUser {
                             else{
                                 data.noti = '0'; 
                             }
-                            
                         });
                 $scope.databook = $scope.datatour;
                 console.log($scope.databook)
 
 
 
-                console.log($scope.selsedataformonth)
+                console.log('==========')
             console.log(agent)
             $scope.searchagent = agent;
            $scope.agentid = agent;
@@ -2012,7 +2017,7 @@ label.label-editUser {
 
 
                 
-           
+            });
 
 
 
