@@ -1256,6 +1256,8 @@ label.label-editUser {
             $scope.selsedataformonth = [];
             $scope.dataAgentget = [];
             // $scope.dataAgent = [];
+            $scope.datatour = [];
+             $scope.databook = [];
             $scope.pageSize = 10;
     
             $scope.currentPage = 1;
@@ -1333,10 +1335,10 @@ label.label-editUser {
                 }).success(function(res){
                  console.log(res)
                 // console.log(res[0].flight)
-                 $scope.datatour = res;
+                 //$scope.datatour = res;
                   $scope.newdate = $filter('date')(new Date(),'dd/MM/yyyy');
                     //console.log($scope.newdate)
-                angular.forEach($scope.datatour, function (data) {
+                angular.forEach(res, function (data) {
                    // Total Amountitem.adult_price*item.total 
                    $scope.dataAgentget.push(data.agent_name)
                     //$scope.dataAgentget.push(data.agent_id)
@@ -1466,7 +1468,7 @@ label.label-editUser {
 
                     // data.received =  $scope.total_amount - $scope.total_net;
                    
-                    
+                    $scope.datatour.push(data)
                      $scope.selsedataformonth.push(data)
                       //data.dateCompare = 'wait';
                             if ($scope.newdate == data.ondate) { 
@@ -1546,17 +1548,24 @@ label.label-editUser {
 
         $scope.logtype=function(x){
 
+            $scope.databook = [];
+             $scope.dataAgentget = [];
             $scope.selsedataformonth = [];
+            $scope.getData = $scope.datatour;
+            $scope.datatour = [];
             $scope.checktype = x;
             console.log($scope.checktype)
             if ($scope.checktype == 'Tour') {
             $scope.checktour = true;             
             $scope.checktransfer = false;
-                angular.forEach($scope.databook, function (data) {
+                angular.forEach($scope.getData, function (data) {
 
                     if (x == data.type) {
                         // alert(x)
                         $scope.selsedataformonth.push(data)
+                         $scope.databook.push(data)
+                         $scope.datatour.push(data)
+                          $scope.dataAgentget.push(data.agent_name)
                     }
                     
                                  
@@ -1566,11 +1575,15 @@ label.label-editUser {
              if ($scope.checktype == 'Transfer') {
                 $scope.checktour = false;             
                 $scope.checktransfer = true;
-                angular.forEach($scope.databook, function (data) {
+                angular.forEach($scope.getData, function (data) {
 
                     if (x == data.type) {
                          //alert(x)
                         $scope.selsedataformonth.push(data)
+                         $scope.databook.push(data)
+                         $scope.datatour.push(data)
+                         $scope.dataAgentget.push(data.agent_name)
+
                     }
                     
                                  
@@ -1580,11 +1593,15 @@ label.label-editUser {
              if ($scope.checktype == 'Hotel') {
                 $scope.checktour = false;             
                 $scope.checktransfer = true;
-                angular.forEach($scope.databook, function (data) {
+                angular.forEach($scope.getData, function (data) {
 
                     if (x == data.type) {
                          //alert(x)
                         $scope.selsedataformonth.push(data)
+                         $scope.databook.push(data)
+                         $scope.datatour.push(data)
+                         $scope.dataAgentget.push(data.agent_name)
+
                     }
                     
                                  
@@ -1594,11 +1611,15 @@ label.label-editUser {
              if ($scope.checktype == 'Flights') {
                 $scope.checktour = false;             
                 $scope.checktransfer = true;
-                angular.forEach($scope.databook, function (data) {
+                angular.forEach($scope.getData, function (data) {
 
                     if (x == data.type) {
                          //alert(x)
                         $scope.selsedataformonth.push(data)
+                         $scope.databook.push(data)
+                         $scope.datatour.push(data)
+                         $scope.dataAgentget.push(data.agent_name)
+
                     }
                     
                                  
@@ -1608,31 +1629,63 @@ label.label-editUser {
              if ($scope.checktype == 'All') {
                 // $scope.checktour = false;             
                 // $scope.checktransfer = true;
-                angular.forEach($scope.databook, function (data) {
+                angular.forEach($scope.getData, function (data) {
 
                    // if (x == data.type) {
                          //alert(x)
                         $scope.selsedataformonth.push(data)
+                         $scope.databook.push(data)
+                         $scope.datatour.push(data)
+                         $scope.dataAgentget.push(data.agent_name)
+
                     //}
                     
                                  
                                     
                 });
              }
+             console.log( $scope.databook)
+
+             var a = $scope.dataAgentget;
+                      var b = new Array();
+                      var first2 = 0;
+                      var count2 = 0;
+                      for(var i = 0 ; i < a.length; i++)
+                       {
+                        count2 = 0;              
+                        if(first2==0)
+                            {
+                              b.push(a[i]);
+                              first2++;
+                            }
+                            for(var j = 0 ; j < b.length ; j++)
+                            {                    
+                              if(b[j]!=a[i])
+                              {
+                                count2++;
+                                if(count2==b.length)
+                                {
+                                  b.push(a[i]);
+                                }
+                              }
+                            }              
+                      }
+                      console.log(b)
+                      $scope.dataAgent = b;
          }
          $scope.clear = function(){
-              $http({
+               $http({
                 method : 'POST',
                 url : "../php/getManagebooking.php",
                 //data: $.param({sv: $scope.dataSV}),
                 headers: {'Content-Type': 'application/x-www-form-urlencoded'}
                 }).success(function(res){
                  console.log(res)
-                 console.log(res[0].flight)
-                 $scope.datatour = res;
+                // console.log(res[0].flight)
+                 //$scope.datatour = res;
                   $scope.newdate = $filter('date')(new Date(),'dd/MM/yyyy');
                     //console.log($scope.newdate)
-                angular.forEach($scope.datatour, function (data) {
+                angular.forEach(res, function (data) {
                    // Total Amountitem.adult_price*item.total 
                    $scope.dataAgentget.push(data.agent_name)
                     //$scope.dataAgentget.push(data.agent_id)
@@ -1739,7 +1792,7 @@ label.label-editUser {
                     else if(data.type == 'Flights'){
                         data.total_net =  parseInt(data.total_price) ;
                          $scope.total_net =  parseInt(data.total_price);
-                               $scope.total_amount =  parseInt(data.total_price)+(parseInt(data.total)*500);
+                                $scope.total_amount =  parseInt(data.total_price)+(parseInt(data.total)*500);
                                 data.total_amount =  parseInt($scope.total_price)+(parseInt(data.total)*500);
                                 data.received =  parseInt($scope.total_amount) -  parseInt($scope.total_net);
                                 // data.received =  $scope.total_amount- $scope.total_net;
@@ -1757,7 +1810,12 @@ label.label-editUser {
                                  data.total_amount = $scope.total_price;
                                 $scope.total_amount = data.total_price;
                     }  
+                    //data.total_amount = $scope.total_price;
                     
+
+                    // data.received =  $scope.total_amount - $scope.total_net;
+                   
+                    $scope.datatour.push(data)
                      $scope.selsedataformonth.push(data)
                       //data.dateCompare = 'wait';
                             if ($scope.newdate == data.ondate) { 
@@ -1816,11 +1874,12 @@ label.label-editUser {
          }
          $scope.changeagent = function(agent){
              $scope.selsedataformonth =[];
+             $scope.databook = [];
             console.log(agent+'==========================================')
             console.log($scope.checktype+'==========================================')
            
             
-                angular.forEach( $scope.databook, function (data) {
+                angular.forEach( $scope.datatour, function (data) {
                   
                  
                     $scope.total_price = parseInt(data.total_price);
@@ -1868,6 +1927,7 @@ label.label-editUser {
                         data.total_amount = $scope.total_amount;
                         data.received =  $scope.total_amount - $scope.total_net;
                          $scope.selsedataformonth.push(data)
+                          $scope.databook.push(data)
                         // if()data.total_amount = $scope.total_price;
                     }
                     else if($scope.checktype == 'Tour' && data.agent_name == agent && $scope.checktype == data.type){
@@ -1910,6 +1970,8 @@ label.label-editUser {
                         //data.total_amount = $scope.total_price;
                         //$scope.total_amount = data.total_price;
                          $scope.selsedataformonth.push(data)
+                          $scope.databook.push(data)
+
                     }
                     else if($scope.checktype == 'Hotel' && data.agent_name == agent  && $scope.checktype == data.type){
                          $scope.total_net = (data.net_price_adult*data.nights) + (data.net_price_child*data.nights);
@@ -1930,6 +1992,8 @@ label.label-editUser {
                                 data.received =  parseInt($scope.total_amount) -  parseInt($scope.total_net);
                                 // data.received =  $scope.total_amount- $scope.total_net;
                                  $scope.selsedataformonth.push(data)
+                          $scope.databook.push(data)
+
                                  
                                  // data.total_amount = $scope.total_price+500;
                                 // $scope.total_amount = data.total_price+500;
@@ -1944,6 +2008,8 @@ label.label-editUser {
                                  data.total_amount = $scope.total_price;
                                 $scope.total_amount = data.total_price;
                                  $scope.selsedataformonth.push(data)
+                          $scope.databook.push(data)
+
                     }  
                     
                     
@@ -1958,7 +2024,7 @@ label.label-editUser {
                             }
                             
                         });
-                $scope.databook = $scope.datatour;
+                //$scope.databook = $scope.datatour;
                 console.log($scope.databook)
 
 
@@ -1974,7 +2040,7 @@ label.label-editUser {
             var total_treseive = 0;
             var total_tprofit = 0;
             
-            angular.forEach($scope.databook, function(data){
+            angular.forEach($scope.datatour, function(data){
             if(agent == data.agent_name)
             {   
                 
