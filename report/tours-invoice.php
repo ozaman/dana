@@ -2206,9 +2206,9 @@ label.label-editUser {
 
 
                 console.log($scope.selsedataformonth)
-            console.log(agent)
-            $scope.searchagent = agent;
-           $scope.agentid = agent;
+           
+           //  $scope.searchagent = agent;
+           // $scope.agentid = agent;
             $scope.selsedataformonth = [];
             var total_tamount = 0;
             var total_tsele = 0;
@@ -2217,7 +2217,7 @@ label.label-editUser {
             var total_tprofit = 0;
             
             angular.forEach($scope.datatour, function(data){
-            if(agent == data.agent_name)
+            if(company == data.company_name)
             {   
                 
                 $scope.selsedataformonth.push(data)
