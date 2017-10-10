@@ -161,6 +161,11 @@
                                         <i class="material-icons">notifications_active</i> Reservation - Invoice
                                     </a>
                                 </li>
+                                <li  >
+                                    <a href="report/tours-invoice.php">
+                                        <i class="material-icons">notifications_active</i> Tours - Invoice
+                                    </a>
+                                </li>
                                <!--  <li>
                                     <a href="report/account.php">
                                     <i class="material-icons">account_balance_wallet</i>

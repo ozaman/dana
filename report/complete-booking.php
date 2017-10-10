@@ -285,6 +285,11 @@
                                         <i class="material-icons">notifications_active</i> Reservation - Invoice
                                     </a>
                                 </li>
+                                <li  >
+                                    <a href="tours-invoice.php">
+                                        <i class="material-icons">notifications_active</i> Tours - Invoice
+                                    </a>
+                                </li>
 
                                 <!-- <li>
 
