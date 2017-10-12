@@ -555,7 +555,7 @@
                                             <th>Invoice</th>
                                             <th>Agent Name</th>
 
-                                            <th class="col-md-4">Package Name</th> 
+                                            <th class="col-md-4">Hotel Name</th> 
                                             <!-- <th>Adult</th>
                                             <th>Child</th> -->
                                              <th>No. of Guest</th>
@@ -587,7 +587,7 @@
                                                 <td class="col-md-2" ng-bind="item.name" ></td>
                                                 <td  ng-bind="item.invoice"></td>
                                                 <td ><span ng-bind="item.agent_name"></span></td>
-                                                <td class="col-md-4" ng-bind="item.package_name" ></td>
+                                                <td class="col-md-4" ng-bind="item.hotel_name" ></td>
                                                 <!--  <td align="center"  ng-bind="item.adult"></td>
                                                 <td align="center" ng-bind="item.child"></td> -->
                                                  <td ng-bind="item.total"></td>

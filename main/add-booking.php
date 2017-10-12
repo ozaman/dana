@@ -554,6 +554,12 @@
                                         <!-- <label class="typeUser" >{{edit_du.email}}</label> -->
                                     </div>
                                     <div class="form-group form-inline" ng-show="checkflights">
+                                        <label for="name" class="label-tour">Net price<span> :</span></label>
+                                        <input class="form-control"  id="label-addbooking" ng-change="totalnetpriceflight(net_price_flight)" ng-model="net_price_flight">
+                                       <!--  <label class="form-control "  id="label-addbooking" ><span ng-bind="total_price_hotel | currency:'':0"></span></label> -->
+                                        <!-- <input type="text" class=" form-control" size="100" maxlength="200" placeholder = "2x,xxx" id="price" name="price" ng-model="price" required/> -->
+                                    </div>
+                                    <div class="form-group form-inline" ng-show="checkflights">
                                         <label for="name" class="label-tour">Total price<span> :</span></label>
 
                                          <input class="form-control"  id="label-addbooking"  ng-model="total_flight">
@@ -1276,8 +1282,10 @@ $(document).ready(function(){
           $scope.total_price;
           $scope.hotel_price = 0;
           $scope.net_price_hotel = 0;
+          $scope.net_price_flight = 0;
           $scope.sale_price_hotel = 0;
           $scope.total_price_hotel = 0;
+          $scope.total_flight = 0;
 
          //$scope.checktype;
         
@@ -1489,6 +1497,11 @@ $(document).ready(function(){
     $scope.totalnetpricehotel = function(x){
         console.log(x)
         $scope.total_price_hotel = x;
+
+    }
+    $scope.totalnetpriceflight = function(x){
+        console.log(x)
+        $scope.net_price_flight = x;
 
     }
 
@@ -1922,6 +1935,7 @@ $(document).ready(function(){
         if ($scope.checktype == 'Flights') {
             $scope.packagename = $scope.flight_name;
             $scope.total_price = $scope.total_flight;
+            $scope.net_price_adult = $scope.net_price_flight;
         }
         // if ($scope.checktype == 'Transfer') {
            

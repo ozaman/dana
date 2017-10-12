@@ -1690,11 +1690,11 @@ label.label-editUser {
                         data.sum_hotel = 0;
                         data.hotel_expenses = 0;
 
-                        $scope.total_amount = parseInt(data.total_price)+(parseInt(data.total)*500);
-                        data.sum_fligt =  parseInt(data.total_price)+(parseInt(data.total)*500);
-                        data.fligt_expenses = parseInt(data.total_price);
-                        data.total_net = parseInt(data.total_price);
-                        $scope.total_net = parseInt(data.total_price);
+                        $scope.total_amount = parseInt(data.total_price);
+                        data.sum_fligt =  parseInt(data.total_price);
+                        data.fligt_expenses = parseInt(data.net_price_adult);
+                        data.total_net = parseInt(data.net_price_adult);
+                        $scope.total_net = parseInt(data.net_price_adult);
                         data.received =  parseInt($scope.total_amount) - parseInt($scope.total_net);
                     } 
                     //data.total_amount = $scope.total_price;

@@ -610,7 +610,8 @@
                                             <th>Invoice</th>
                                             <th>Agent Name</th>
 
-                                            <th class="col-md-4">Package Name</th> 
+                                            <th class="col-md-4" ng-show="checktype == 'Hotel' && checktype == 'All'">Package Name</th> 
+                                            <th class="col-md-4" ng-show="checktype == 'Hotel'">Hotel Name</th> 
                                               <th ng-show="checktype == 'Hotel' || checktype == 'All'">Check In</th>
                                             <th ng-show="checktype == 'Hotel' || checktype == 'All'">Check Our</th>
                                             <!-- <th>Adult</th>
@@ -642,7 +643,8 @@
                                                 <td class="col-md-2" ng-bind="item.name" ></td>
                                                 <td  ng-bind="item.invoice"></td>
                                                 <td ><span ng-bind="item.agent_name"></span></td>
-                                                <td class="col-md-4" ng-bind="item.package_name" ></td>
+                                                <td class="col-md-4" ng-bind="item.package_name" ng-show="checktype == 'Hotel' && checktype == 'All'" ></td>
+                                                <td class="col-md-4" ng-show="checktype == 'Hotel' " ng-bind="item.hotel_name" ></td>
                                                 <td ng-show="checktype == 'Hotel' || checktype == 'All'" ng-bind="item.checkin"></td>
                                                 <td ng-show="checktype == 'Hotel' || checktype == 'All'" ng-bind="item.checkout"></td>
                                                <!--  <td ng-show="checktype == 'All' && item.checkin == ''" align="center" >-</td>
@@ -671,7 +673,7 @@
                                                    <td class="field" ></td>
                                                     <td class="field" ></td>
                                                      <td class="field" ></td>
-                                                      <td  ng-show="checktype == 'Hotel' || checktype == 'All'"class="field" ></td>
+                                                      <td  ng-show="checktype == 'Hotel' || checktype == 'All'" class="field" ></td>
                                                        <td ng-show="checktype == 'Hotel' || checktype == 'All'" class="field" ></td>
                                                         <td class="field" ></td>
                                                          <td class="field" ></td>
@@ -1459,10 +1461,10 @@ label.label-editUser {
                                 $scope.total_amount = data.total_price;
                     }
                     else if(data.type == 'Flights'){
-                        data.total_net =  parseInt(data.total_price) ;
-                         $scope.total_net =  parseInt(data.total_price);
-                                $scope.total_amount =  parseInt(data.total_price)+(parseInt(data.total)*500);
-                                data.total_amount =  parseInt($scope.total_price)+(parseInt(data.total)*500);
+                        data.total_net =  parseInt(data.net_price_adult) ;
+                         $scope.total_net =  parseInt(data.net_price_adult);
+                                $scope.total_amount =  parseInt(data.total_price);
+                                data.total_amount =  parseInt($scope.total_price);
                                 data.received =  parseInt($scope.total_amount) -  parseInt($scope.total_net);
                                 // data.received =  $scope.total_amount- $scope.total_net;
                                  
@@ -1806,10 +1808,10 @@ label.label-editUser {
                                 $scope.total_amount = data.total_price;
                     }
                     else if(data.type == 'Flights'){
-                        data.total_net =  parseInt(data.total_price) ;
-                         $scope.total_net =  parseInt(data.total_price);
-                                $scope.total_amount =  parseInt(data.total_price)+(parseInt(data.total)*500);
-                                data.total_amount =  parseInt($scope.total_price)+(parseInt(data.total)*500);
+                        data.total_net =  parseInt(data.net_price_adult) ;
+                         $scope.total_net =  parseInt(data.net_price_adult);
+                                $scope.total_amount =  parseInt(data.total_price);
+                                data.total_amount =  parseInt($scope.total_price);
                                 data.received =  parseInt($scope.total_amount) -  parseInt($scope.total_net);
                                 // data.received =  $scope.total_amount- $scope.total_net;
                                  
@@ -2001,10 +2003,10 @@ label.label-editUser {
                                  $scope.selsedataformonth.push(data)
                     }
                     else if($scope.checktype == 'Flights' && data.agent_name == agent && $scope.checktype == data.type){
-                        data.total_net =  parseInt(data.total_price) ;
-                         $scope.total_net =  parseInt(data.total_price);
-                                $scope.total_amount =  parseInt(data.total_price)+(parseInt(data.total)*500);
-                                data.total_amount =  parseInt($scope.total_price)+(parseInt(data.total)*500);
+                       data.total_net =  parseInt(data.net_price_adult) ;
+                         $scope.total_net =  parseInt(data.net_price_adult);
+                                $scope.total_amount =  parseInt(data.total_price);
+                                data.total_amount =  parseInt($scope.total_price);
                                 data.received =  parseInt($scope.total_amount) -  parseInt($scope.total_net);
                                 // data.received =  $scope.total_amount- $scope.total_net;
                                  $scope.selsedataformonth.push(data)
