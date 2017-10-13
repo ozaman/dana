@@ -1662,7 +1662,7 @@ label.label-editUser {
                         //$scope.total_amount = data.total_price;
                     } 
                     else if(data.type == 'Hotel'){
-                        data.total_amount = $scope.total_price;
+                        data.total_amount = $scope.total_price*data.nights;
                         data.sum_tour = 0;
                         data.tour_expenses = 0;
 
@@ -1672,7 +1672,7 @@ label.label-editUser {
                         data.sum_fligt =  0;
                         data.fligt_expenses = 0;
 
-                        $scope.total_amount = data.total_price;
+                        $scope.total_amount = data.total_price*data.nights;
                         data.sum_hotel =  parseInt($scope.total_amount);
                         data.hotel_expenses = data.net_price_adult*data.nights;
                         data.total_net = data.net_price_adult*data.nights;

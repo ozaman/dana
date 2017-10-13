@@ -633,7 +633,7 @@
                                             <span ng-if="flagcheck == 3">日期 :</span> -->
                                      
                                             <div class='input-group date' id='duedate' >
-                                                    <input type='text' class="form-control" id="on_date"  name="duedate"  ng-model="duedate" value="duedate" >
+                                                    <input type='text' class="form-control" id="duedate"  name="duedate"  ng-model="duedate" value="duedate" >
                                                     <span class="input-group-addon" id="icon-calen" style="">
                                                         <i class="fa fa-calendar" id="calen" aria-hidden="true" style="color: #9E9E9E"></i>
                                                     </span>

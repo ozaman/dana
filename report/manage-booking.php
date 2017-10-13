@@ -1452,13 +1452,13 @@ label.label-editUser {
                     }
                     else if(data.type == 'Hotel'){
                          $scope.total_net = (data.net_price_adult*data.nights) + (data.net_price_child*data.nights);
-                                $scope.total_amount = data.total_price;
-                                data.total_amount = $scope.total_price;
+                                $scope.total_amount = data.total_price*data.nights;
+                                data.total_amount = $scope.total_price*data.nights;
                                 data.received =  $scope.total_amount - $scope.total_net;
                                 // data.received =  $scope.total_amount- $scope.total_net;
                                  data.total_net = (data.net_price_adult*data.nights) + (data.net_price_child*data.nights);
-                                 data.total_amount = $scope.total_price;
-                                $scope.total_amount = data.total_price;
+                                 data.total_amount = $scope.total_price*data.nights;
+                                $scope.total_amount = data.total_price*data.nights;
                     }
                     else if(data.type == 'Flights'){
                         data.total_net =  parseInt(data.net_price_adult) ;

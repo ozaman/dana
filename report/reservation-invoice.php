@@ -544,7 +544,7 @@
                                              <th></th>
                                              <th>Pay by</th>                                         
                                            
-                                            <th>Paid</th>
+                                            <!-- <th>Paid</th> -->
                                             <th>Approved by</th>
                                              <!-- <th></th> -->
                                             <!-- <th>Status</th> -->
@@ -579,7 +579,7 @@
                                                 <td align="center" ng-bind="$index+1"></td>
 
                                                 <td  align="center"><span style="color: #9c27b0" ng-show="item.status_invoice == 1 || item.total_price == 0" ng-bind="item.pay_by"></span><!-- <i ng-show="item.status_invoice == 1 || item.total_price == 0" class="material-icons" style="color: #4caf50;">playlist_add_check</i> --><button ng-show="item.status_invoice == 0 && item.total_price != 0" data-toggle="modal" data-target="#payproduct" ng-click="pay(item)" class="btn btn-primary btn-sm" style="text-transform: capitalize;">Pay</button></td>
-                                                <td  align="center"><i ng-show="item.done == 1" class="material-icons" style="color: #4caf50;">playlist_add_check</i><i ng-show="item.done == 0" class="material-icons"  style="color: #ff9800;">schedule</i></td>
+                                                <!-- <td  align="center"><i ng-show="item.done == 1" class="material-icons" style="color: #4caf50;">playlist_add_check</i><i ng-show="item.done == 0" class="material-icons"  style="color: #ff9800;">schedule</i></td> -->
                                                 <td  align="center"><button ng-show="item.approved == 0" data-toggle="modal" data-target="#approved" ng-click="approve(item)" class="btn btn-info btn-sm" style="text-transform: capitalize;">Approve</button><span style="color: #00bcd4" ng-show="item.approved == 1" ng-bind="item.approve_by"></span></td>
                                                 <td ng-bind="item.checkin"></td>
                                                 <td ng-bind="item.checkout"></td>
@@ -605,7 +605,7 @@
                                             </tr>
                                            
                                               
-                                              <td colspan="11" class="field" style="font-weight: bold;" align="right">Grand Total</td>
+                                              <td colspan="10" class="field" style="font-weight: bold;" align="right">Grand Total</td>
                                               <td class="field" style="font-weight: bold;" align="right" ng-bind="total_tamount | currency:'':0"></td>
                                               <td class="field" style="font-weight: bold;" align="center" >-</td>
                                               <td class="field" style="font-weight: bold;" align="right" ng-bind="total_tnet | currency:'':0"></td>
@@ -1374,13 +1374,13 @@ label.label-editUser {
                     }
                     else if(data.type == 'Hotel'){
                          $scope.total_net = (data.net_price_adult*data.nights) + (data.net_price_child*data.nights);
-                                $scope.total_amount = data.total_price;
-                                data.total_amount = $scope.total_price;
+                                $scope.total_amount = data.total_price*data.nights;
+                                data.total_amount = $scope.total_price*data.nights;
                                 data.received =  $scope.total_amount - $scope.total_net;
                                 // data.received =  $scope.total_amount- $scope.total_net;
                                  data.total_net = (data.net_price_adult*data.nights) + (data.net_price_child*data.nights);
-                                 data.total_amount = $scope.total_price;
-                                $scope.total_amount = data.total_price;
+                                 data.total_amount = $scope.total_price*data.nights;
+                                $scope.total_amount = data.total_price*data.nights;
                     }
                     else{
                          $scope.total_net = (data.net_price_adult*data.adult) + (data.net_price_child*data.child);
