@@ -794,6 +794,11 @@
                                                  <td style="font-weight: bold;" align="right"><span style="border-bottom: 1px solid;
     color: #ff9800;" ng-bind="total_omosab_profit-total_free_booking | currency:'':0"></span></td>
                                              </tr>
+                                             <tr>
+                                                <td align="right"  style="font-weight: bold;" colspan="3">10%</td>
+                                                 <td style="font-weight: bold;" align="right"><span style="border-bottom: 1px solid;
+    color: #ff9800;" ng-bind="mosabmod10 | currency:'':0"></span></td>
+                                             </tr>
                                             </tbody>
                                         </table>
                                         </div>
@@ -2453,7 +2458,8 @@ label.label-editUser {
             $scope.total_hotel_profit = v;
             $scope.total_flight_expenses = w;
             $scope.tota_sum_flight = x;
-            $scope.total_flight_profit = y;                             
+            $scope.total_flight_profit = y;  
+            $scope.mosabmod10 =   ((n - s)*10)/100;                        
         }
                  
     });
