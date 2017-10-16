@@ -4,7 +4,7 @@ $name = $_POST["imagename"].'.png';
 if(isset($_FILES['file'])){
     //The error validation could be done on the javascript client side.
     $errors= array(); 
-    $path   =   "../files/upload/icon/";   
+    $path   =   "../../data/files/upload/icon/";    
     $file_name = $_FILES['file']['name'];
     $file_size =$_FILES['file']['size'];
     $file_tmp =$_FILES['file']['tmp_name'];
