@@ -1677,11 +1677,21 @@ label.label-editUser {
                         data.sum_fligt =  0;
                         data.fligt_expenses = 0;
 
-                        $scope.total_amount = data.total_price*data.nights;
+                        
+                          // $scope.total_net = (data.net_price_adult*data.nights) + (data.net_price_child*data.nights);
+                          //       $scope.total_amount = (data.adult_price*data.nights) + (data.child_price*data.nights);
+                          //       data.total_amount = (data.adult_price*data.nights) + (data.child_price*data.nights);
+                          //       data.received =  $scope.total_amount - $scope.total_net;
+                          //       // data.received =  $scope.total_amount- $scope.total_net;
+                          //        data.total_net = (data.net_price_adult*data.nights) + (data.net_price_child*data.nights);
+
+
+
+                        $scope.total_amount = (data.adult_price*data.nights) + (data.child_price*data.nights);
                         data.sum_hotel =  parseInt($scope.total_amount);
-                        data.hotel_expenses = data.net_price_adult*data.nights;
-                        data.total_net = data.net_price_adult*data.nights;
-                        $scope.total_net = data.net_price_adult*data.nights;
+                        data.hotel_expenses = (data.net_price_adult*data.nights) + (data.net_price_child*data.nights);
+                        data.total_net = (data.net_price_adult*data.nights) + (data.net_price_child*data.nights);
+                        $scope.total_net = (data.net_price_adult*data.nights) + (data.net_price_child*data.nights);
                         data.received =  $scope.total_amount - $scope.total_net;
                     } 
                     else if(data.type == 'Flights'){

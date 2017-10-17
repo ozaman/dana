@@ -605,7 +605,7 @@
                                             </tr>
                                            
                                               
-                                              <td colspan="10" class="field" style="font-weight: bold;" align="right">Grand Total</td>
+                                              <td colspan="11" class="field" style="font-weight: bold;" align="right">Grand Total</td>
                                               <td class="field" style="font-weight: bold;" align="right" ng-bind="total_tamount | currency:'':0"></td>
                                               <td class="field" style="font-weight: bold;" align="center" >-</td>
                                               <td class="field" style="font-weight: bold;" align="right" ng-bind="total_tnet | currency:'':0"></td>
@@ -1373,14 +1373,12 @@ label.label-editUser {
                         //$scope.total_amount = data.total_price;
                     }
                     else if(data.type == 'Hotel'){
-                         $scope.total_net = (data.net_price_adult*data.nights) + (data.net_price_child*data.nights);
-                                $scope.total_amount = data.total_price*data.nights;
-                                data.total_amount = $scope.total_price*data.nights;
+                          $scope.total_net = (data.net_price_adult*data.nights) + (data.net_price_child*data.nights);
+                                $scope.total_amount = (data.adult_price*data.nights) + (data.child_price*data.nights);
+                                data.total_amount = (data.adult_price*data.nights) + (data.child_price*data.nights);
                                 data.received =  $scope.total_amount - $scope.total_net;
                                 // data.received =  $scope.total_amount- $scope.total_net;
                                  data.total_net = (data.net_price_adult*data.nights) + (data.net_price_child*data.nights);
-                                 data.total_amount = $scope.total_price*data.nights;
-                                $scope.total_amount = data.total_price*data.nights;
                     }
                     else{
                          $scope.total_net = (data.net_price_adult*data.adult) + (data.net_price_child*data.child);
