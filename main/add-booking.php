@@ -487,9 +487,15 @@
                                         <!-- <span ng-bind="sale_price_adult | currency:'':0"></span></label> -->
                                         <!-- <input type="text" class=" form-control" size="100" maxlength="200" placeholder = "2x,xxx" id="price" name="price" ng-model="price" required/> -->
                                     </div>
+                                    <div class=" form-group form-inline " ng-show="checkhotel">
+                                                <label class="label-tour">Night:</label> 
+                                            <select class="form-control" ng-change="changenumnight(hotel_night)" id="numnight" ng-model="hotel_night" data-ng-options="i  for i in numnight" style="width: 180px;">
+                                                    <option value="">0</option>
+                                              </select>
+                                    </div>
                                     <div class="form-group form-inline" ng-show="checkhotel">
                                         <label for="name" class="label-tour">Total price<span> :</span></label>
-                                        <input class="form-control"  id="label-addbooking" ng-value="total_pricetransfer | currency:'':0" ng-change="totalpricetransfer(total_pricetransfer)" ng-model="total_pricetransfer">
+                                        <input class="form-control"  id="label-addbooking" ng-value="total_price_hotel | currency:'':0" ng-change="totalpricetransfer(total_price_hotel)" disabled ng-model="total_price_hotel">
                                        <!--  <label class="form-control "  id="label-addbooking" ><span ng-bind="total_price_hotel | currency:'':0"></span></label> -->
                                         <!-- <input type="text" class=" form-control" size="100" maxlength="200" placeholder = "2x,xxx" id="price" name="price" ng-model="price" required/> -->
                                     </div>
@@ -633,19 +639,19 @@
                                             <span ng-if="flagcheck == 3">日期 :</span> -->
                                      
                                             <div class='input-group date' id='duedate' >
-                                                    <input type='text' class="form-control" id="duedate"  name="duedate"  ng-model="duedate" value="duedate" >
+                                                    <input type='text' class="form-control" id="due_date"  name="due_date"  ng-model="due_date" value="due_date" >
                                                     <span class="input-group-addon" id="icon-calen" style="">
                                                         <i class="fa fa-calendar" id="calen" aria-hidden="true" style="color: #9E9E9E"></i>
                                                     </span>
                                                 </div>
                                                 
                                 </div>
-                                 <div class=" form-group form-inline " ng-show="checkhotel">
+                                <!--  <div class=" form-group form-inline " ng-show="checkhotel">
                                                 <label class="label-tour">Night:</label> 
                                             <select class="form-control" ng-change="changenumnight(hotel_night)" id="numnight" ng-model="hotel_night" data-ng-options="i  for i in numnight" style="width: 180px;">
                                                     <option value="">0</option>
                                               </select>
-                                    </div>
+                                    </div> -->
                                    
                                            
                                                 
@@ -790,7 +796,7 @@
                                     
                                     <div class="form-group form-inline">
                                         <label class="label-tour">Email<span> :</span></label>
-                                        <input type="email"  class="form-control" placeholder="Ex.info@gmail.com" name="email" ng-change="emailuser(email)" ng-model="email" id="email" ng-value="email" required size="53">
+                                        <input type="email"  class="form-control" placeholder="Ex.info@gmail.com" name="email" ng-change="emailuser(email)" ng-model="email" id="email" ng-value="email" size="53">
                                         <!-- <label class="typeUser" >{{edit_du.email}}</label> -->
                                     </div>
                                     
@@ -1059,7 +1065,7 @@ label.label-editUser {
 }
 #label-addbooking{
 	margin-bottom: 0;
-	width: 150px;
+	width: 180px;
 
 }
 
@@ -1309,6 +1315,7 @@ $(document).ready(function(){
         $scope.child = 0;
         $scope.adult = 0;
          $scope.uname;
+          $scope.night = 1;
         $scope.optioncar = [ {value:1},{value:2},{value:3},{value:4},{value:5} ];
         $scope.num = [ '01','02','03','04','05','06','07','08','09','10','11','12','13','14','15','16','17','18','19','20','21','22','23'];
         $scope.num2 = [ '01','02','03','04','05','06','07','08','09','10','11','12','13','14','15','16','17','18','19','20',
@@ -1476,6 +1483,7 @@ $(document).ready(function(){
             // total_price_hotel 
            $scope.total_price_hotel = $scope.sale_price_hotel*x;
            console.log($scope.night);
+
            // if (true) {}
     }
     $scope.flightnamechange=function(x){
@@ -1496,7 +1504,7 @@ $(document).ready(function(){
     }
     $scope.totalnetpricehotel = function(x){
         console.log(x)
-        $scope.total_price_hotel = x;
+        $scope.net_price_hotel = x;
 
     }
     $scope.totalnetpriceflight = function(x){
@@ -1514,6 +1522,7 @@ $(document).ready(function(){
         console.log(x)
         if ($scope.checktype != 'Tour' ) {
             $scope.hotel_price = x;
+            //$scope.total_price_hotel = x*$scope.night;
         }
         else{
             console.log($scope.sale_price_adult)
@@ -1950,44 +1959,47 @@ $(document).ready(function(){
             $scope.ondates = $('#on_date').val();
             $scope.checkin = $('#checkin').val();
             $scope.checkout = $('#checkout').val();
-            $scope.duedates = $('#duedate').val();
-            console.log($scope.checktype)
-            console.log($scope.packageid)
-            console.log($scope.time_h+':'+$scope.time_m)
-            console.log($scope.ondates)
-            console.log($scope.adult)
-            console.log($scope.child)
-            //console.log($scope.price)
-            console.log($scope.agentid)
-            console.log($scope.tourpplace)
-            console.log($scope.tourpplaceto)
-            console.log($scope.name)
-            console.log($scope.phone)
-            console.log($scope.phonecode)
-            console.log($scope.email)
-            console.log($cookies.get('login'));
-            console.log($scope.uname)
-            console.log( $scope.nameagent)
-            // console.log($scope.packagename )
-            console.log($scope.costpackage )
-            $scope.sumtotal = parseInt($scope.adult)+ parseInt($scope.child);
-            console.log($scope.sumtotal)
-
-
-            console.log("-------------------------------------")
-            // console.log($scope.sale_price_adult)
-            // console.log($scope.sale_price_child)
-            // console.log($scope.total_price)
-            console.log($scope.roomtype)
-            console.log($scope.packagename)
-            console.log($scope.province)
-            console.log($scope.hotel_name)
+            $scope.duedates = $('#due_date').val();
             console.log($scope.checkin)
             console.log($scope.checkout)
-            console.log($scope.night)
-            console.log($scope.total_price_hotel)
-            console.log($scope.sale_price_hotel)
-            console.log($scope.net_price_hotel)
+            console.log($scope.duedates)
+            //console.log($scope.checktype)
+            // console.log($scope.packageid)
+            // console.log($scope.time_h+':'+$scope.time_m)
+            // console.log($scope.ondates)
+            // console.log($scope.adult)
+            // console.log($scope.child)
+            // //console.log($scope.price)
+            // console.log($scope.agentid)
+            // console.log($scope.tourpplace)
+            // console.log($scope.tourpplaceto)
+            // console.log($scope.name)
+            // console.log($scope.phone)
+            // console.log($scope.phonecode)
+            // console.log($scope.email)
+            // console.log($cookies.get('login'));
+            // console.log($scope.uname)
+            // console.log( $scope.nameagent)
+            // // console.log($scope.packagename )
+            // console.log($scope.costpackage )
+            // $scope.sumtotal = parseInt($scope.adult)+ parseInt($scope.child);
+            // console.log($scope.sumtotal)
+
+
+            // console.log("-------------------------------------")
+            // // console.log($scope.sale_price_adult)
+            // // console.log($scope.sale_price_child)
+            // // console.log($scope.total_price)
+            // console.log($scope.roomtype)
+            // console.log($scope.packagename)
+            // console.log($scope.province)
+            // console.log($scope.hotel_name)
+            // console.log($scope.checkin)
+            // console.log($scope.checkout)
+            // console.log($scope.night)
+            // console.log($scope.total_price_hotel)
+            // console.log($scope.sale_price_hotel)
+            // console.log($scope.net_price_hotel)
             
             if ($scope.checktype == 'Hotel') {
                 $scope.total_price = $scope.total_price_hotel;
@@ -2045,7 +2057,7 @@ $(document).ready(function(){
                                 ,'night': $scope.night
                                 ,'hotel_name': $scope.hotel_name
                                 ,'room_type': $scope.roomtype
-                                ,'duedate' : $scope.duedates
+                                ,'duedate' : $('#due_date').val()
                                 ,'ref' : $scope.ref
 
                                 
