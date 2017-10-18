@@ -619,11 +619,11 @@
                                              <th>No. of Guest</th>
                                              <th >No. of Car</th>
                                              <!-- <th ng-if="checktype == 'Hotel' || checktype == 'All'">Night</th> -->
-                                            <th>Total Amount</th>   
-                                            <th>Unit price</th>
-                                            <th>Total Net</th>
-                                            <th>Transfer price</th>
-                                            <th>Money Received</th>
+                                            <th align="center">Total Amount</th>   
+                                            <th align="center">Unit price</th>
+                                            <th align="center">Total Net</th>
+                                            <th align="center">Transfer price</th>
+                                            <th align="center">Money Received</th>
                                             
                                             
                                             <!-- <th>Profit</th> -->
@@ -663,7 +663,8 @@
                                                <td align="right" ng-bind="item.received  | currency:'':0"></td>
                                                 
                                                 <!-- <td align="right" ng-bind="item.received  | currency:'':0"></td> -->
-                                                <td class="field" ></td>
+                                                 <td class="col-md-1" align="center"><i class="material-icons" ng-click="removepackage(item)" style="color: #e91e1e; font-size: 25px;padding-top: 5px;">delete</i></td>
+
                                             </tr>
                                            
                                                
@@ -682,13 +683,13 @@
                                               <td class="field" style="font-weight: bold;" align="right" ng-bind="total_tamount | currency:'':0"></td>
                                               <td class="field" style="font-weight: bold;" align="center" >-</td>
                                               <td class="field" style="font-weight: bold;" align="right" ng-bind="total_tnet | currency:'':0"></td>
-                                              <td class="field" style="font-weight: bold;" align="center" >=</td>
+                                              <td class="field" style="font-weight: bold;" align="right" >=</td>
                                                <!-- <td class="field" ></td>
                                               <td class="field" ></td>
                                               <td class="field" ></td> -->
                                              
                                               <td class="field" style="font-weight: bold;" align="right" ng-bind="total_tprofit | currency:'':0"></td>
-                                              <td class="field" ></td>
+                                              
                                         </tbody>
                                     </table>
 
@@ -701,6 +702,25 @@
                     
                 </div>
             </div>
+             <!-- <div class="modal fade" id="remove">
+                    <div class="modal-dialog">
+                       
+                        <div class="modal-content">
+                            <div class="modal-header">
+                            <input type="hidden" name="" ng-model="idremovebooking">
+                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                <h4 class="modal-title" >Booking</h4>
+                            </div>
+                            <div class="modal-body">
+                                <div>Are you sure to delete booking invoice {{removeinvoice}}</div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-danger" data-dismiss="modal" ng-click="deletebooking(idremovebooking)">Remove</button>
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                            </div>
+                        </div>
+                    </div>
+                </div> -->
              <div class="modal fade" id="logout">
                     <div class="modal-dialog">
                         <!-- Modal content-->
@@ -1452,13 +1472,13 @@ label.label-editUser {
                     }
                     else if(data.type == 'Hotel'){
                          $scope.total_net = (data.net_price_adult*data.nights) + (data.net_price_child*data.nights);
-                                $scope.total_amount = data.total_price*data.nights;
-                                data.total_amount = $scope.total_price*data.nights;
+                                $scope.total_amount = (data.adult_price*data.nights) + (data.child_price*data.nights);
+                                data.total_amount = (data.adult_price*data.nights) + (data.child_price*data.nights);
                                 data.received =  $scope.total_amount - $scope.total_net;
                                 // data.received =  $scope.total_amount- $scope.total_net;
                                  data.total_net = (data.net_price_adult*data.nights) + (data.net_price_child*data.nights);
-                                 data.total_amount = $scope.total_price*data.nights;
-                                $scope.total_amount = data.total_price*data.nights;
+                                 //data.total_amount = $scope.total_price*data.nights;
+                                //$scope.total_amount = data.total_price*data.nights;
                     }
                     else if(data.type == 'Flights'){
                         data.total_net =  parseInt(data.net_price_adult) ;
@@ -1798,14 +1818,12 @@ label.label-editUser {
                         //$scope.total_amount = data.total_price;
                     }
                     else if(data.type == 'Hotel'){
-                         $scope.total_net = (data.net_price_adult*data.nights) + (data.net_price_child*data.nights);
-                                $scope.total_amount = data.total_price;
-                                data.total_amount = $scope.total_price;
+                          $scope.total_net = (data.net_price_adult*data.nights) + (data.net_price_child*data.nights);
+                                $scope.total_amount = (data.adult_price*data.nights) + (data.child_price*data.nights);
+                                data.total_amount = (data.adult_price*data.nights) + (data.child_price*data.nights);
                                 data.received =  $scope.total_amount - $scope.total_net;
                                 // data.received =  $scope.total_amount- $scope.total_net;
                                  data.total_net = (data.net_price_adult*data.nights) + (data.net_price_child*data.nights);
-                                 data.total_amount = $scope.total_price;
-                                $scope.total_amount = data.total_price;
                     }
                     else if(data.type == 'Flights'){
                         data.total_net =  parseInt(data.net_price_adult) ;
@@ -1992,14 +2010,12 @@ label.label-editUser {
 
                     }
                     else if($scope.checktype == 'Hotel' && data.agent_name == agent  && $scope.checktype == data.type){
-                         $scope.total_net = (data.net_price_adult*data.nights) + (data.net_price_child*data.nights);
-                                $scope.total_amount = data.total_price;
-                                data.total_amount = $scope.total_price;
+                           $scope.total_net = (data.net_price_adult*data.nights) + (data.net_price_child*data.nights);
+                                $scope.total_amount = (data.adult_price*data.nights) + (data.child_price*data.nights);
+                                data.total_amount = (data.adult_price*data.nights) + (data.child_price*data.nights);
                                 data.received =  $scope.total_amount - $scope.total_net;
                                 // data.received =  $scope.total_amount- $scope.total_net;
                                  data.total_net = (data.net_price_adult*data.nights) + (data.net_price_child*data.nights);
-                                 data.total_amount = $scope.total_price;
-                                $scope.total_amount = data.total_price;
                                  $scope.selsedataformonth.push(data)
                     }
                     else if($scope.checktype == 'Flights' && data.agent_name == agent && $scope.checktype == data.type){
@@ -2121,6 +2137,7 @@ label.label-editUser {
           
            
         }
+        
         $scope.confirmapprove = function(item){
             console.log(item)
             console.log($scope.nameconfirm)

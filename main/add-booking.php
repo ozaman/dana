@@ -641,7 +641,7 @@
                                                 
                                 </div>
                                  <div class=" form-group form-inline " ng-show="checkhotel">
-                                                <label class="label-tour">Rooms:</label> 
+                                                <label class="label-tour">Night:</label> 
                                             <select class="form-control" ng-change="changenumnight(hotel_night)" id="numnight" ng-model="hotel_night" data-ng-options="i  for i in numnight" style="width: 180px;">
                                                     <option value="">0</option>
                                               </select>
