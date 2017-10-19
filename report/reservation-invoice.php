@@ -578,7 +578,9 @@
                                                 <!-- | startFrom:(currentPage -1) * pageSize | limitTo:pageSize -->
                                                 <td align="center" ng-bind="$index+1"></td>
 
-                                                <td  align="center"><span style="color: #9c27b0" ng-show="item.status_invoice == 1 || item.total_price == 0" ng-bind="item.pay_by"></span><!-- <i ng-show="item.status_invoice == 1 || item.total_price == 0" class="material-icons" style="color: #4caf50;">playlist_add_check</i> --><button ng-show="item.status_invoice == 0 && item.total_price != 0" data-toggle="modal" data-target="#payproduct" ng-click="pay(item)" class="btn btn-primary btn-sm" style="text-transform: capitalize;">Pay</button></td>
+                                                <td  align="center"><span style="color: #9c27b0" ng-show="item.status_invoice == 1 || item.total_price == 0 " ng-bind="item.pay_by"></span><!-- <i ng-show="item.status_invoice == 1 || item.total_price == 0" class="material-icons" style="color: #4caf50;">playlist_add_check</i> --><button ng-show="item.status_invoice == 0 && item.total_price != 0 && item.noti == 1" data-toggle="modal" data-target="#payproduct" ng-click="pay(item)" class="btn btn-primary btn-sm" style="text-transform: capitalize;"  id="notibutton">Pay</button>
+                                                    <button ng-show="item.status_invoice == 0 && item.total_price != 0 && item.noti == 0" data-toggle="modal" data-target="#payproduct" ng-click="pay(item)" class="btn btn-primary btn-sm" style="text-transform: capitalize;"  id="notibutton">Pay</button>
+                                                </td>
                                                 <!-- <td  align="center"><i ng-show="item.done == 1" class="material-icons" style="color: #4caf50;">playlist_add_check</i><i ng-show="item.done == 0" class="material-icons"  style="color: #ff9800;">schedule</i></td> -->
                                                 <td  align="center"><button ng-show="item.approved == 0" data-toggle="modal" data-target="#approved" ng-click="approve(item)" class="btn btn-info btn-sm" style="text-transform: capitalize;">Approve</button><span style="color: #00bcd4" ng-show="item.approved == 1" ng-bind="item.approve_by"></span></td>
                                                 <td ng-bind="item.checkin"></td>
@@ -968,7 +970,33 @@
     <style>
     
     </style>
-
+ <style>
+                        @keyframes blink { 
+                           50% { background-color: #ff9800; /*background-color: #ff0000;*/ } 
+                        }
+                        #notibutton{ /*or other element you want*/
+                            animation-name: blink ;
+                            animation-duration: .5s ;
+                            animation-timing-function: step-end ;
+                            animation-iteration-count: infinite ;
+                            animation-direction: alternate ;
+                        }
+                        #notibutton{
+                            background-color: #ff0000;
+                            /*background-color: #06c10e;*/
+                        }
+                        #notinputroom2{ /*or other element you want*/
+                            animation-name: blink ;
+                            animation-duration: .5s ;
+                            animation-timing-function: step-end ;
+                            animation-iteration-count: infinite ;
+                            animation-direction: alternate ;
+                        }
+                        #haveinputroom2{
+                            border-color: #06c10e;
+                        }
+                    </style>
+    <style >
     <!-- <div class="fixed-plugin">
         
     </div> -->
@@ -1398,7 +1426,7 @@ label.label-editUser {
                     
                      $scope.selsedataformonth.push(data)
                       //data.dateCompare = 'wait';
-                            if ($scope.newdate == data.ondate) { 
+                            if ($scope.newdate == data.due_date) { 
                                 data.noti = '1';                                    
                                 $scope.datanoti.push(data);
                                             
@@ -1665,7 +1693,7 @@ label.label-editUser {
                     
                      $scope.selsedataformonth.push(data)
                       //data.dateCompare = 'wait';
-                            if ($scope.newdate == data.ondate) { 
+                            if ($scope.newdate == data.due_date) { 
                                 data.noti = '1';                                    
                                 $scope.datanoti.push(data);
                                             
