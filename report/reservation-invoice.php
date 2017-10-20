@@ -578,7 +578,7 @@
                                                 <!-- | startFrom:(currentPage -1) * pageSize | limitTo:pageSize -->
                                                 <td align="center" ng-bind="$index+1"></td>
 
-                                                <td  align="center"><span style="color: #9c27b0" ng-show="item.status_invoice == 1 || item.total_price == 0 " ng-bind="item.pay_by"></span><!-- <i ng-show="item.status_invoice == 1 || item.total_price == 0" class="material-icons" style="color: #4caf50;">playlist_add_check</i> --><button ng-show="item.status_invoice == 0 && item.total_price != 0 && item.noti == 0" data-toggle="modal" data-target="#payproduct" ng-click="pay(item)" class="btn btn-primary btn-sm" style="text-transform: capitalize;" >Pay</button>
+                                                <td  align="center"><span style="color: #9c27b0" ng-show="item.status_invoice == 1 " ng-bind="item.pay_by"></span><!-- <i ng-show="item.status_invoice == 1 || item.total_price == 0" class="material-icons" style="color: #4caf50;">playlist_add_check</i> --><button ng-show="item.status_invoice == 0 && item.total_price != 0 && item.noti == 0" data-toggle="modal" data-target="#payproduct" ng-click="pay(item)" class="btn btn-primary btn-sm" style="text-transform: capitalize;" >Pay</button>
                                                     <button ng-show="(item.status_invoice == 0 && item.total_price != 0) && item.noti == 1" data-toggle="modal" data-target="#payproduct" ng-click="pay(item)" class="btn btn-primary btn-sm" style="text-transform: capitalize;"  id="notibutton">Pay</button>
                                                 </td>
                                                 <!-- <td  align="center"><i ng-show="item.done == 1" class="material-icons" style="color: #4caf50;">playlist_add_check</i><i ng-show="item.done == 0" class="material-icons"  style="color: #ff9800;">schedule</i></td> -->
@@ -1426,7 +1426,7 @@ label.label-editUser {
                     
                      $scope.selsedataformonth.push(data)
                       //data.dateCompare = 'wait';
-                            if ($scope.newdate == data.due_date) { 
+                            if ($scope.newdate == data.due_date && data.status_invoice == 0 ) { 
                                 data.noti = '1';                                    
                                 $scope.datanoti.push(data);
                                             
