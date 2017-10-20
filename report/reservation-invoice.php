@@ -578,8 +578,8 @@
                                                 <!-- | startFrom:(currentPage -1) * pageSize | limitTo:pageSize -->
                                                 <td align="center" ng-bind="$index+1"></td>
 
-                                                <td  align="center"><span style="color: #9c27b0" ng-show="item.status_invoice == 1 || item.total_price == 0 " ng-bind="item.pay_by"></span><!-- <i ng-show="item.status_invoice == 1 || item.total_price == 0" class="material-icons" style="color: #4caf50;">playlist_add_check</i> --><button ng-show="item.status_invoice == 0 && item.total_price != 0 && item.noti == 1" data-toggle="modal" data-target="#payproduct" ng-click="pay(item)" class="btn btn-primary btn-sm" style="text-transform: capitalize;"  id="notibutton">Pay</button>
-                                                    <button ng-show="item.status_invoice == 0 && item.total_price != 0 && item.noti == 0" data-toggle="modal" data-target="#payproduct" ng-click="pay(item)" class="btn btn-primary btn-sm" style="text-transform: capitalize;"  id="notibutton">Pay</button>
+                                                <td  align="center"><span style="color: #9c27b0" ng-show="item.status_invoice == 1 || item.total_price == 0 " ng-bind="item.pay_by"></span><!-- <i ng-show="item.status_invoice == 1 || item.total_price == 0" class="material-icons" style="color: #4caf50;">playlist_add_check</i> --><button ng-show="item.status_invoice == 0 && item.total_price != 0 && item.noti == 0" data-toggle="modal" data-target="#payproduct" ng-click="pay(item)" class="btn btn-primary btn-sm" style="text-transform: capitalize;" >Pay</button>
+                                                    <button ng-show="(item.status_invoice == 0 && item.total_price != 0) && item.noti == 1" data-toggle="modal" data-target="#payproduct" ng-click="pay(item)" class="btn btn-primary btn-sm" style="text-transform: capitalize;"  id="notibutton">Pay</button>
                                                 </td>
                                                 <!-- <td  align="center"><i ng-show="item.done == 1" class="material-icons" style="color: #4caf50;">playlist_add_check</i><i ng-show="item.done == 0" class="material-icons"  style="color: #ff9800;">schedule</i></td> -->
                                                 <td  align="center"><button ng-show="item.approved == 0" data-toggle="modal" data-target="#approved" ng-click="approve(item)" class="btn btn-info btn-sm" style="text-transform: capitalize;">Approve</button><span style="color: #00bcd4" ng-show="item.approved == 1" ng-bind="item.approve_by"></span></td>
@@ -996,7 +996,7 @@
                             border-color: #06c10e;
                         }
                     </style>
-    <style >
+    
     <!-- <div class="fixed-plugin">
         
     </div> -->
@@ -1435,6 +1435,7 @@ label.label-editUser {
                                 data.noti = '0'; 
                             }
                         });
+                $scope.notilength =  $scope.datanoti.length;
                 $scope.databook = $scope.datatour;
                 console.log($scope.databook)
                 var a = $scope.dataAgentget;
@@ -1702,7 +1703,8 @@ label.label-editUser {
                                 data.noti = '0'; 
                             }
                         });
-                $scope.databook = $scope.datatour;
+console.log($scope.datanoti+"asasasasasa")
+               // $scope.databook = $scope.datatour;
                 console.log($scope.databook)
                 var a = $scope.dataAgentget;
                       var b = new Array();
