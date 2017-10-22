@@ -1,17 +1,18 @@
 <?php
 include("../config.php");
-$name = $_POST["imagename"].'.png';
+//$name = $_POST[imagename].'.png';
 if(isset($_FILES['file'])){
     //The error validation could be done on the javascript client side.
     $errors= array(); 
-    $path   =   "../../data/files/upload/tour/icon/";    
+    // $path   =   "../files/upload/gallery/"; 
+    $path   =   "../../data/files/upload/transfer/gallery/";      
     $file_name = $_FILES['file']['name'];
     $file_size =$_FILES['file']['size'];
     $file_tmp =$_FILES['file']['tmp_name'];
     $file_type=$_FILES['file']['type']; 
 //echo $file_tmp.$path.$file_name;
     //move_uploaded_file($file_tmp,$path.$file_name);
-
+echo $file_name;
     $file_ext = strtolower(pathinfo($file_name, PATHINFO_EXTENSION));
     $extensions = array("jpeg","jpg","png");        
     if(in_array($file_ext,$extensions )=== false){
@@ -21,9 +22,9 @@ if(isset($_FILES['file'])){
     $errors[]='File size cannot exceed 2 MB';
     }               
     if(empty($errors)==true){
-        move_uploaded_file($file_tmp,$path.$name);
+        move_uploaded_file($file_tmp,$path.$file_name);
        
-            $sql = "UPDATE dn_package SET icon = '".$name."' WHERE id = '".$_POST[imagename]."'";
+            $sql = "INSERT INTO dn_gallery_transfer(tour_id,gallery)  VALUES( '".$_POST[id]."', '".$file_name."')";
             $Objquery = mysql_query($sql,$conndb);
             //echo $Objquery;
             //$row = mysql_num_rows($Objquery); // นับจำนวนแถว

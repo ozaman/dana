@@ -947,7 +947,7 @@
                     }).success(function(res){
                      console.log(res)
                      
-                    // $window.location.href = '../main/hotels-package.php#?data='+res;
+                    $window.location.href = '../main/hotels-package.php#?data='+res;
                      
                            
                });

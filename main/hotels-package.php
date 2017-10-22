@@ -747,7 +747,7 @@
                                             <th align="center" style="text-align: center;" >Net Price</th>
                                             <th align="center" style="text-align: center;" >Sale Price</th>
                                             <th>Actions</th>
-                                            <!-- <th></th> -->
+                                            <th></th>
 
                                         </thead>
 
@@ -767,7 +767,7 @@
                                                 <td align="right" class="col-lg-1 col-md-1"><span ng-bind="item.net_price | currency:'':0"></span></td>
                                                 <td align="right" class="col-lg-1 col-md-1"><span ng-bind="item.sale_price | currency:'':0"></span></td>
                                                 <td align="center"><i ng-click="deletehotel(item)"  class="material-icons" style="color: #e91e1e;  font-size: 30px;">delete_forever</i></td>
-
+                                                <td class="col-sm-1" align="center"><a href="view-hotelpackage.php#?data={{item.id}}"><i class="material-icons"  style="color: #9E9E9E; font-size: 25px;">find_in_page</i></a><!-- <a style="cursor: pointer;" ng-click="remove(item)"><i class="material-icons" style="color: #e91e1e;  font-size: 30px;">delete_forever</i></a> --></td>
                                                 <!-- <td class="col-sm-1" align="center"><a href="view-transfer-package.php#?data={{item.id}}"><i class="material-icons"  style="color: #9E9E9E; font-size: 25px;">find_in_page</i></a><!-- <a style="cursor: pointer;" ng-click="remove(item)"><i class="material-icons" style="color: #e91e1e;  font-size: 30px;">delete_forever</i></a> --><!-- </td> -->
                                                 
 

@@ -4,7 +4,7 @@ $name = $_POST["imagename"].'.png';
 if(isset($_FILES['file'])){
     //The error validation could be done on the javascript client side.
     $errors= array(); 
-    $path   =   "../../data/files/upload/tour/icon/";    
+    $path   =   "../../data/files/upload/hotel/icon/";    
     $file_name = $_FILES['file']['name'];
     $file_size =$_FILES['file']['size'];
     $file_tmp =$_FILES['file']['tmp_name'];
@@ -23,7 +23,7 @@ if(isset($_FILES['file'])){
     if(empty($errors)==true){
         move_uploaded_file($file_tmp,$path.$name);
        
-            $sql = "UPDATE dn_package SET icon = '".$name."' WHERE id = '".$_POST[imagename]."'";
+            $sql = "UPDATE dn_hotel_package SET icon = '".$name."' WHERE id = '".$_POST[imagename]."'";
             $Objquery = mysql_query($sql,$conndb);
             //echo $Objquery;
             //$row = mysql_num_rows($Objquery); // นับจำนวนแถว
