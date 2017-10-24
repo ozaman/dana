@@ -613,7 +613,7 @@
                                             <th class="col-md-4" ng-show="checktype == 'Hotel' && checktype == 'All'">Package Name</th> 
                                             <th class="col-md-4" ng-show="checktype == 'Hotel'">Hotel Name</th> 
                                               <th ng-show="checktype == 'Hotel' || checktype == 'All'">Check In</th>
-                                            <th ng-show="checktype == 'Hotel' || checktype == 'All'">Check Our</th>
+                                            <th ng-show="checktype == 'Hotel' || checktype == 'All'">Check Out</th>
                                             <!-- <th>Adult</th>
                                             <th>Child</th> -->
                                              <th>No. of Guest</th>
