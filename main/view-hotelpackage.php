@@ -397,9 +397,9 @@
                                   
 
                                     <div class="form-group form-inline">
-                                        <label class="label-package-detail">Short Description<span> :</span></label>
+                                        <label class="label-package-detail">facilities<span> :</span></label>
                                         <div ng-show="!editDetail" class="box-package-detail" ng-bind="tours.description"></div>
-                                        <input type="text" class="form-control " size="100" maxlength="300" name="short" value="{{tours.description}}" ng-show="editDetail" ng-model="edescription">
+                                        <textarea type="text" class="form-control  box-package-detail" size="100" maxlength="300" name="short" value="{{tours.description}}" ng-show="editDetail" ng-model="edescription" cols="7" >
                                     </div>
 
                                    
@@ -426,7 +426,7 @@
                                     <div class="form-group form-inline">
                                         <label class="label-package-detail">Detail<span> :</span></label>
                                         <div ng-show="!editDetail" class="box-package-detail" ng-bind="tours.detail"></div>
-                                        <textarea class="form-control " rows="5" cols="100" maxlength="2000" name="detail" ng-show="editDetail" ng-model="edetail" ng-value="edetail"></textarea>
+                                        <textarea class="form-control box-package-detail" rows="5" cols="100" maxlength="2000" name="detail" ng-show="editDetail" ng-model="edetail" ng-value="edetail"></textarea>
                                     </div>
 
                                   

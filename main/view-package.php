@@ -497,8 +497,8 @@
                                             <!-- <legend>File size must not exceed 2 MB.</legend> -->
                                             <div class="fileinput fileinput-new text-center" data-provides="fileinput">
                                                 <div class="fileinput-new thumbnail">
-                                                    <img src="../files/upload/icon/{{tours.icon}}" ng-if="tours.icon =!''">
-                                                    <img src="../files/images/image_placeholder.jpg" ng-if="tours.icon == ''">
+                                                    <img ng-src="../../data/files/upload/tour/icon/{{data}}.png" ng-show="tours.icon =!'' && tours.icon =!'undefined'">
+                                                    <img src="../files/images/image_placeholder.jpg" ng-show="tours.icon == '' || tours.icon =='undefined'">
                                                 </div>
                                                 <div class="fileinput-preview fileinput-exists thumbnail"></div>
                                                 <div>
