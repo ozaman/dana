@@ -549,7 +549,7 @@
                                              <!-- <th></th> -->
                                             <!-- <th>Status</th> -->
                                             <th>Check In</th>
-                                            <th>Check Our</th>
+                                            <th>Check Out</th>
                                             <th>Due Date</th>
                                             <th>Customer name</th> 
                                             <th>Invoice</th>
