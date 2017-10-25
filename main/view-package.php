@@ -482,6 +482,11 @@
                                                                     <input type="checkbox" name="optionsCheckboxes" checked="" ng-model="echekpopular" id="echekpopular"><!-- <span class="checkbox-material"><span class="check"></span></span> -->POPULAR PACKAGES
                                                                 </label>
                                                             </div>
+                                                            <div class="checkbox " style="width: 100%;display: inline-block;">
+                                                                <label class="" style="display: inline-block;    margin-bottom: 10px;">
+                                                                    <input type="checkbox" name="optionsCheckboxes" checked="" ng-model="echekweb" id="echekweb"><!-- <span class="checkbox-material"><span class="check"></span></span> -->SHOW WEB
+                                                                </label>
+                                                            </div>
                                                             </div>
                                        
                                     </div>
@@ -1013,6 +1018,7 @@
         $scope.tours;
               $scope.echekpopular ;
               $scope.echekrecommend;
+              $scope.echekweb;
             $scope.err = $location.search().err;
             $scope.data = JSON.parse($location.search().data);
             console.log($scope.data)
@@ -1106,6 +1112,17 @@
                          }
                          else{
                                 $scope.echekpopular = false;
+                                //alert('top-fales')
+
+
+                         }
+                         if (res[0].show_web == 1) {
+                                $scope.echekweb = true;
+                                //alert('top-true')
+
+                         }
+                         else{
+                                $scope.echekweb = false;
                                 //alert('top-fales')
 
 
@@ -1405,9 +1422,17 @@
         else{
              $scope.echekrecommend = 0;
         }
+        if ($scope.echekweb == true) {
+            $scope.echekweb = 1;
+             
+        }
+        else{
+             $scope.echekweb = 0;
+        }
        
         console.log($scope.echekpopular)
         console.log($scope.echekrecommend)
+        console.log($scope.echekweb)
        // var chekpopular = $("#chekpopular").val();
        // var chekrecommend = $("#chekrecommend").val();
 
@@ -1442,6 +1467,7 @@
                             ,'includes':$scope.include
                             ,'show_top':$scope.echekpopular
                             ,'show_re':$scope.echekrecommend
+                            ,'show_web':$scope.echekweb
                            
                             
                 }),

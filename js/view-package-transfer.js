@@ -11,8 +11,9 @@ var app = angular.module('myApp',['ngCookies','ngFileUpload']);
     function loadpage(){
 
         //$scope.tours;
-        $scope.echekpopular ;
+        $scope.echekpopular;
         $scope.echekrecommend;
+        $scope.echekweb;
         $scope.err = $location.search().err;
         $scope.data = JSON.parse($location.search().data);
             //console.log($scope.data)
@@ -168,6 +169,16 @@ var app = angular.module('myApp',['ngCookies','ngFileUpload']);
                          else{
                                 $scope.echekpopular = false;
                                 //alert('top-fales')
+
+
+                         }
+                         if (res[0].show_web == 1) {
+                                $scope.echekweb = true;
+                                //alert('re-true')
+                         }
+                         else{
+                                $scope.echekweb = false;
+                                //alert('re-false')
 
 
                          }
@@ -662,9 +673,17 @@ var app = angular.module('myApp',['ngCookies','ngFileUpload']);
         else{
              $scope.echekrecommend = 0;
         }
+        if ($scope.echekweb == true) {
+            $scope.echekweb = 1;
+             
+        }
+        else{
+             $scope.echekweb = 0;
+        }
        
         console.log($scope.echekpopular)
         console.log($scope.echekrecommend)
+        console.log($scope.echekweb)
 
         if ($scope.companyname == undefined) {
 
@@ -741,6 +760,7 @@ var app = angular.module('myApp',['ngCookies','ngFileUpload']);
                             ,'flight': $scope.flight
                             ,'show_top':$scope.echekpopular
                             ,'show_re':$scope.echekrecommend
+                            ,'show_web':$scope.echekweb
 
                            
 

@@ -825,6 +825,11 @@
                                                                     <input type="checkbox" name="optionsCheckboxes" checked="" ng-model="echekpopular" id="echekpopular"><!-- <span class="checkbox-material"><span class="check"></span></span> -->POPULAR PACKAGES
                                                                 </label>
                                                             </div>
+                                                            <div class="checkbox " style="width: 100%;display: inline-block;">
+                                                                <label class="" style="display: inline-block;    margin-bottom: 10px;">
+                                                                    <input type="checkbox" name="optionsCheckboxes" checked="" ng-model="echekweb" id="echekweb"><!-- <span class="checkbox-material"><span class="check"></span></span> -->SHOW WEB
+                                                                </label>
+                                                            </div>
                                                             </div>
                                        
                                     </div>
