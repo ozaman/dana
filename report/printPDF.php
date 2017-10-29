@@ -100,7 +100,7 @@ while($rerow = mysql_fetch_array($Objquery))
     <td align="center" class="" style="border-top: 1px solid #333;font-size:13px;
    padding: 8px;
     line-height: 1.42857143;
-    vertical-align: top;"><?php echo $rerow['total']; ?></td>
+    vertical-align: top;"><?php echo $rerow['adult']+$rerow['child']; ?></td>
     <td align="center" class="" style="border-top: 1px solid #333;font-size:13px;
    padding: 8px;
     line-height: 1.42857143;
