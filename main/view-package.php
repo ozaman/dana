@@ -711,7 +711,7 @@
                             <div  class="col-md-3 col-lg-3" ng-if="dataGallery.length != 0" ng-repeat="x in dataGallery">
                                 <div align="center">
                                 <div  class=" col-md-3 " >
-                                    <img style="max-height: 200px; max-width: 356px" ng-src="../files/upload/gallery/{{x.gallery}}"  class="img-thumbnail img-responsive center-block">
+                                    <img style="max-height: 200px; max-width: 356px" ng-src="../../data/files/upload/tour/gallery/{{x.gallery}}"  class="img-thumbnail img-responsive center-block">
                                     
                                 </div>
                                 <div class="center-block form-group" align="center">
