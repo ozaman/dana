@@ -503,7 +503,7 @@
                                             <div class="fileinput fileinput-new text-center" data-provides="fileinput">
                                                 <div class="fileinput-new thumbnail">
                                                     <img ng-src="../../data/files/upload/tour/icon/{{data}}.png" ng-show="tours.icon =!'' && tours.icon =!'undefined'">
-                                                    <img src="../files/images/image_placeholder.jpg" ng-show="tours.icon == '' || tours.icon =='undefined'">
+                                                    <!-- <img src="../files/images/image_placeholder.jpg" ng-show="tours.icon == '' || tours.icon =='undefined'"> -->
                                                 </div>
                                                 <div class="fileinput-preview fileinput-exists thumbnail"></div>
                                                 <div>
@@ -573,9 +573,9 @@
                                     <div class="price-block">
                                         <div class="price-block-head">Adult <span>Contract</span> Rate
                                         </div>
-                                        <div ng-if="!editPrice" class="price-block-tail">{{ tours.net_price_adult | currency:'':0 }} <span>Bath / ท่าน</span></div>
+                                        <div ng-if="!editPrice" class="price-block-tail">{{ tours.net_price_adult | currency:'':0 }} <span>Bath / person</span></div>
                                         <div ng-if="editPrice" class="price-block-tail">
-                                            <input type="text" id="adult" name="adult" ng-change="netpriceadult(net_price_adult)" class="form-control input-text-right" ng-value="net_price_adult | currency:'':0 " ng-model="net_price_adult" > <span>Bath / ท่าน</span>
+                                            <input type="text" id="adult" name="adult" ng-change="netpriceadult(net_price_adult)" class="form-control input-text-right" ng-value="net_price_adult | currency:'':0 " ng-model="net_price_adult" > <span>Bath / person</span>
                                         </div>
                                     </div>
                                     <!--<div ng-show="editPrice" class="form-group">-->
@@ -589,9 +589,9 @@
                                     <div class="price-block">
                                         <div class="price-block-head">Child <span >Contract</span> Rate
                                         </div>
-                                        <div ng-if="!editPrice" class="price-block-tail">{{ tours.net_price_child | currency:'':0 }} <span>Bath / ท่าน</span></div>
+                                        <div ng-if="!editPrice" class="price-block-tail">{{ tours.net_price_child | currency:'':0 }} <span>Bath / person</span></div>
                                         <div ng-if="editPrice" class="price-block-tail">
-                                            <input type="text" id="child" name="child" class="form-control input-text-right"  ng-value="net_price_child | currency:'':0" ng-model="net_price_child" ng-change="netpricechild(net_price_child)"> <span>Bath / ท่าน</span>
+                                            <input type="text" id="child" name="child" class="form-control input-text-right"  ng-value="net_price_child | currency:'':0" ng-model="net_price_child" ng-change="netpricechild(net_price_child)"> <span>Bath / person</span>
                                         </div>
                                     </div>
                                     <!--<div ng-show="editPrice" class="form-group">-->
@@ -607,9 +607,9 @@
                                     <div class="price-block">
                                         <div class="price-block-head">Adult Selling Rate
                                         </div>
-                                        <div ng-if="!editPrice" class="price-block-tail">{{ tours.sale_price_adult | currency:'':0 }} <span>Bath / ท่าน</span></div>
+                                        <div ng-if="!editPrice" class="price-block-tail">{{ tours.sale_price_adult | currency:'':0 }} <span>Bath / person</span></div>
                                         <div ng-if="editPrice" class="price-block-tail">
-                                            <input type="text" name="sale_adult" class="form-control input-text-right" ng-value="sale_price_adult | currency:'':0" ng-model="sale_price_adult" ng-change="salepriceadult(sale_price_adult)"> <span>Bath / ท่าน</span>
+                                            <input type="text" name="sale_adult" class="form-control input-text-right" ng-value="sale_price_adult | currency:'':0" ng-model="sale_price_adult" ng-change="salepriceadult(sale_price_adult)"> <span>Bath / person</span>
                                         </div>
                                     </div>
                                     <!--<div ng-show="editPrice" class="form-group">-->
@@ -623,9 +623,9 @@
                                     <div class="price-block">
                                         <div class="price-block-head">Child Selling Rate
                                         </div>
-                                        <div ng-if="!editPrice" class="price-block-tail">{{ tours.sale_price_child | currency:'':0 }} <span>Bath / ท่าน</span></div>
+                                        <div ng-if="!editPrice" class="price-block-tail">{{ tours.sale_price_child | currency:'':0 }} <span>Bath / person</span></div>
                                         <div ng-if="editPrice" class="price-block-tail">
-                                            <input type="text" name="sale_child" class="form-control input-text-right" ng-value="sale_price_child | currency:'':0" ng-model="sale_price_child" ng-change="salepricechild(sale_price_child)"> <span>Bath / ท่าน</span>
+                                            <input type="text" name="sale_child" class="form-control input-text-right" ng-value="sale_price_child | currency:'':0" ng-model="sale_price_child" ng-change="salepricechild(sale_price_child)"> <span>Bath / person</span>
                                         </div>
                                     </div>
                                     <!--<div ng-show="editPrice" class="form-group">-->
@@ -635,6 +635,26 @@
                                     <!--</div>-->
                                     <!--</div>-->
                                 </td>
+                                
+                            </tr>
+                            <tr>
+                                <td colspan="2" class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                    <div class="price-block">
+                                        <div class="price-block-head">Rate show web
+                                        </div>
+                                        <div ng-if="!editPrice" class="price-block-tail">{{ tours.cost_web }} <span>Bath / person</span></div>
+                                        <div ng-if="editPrice" class="price-block-tail">
+                                            <input type="text" name="sale_show_web" class="form-control input-text-right" ng-value="sale_show_web " ng-model="sale_show_web" ng-change="saleshowweb(sale_show_web)"> <span>Bath / person</span>
+                                        </div>
+                                    </div>
+                                    <!--<div ng-show="editPrice" class="form-group">-->
+                                    <!--<div class="input-package-price">-->
+                                    <!--<div>Child Sale Price</div>-->
+                                    <!--<input type="text" name="sale_child" class="form-control" value="{{ price.child.sale_price | currency : '' }}" ng-disabled="!editPrice" required>-->
+                                    <!--</div>-->
+                                    <!--</div>-->
+                                </td>
+                                
                             </tr>
                             <tr ng-if="detail.length == 0"><td colspan="3">Nothing to show. Please add new Detail</td></tr>
                         </table>
@@ -1166,6 +1186,7 @@
         $scope.sale_price_child = $scope.tours.sale_price_child;
         $scope.net_price_adult = $scope.tours.net_price_adult;
         $scope.net_price_child = $scope.tours.net_price_child;
+        $scope.sale_show_web = $scope.tours.cost_web;
        
         // console.log($scope.AdultPrice)
         // console.log($scope.ChildPrice)
@@ -1198,6 +1219,15 @@
         // console.log($scope.ChildPrice)
         
     }
+    $scope.saleshowweb =function(x){
+        //alert('aaaa')
+        $scope.sale_show_web = x;
+        console.log($scope.sale_show_web)
+       
+        // console.log($scope.sale_show_web)
+        // console.log($scope.ChildPrice)
+        
+    }
     $scope.netpricechild =function(x){
         //alert('aaaa')
         $scope.net_price_child = x;
@@ -1221,7 +1251,8 @@
                             ,'sale_price_adult': $scope.sale_price_adult 
                             ,'sale_price_child': $scope.sale_price_child 
                             ,'net_price_adult': $scope.net_price_adult 
-                            ,'net_price_child': $scope.net_price_child 
+                            ,'net_price_child': $scope.net_price_child
+                            ,'sale_show_web': $scope.sale_show_web 
                             }), 
 
                 headers: {'Content-Type': 'application/x-www-form-urlencoded'}

@@ -1592,7 +1592,7 @@ label.label-editUser {
                             
                         }
                         data.total_net = $scope.total_net;
-                        data.received =  $scope.total_amount - $scope.total_net;
+                        data.received =  parseInt($scope.total_amount) - parseInt($scope.total_net);
                         data.sum_transfer = parseInt($scope.total_amount);
                        data.sum_tour = 0;
                        data.transfer_expenses = $scope.total_net;
@@ -1667,7 +1667,7 @@ label.label-editUser {
                         //$scope.total_amount = data.total_price;
                     } 
                     else if(data.type == 'Hotel'){
-                        data.total_amount = $scope.total_price*data.nights;
+                        data.total_amount = (data.adult_price*data.nights) + (data.child_price*data.nights);
                         data.sum_tour = 0;
                         data.tour_expenses = 0;
 
