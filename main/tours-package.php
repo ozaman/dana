@@ -739,6 +739,7 @@
                                            
 
                                             <th></th>
+                                            <th></th>
 
                                             <th>Name</th>
 
@@ -765,6 +766,7 @@
                                                 <!-- <td>{{$index+1}}</td> -->
 
                                                 <td class="col-sm-1" align="center" ng-bind="$index+1"></td>
+                                                 <td align="center" ><i class="material-icons" style="color:#4caf50 " ng-if="item.show_web == 1">check_circle</i></td>
 
                                                 <td class="col-lg-3 col-md-2" ><span ng-bind="item.name"></span></td>
 
