@@ -426,6 +426,12 @@
 
                                     
                                 <div >
+                                    <div class="form-group form-inline"  ng-show="checkhotel">
+                                        <label class="label-tour">File NO<span> :</span></label>
+                                        <input type="text"  class="form-control" placeholder="MW-11-02-17" name="file_no" ng-change="changefile_no(file_no)" ng-model="file_no" id="label-addbooking" ng-value="file_no" style="width: 180px">
+                                        <!-- <label class="typeUser" >{{edit_du.email}}</label> -->
+                                    </div>
+                                    
                                     <div class="form-group form-inline"  >
                                         <label for="name" class="label-tour">Response by<span>:</span></label>
                                         <!-- <input type="text" class=" form-control" size="100" maxlength="200" placeholder = "Max length 200 characters" id="name" name="topic" ng-model="topic" required/> -->
@@ -1896,6 +1902,10 @@ $(document).ready(function(){
             $scope.flightname = x;
             //console.log($scope.flightname)
     }
+    $scope.changefile_no = function(x){
+            $scope.file_no = x;
+            //console.log($scope.flightname)
+    }
     $scope.emailuser = function(x){
             $scope.email = x;
             //console.log($scope.email)
@@ -2059,6 +2069,7 @@ $(document).ready(function(){
                                 ,'room_type': $scope.roomtype
                                 ,'duedate' : $('#due_date').val()
                                 ,'ref' : $scope.ref
+                                ,'file_no':$scope.file_no
 
                                 
 
