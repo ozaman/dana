@@ -479,6 +479,7 @@
                                              <th></th>
                                             <th>Status</th>
                                             <th>Invoice</th>
+                                            <th>File No.</th>
                                             <th class="col-md-4">Package Name</th> 
                                             <th>Customer name</th> 
                                             <th>Flight</th>   
@@ -505,6 +506,7 @@
                                                  <td align="center" class="col-md-1" ng-if="item.noti == 1"><button data-toggle="modal" id="notibutton" data-target="#confirm" ng-click="confirmbooking(item)" class="btn btn-info btn-sm">Wait</button></td>
                                                 <td align="center" class="col-md-1"><i class="fa fa-clock-o fa-lg" aria-hidden="true" style="color: #FF9800"></i><!-- <button data-toggle="modal" data-target="#confirm" ng-click="confirmbooking(item)" class="btn btn-info btn-sm">"Wait"</button> --></td>
                                                 <td  ng-bind="item.invoice"></td>
+                                                <td  ng-bind="item.file_no"></td>
                                                 <td class="col-md-4" ng-bind="item.package_name" ></td>
                                                 <td class="col-md-2" ng-bind="item.name" ></td>
                                                 <td class="col-md-2" ng-bind="item.flight" ng-if="item.flight != ''" ></td>
