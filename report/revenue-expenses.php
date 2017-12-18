@@ -2539,7 +2539,7 @@ label.label-editUser {
                             }
                             if(data[i].post_date *1000 > setx && data[i].post_date*1000 < new Date(y).getTime())
                             {
-                                if (data[i].type != 'Hotel') {
+                                // if (data[i].type != 'Hotel') {
                                
                                    total_treseive += parseInt(data[i].received);
                              
@@ -2603,7 +2603,8 @@ label.label-editUser {
                                 
                                 result.push(data[i]);
                             
-                            }}
+                            // }
+                        }
                             else
                             {
                                 //console.log('Not Bwtween');
