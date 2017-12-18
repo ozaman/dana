@@ -1534,7 +1534,7 @@ label.label-editUser {
             $scope.sum_transfer = 0;
                  $http({
                 method : 'POST',
-                url : "../php/getManagebooking.php",
+                url : "../php/getRevenue_expenses.php",
                 //data: $.param({sv: $scope.dataSV}),
                 headers: {'Content-Type': 'application/x-www-form-urlencoded'}
                 }).success(function(res){
@@ -2515,35 +2515,36 @@ label.label-editUser {
                         var current;
                         var current1;
                         current = new Date(input1);
-                        // console.log(current);
+                        console.log(current);
                         var x =current.setHours(00, 00, 00);
                         var setx = new Date(x).getTime();
-                        //console.log(new Date(x).getTime());
+                        console.log(new Date(x).getTime());
                         current1 = new Date(input2);
                         var y =current1.setHours(24, 00, 00);
-                        //console.log(y);
+                        console.log(y);
+                        console.log(current1);
+                        console.log(setx)
+                        console.log(new Date(y).getTime())
+                        // due_date
                         for (var i=0; i<data.length; i++){
+                          
+                            if (data[i].type == 'Hotel') {
+                                var cc = new Date(data[i].due_date).getTime();
+                               // console.log($filter('date')(new Date(cc),'yyyy-MM-dd'))
+                                 //console.log(new Date(data[i].due_date).getTime())
+                                if(new Date(data[i].due_date).getTime() > setx && new Date(data[i].due_date).getTime() < new Date(y).getTime()){
+
+                                 console.log(data[i])
+                                }
+                            }
                             if(data[i].post_date *1000 > setx && data[i].post_date*1000 < new Date(y).getTime())
                             {
-                                // console.log(data);
-                                //console.log(new Date(data[i].booking_date).getTime());
-                                //console.log('Round'+i);
-                                // console.log(data[i].total_price);
-                                // if(data[i].total_price == '0'){
-                                //     console.log('aa')
-                                //      total_treseive += 0;
-                            
-                           
-                                // }
-                                // else{
-                                    
+                                if (data[i].type != 'Hotel') {
+                               
                                    total_treseive += parseInt(data[i].received);
-                               // }
+                             
                                     total_tamount += parseInt(data[i].total_amount);
-                                    // if (data[i].total_amount == undefined) {
-                                    // console.log(data[i])
-
-                                    // }
+                                  
                                     total_tsele += parseInt(data[i].adult_price);
                                     total_tnet += parseInt(data[i].total_net);
                                     // total_treseive += parseInt(data[i].received);
@@ -2601,7 +2602,8 @@ label.label-editUser {
                      scope.returnvalue( total_tamount,total_tsele,total_tnet,total_treseive,total_tprofit,tota_sum_transfer,tota_sum_tour,total_tour_expenses,total_transfer_expenses,total_tour_profit,total_transfer_profit,total_omosab_amount,total_omosab_net,total_omosab_profit,total_omedhat_amount,total_omedhat_net,total_omedhat_profit,free_booking,total_free_booking,total_hotel_expenses,tota_sum_hotel,total_hotel_profit, total_flight_expenses,tota_sum_flight,total_flight_profit);
                                 
                                 result.push(data[i]);
-                            }
+                            
+                            }}
                             else
                             {
                                 //console.log('Not Bwtween');
