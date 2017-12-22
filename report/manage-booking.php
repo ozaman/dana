@@ -1307,7 +1307,7 @@ label.label-editUser {
             $scope.total_tprofit = 0;
            
              var today = new Date();
-                var date = new Date(today.getFullYear()+'-'+(today.getMonth()));
+                var date = new Date(today.getFullYear()+'-'+(today.getMonth()+1));
                 console.log(today);
                 console.log(date);
                 $scope.dateselectionfrom = date;
