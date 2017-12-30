@@ -170,10 +170,28 @@
                                          Account Tours
                                     </a>
                                 </li>
-                                <li >
-                                    <a href="manage-booking.php">
+                                 <li >
+                                    <a href="manage-tours.php">
                                     <i class="material-icons">dvr</i>
-                                         Manage Booking
+                                         Manage Tour
+                                    </a>
+                                </li>
+                                <li >
+                                    <a href="manage-transfers.php">
+                                    <i class="material-icons">dvr</i>
+                                         Manage Transfer
+                                    </a>
+                                </li>
+                                 <li >
+                                    <a href="manage-hotels.php">
+                                    <i class="material-icons">dvr</i>
+                                         Manage Hotel
+                                    </a>
+                                </li>
+                                <li >
+                                    <a href="manage-flights.php">
+                                    <i class="material-icons">dvr</i>
+                                         Manage Flight
                                     </a>
                                 </li>
                                 <li >

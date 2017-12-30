@@ -308,9 +308,27 @@
                                     </a>
                                 </li>
                                 <li >
-                                    <a href="../report/manage-booking.php">
+                                    <a href="../report/manage-tours.php">
+                                    <i class="material-icons">dvr</i>
+                                         Manage Tour
+                                    </a>
+                                </li>
+                                <li >
+                                    <a href="../report/manage-transfers.php">
+                                    <i class="material-icons">dvr</i>
+                                         Manage Transfer
+                                    </a>
+                                </li>
+                                <li >
+                                    <a href="../report/manage-hotels.php">
+                                    <i class="material-icons">dvr</i>
+                                         Manage Hotel
+                                    </a>
+                                </li>
+                                <li >
+                                    <a href="../report/manage-flights.php">
                                      <i class="material-icons">dvr</i>
-                                         Manage Booking
+                                         Manage Flights
                                     </a>
                                 </li>
                                 <li >

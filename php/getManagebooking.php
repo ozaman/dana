@@ -19,7 +19,7 @@ include("../config.php");
 
   
     //echo  $datefrom.'<br>'. $dateto.'<br>'.$date.'-------'.$date2;
-	$sql = "SELECT * FROM dn_booking WHERE post_date BETWEEN '".$datefrom."' AND '".$dateto."' AND status != 2  ORDER BY post_date ASC";
+	$sql = "SELECT * FROM dn_booking WHERE post_date BETWEEN '".$datefrom."' AND '".$dateto."' AND status != 2 AND type = 'Fight'  ORDER BY ondate_2 ASC";
 	// AND booking_date BETWEEN '".$date."' AND  '".$date2."'
 	$Objquery = mysql_query($sql,$conndb);
 	

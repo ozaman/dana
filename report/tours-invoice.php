@@ -341,14 +341,32 @@
                                     </a>
 
                                 </li>
+                                 <li >
+                                    <a href="manage-tours.php">
+                                    <i class="material-icons">dvr</i>
+                                         Manage Tour
+                                    </a>
+                                </li>
+                                <li >
+                                    <a href="manage-transfers.php">
+                                    <i class="material-icons">dvr</i>
+                                         Manage Transfer
+                                    </a>
+                                </li>
+                                 <li >
+                                    <a href="manage-hotels.php">
+                                    <i class="material-icons">dvr</i>
+                                         Manage Hotel
+                                    </a>
+                                </li>
 
                                 <li>
 
-                                    <a href="manage-booking.php">
+                                    <a href="manage-flights.php">
 
                                     <i class="material-icons">dvr</i>
 
-                                         Manage Booking
+                                         Manage Flight
 
                                     </a>
 

@@ -17,7 +17,7 @@ include("../config.php");
      $datefrom = strtotime($date2);
     $dateto=  strtotime($date3);
     //echo  $date.'<br>'. $date2.'<br>'.$m;
-	$sql = "SELECT * FROM dn_booking WHERE post_date BETWEEN '".$datefrom."' AND '".$dateto."' AND status = 0 AND type = 'Hotel' AND status_invoice = '0' ORDER BY ondate ASC	";
+	$sql = "SELECT * FROM dn_booking WHERE post_date BETWEEN '".$datefrom."' AND '".$dateto."' AND status = 0 AND type = 'Hotel' AND status_invoice = '0' ORDER BY ondate_2 ASC	";
 	$Objquery = mysql_query($sql,$conndb);
 	//echo $Objquery;
 	//$row = mysql_num_rows($Objquery); // นับจำนวนแถว

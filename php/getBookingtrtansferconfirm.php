@@ -1,6 +1,6 @@
 <?php
 include("../config.php");
-	$sql = "select * from dn_booking as TB_booking_transfer  WHERE status  = 1 ORDER BY ondate ASC	";
+	$sql = "select * from dn_booking as TB_booking_transfer  WHERE status  = 1 ORDER BY ondate_2 ASC	";
 	$Objquery = mysql_query($sql,$conndb);
 	//echo $Objquery;
 	//$row = mysql_num_rows($Objquery); // นับจำนวนแถว

@@ -164,16 +164,35 @@
                                          Account
                                     </a>
                                 </li> -->
+
                                 <li >
                                     <a href="account-tour.php">
                                     <i class="material-icons">business_center</i>
                                          Account Tours
                                     </a>
                                 </li>
-                                <li class="active">
-                                    <a href="manage-booking.php">
+                                 <li >
+                                    <a href="manage-tours.php">
                                     <i class="material-icons">dvr</i>
-                                         Manage Booking
+                                         Manage Tour
+                                    </a>
+                                </li>
+                                <li >
+                                    <a href="manage-transfers.php">
+                                    <i class="material-icons">dvr</i>
+                                         Manage Transfer
+                                    </a>
+                                </li>
+                                 <li class="active">
+                                    <a href="manage-hotels.php">
+                                    <i class="material-icons">dvr</i>
+                                         Manage Hotel
+                                    </a>
+                                </li>
+                                <li >
+                                    <a href="manage-flights.php">
+                                    <i class="material-icons">dvr</i>
+                                         Manage Flight
                                     </a>
                                 </li>
                                 <li >
@@ -341,7 +360,7 @@
                                             <button type="button" class="btn btn-success btn-sm" style=""><i class="fa fa-plus padding-icon" aria-hidden="true"></i> New</button></a> -->
                                         <ol class="breadcrumb" style="margin: 0;padding: 11px;background: #fff; display: inline-block; ">
                                             <!-- <li><a href="package.php">Main Menu</a></li> -->
-                                            <li class="active"><span>/</span>  Manage Booking
+                                            <li class="active"><span>/</span>  Manage Hotels
                                     </li>
                                         </ol>
                                     </div>
@@ -351,7 +370,7 @@
                      
                       
                        <div class="col-md-12">
-                       <div class="form-group form-inline">
+                       <!-- <div class="form-group form-inline">
                                     <div class="radio" id="radioin" >
                                         <label style="padding: 0px 35px;">
                                             <input type="radio" name="typeRadios" ng-change="logtype(checktype)" ng-model="checktype" value="Tour" >
@@ -383,7 +402,7 @@
                                             All
                                         </label>
                                     </div>
-                            </div>
+                            </div> -->
                             <div class="row form-group form-inline" style="padding-bottom: 0">
                                 <div class="col-md-6 col-md-4 col-md-3 " style="padding-bottom: 20px">
                                     <table width="100%">
@@ -610,19 +629,19 @@
                                             <th>Invoice</th>
                                             <th>Agent Name</th>
 
-                                            <th class="col-md-4" ng-show="checktype == 'Hotel' && checktype == 'All'">Package Name</th> 
+                                            
                                             <th class="col-md-4" ng-show="checktype == 'Hotel'">Hotel Name</th> 
                                               <th ng-show="checktype == 'Hotel' || checktype == 'All'">Check In</th>
                                             <th ng-show="checktype == 'Hotel' || checktype == 'All'">Check Out</th>
                                             <!-- <th>Adult</th>
                                             <th>Child</th> -->
                                              <th>No. of Guest</th>
-                                             <th >No. of Car</th>
+                                             <!-- <th >No. of Car</th> -->
                                              <!-- <th ng-if="checktype == 'Hotel' || checktype == 'All'">Night</th> -->
                                             <th align="center">Total Amount</th>   
                                             <th align="center">Unit price</th>
                                             <th align="center">Total Net</th>
-                                            <th align="center">Transfer price</th>
+                                            <!-- <th align="center">Transfer price</th> -->
                                             <th align="center">Money Received</th>
                                             
                                             
@@ -643,7 +662,7 @@
                                                 <td class="col-md-2" ng-bind="item.name" ></td>
                                                 <td  ng-bind="item.invoice"></td>
                                                 <td ><span ng-bind="item.agent_name"></span></td>
-                                                <td class="col-md-4" ng-bind="item.package_name" ng-show="checktype == 'Hotel' && checktype == 'All'" ></td>
+                                               
                                                 <td class="col-md-4" ng-show="checktype == 'Hotel' " ng-bind="item.hotel_name" ></td>
                                                 <td ng-show="checktype == 'Hotel' || checktype == 'All'" ng-bind="item.checkin"></td>
                                                 <td ng-show="checktype == 'Hotel' || checktype == 'All'" ng-bind="item.checkout"></td>
@@ -652,13 +671,13 @@
                                                 <!--  <td align="center"  ng-bind="item.adult"></td>
                                                 <td align="center" ng-bind="item.child"></td> -->
                                                  <td ng-bind="item.total"></td>
-                                                 <td  ng-bind="item.listcar"></td>
+                                                 <!-- <td  ng-bind="item.listcar"></td> -->
                                                 <td align="right" class="col-md-2" ng-bind="item.total_amount | currency:'':0" ></td>
                                                 <td align="right" class="col-md-2" ng-bind="item.adult_price | currency:'':0" ></td>
                                                
 
                                                 <td align="right" ng-bind="item.total_net  | currency:'':0"></td>
-                                                <td align="right" ng-bind="item.transfer_price  | currency:'':0"></td>
+                                                <!-- <td align="right" ng-bind="item.transfer_price  | currency:'':0"></td> -->
                                                 <!-- <td  align="right">0</td> -->
                                                <td align="right" ng-bind="item.received  | currency:'':0"></td>
                                                 
@@ -668,9 +687,9 @@
                                             </tr>
                                            
                                                
-                                                <td class="field" ></td>
-                                                 <td class="field" ></td>
-                                                  <td class="field" ></td>
+                                              <!--   <td class="field" ></td> -->
+                                                 <!-- <td class="field" ></td> -->
+                                                  <!-- <td class="field" ></td> -->
                                                    <td class="field" ></td>
                                                     <td class="field" ></td>
                                                      <td class="field" ></td>
@@ -1367,7 +1386,7 @@ label.label-editUser {
             // });
                  $http({
                 method : 'POST',
-                url : "../php/getManagebooking.php",
+                url : "../php/getManageHotels.php",
                 //data: $.param({sv: $scope.dataSV}),
                 headers: {'Content-Type': 'application/x-www-form-urlencoded'}
                 }).success(function(res){
