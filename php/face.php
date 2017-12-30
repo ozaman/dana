@@ -41,14 +41,20 @@
         height: 30%;
       }
     </style>
-	<iframe
+	<iframe frameborder="0" scrolling="no" marginheight="0" marginwidth="0"
   width="600"
   height="450"
+   data-tabs="timeline,events,messages"
+   data-hide-cover="false"
   frameborder="0" style="border:0"
-  src='https://www.google.com/maps/embed/v1/directions?key=AIzaSyDtMCRvG35DYC9TC_cXfIY7qA5LB6Gv-iA&destination=Dana+tours+%26+travel+CO.,+LTD&origin=7.913528,98.3681061&center=7.913528,98.3681061&avoid=tolls|highways&zoom=12?hl=en&'
+  src='https://www.google.com/maps/embed/v1/directions?key=AIzaSyDtMCRvG35DYC9TC_cXfIY7qA5LB6Gv-iA&destination=Dana+tours+%26+travel+CO.,+LTD&origin=7.913528,98.3681061&center=7.913528,98.3681061&avoid=tolls|highways&zoom=15?hl=en'
 
    allowfullscreen>
 </iframe>
+
+<br>
+
+<div style="width: 100%"><iframe width="100%" height="600" src="https://www.mapsdirections.info/en/custom-google-maps/map.php?width=100%&height=600&hl=ru&coord=7.9136026,98.3681893&q=Dana+tours+%26+travel+CO.,+LTD+(Your%20Business%20Name)&ie=UTF8&t=&z=16&iwloc=A&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"><a href="https://www.mapsdirections.info/en/custom-google-maps/">Add Google Map to website</a> by <a href="https://www.mapsdirections.info/en/">Measure area on map</a></iframe></div><br />
 </body>
 <!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDtMCRvG35DYC9TC_cXfIY7qA5LB6Gv-iA&libraries=places&language=en" async defer> </script> -->
 </html>
