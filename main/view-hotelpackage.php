@@ -408,39 +408,32 @@
                                         </div>
 
                                     <div class="form-group form-inline">
-                                        <label class="label-package-detail">Package name<span> :</span></label>
-                                        <div ng-show="!editDetail" class="box-package-detail" ng-bind="tours.topic"></div>
-                                        <input type="text" class="form-control  " size="100" maxlength="200" name="name"  ng-show="editDetail" ng-model="ename">
-                                    </div>
-                                  
-
-                                    <div class="form-group form-inline">
-                                        <label class="label-package-detail">facilities<span> :</span></label>
-                                        <div ng-show="!editDetail" class="box-package-detail" ng-bind="tours.description"></div>
-                                        <textarea type="text" class="form-control  box-package-detail" size="100" maxlength="300" name="short" value="{{tours.description}}" ng-show="editDetail" ng-model="edescription" cols="7" >
+                                        <label class="label-package-detail">Hotel Background<span> :</span></label>
+                                        <div ng-show="!editDetail" class="box-package-detail"><span ng-repeat="i in background.split('\r\n')">{{ i }}</span></div>
+                                        <textarea class="form-control " rows="5" cols="100" maxlength="2000" name="background" ng-show="editDetail" ng-model="ebackground" ng-value="ebackground"></textarea>
                                     </div>
 
                                    
 
-
                                     <div class="form-group form-inline">
-                                        <label class="label-package-detail">Package Class<span> :</span></label>
-                                        <!-- <input type="text" name="" class="form-group form-inline" ng-value="tours.class"> -->
-
-
-                                        
-                                        <!-- <div class="form-group  form-inline" > -->
-                                            
-                                            <select name="class" id="class"  class="form-control col-md-8" ng-value="tours.classs" required style=" border: 1px solid #ccc; border-radius: 5px;" ng-model="tours.classs">
-                                                <option>Standard Class</option>
-                                                <option>Premium Class</option>
-                                                <option>First Class</option>
-                                                <!--<option>Standard Class</option>-->
-                                            </select>
-                                        <!-- </div> -->
-                                    
+                                        <label class="label-package-detail">Room Type<span> :</span></label>
+                                        <div ng-show="!editDetail" class="box-package-detail"><span ng-repeat="z in tours.room_type.split('\r\n')">{{ z }}</span></div>
+                                        <textarea class="form-control " rows="5" cols="100" maxlength="2000" name="room_type" ng-show="editDetail"  ng-model="eroom_type" ng-value="eroom_type"></textarea>
                                     </div>
 
+                                   
+ 
+                                    <div class="form-group form-inline">
+                                        <label class="label-package-detail">Location<span> :</span></label>
+                                        <div ng-show="!editDetail" class="box-package-detail"><span ng-repeat="z in tours.location.split('\r\n')">{{ z}}</span></div>
+                                        <textarea class="form-control " rows="5" cols="100" maxlength="2000" name="location" ng-show="editDetail" ng-model="elocation" ng-value="elocation" ></textarea>
+                                    </div>
+                                    <div class="form-group form-inline">
+                                        <label class="label-package-detail">Attraction Nearby<span> :</span></label>
+                                        <div ng-show="!editDetail" class="box-package-detail"><span ng-repeat="z in tours.attraction.split('\r\n')">{{ z}}</span></div>
+                                        <textarea class="form-control " rows="5" cols="100" maxlength="2000" name="attraction" ng-show="editDetail" ng-model="eattraction" ng-value="eattraction" ></textarea>
+                                    </div>
+<!-- 
                                     <div class="form-group form-inline">
                                         <label class="label-package-detail">Detail<span> :</span></label>
                                         <div ng-show="!editDetail" class="box-package-detail" ng-bind="tours.detail"></div>
@@ -462,8 +455,8 @@
                                     <div class="form-group form-inline">
                                         <label class="label-package-detail">Company Name<span> :</span></label>
                                         <div  class="box-package-detail"><span>{{tours.company_name }}</span></div>
-                                        <!-- <textarea class="form-control " rows="5" cols="100" maxlength="2000" name="contact" ng-show="editDetail" ng-model="econtact" ng-value="econtact"></textarea> -->
-                                    </div>
+                                       
+                                    </div> -->
 
                                     
                                     <div class="form-group form-inline " style="width: 100%">
@@ -498,8 +491,9 @@
                                             <!-- <legend>File size must not exceed 2 MB.</legend> -->
                                             <div class="fileinput fileinput-new text-center" data-provides="fileinput">
                                                 <div class="fileinput-new thumbnail">
-                                                    <img ng-src="../../files/upload/hotel/icon/{{tours.icon}}" ng-if="tours.icon =!''">
-                                                    <img src="../files/images/image_placeholder.jpg" ng-if="tours.icon == ''">
+                                                    <img ng-src="../../data/files/upload/hotel/icon/{{data}}.png" ng-show="tours.icon =!'' && tours.icon =!'undefined'">
+                                                    <!-- <img ng-src="../../files/upload/hotel/icon/{{tours.icon}}" ng-if="tours.icon =!''"> -->
+                                                    <img src="../back/files/images/image_placeholder.jpg" ng-if="tours.icon == ''">
                                                 </div>
                                                 <div class="fileinput-preview fileinput-exists thumbnail"></div>
                                                 <div>
@@ -527,15 +521,9 @@
                      </div>
                  </div>
                 
-                    <div class="col-lg-12" >
+                    <!-- <div class="col-lg-12" >
                     <form  id="ismForm" style="">
-                        <!-- <input type="hidden" name="user" value="{{Changeby}}">
-                        <input type="hidden" name="token" value="{{token}}">
-                        <input type="hidden" name="tour_id" value="{{id}}">
-                        <input type="hidden" id="oldadult" value="{{price.adult.net_price}}">
-                        <input type="hidden" id="oldchild" value="{{price.child.net_price}}">
-                        <input ng-if="isItravel" type="hidden" id="oldadult_sale" value="{{price.adult.sale_price}}">
-                        <input ng-if="isItravel" type="hidden" id="oldchild_sale" value="{{price.child.sale_price}}"> -->
+                       
                          <table class="table .table-striped .table-hover" ng-init="editPrice = false;">
                             <tr class="head-label">
                                 <td class="col-xs-12 col-sm-12 col-md-12 col-lg-12 form-inline" colspan="2">
@@ -574,12 +562,7 @@
                                             <input type="text" id="adult" name="adult" ng-change="netpriceadult(net_price)" class="form-control input-text-right" ng-value="net_price | currency:'':0 " ng-model="net_price" > <span>Bath / ท่าน</span>
                                         </div>
                                     </div>
-                                    <!--<div ng-show="editPrice" class="form-group">-->
-                                    <!--<div class="input-package-price">-->
-                                    <!--<div>Adult Sale Price</div>-->
-                                    <!--<input type="text" id="adult" name="adult" class="form-control" size="10" value="{{ price.adult.net_price | currency : '' }}" ng-disabled="!editPrice" required>-->
-                                    <!--</div>-->
-                                    <!--</div>-->
+                                    
                                 </td>
                                 
                             </tr>
@@ -593,54 +576,16 @@
                                             <input type="text" name="sale_price" class="form-control input-text-right" ng-value="sale_price | currency:'':0" ng-model="sale_price" ng-change="salepriceadult(sale_price)"> <span>Bath / ท่าน</span>
                                         </div>
                                     </div>
-                                    <!--<div ng-show="editPrice" class="form-group">-->
-                                    <!--<div class="input-package-price">-->
-                                    <!--<div>Adult Sale Price</div>-->
-                                    <!--<input type="text" name="sale_adult" class="form-control" value="{{ price.adult.sale_price | currency : '' }}" ng-disabled="!editPrice" required>-->
-                                    <!--</div>-->
-                                    <!--</div>-->
+                                    
                                 </td>
                                
                             </tr>
                             <tr ng-if="detail.length == 0"><td colspan="3">Nothing to show. Please add new Detail</td></tr>
                         </table>
-                        <!-- <div class="form-group form-inline" style="margin-left: 2%;">
-                                                    
-                                    
-                                    <label class="label-package-detail">Price<span> :</span></label>
-                                                                     
-                              
-                         </div>
-                         <div class="form-group form-inline" style="">
-
-                                <div class=".box-package-detail" style="border-radius: 8px; width: 100%; float: right; " align="right">    <div class="" style=" text-align: right; right: 6%; display: inline-block;"> 
-                                       
-                                            <button class="btn btn-success" type="submit" ng-show="editPrice" ng-click="saveeditprice()" style="z-index: 100">
-                                               Save</button>
-                                       
-                                        
-                                            <button type="button" ng-click="editPrice = !editPrice;editprice()" 
-                                                        class="btn {{ !editPrice ? 'btn-warning' : 'btn-default' }}" style="z-index: 100">
-                                                <i class="{{!editPrice ? 'fa fa-cog fa-fw': ''}}"></i> {{ !editPrice ? "Edit" : "Cancel" }}</button>
-                                                                                  
-                                    </div>
-                                    <div>  
-                                        <div class="price-block-head" style="    border-radius: 4px 0 0 4px;">Cost
-                                        </div>
-                                        <div ng-if="!editPrice" class="price-block-tail" style="    border-radius: 0 4px  4px; 0">{{ tours.cost | currency : '':0 }} <span>Bath / Package</span></div>
-                                        <div ng-if="editPrice" class="price-block-tail" style="border-radius: 0 4px  4px 0;z-index: 100">
-                                            <input type="text" id="child" name="ecost" class="form-control input-text-right" value="{{ecost  | currency :'':0 }}" ng-disabled="!editPrice" ng-model="ecost" ng-change="editchangeprice(ecost)" required> <span>Bath / Package</span>
-                                        </div>
-                                        </div>
-                                </div>
-                                    
-                                    
-                              
-                            
-                        </div> -->
+                        
                     </form>
                     
-                </div>
+                </div> -->
                 
                 <div class="row">
                      <div class="form-group form-inline" style="">
@@ -674,7 +619,7 @@
                                 <div class="fileinput fileinput-new text-center col-md-3" data-provides="fileinput" style="display: inline-block;">
                                                 <div class=" thumbnail" style="margin-top: 25px;"">
                                                     
-                                                    <img src="../../files/images/image_placeholder.jpg" alt="..." >
+                                                    <img src="../../back/files/images/image_placeholder.jpg" alt="..." >
                                                      <!-- <i class="fa fa-3x fa-plus center-block text-center"></i> -->
                                                 </div> 
                                                
@@ -1096,6 +1041,7 @@
 
                  console.log($scope.tours)
                  $scope.program = res[0].topic;
+                 $scope.background = res[0].background;
                  console.log($scope.topic)
                   $scope.setIndex = function(index){
                             $scope.tourData = res[index] ;
@@ -1338,13 +1284,13 @@
                                 
         //                 });
        $scope.city =  $scope.tours.province;
-       $scope.ename = $scope.tours.topic;
+       $scope.ebackground = $scope.tours.background;
        // $scope.ecity = $scope.tours.province;
-        $scope.eclass = $scope.tours.classs;
-        $scope.edetail = $scope.tours.detail;
+        $scope.elocation = $scope.tours.location;
+        $scope.eroom_type = $scope.tours.room_type;
        
        
-        $scope.edescription = $scope.tours.description;
+        $scope.eattraction = $scope.tours.attraction;
         //$scope.echekpopular = $scope.tours.show_top;
         //$scope.echekrecommend = $scope.tours.show_re;
         // if ($scope.echekpopular == true) {
@@ -1398,17 +1344,22 @@
         console.log($scope.city)
         console.log($scope.eclass)
         console.log($scope.edetail)
-        console.log($scope.edescription)
+        
+        console.log($scope.ebackground)
+        console.log($scope.eattraction)
+        console.log($scope.eroom_type)
+        console.log($scope.eattraction)
+
         
          $http({
                 method : 'POST',
                 url : "../php/editPackagehotel.php",
                 data: $.param({'id':$scope.data
-                            ,'topic':$scope.ename
+                            ,'background':$scope.ebackground
                             ,'city': $scope.city
-                            ,'detail': $scope.edetail 
-                            ,'short': $scope.edescription
-                            ,'classs': $scope.eclass
+                            ,'room_type': $scope.eroom_type 
+                            ,'location': $scope.elocation
+                            ,'attraction': $scope.eattraction
                      
                             ,'show_top':$scope.echekpopular
                             ,'show_re':$scope.echekrecommend

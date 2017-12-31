@@ -441,8 +441,8 @@
                                               </select>
                                     </div>
                                     <div class="form-group form-inline">
-                                        <label for="name" class="label-tour">Package Name<span> :</span></label>
-                                        <input type="text" class=" form-control" size="100" maxlength="200" placeholder = "Max length 200 characters" id="packagename" name="packagename" ng-model="packagename" ng-change="changepackage(packagename)" required/>
+                                        <label for="name" class="label-tour">Hotel Background<span> :</span></label>
+                                        <textarea type="text" class=" form-control" " rows="10" cols="100" maxlength="500" placeholder = "Max length 500 characters" id="background" name="background" ng-model="background" ng-change="changebackground(background)" required> </textarea>
                                     </div>
 
                                    
@@ -456,43 +456,41 @@
                                     </div>
 
                                     
-                                     <div class="form-group form-inline" style="width: 100%">
-                                        <!-- <div class="form-group  form-inline" > -->
-                                            <label for="class" class="label-tour" >Class<span> :</span></label>
+                                     <!-- <div class="form-group form-inline" style="width: 100%">
+                                        <label for="class" class="label-tour" >Class<span> :</span></label>
+                                        <select name="class" id="class"  class="form-control col-md-8" required style=" border: 1px solid #ccc; border-radius: 5px;" ng-model="class">
+                                            <option>Standard Class</option>
+                                            <option>Premium Class</option>
+                                            <option>First Class</option> 
+                                        </select>
 
-                                            <select name="class" id="class"  class="form-control col-md-8" required style=" border: 1px solid #ccc; border-radius: 5px;" ng-model="class">
-
-                                                <option>Standard Class</option>
-
-                                                <option>Premium Class</option>
-
-                                                <option>First Class</option>
-
-                                                <!--<option>Standard Class</option>-->
-
-                                            </select>
-
-                                        <!-- </div> -->
-
-                                    </div>
+                                    </div> -->
                                     <div class="form-group form-inline">
                                         <label for="name" class="label-tour">Room Type<span> :</span></label>
-                                        <input type="text" class=" form-control" size="100" maxlength="200" placeholder = "Max length 100 characters" id="roomtype" name="roomtype" ng-model="roomtype" ng-change="changeroomtype(roomtype)" required/>
+                                        <textarea type="text" class=" form-control" rows="10" cols="100"  maxlength="500" placeholder = "Max length 500 characters" id="roomtype" name="roomtype" ng-model="roomtype" ng-change="changeroomtype(roomtype)" required></textarea>
                                     </div>
-                                    <div class=" form-group form-inline " >
+                                    <div class="form-group form-inline">
+                                        <label for="name" class="label-tour">Location<span> :</span></label>
+                                        <textarea type="text" class=" form-control" rows="10" cols="100"  maxlength="500" placeholder = "Max length 500 characters" id="location" name="location" ng-model="location" ng-change="changelocation(location)" required></textarea>
+                                    </div>
+                                    <div class="form-group form-inline">
+                                        <label for="name" class="label-tour">Attraction Nearby<span> :</span></label>
+                                        <textarea type="text" class=" form-control" rows="10" cols="100"  maxlength="500" placeholder = "Max length 500 characters" id="attraction" name="attraction" ng-model="attraction" ng-change="changeattraction(attraction)" required></textarea>
+                                    </div>
+                                    <!-- <div class=" form-group form-inline " >
                                                 <label class="label-tour">Night:</label> 
                                             <select class="form-control" ng-change="changenumnight(hotel_night)" id="numnight" ng-model="hotel_night" data-ng-options="i  for i in numnight" style="width: 150px;">
                                                     <option value="">0</option>
                                               </select>
-                                    </div>
-                                     <div class="form-group form-inline">
+                                    </div> -->
+                                    <!--  <div class="form-group form-inline">
                                         <label class="label-tour">Net Price<span> :</span></label>
                                         <input name="transfer_price" ng-model="netprice" id="transfer_price" class=" form-control" ng-change="netprices(netprice)" pattern="^[0-9]+$"  title="Please input number only." required style="width: 150px;">
                                     </div>
                                     <div class="form-group form-inline">
                                         <label class="label-tour">Sale Price<span> :</span></label>
                                         <input name="transfer_price" ng-model="saleprice" id="transfer_price" class=" form-control" ng-change="saleprices(saleprice)" pattern="^[0-9]+$"  title="Please input number only." required style="width: 150px;">
-                                    </div>
+                                    </div> -->
                                     
                                     <!-- <div class="form-group form-inline">
                                       <uib-alert ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert($index)">{{alert.msg}}</uib-alert>
@@ -847,6 +845,24 @@
            
            console.log($scope.troomtype);
     }
+     $scope.changebackground=function(x){
+            $scope.background = x;
+
+           
+           console.log($scope.background);
+    }
+    $scope.changelocation=function(x){
+            $scope.location = x;
+
+           
+           console.log($scope.location);
+    }
+    $scope.changeattraction=function(x){
+            $scope.attraction = x;
+
+           
+           console.log($scope.attraction);
+    }
     $scope.changenumnight=function(x){
             $scope.night = x;
 
@@ -932,13 +948,16 @@
       
              console.log($scope.province_name)
             console.log($scope.changehotelname)
-            console.log($scope.tpackage)
+           
             console.log($scope.companyname)
-              console.log($scope.class)
-            console.log($scope.troomtype) 
-            console.log($scope.night)
-          console.log($scope.tsaleprice)
-            console.log($scope.tnetprice)
+            
+          console.log($scope.changehotelid)
+           
+            console.log($scope.background)
+            console.log($scope.location)
+            console.log($scope.attraction)
+            console.log($scope.background)
+             console.log($scope.troomtype) 
             
 
 
@@ -948,13 +967,14 @@
                     url : "../php/addHotelspackage.php",
                     data: $.param({'province': $scope.province_name
                                 ,'hotelname': $scope.changehotelname
-                                ,'package': $scope.tpackage
+                                ,'background': $scope.tpackage
                                 ,'company': $scope.companyname
-                                ,'classs': $scope.class
-                                ,'roomtype': $scope.troomtype
-                                ,'night': $scope.night
-                                ,'netprice': $scope.tnetprice
-                                ,'saleprice': $scope.tsaleprice
+                                ,'hotel_id': $scope.changehotelid
+                                ,'background': $scope.background
+                               ,'roomtype': $scope.troomtype
+                               ,'location': $scope.location
+                               ,'attraction': $scope.attraction
+                                
                               
                               
                                
