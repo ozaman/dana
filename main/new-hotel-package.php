@@ -483,11 +483,11 @@
                                                     <option value="">0</option>
                                               </select>
                                     </div> -->
-                                    <!--  <div class="form-group form-inline">
-                                        <label class="label-tour">Net Price<span> :</span></label>
-                                        <input name="transfer_price" ng-model="netprice" id="transfer_price" class=" form-control" ng-change="netprices(netprice)" pattern="^[0-9]+$"  title="Please input number only." required style="width: 150px;">
+                                     <div class="form-group form-inline">
+                                        <label class="label-tour">Link Map<span> :</span></label>
+                                        <input name="transfer_price" ng-model="linkmap" id="linkmap" class=" form-control" ng-change="changelinkmap(linkmap)" title="" required style="width: 150px;">
                                     </div>
-                                    <div class="form-group form-inline">
+                                  <!--   <div class="form-group form-inline">
                                         <label class="label-tour">Sale Price<span> :</span></label>
                                         <input name="transfer_price" ng-model="saleprice" id="transfer_price" class=" form-control" ng-change="saleprices(saleprice)" pattern="^[0-9]+$"  title="Please input number only." required style="width: 150px;">
                                     </div> -->
@@ -845,6 +845,12 @@
            
            console.log($scope.troomtype);
     }
+    $scope.changelinkmap=function(x){
+            $scope.tlinkmap = x;
+
+           
+           console.log($scope.tlinkmap);
+    }
      $scope.changebackground=function(x){
             $scope.background = x;
 
@@ -957,7 +963,8 @@
             console.log($scope.location)
             console.log($scope.attraction)
             console.log($scope.background)
-             console.log($scope.troomtype) 
+             console.log($scope.troomtype)
+             console.log($scope.tlinkmap) 
             
 
 
@@ -974,6 +981,7 @@
                                ,'roomtype': $scope.troomtype
                                ,'location': $scope.location
                                ,'attraction': $scope.attraction
+                               ,'map': $scope.tlinkmap
                                 
                               
                               

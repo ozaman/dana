@@ -433,11 +433,11 @@
                                         <div ng-show="!editDetail" class="box-package-detail"><span ng-repeat="z in tours.attraction.split('\r\n')">{{ z}}</span></div>
                                         <textarea class="form-control " rows="5" cols="100" maxlength="2000" name="attraction" ng-show="editDetail" ng-model="eattraction" ng-value="eattraction" ></textarea>
                                     </div>
-<!-- 
+
                                     <div class="form-group form-inline">
-                                        <label class="label-package-detail">Detail<span> :</span></label>
-                                        <div ng-show="!editDetail" class="box-package-detail" ng-bind="tours.detail"></div>
-                                        <textarea class="form-control box-package-detail" rows="5" cols="100" maxlength="2000" name="detail" ng-show="editDetail" ng-model="edetail" ng-value="edetail"></textarea>
+                                        <label class="label-package-detail">Link Map<span> :</span></label>
+                                        <div ng-show="!editDetail" class="box-package-detail" style="overflow: hidden;"><span ng-bind="tours.map"></span></div>
+                                        <textarea class="form-control box-package-detail" rows="3" cols="100" name="map" ng-show="editDetail" ng-model="emap" ng-value="emap"></textarea>
                                     </div>
 
                                   
@@ -451,7 +451,7 @@
  
 
                                   
-                                   
+                                 <!--   
                                     <div class="form-group form-inline">
                                         <label class="label-package-detail">Company Name<span> :</span></label>
                                         <div  class="box-package-detail"><span>{{tours.company_name }}</span></div>
@@ -1291,6 +1291,7 @@
        
        
         $scope.eattraction = $scope.tours.attraction;
+        $scope.emap = $scope.tours.map;
         //$scope.echekpopular = $scope.tours.show_top;
         //$scope.echekrecommend = $scope.tours.show_re;
         // if ($scope.echekpopular == true) {
@@ -1349,6 +1350,7 @@
         console.log($scope.eattraction)
         console.log($scope.eroom_type)
         console.log($scope.eattraction)
+        console.log($scope.emap)
 
         
          $http({
@@ -1360,7 +1362,7 @@
                             ,'room_type': $scope.eroom_type 
                             ,'location': $scope.elocation
                             ,'attraction': $scope.eattraction
-                     
+                            ,'map': $scope.emap
                             ,'show_top':$scope.echekpopular
                             ,'show_re':$scope.echekrecommend
                             ,'show_web':$scope.echekweb
