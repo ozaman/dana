@@ -170,21 +170,21 @@
                                          Account Tours
                                     </a>
                                 </li>
-                                <li >
+                                 <li >
                                     <a href="manage-tours.php">
-                                    <i class="material-icons">dvr</i>
+                                        <i class="material-icons">satellite</i>                                
                                          Manage Tour
                                     </a>
                                 </li>
-                                <li class="active">
+                                <li >
                                     <a href="manage-transfers.php">
-                                    <i class="material-icons">dvr</i>
+                                    <i class="material-icons">settings_system_daydream</i>
                                          Manage Transfer
                                     </a>
                                 </li>
                                  <li >
                                     <a href="manage-hotels.php">
-                                    <i class="material-icons">dvr</i>
+                                     <i class="material-icons">local_mall</i>
                                          Manage Hotel
                                     </a>
                                 </li>

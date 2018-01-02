@@ -307,19 +307,19 @@
                                 </li>
                                 <li >
                                     <a href="../report/manage-tours.php">
-                                    <i class="material-icons">dvr</i>
+                                        <i class="material-icons">satellite</i>                                
                                          Manage Tour
                                     </a>
                                 </li>
                                 <li >
                                     <a href="../report/manage-transfers.php">
-                                    <i class="material-icons">dvr</i>
+                                    <i class="material-icons">settings_system_daydream</i>
                                          Manage Transfer
                                     </a>
                                 </li>
-                                <li >
+                                 <li >
                                     <a href="../report/manage-hotels.php">
-                                    <i class="material-icons">dvr</i>
+                                     <i class="material-icons">local_mall</i>
                                          Manage Hotel
                                     </a>
                                 </li>
@@ -838,7 +838,7 @@
 
                                                 <td><span ng-bind="item.operation"></span></td>
 
-                                              <!-- <td class="col-md-1" align="center"><a href="view-company.php#?data={{item.id}}" ng-click="editcompany(item)"><i class="material-icons"  style="color: #9E9E9E; font-size: 25px;">find_in_page</i></a></td> -->
+                                              <td class="col-md-1" align="center"><a href="view-hotel.php#?data={{item.id}}" ng-click="editcompany(item)"><i class="material-icons"  style="color: #9E9E9E; font-size: 25px;">find_in_page</i></a></td>
 
                                                 
 

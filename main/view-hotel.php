@@ -30,7 +30,9 @@
 
     <link href="../files/css-/material-dashboard.css?v=<?=time()?>" rel="stylesheet">
 
-      <link href="../files/css-/main.css" rel="stylesheet">
+    <link href="../files/css-/main.css" rel="stylesheet">
+
+
 
     <!--  CSS for Demo Purpose, don't include it in your project     -->
 
@@ -169,7 +171,7 @@
                                     </a>
 
                                 </li>
-                                 <li class="active">
+                                <li class="active">
                                     <a href="hotel.php">
                                        <i class="material-icons">location_city</i>Hotels
                                     </a>
@@ -290,7 +292,7 @@
                                     </a>
                                 </li>
 
-                                 <!-- <li>
+                                <!--  <li>
 
                                     <a href="../report/account.php">
 
@@ -303,11 +305,11 @@
                                 </li> -->
                                 <li >
                                     <a href="../report/account-tour.php">
-                                    <i class="material-icons">business_center</i>
+                                   <i class="material-icons">business_center</i>
                                          Account Tours
                                     </a>
                                 </li>
-                                <li >
+                               <li >
                                     <a href="../report/manage-tours.php">
                                         <i class="material-icons">satellite</i>                                
                                          Manage Tour
@@ -382,7 +384,7 @@
 
                                 </li>
 
-                                <!-- <li>
+                               <!--  <li>
 
                                     <a href="../logs/cancel-booking.php">
 
@@ -439,8 +441,6 @@
                         </button>
 
                         <a class="navbar-brand" href=""> Main menu </a>
-
-
 
                     </div>
 
@@ -552,7 +552,7 @@
 
                                     <li class="">
 
-                                        <a href="users.php" >
+                                      <a href="users.php" >
 
                                        <i class="material-icons">settings</i>Settings
 
@@ -562,9 +562,9 @@
 
                                     </li>
 
-                                    <li data-toggle="modal" data-target="#logout">
+                                    <li>
 
-                                         <a >
+                                        <a href="" data-toggle="modal" data-target="#logout">
 
                                             <i class="material-icons">power_settings_new</i>Logout
 
@@ -630,74 +630,6 @@
 
             </nav>
 
-             <style>
-
-                        label.label-company {
-
-    text-align: right;
-
-    width: 115px;
-
-    margin-right: 10px;
-
-}
-
-.form-group {
-
-  margin: 0;
-
-  padding-bottom: 10px;
-
-  margin: 20px 0 0 0;
-
-}
-
-@media screen and (max-width: 767px){
-
-    label.label-company {
-
-    text-align: left;
-
-}
-
- #InputPassPhone{
-
-        /*margin-bottom: 20px;*/
-
-
-
-    }
-
-    #select-country {
-
-   
-
-     margin-bottom: 20px; 
-
-}
-
-       
-
-#labelcun{
-
-   
-
-    margin-bottom: 20px;
-
-       
-
-}
-
-#labelcun{
-
-    margin-bottom: 20px !important;
-
-}
-
-}
-
-                    </style>
-
           
 
             <div class="content">
@@ -705,8 +637,6 @@
                 <div class="container-fluid">
 
                     <div class="row">
-
-                        
 
                         <div class="col-md-12"> 
 
@@ -724,7 +654,7 @@
 
                                             <!-- <li><a href="package.php">Main Menu</a></li> -->
 
-                                            <li class="active"> / New Hotels</li>
+                                            <li class="active"> / View Hotel Information</li>
 
                                         </ol>
 
@@ -736,74 +666,479 @@
 
                         </div>
 
-                    
+                    </div>
 
-                     <div class="col-lg-12">
+                    <style>
 
-                        <form class="form-inline">
+                        label.label-company {
+
+    text-align: right;
+
+    width: 170px;
+
+    margin-right: 10px;
+
+}
+
+.form-group {
+
+  margin: 0;
+
+  padding-bottom: 10px;
+
+  margin: 20px 0 0 0;
+
+}
+
+.Boxcompany{
+
+    width: 68%;
+
+    display: inline-block;
+
+}
+
+                    </style>
+
+                     <div class="row" style="margin-top: 20px;">
+
+                    <div class="col-md-12"> 
+
+                        <div class="" ng-if="!initCompany">
+
+                        <div class="form-group">
+
+                          <label class="label-company" >City <span>:</span> </label>
+
+                          <span class="form-control box-info-lg Boxcompany" size="53" ng-bind="dataHotel.province"></span>
+
+                        </div>
+
+                        <div class="form-group">
+
+                            <label class="label-company">Company name<span> :</span></label>
+
+                            <span class="form-control box-info-lg Boxcompany" ng-bind="dataHotel.name"></span>
+
+                            <!--<input type="text" class="form-control" size="50" maxlength="100"-->
+
+                            <!--name="company_name" value="{{company.company_name}}" readonly>-->
+
+                        </div>
+
+                       <!--  <div class="form-group">
+
+                            <label class="label-company">TAT Number<span> :</span></label>
+
+                            <span class=" form-control box-info-lg Boxcompany" >{{dataHotel.tat_numbers}}</span>
+
+                           
+
+                        </div> -->
+
+                        <div class="form-group">
+
+                            <label class="label-company">Phone<span> :</span></label>
+
+                            <span class="form-control box-info-lg Boxcompany" ng-bind="'+'+dataHotel.phonecode+dataHotel.phone"></span>
+
+                            <!--<input type="text" class="form-control" size="20" maxlength="14"-->
+
+                            <!--name="company_phone" value="{{company.phone}}" readonly>-->
+
+                        </div>
+
+                        
+
+                        <div class="form-group">
+
+                            <label class="label-company">FAX<span> :</span></label>
+
+                            <span class="form-control box-info-lg Boxcompany"  ng-bind="dataHotel.fax"></span>
+
+                            <!--<input type="text" class="form-control" size="20" maxlength="20"-->
+
+                            <!--name="company_fax" value="{{company.fax}}" readonly>-->
+
+                        </div>
+
+                        <div class="form-group">
+
+                            <label class="label-company">Detail<span> :</span></label>
+
+                            <span class=" form-control box-info-lg Boxcompany" ng-bind="dataHotel.detail"></span>
+
+                            <!--<input type="text" class="form-control" size="50" maxlength="30"-->
+
+                            <!--name="company_detail" value="{{company.detail}}" readonly>-->
+
+                        </div>
+
+                        <div class="form-group ">
+
+                            <label class="label-company">Address<span> :</span></label>
+
+                            <span class="form-control box-info-lg Boxcompany" ng-bind="dataHotel.address"></span>
+
+                            <!--<textarea class="form-control" maxlength="100" rows="2" cols="52"-->
+
+                            <!--name="company_address" readonly>{{company.address}}</textarea>-->
+
+                        </div>
+
+                        <div class="form-group">
+
+                            <label class="label-company">E-mail<span> :</span></label>
+
+                            <span class="form-control box-info-lg Boxcompany" ng-bind="dataHotel.email"></span>
+
+                            <!--<input type="text" class="form-control" size="50" maxlength="50"-->
+
+                            <!--name="company_email" value="{{company.email}}" readonly>-->
+
+                        </div>
+
+                        <div class="form-group">
+
+                            <label class="label-company">Website<span> :</span></label>
+
+                            <span class=" form-control box-info-lg Boxcompany" ng-bind="dataHotel.website"></span>
+
+                            <!--<input type="text" class="form-control" size="50" maxlength="40"-->
+
+                            <!--name="company_website" value="{{company.website}}" readonly>-->
+
+                        </div>
+
+                        <div class="form-group ">
+
+                            <label class="label-company">Operating Hours<span> :</span></label>
+
+                            <span class="form-control box-info-lg Boxcompany" ng-bind="dataHotel.operation"></span>
+
+                            <!--<textarea class="form-control" maxlength="100" rows="2" cols="52"-->
+
+                            <!--name="company_address" readonly>{{company.address}}</textarea>-->
+
+                        </div><br>
 
 
 
-                          <div class="form-group">
+                        <div class="btn-margin-company" id="group-btnedit">
 
-                            <input type="hidden" class="form-control" name="token" value="{{token}}">
+                            <a ng-show="role == 1 || role == 2" type="button" class="btn btn-warning bt-cc" data-target="#myModal" data-toggle="modal" ng-click="sectioneditcompany()">
 
-                            <input type="hidden" class="form-control" name="city" value="{{city}}">
+                                <span class="fa2 fa fa-pencil-square-o " aria-hidden="true" ></span> Edit Company
 
-                          </div>
+                            </a>
 
-                          <div>
+                            <!--<a  ng-show="iTravelAdmin || isAdmin" href="/company/gallery.html#?id={{company.company_id}}" type="button" class="btn btn-success bt-cc">
 
-                              <div class="form-inline btn-group " style="width: 100%">
+                                <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Add Photo
 
-                                            <label for="class" class="label-company" >Province<span> :</span></label>
+                            </a>
 
-                                            <select name="city" id="city"  class="form-control col-md-8" required style=" border: 1px solid #ccc; border-radius: 5px;" ng-model="city">
+                            <a  ng-show="iTravelAdmin || isAdmin" href="/company/media.html#?id={{company.company_id}}&type=image" type="button" class="btn btn-info bt-cc">
 
-                                                <option>Phuket</option>
+                                <i class="glyphicon glyphicon-picture"></i> Show Gallery
 
-                                                <option>Phang nga</option>
+                            </a>-->
 
-                                                <option>Krabi</option>
+                            <!--<a  ng-show="iTravelAdmin || isAdmin" href="/company/media.html#?id={{company.company_id}}&type=video" type="button" class="btn btn-info bt-cc">
 
-                                                <option>Phi Phi island</option>
-                                                <option>Bangkok</option>
+                                <i class="glyphicon glyphicon-facetime-video"></i> Show Video
 
-                                                <!--<option>Standard Class</option>-->
+                            </a>-->
 
-                                            </select>
+                            <!-- <a  ng-show="iTravelAdmin || isAdmin" href="/company/social.html#?id={{company.company_id}}" type="button" class="btn btn-info bt-cc">
 
-                                        </div>
+                                <i class="fa fa-facebook-square fa-fw"></i> Social Media
 
-                          </div>
+                            </a> -->
 
-                            <div class="form-group form-inline">
 
-                                <label class="label-company">Hotel Name<span> :</span></label>
 
-                                <input type="text" class="cn-view form-control" size="100" maxlength="100" name="company_name" ng-model="hotel_name" placeholder="Hotel Name" required oninvalid="this.setCustomValidity('This information is required.')" oninput="setCustomValidity('')">
+                             <a ng-if="role == 1 || role == 2" data-toggle="modal" data-target="#remove" type="button" ng-click="setIndex($index)" class="btn btn-danger bt-cc">
+
+
+
+                                       <span class="fa fa-trash-o fa2" aria-hidden="true"></span> Remove
+
+                            </a>
+
+                            <!--<a ng-show="iTravelAdmin" href="/company/showAllCompany.html">-->
+
+                            <!--<button type="button" class="btn btn-default btn-back">Back</button></a>-->
+
+
+
+
+
+                        </div>
+
+
+
+                    </div>
+
+                     </div>
+
+                 </div>
+
+                
+
+                
+
+               
+
+              
+
+                <style>
+
+                    .checkbox-popular{
+
+                    margin-left: 185px;
+
+                }
+
+                .radio-type{
+
+                    margin-left: 175px;
+
+                }
+
+                .fileinput{
+
+                        margin-bottom: 0;
+
+    margin-left: 175px;
+
+                }
+
+                .price-block{
+
+    display:inline-flex;
+
+    width:100%;
+
+    height:auto;
+
+    margin: 0 10%;
+
+}
+
+.price-block-head{
+
+    display:inline-block;
+
+    width:60%;
+
+    position:relative;
+
+    padding: 40px 5%;
+
+    height: 125px;
+
+    color: #FFF;
+
+    background: #2f8bb5;
+
+    font-size:2rem;
+
+    float:left;
+
+}
+
+.price-block-tail{
+
+    display:inline-block;
+
+    width:40%;
+
+    position:relative;
+
+    padding:38px 5%;
+
+    height: 125px;
+
+    color: #FFFFFF;
+
+    background: #0c303e;
+
+    font-weight: bold;
+
+    font-size: 3rem;
+
+    text-align:right;
+
+}
+
+.price-block-tail span{
+
+    position:absolute;
+
+    top:10px;
+
+    right:12%;
+
+    font-size:1.5rem;
+
+}
+
+#group-btnedit{
+
+    margin-left: 184px;
+
+}
+
+label.label-editcompany{
+
+                    text-align:  right;
+
+                    width: 120px;
+
+
+
+                }
+
+                #eInputPhone{
+
+                    margin-top: 30px;
+
+    margin-bottom: 0;
+
+    margin-left: 120px;
+
+                }
+
+                @media screen and (max-width: 767px){
+
+
+
+
+
+                .checkbox-popular{
+
+                     margin-left: 0;
+
+                }
+
+                .radio-type{
+
+                     margin-left: 0;
+
+                }
+
+                label.label-company{
+
+                    text-align: left;
+
+                }
+
+                .box-package-detail{
+
+                    width: 100% !important;
+
+                }
+
+                .fileinput{
+
+                        margin-bottom: 0;
+
+                        margin-left: 0;
+
+                }
+
+                #group-btnedit{
+
+                    margin-left: 0;
+
+                }
+
+                label.label-editcompany{
+
+                    text-align:  left;
+
+
+
+                }
+
+                #eInputPhone{
+
+                    margin-top: 30px;
+
+    margin-bottom: 0;
+
+    margin-left: 0;
+
+                }
+
+                </style>
+
+                <!-- Modal -->
+
+                <div class="modal fade" id="myModal">
+
+                    <div class="modal-dialog">
+
+                        <!-- Modal content-->
+
+                        <div class="modal-content">
+
+                            <div class="modal-header">
+
+                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true" onclick="reset()">&times;</button>
+
+                                <h4 class="modal-title">Edit Company</h4>
 
                             </div>
 
 
 
-                            <!-- <div class="form-group form-inline">
-
-                                <label class="label-company">TAT Number<span> :</span></label>
-
-                                <input type="text" class="cn-view form-control" size="100" maxlength="20" name="tat_number" ng-model="tat_number" placeholder="TAT Number" id="tat_number" required oninvalid="this.setCustomValidity('This information is required.')" oninput="setCustomValidity('')" pattern="^[0-9]+$" title="Please input number only.">
-
-                            </div> -->
+                            <form class="form-inline">
 
 
 
-                            <div class="form-group form-inline">
+                                <div class="modal-body">
 
-                                <label class="label-company">Phone<span> :</span></label>
 
-                                           
 
-                                            <div id="select-country" class="form-control " ng-click="Country()" size="100" >
+                                    <input type="hidden" class="form-control"  name="company_id" value="{{company.company_id}}">
+
+
+
+                                    <input type="hidden" class="form-control "  name="token" value="{{token}}">
+
+
+
+                                    <div class="form-group form-inline">
+
+
+
+                                        <label class="label-editcompany">Hotel Name<span> :</span></label>
+
+
+
+                                        <input type="text" class="cc-view form-control " size="51.5"   maxlength="100" name="company_name" ng-value="company_name" ng-model="company_name">
+
+                                    </div>
+
+
+
+                                    <!-- <div class="form-group form-inline">
+
+                                        <label class="label-editcompany">TAT Number<span> :</span></label>
+
+                                        <input type="text" class="cc-view  form-control" size="52" maxlength="20"  id="tat_number" name="tat_number" ng-value="tat_numbers" ng-model="tat_numbers">
+
+                                    </div> -->
+
+
+
+                                    <div class="form-group form-inline">
+
+                                        <label class="label-editcompany">Phone<span> :</span></label>
+
+                                         <div id="select-country" class="form-control " ng-click="Country()" size="100" >
 
                                                 <span><img ng-if="imgcoutry != ''" src="../files/img/flag/icon/{{imgcoutry}}.png" width="22" style="margin-right: 5px"></span>
 
@@ -831,133 +1166,143 @@
 
                                                
 
-                                                        <input type="text" class="form-control " name="selectcountryValue" id="labelcun" name="phonecode"  ng-value="selectcountryValue"  disabled  size="10"  placeholder="Code country">
+                                                        <input type="text" class="form-control " name="selectcountryValue" id="labelcun" name="phonecode"  ng-value="selectcountryValue"  disabled  size="18"  placeholder="Code country">
 
                                                            
 
-                                                 
+                                                        <br/>
 
-                                                        <input type="text" class="form-control" name="phone" ng-model="phone" id="InputPassPhone" placeholder="Phone" size="49.5" title="Please input Phone No. 9 or 10 digits.And first digits must be 0">
+                                                        <input type="text" class="form-control" name="phone" ng-model="phone" id="eInputPhone" placeholder="Phone" size="52" style="margin-top: 20px;">
 
-                                                       
+                                    </div>
 
-                                                        
-
-                                    
+                                   
 
 
 
+                                    <div class="form-group form-inline">
 
+                                        <label class="label-editcompany">Fax<span> :</span></label>
 
-                                
+                                        <input type="text" class="cc-view  form-control" size="52" maxlength="20" name="fax" ng-model="fax" id="fax" ng-value="fax" >
 
-                            </div>
-
-                            <!-- <div class="form-group form-inline">
-
-                                <label class="label-company">Phone2<span> :</span></label>
-
-                                <input id="phone2" type="tel" class="cn-view form-control" size="100" maxlength="14" name="phone2" placeholder="Phone2 No." pattern="^[0][0-9]{8,9}$" title="Please input Phone No. 9 or 10 digits.And first digits must be 0">
-
-                            </div>
-
- -->
-
-                            <div class="form-group form-inline">
-
-                                <label class="label-company">Fax<span> :</span></label>
-
-                                <input type="text" class="cn-view form-control" size="100" maxlength="20" name="fax" ng-model="fax" placeholder="Fax" id="fax" title="Please input number only.">
-
-                            </div>
+                                    </div>
 
 
 
-                            <div class="form-group form-inline">
-
-                                <label class="label-company">Detail<span> :</span></label>
-
-                                <textarea class="cn-view form-control"  rows="2" cols="100" name="detail" ng-model="detail" placeholder="Detail"></textarea>
-
-                            </div>
+                                    <div class="form-group form-inline">
 
 
 
-                            <div class="form-group form-inline">
+                                        <label class="label-editcompany">Detail<span> :</span></label>
 
-                                <label class="label-company">Address<span> :</span></label>
-
-                                <textarea class="cn-view form-control" rows="2" cols="100" name="address" ng-model="address" placeholder="Address" ></textarea>
-
-                            </div>
+                                        <textarea class=" cc-view form-control"  rows="2" name="detail" ng-model="detail" id="detail" cols="52"  ng-value="detail"></textarea>
 
 
 
-                            <div class="form-group form-inline">
-
-                                <label class="label-company">Email<span> :</span></label>
-
-                                <input type="email" class="cn-view form-control" size="100" maxlength="100" name="email" ng-model="email" placeholder="example@example.com" >
-
-                            </div>
+                                    </div>
 
 
 
-                            <div class="form-group form-inline">
+                                    <div class="form-group form-inline">
 
-                                <label class="label-company">Website<span> :</span></label>
+                                        <label class="label-editcompany">Address<span> :</span></label>
 
-                                <input type="text"  class="cn-view form-control" size="100" maxlength="40" name="website" ng-model="website" placeholder="http://www.example.com">
+                                        <textarea class=" cc-view form-control"  rows="2" cols="52" name="address" ng-model="address" id="address" ng-value="address"></textarea>
 
-                            </div>
+                                    </div>
 
 
 
-                            <div class="form-group form-inline">
+                                    <div class="form-group form-inline">
 
-                                <label class="label-company">Operating Hours<span> :</span></label>
+                                        <label class="label-editcompany">Email<span> :</span></label>
 
-                                <input type="text" class="cn-view form-control" name="operation" ng-model="operation" size="100" placeholder="Operation">
+                                        <input type="email" class=" cc-view form-control" size="52" maxlength="100" name="email" ng-model="email" id="email" ng-value="email" >
 
-                            </div>
+                                    </div>
+
+
+
+                                    <div class="form-group form-inline">
+
+                                        <label class="label-editcompany">Website<span> :</span></label>
+
+                                        <input type="url" class="cc-view form-control" size="52" maxlength="40" name="website" ng-model="website" id="website" ng-value="website" >
+
+                                    </div>
+
+
+
+                                    <div class="form-group form-inline">
+
+                                        <label class="label-editcompany">Operating Hours<span> :</span></label>
+
+                                        <input type="text" class="cc-view form-control" size="52" name="operation" ng-model="operation" id="operation" ng-value="operation" >
+
+                                    </div>
 
 
 
 
 
-                        <div style="float: right;   margin-right: 9.5%;">
-
-                            <button type="submit" class="bt-comnew btn btn-success" id="bt-view" ng-click="savenewhotel()">
-
-                            <span class="fa2 fa fa-floppy-o" ></span> Save</button>
 
 
+                                </div>
 
-                          <button type="button" class="btn btn-default" id="bt-view">Cancel</button>
+                                <div class="modal-footer">
+
+                                    <button ng-show="role == 1 || role==2" type="submit" class="btn btn-success" id="bt-view" ng-click="saveedithotel()">
+
+                                        <span class="fa2 fa fa-floppy-o" aria-hidden="true"></span> Save</button>
+
+                                    <button type="button" class="btn btn-default" data-dismiss="modal" onclick="reset()" id="bt-view">Close</button>
+
+                                </div>
+
+                            </form>
 
                         </div>
 
+                    </div>
 
+                </div>
 
-                          
+                <div class="modal fade" id="remove">
 
-                        </form>
+                    <div class="modal-dialog">
 
+                        <!-- Modal content-->
 
+                        <div class="modal-content">
 
+                            <div class="modal-header">
 
+                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+
+                                <h4 class="modal-title" >Hotel</h4>
+
+                            </div>
+
+                            <div class="modal-body">
+
+                                <div>Are you sure to delete tour {{dataHotel.name}}</div>
+
+                            </div>
+
+                            <div class="modal-footer">
+
+                                <button type="button" class="btn btn-danger" data-dismiss="modal" ng-click="deleteHotel(data)">Remove</button>
+
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+
+                            </div>
+
+                        </div>
 
                     </div>
 
-                      
-
-                     
-
-
-
-                    </div>
-
-                    
+                </div>
 
                 </div>
 
@@ -1053,17 +1398,9 @@
 
             </footer>
 
-      <!--   <div class="ps-scrollbar-x-rail" style="left: 0px; bottom: 0px;"><div class="ps-scrollbar-x" tabindex="0" style="left: 0px; width: 0px;"></div></div><div class="ps-scrollbar-y-rail" style="top: 0px; height: 638px; right: 0px;"><div class="ps-scrollbar-y" tabindex="0" style="top: 0px; height: 245px;"></div></div> --></div>
+      </div>
 
     </div>
-
-    <style>
-
-    
-
-    </style>
-
-
 
     <!-- <div class="fixed-plugin">
 
@@ -1161,6 +1498,10 @@
 
     <script src="../js/angular/angular-cookies.min.js"></script>
 
+    <script src="../files/js-/ng-file-upload-shim.min.js"></script>
+
+<script src="../files/js-/ng-file-upload.min.js"></script>
+
 
 
 <!-- <script src="../files/js-/main.js?v=<?=time()?>"></script> -->
@@ -1185,17 +1526,49 @@
 
 
 
+
+
 <div class="jvectormap-tip"></div>
 
-    </body>
 
-   
 
-            <style >
+</body>
+
+<style>
+
+    .box-package-detail{
+
+
+
+    height: 100%;
+
+    width: 52%;
+
+    /*margin: 0.5rem 5%;*/
+
+    padding: 1.25rem;
+
+    display: inline-block;
+
+    background-color: #FAFAFA;
+
+    border: 1px solid #e3e3e3;
+
+    border-radius: 4px;
+
+    -webkit-box-shadow: inset 0px 1px 1px 0px rgba(0,0,0,0.05);
+
+    -moz-box-shadow: inset 0px 1px 1px 0px rgba(0,0,0,0.05);
+
+    box-shadow: inset 0px 1px 1px 0px rgba(0,0,0,0.05)
+
+    }
+
+
 
             #InputPassPhone {
 
-    /*margin-bottom: 20px;*/
+    margin-bottom: 20px;
 
 }
 
@@ -1243,7 +1616,7 @@
 
     padding-left: 0;
 
-    border: 1px solid #ccc;
+    border: 1px solid #ddd;
 
     position: absolute;
 
@@ -1269,7 +1642,7 @@
 
     /*margin-bottom: 20px;*/
 
-        border-bottom: 1px solid #ccc;
+        border-bottom: 1px solid #ddd;
 
 }
 
@@ -1289,79 +1662,71 @@
 
 }
 
-    </style>
+    
 
-    <script>
+</style>
 
-    function checkURL (abc) {
+<script>
 
-      var string = abc.value;
+    // function checkURL (abc) {
 
-        if (!~string.indexOf("www")){
+    //   var string = abc.value;
 
-          string = "http://" + "www." + string;
+    //     if (!~string.indexOf("www")){
 
-        }
+    //       string = "http://" + "www." + string;
 
-        else if (~string.indexOf("www")){
+    //     }
 
-          string = "http://" + string;
+    //     else if (~string.indexOf("www")){
 
-        }
+    //       string = "http://" + string;
 
-        abc.value = string;
+    //     }
 
-        return abc
+    //     abc.value = string;
 
-    }
+    //     return abc
 
-    validate = function(){
+    // }
 
-        var phone1 = document.getElementById("phone1").value;
+    
 
-        var phone2 = document.getElementById("phone2").value;
+    var app = angular.module('myApp',['ngCookies','ngFileUpload']);
 
-        var ok = true;
+    app.controller('myCtrl', function($scope, $http, $cookies, $window,$filter,$location,Upload){
 
-        if (phone1 == phone2){
+        //loadpage();
 
-            alert("Phone2 is same phone")
-
-            document.getElementById("phone1").style.borderColor = "#E34234";
-
-            document.getElementById("phone2").style.borderColor = "#E34234";
-
-            ok = false;
-
-        }
-
-        if (phone1 != phone2){
-
-            document.getElementById("phone1").style.borderColor = "#CCC";
-
-            document.getElementById("phone2").style.borderColor = "#CCC";
-
-        }
-
-        return ok;
-
-
-
-    }
-
-    var app = angular.module('myApp',['ngCookies']);
-
-    app.controller('myCtrl', function($scope, $http, $cookies, $window,$filter){
+        loadpage();
 
         
 
+    function loadpage(){
+
+        $scope.tours;
+
+              $scope.echekpopular ;
+
+              $scope.echekrecommend;
+
+            $scope.err = $location.search().err;
+
+            $scope.data = JSON.parse($location.search().data);
+
+            //console.log($scope.data)
+
+         $scope.dataphonecode;
+
         $scope.imgcoutry = '';
 
-         $scope.Countryfont = "      Please select country";
+        $scope.btnsave = false;
 
-                 loadpage();
+        $scope.url = 'http://localhost/dana/';
 
-        function loadpage(){
+        $scope.Countryfont = "      Please select country";
+
+     
 
             if($cookies.get('login'))
 
@@ -1447,7 +1812,9 @@
 
              });
 
-                $http({
+           
+
+            $http({
 
                     method : 'POST',
 
@@ -1465,25 +1832,85 @@
 
             });
 
-             
+                    $http({
+
+                            method: 'POST',
+
+                            url : "../php/getHotelbyid.php",
+
+                            data : $.param({'id':$scope.data}),
+
+                            headers : {'Content-Type': 'application/x-www-form-urlencoded'}
+
+                        }).success(function(res) {
+
+                            //console.log(res)
+
+                            $scope.dataHotel =res[0];
+
+                            
+
+                            //console.log( $scope.company)
+
+                        });
+
+                   
+
+                
+
+      }
+
+      else
+
+      {
+
+        $scope.loginstatus = true;
+
+        $window.location.href="../login.php";
+
+      }
 
 
 
+      
+
+    }
+
+    $scope.sectioneditcompany = function(){
+
+        $scope.ideditcompany = $scope.dataHotel.id;
+
+          $scope.company_name  = $scope.dataHotel.name;
+
+        $scope.city  = $scope.dataHotel.city;
+
+        // $scope.tat_numbers  = $scope.dataHotel.tat_nambers;
+
+        $scope.phone  = $scope.dataHotel.phone;
+
+        $scope.email  = $scope.dataHotel.email;
+
+        $scope.fax  = $scope.dataHotel.fax;
+
+        $scope.detail  = $scope.dataHotel.detail;
+
+        $scope.website  = $scope.dataHotel.website;
+
+        $scope.operation  = $scope.dataHotel.operation;
+
+        $scope.selectcountryValue = '+'+$scope.dataHotel.phonecode;
+
+        $scope.address = $scope.dataHotel.address;
+
+       // $scope.selectcountryValue = $scope.dataHotel.phonecode;
 
 
-            }
 
-            else
+        
 
-            {
+    }
 
-                $window.location.href = '../login.php';
-
-            }
-
-        }
-
-         $scope.Country = function(){      
+    $scope.Country = function(){      
 
       $scope.countrybox = { 'display':'block'};
 
@@ -1531,12 +1958,23 @@
 
     }
 
-        $scope.savenewhotel = function(){
+    $scope.saveedithotel = function(){
 
+        if ($scope.dataphonecode == undefined) {
 
-        console.log($scope.hotel_name )
+            $scope.dataphonecode = $scope.dataHotel.phonecode;
+
+        }
+
+       
+
+        console.log($scope.ideditcompany )
+
+        console.log($scope.company_name )
 
         console.log($scope.city )
+
+        console.log($scope.tat_numbers )
 
         console.log($scope.phone )
 
@@ -1548,85 +1986,167 @@
 
         console.log($scope.website )
 
-        console.log($scope.operation )
-
         console.log($scope.dataphonecode)
 
         console.log($scope.address)
 
-// '".$_POST[name]."','".$_POST[detail]."','".$_POST[phone]."','".$_POST[email]."','".$_POST[fax]."','".$_POST[province]."','".$_POST[address]."','".$_POST[operation]."','".$_POST[website]."','".$_POST[phonecode]."
+        
+
+
 
 
 
         $http({
 
                 method : 'POST',
-                url : "../php/addHotel.php",
-                data: $.param({'name': $scope.hotel_name
-                            ,'province': $scope.city
+
+                url : "../php/editHotel.php",
+
+                data: $.param({'id': $scope.ideditcompany
+
+                            ,'comname': $scope.company_name
+
+                            ,'city': $scope.city
+
+                            ,'tat_numbers': $scope.tat_numbers
+
                             ,'phone': $scope.phone 
+
                             ,'email': $scope.email
+
                             ,'fax': $scope.fax
+
                             ,'detail': $scope.detail
+
                             ,'website': $scope.website
+
                             ,'operation': $scope.operation
+
                             ,'phonecode':$scope.dataphonecode
+
                             ,'address': $scope.address
+
                             }), 
 
 
 
                 headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+
                 }).success(function(res){
+
                  console.log(res)
 
-                 ////console.log("asasasasas")
+                 //console.log("asasasasas")
 
-                 $window.location.href='hotel.php';
+                 $window.location.reload();
 
                  
 
                        
 
-            });
+           });
+
+   
+
+  
+
+  
+
+                       
+
+
+
+  }
+
+   $scope.deleteHotel = function(data){
+
+    //console.log(data)
+
+    $http({
+
+                            method : 'POST',
+
+                            url : "../php/removeHotel.php",
+
+                            data: $.param({'id': $scope.data}),
+
+                            headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+
+                            }).success(function(res){
+
+                                //console.log(res)
+
+                                $window.location.href = 'hotel.php';
+
+                            });
+
+                       
+
+
+
+  }
+
+    
+
+     $scope.profile = function(){
+
+        location.href="profile";
+
+
 
     }
 
-        $scope.logout = function(){
+
+
+    $scope.deletePackage = function(data){
+
+    //console.log(data)
+
+    $http({
+
+                            method : 'POST',
+
+                            url : "../php/removePackage.php",
+
+                            data: $.param({'id': $scope.data}),
+
+                            headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+
+                            }).success(function(res){
+
+                                //console.log(res)
+
+                                //$window.location.reload();
+
+                            });
+
+                       
+
+
+
+  }
+
+    
+
+    
+
+    
+
+    $scope.logout = function(){
 
             $cookies.remove("login");
 
-          
+           
 
             $window.location.href = '../login.php';
 
-        }
-
-        $scope.edituser = function(id){
-
-            localStorage.setItem("usereditid", id);
-
-            $window.location.href = 'edituser';
-
-        }
-
-        $scope.zoombook = function(id){
-
-            localStorage.setItem("booking-view", id);
-
-            $window.location.href = 'booking-view?bookingid='+id;
-
-        }
+    }
 
         
 
+        
 
-
-       
-
-                 
-
-    });
+});
 
     </script>
 

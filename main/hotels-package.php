@@ -311,21 +311,21 @@
                                          Account Tours
                                     </a>
                                 </li>
-                                <li >
+                               <li >
                                     <a href="../report/manage-tours.php">
-                                    <i class="material-icons">dvr</i>
+                                        <i class="material-icons">satellite</i>                                
                                          Manage Tour
                                     </a>
                                 </li>
                                 <li >
                                     <a href="../report/manage-transfers.php">
-                                    <i class="material-icons">dvr</i>
+                                    <i class="material-icons">settings_system_daydream</i>
                                          Manage Transfer
                                     </a>
                                 </li>
-                                <li >
+                                 <li >
                                     <a href="../report/manage-hotels.php">
-                                    <i class="material-icons">dvr</i>
+                                     <i class="material-icons">local_mall</i>
                                          Manage Hotel
                                     </a>
                                 </li>
