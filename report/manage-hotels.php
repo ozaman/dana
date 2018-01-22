@@ -183,7 +183,7 @@
                                          Manage Transfer
                                     </a>
                                 </li>
-                                 <li >
+                                 <li class="active">
                                     <a href="manage-hotels.php">
                                      <i class="material-icons">local_mall</i>
                                          Manage Hotel
@@ -617,22 +617,23 @@
                                 <div class=" table-responsive">
                                     <table class="table">
                                         <thead class="text-primary">
-                                             <th></th>
-                                             <th>Pay by</th>                                         
+                                             <th align="center"></th>
+                                             <th align="center">Pay by</th>                                         
                                            
-                                            <!-- <th>Paid</th> -->
-                                            <th>Approved by</th>
+                                            <!-- <th></th> -->
+                                            <th align="center">Approved by</th>
                                              <!-- <th></th> -->
                                             <!-- <th>Status</th> -->
-                                            <th>Departure Date</th>
-                                            <th>Customer name</th> 
-                                            <th>Invoice</th>
-                                            <th>Agent Name</th>
+                                            <th class="col-md-2" align="center">Departure Date</th>
+                                            <th align="center">Customer name</th> 
+                                            <th align="center">Invoice</th>
+                                            <th align="center">Agent Name</th>
 
                                             
                                             <th class="col-md-4" ng-show="checktype == 'Hotel'">Hotel Name</th> 
-                                              <th ng-show="checktype == 'Hotel' || checktype == 'All'">Check In</th>
-                                            <th ng-show="checktype == 'Hotel' || checktype == 'All'">Check Out</th>
+                                            <th class="col-md-2" ng-show="checktype == 'Hotel' || checktype == 'All'">Check In</th>
+                                            <th class="col-md-2" ng-show="checktype == 'Hotel' || checktype == 'All'">Check Out</th>
+                                            <!-- <th ng-show="checktype == 'Hotel' || checktype == 'All'">Check Out</th> -->
                                             <!-- <th>Adult</th>
                                             <th>Child</th> -->
                                              <th>No. of Guest</th>
@@ -656,16 +657,18 @@
                                                 <!-- | startFrom:(currentPage -1) * pageSize | limitTo:pageSize -->
                                                 <td align="center" ng-bind="$index+1"></td>
                                                 <td  align="center"><span style="color: #9c27b0" ng-show="item.status_invoice == 1 || item.total_price == 0" ng-bind="item.pay_by"></span><!-- <i ng-show="item.status_invoice == 1 || item.total_price == 0" class="material-icons" style="color: #4caf50;">playlist_add_check</i> --><button ng-show="item.status_invoice == 0 && item.total_price != 0" data-toggle="modal" data-target="#payproduct" ng-click="pay(item)" class="btn btn-primary btn-sm" style="text-transform: capitalize;">Pay</button></td>
+                                                <!-- <td ng-show="checktype == 'Hotel' || checktype == 'All'" ng-bind="item.ondate_2"></td> -->
                                                 <!-- <td  align="center"><i ng-show="item.done == 1" class="material-icons" style="color: #4caf50;">playlist_add_check</i><i ng-show="item.done == 0" class="material-icons"  style="color: #ff9800;">schedule</i></td> -->
                                                 <td  align="center"><button ng-show="item.approved == 0" data-toggle="modal" data-target="#approved" ng-click="approve(item)" class="btn btn-info btn-sm" style="text-transform: capitalize;">Approve</button><span style="color: #00bcd4" ng-show="item.approved == 1" ng-bind="item.approve_by"></span></td>
-                                                <td ng-bind="item.ondate"></td>
+                                                <td ng-bind="item.checkin2"></td>
                                                 <td class="col-md-2" ng-bind="item.name" ></td>
                                                 <td  ng-bind="item.invoice"></td>
                                                 <td ><span ng-bind="item.agent_name"></span></td>
                                                
                                                 <td class="col-md-4" ng-show="checktype == 'Hotel' " ng-bind="item.hotel_name" ></td>
-                                                <td ng-show="checktype == 'Hotel' || checktype == 'All'" ng-bind="item.checkin"></td>
-                                                <td ng-show="checktype == 'Hotel' || checktype == 'All'" ng-bind="item.checkout"></td>
+                                                <td class="col-md-2" ng-show="checktype == 'Hotel' || checktype == 'All'" ng-bind="item.checkin2"></td>
+                                                <td  class="col-md-2" ng-show="checktype == 'Hotel' || checktype == 'All'" ng-bind="item.checkout2"></td>
+                                                
                                                <!--  <td ng-show="checktype == 'All' && item.checkin == ''" align="center" >-</td>
                                                 <td ng-show="checktype == 'All' && item.checkout == ''" align="center">-</td> -->
                                                 <!--  <td align="center"  ng-bind="item.adult"></td>
@@ -1394,10 +1397,14 @@ label.label-editUser {
                 // console.log(res[0].flight)
                  //$scope.datatour = res;
                   $scope.newdate = $filter('date')(new Date(),'dd/MM/yyyy');
+                  
                     //console.log($scope.newdate)
                 angular.forEach(res, function (data) {
                    // Total Amountitem.adult_price*item.total 
+                   
                    $scope.dataAgentget.push(data.agent_name)
+                    data.checkin2 = $filter('date')(new Date(data.checkin),'dd-MM-yyyy');
+                    data.checkout2 = $filter('date')(new Date(data.checkout),'dd-MM-yyyy');
                     //$scope.dataAgentget.push(data.agent_id)
                     // console.log(data.adult_price*data.total)
                     //item.net_price_adult*item.total

@@ -442,7 +442,7 @@
                                     </div>
                                     <div class="form-group form-inline">
                                         <label for="name" class="label-tour">Hotel Background<span> :</span></label>
-                                        <textarea type="text" class=" form-control" " rows="10" cols="100" maxlength="500" placeholder = "Max length 500 characters" id="background" name="background" ng-model="background" ng-change="changebackground(background)" required> </textarea>
+                                        <textarea type="text" class=" form-control" " rows="10" cols="100" maxlength="3000" placeholder = "Max length 3000 characters" id="background" name="background" ng-model="background" ng-change="changebackground(background)" required> </textarea>
                                     </div>
 
                                    
@@ -467,15 +467,15 @@
                                     </div> -->
                                     <div class="form-group form-inline">
                                         <label for="name" class="label-tour">Room Type<span> :</span></label>
-                                        <textarea type="text" class=" form-control" rows="10" cols="100"  maxlength="500" placeholder = "Max length 500 characters" id="roomtype" name="roomtype" ng-model="roomtype" ng-change="changeroomtype(roomtype)" required></textarea>
+                                        <textarea type="text" class=" form-control" rows="10" cols="100"  maxlength="3000" placeholder = "Max length 3000 characters" id="roomtype" name="roomtype" ng-model="roomtype" ng-change="changeroomtype(roomtype)" required></textarea>
                                     </div>
                                     <div class="form-group form-inline">
                                         <label for="name" class="label-tour">Location<span> :</span></label>
-                                        <textarea type="text" class=" form-control" rows="10" cols="100"  maxlength="500" placeholder = "Max length 500 characters" id="location" name="location" ng-model="location" ng-change="changelocation(location)" required></textarea>
+                                        <textarea type="text" class=" form-control" rows="10" cols="100"  maxlength="3000" placeholder = "Max length 3000 characters" id="location" name="location" ng-model="location" ng-change="changelocation(location)" required></textarea>
                                     </div>
                                     <div class="form-group form-inline">
                                         <label for="name" class="label-tour">Attraction Nearby<span> :</span></label>
-                                        <textarea type="text" class=" form-control" rows="10" cols="100"  maxlength="500" placeholder = "Max length 500 characters" id="attraction" name="attraction" ng-model="attraction" ng-change="changeattraction(attraction)" required></textarea>
+                                        <textarea type="text" class=" form-control" rows="10" cols="100"  maxlength="3000" placeholder = "Max length 3000 characters" id="attraction" name="attraction" ng-model="attraction" ng-change="changeattraction(attraction)" required></textarea>
                                     </div>
                                     <!-- <div class=" form-group form-inline " >
                                                 <label class="label-tour">Night:</label> 

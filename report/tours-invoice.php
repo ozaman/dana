@@ -1262,7 +1262,7 @@
 
                                             <!-- <th>Status</th> -->
 
-                                            <th>Departure Date</th>
+                                            <th  class="col-md-2">Departure Date</th>
 
                                             <th>Customer name</th> 
 
@@ -1328,7 +1328,7 @@
 
                                                 <td  align="center"><button ng-show="item.approved == 0" data-toggle="modal" data-target="#approved" ng-click="approve(item)" class="btn btn-info btn-sm" style="text-transform: capitalize;">Approve</button><span style="color: #00bcd4" ng-show="item.approved == 1" ng-bind="item.approve_by"></span></td>
 
-                                                <td ng-bind="item.ondate"></td>
+                                                <td ng-bind="item.ondate2"></td>
 
                                                 <td class="col-md-2" ng-bind="item.name" ></td>
 
@@ -2603,15 +2603,10 @@ label.label-editUser {
            
 
              var today = new Date();
-
-                var date = new Date(today.getFullYear()+'-'+(today.getMonth())+'-1');
-
+                var date = new Date(today.getFullYear()+'-'+(today.getMonth()+1));
                 console.log(today);
-
                 console.log(date);
-
                 $scope.dateselectionfrom = date;
-
                 $scope.dateselectionto = today;
 
             if($cookies.get('login'))
@@ -2745,7 +2740,7 @@ label.label-editUser {
                 angular.forEach(res, function (data) {
 
                    // Total Amountitem.adult_price*item.total 
-
+                   data.ondate2 = $filter('date')(new Date(data.ondate),'dd-MM-yyyy');
                    $scope.dataAgentget.push(data.agent_name)
 
                     $scope.dataCompanyget.push(data.company_name)

@@ -591,9 +591,9 @@
                                     <div class="price-block">
                                         <div class="price-block-head">Adult <span>Contract</span> Rate
                                         </div>
-                                        <div ng-if="!editPrice" class="price-block-tail">{{ tours.net_price_adult | currency:'':0 }} <span>Bath / person</span></div>
+                                        <div ng-if="!editPrice" class="price-block-tail">{{ tours.net_price_adult | currency:'':0 }} <span>Baht / person</span></div>
                                         <div ng-if="editPrice" class="price-block-tail">
-                                            <input type="text" id="adult" name="adult" ng-change="netpriceadult(net_price_adult)" class="form-control input-text-right" ng-value="net_price_adult | currency:'':0 " ng-model="net_price_adult" > <span>Bath / person</span>
+                                            <input type="text" id="adult" name="adult" ng-change="netpriceadult(net_price_adult)" class="form-control input-text-right" ng-value="net_price_adult | currency:'':0 " ng-model="net_price_adult" > <span>Baht / person</span>
                                         </div>
                                     </div>
                                     <!--<div ng-show="editPrice" class="form-group">-->
@@ -607,9 +607,9 @@
                                     <div class="price-block">
                                         <div class="price-block-head">Child <span >Contract</span> Rate
                                         </div>
-                                        <div ng-if="!editPrice" class="price-block-tail">{{ tours.net_price_child | currency:'':0 }} <span>Bath / person</span></div>
+                                        <div ng-if="!editPrice" class="price-block-tail">{{ tours.net_price_child | currency:'':0 }} <span>Baht / person</span></div>
                                         <div ng-if="editPrice" class="price-block-tail">
-                                            <input type="text" id="child" name="child" class="form-control input-text-right"  ng-value="net_price_child | currency:'':0" ng-model="net_price_child" ng-change="netpricechild(net_price_child)"> <span>Bath / person</span>
+                                            <input type="text" id="child" name="child" class="form-control input-text-right"  ng-value="net_price_child | currency:'':0" ng-model="net_price_child" ng-change="netpricechild(net_price_child)"> <span>Baht / person</span>
                                         </div>
                                     </div>
                                     <!--<div ng-show="editPrice" class="form-group">-->
@@ -627,7 +627,7 @@
                                         </div>
                                         <div ng-if="!editPrice" class="price-block-tail">{{ tours.sale_price_adult | currency:'':0 }} <span>Bath / person</span></div>
                                         <div ng-if="editPrice" class="price-block-tail">
-                                            <input type="text" name="sale_adult" class="form-control input-text-right" ng-value="sale_price_adult | currency:'':0" ng-model="sale_price_adult" ng-change="salepriceadult(sale_price_adult)"> <span>Bath / person</span>
+                                            <input type="text" name="sale_adult" class="form-control input-text-right" ng-value="sale_price_adult | currency:'':0" ng-model="sale_price_adult" ng-change="salepriceadult(sale_price_adult)"> <span>Baht / person</span>
                                         </div>
                                     </div>
                                     <!--<div ng-show="editPrice" class="form-group">-->
@@ -641,9 +641,9 @@
                                     <div class="price-block">
                                         <div class="price-block-head">Child Selling Rate
                                         </div>
-                                        <div ng-if="!editPrice" class="price-block-tail">{{ tours.sale_price_child | currency:'':0 }} <span>Bath / person</span></div>
+                                        <div ng-if="!editPrice" class="price-block-tail">{{ tours.sale_price_child | currency:'':0 }} <span>Baht / person</span></div>
                                         <div ng-if="editPrice" class="price-block-tail">
-                                            <input type="text" name="sale_child" class="form-control input-text-right" ng-value="sale_price_child | currency:'':0" ng-model="sale_price_child" ng-change="salepricechild(sale_price_child)"> <span>Bath / person</span>
+                                            <input type="text" name="sale_child" class="form-control input-text-right" ng-value="sale_price_child | currency:'':0" ng-model="sale_price_child" ng-change="salepricechild(sale_price_child)"> <span>Baht / person</span>
                                         </div>
                                     </div>
                                     <!--<div ng-show="editPrice" class="form-group">-->
@@ -660,9 +660,9 @@
                                     <div class="price-block">
                                         <div class="price-block-head">Rate show web
                                         </div>
-                                        <div ng-if="!editPrice" class="price-block-tail">{{ tours.cost_web }} <span>Bath / person</span></div>
+                                        <div ng-if="!editPrice" class="price-block-tail">{{ tours.cost_web }} <span>Baht / person</span></div>
                                         <div ng-if="editPrice" class="price-block-tail">
-                                            <input type="text" name="sale_show_web" class="form-control input-text-right" ng-value="sale_show_web " ng-model="sale_show_web" ng-change="saleshowweb(sale_show_web)"> <span>Bath / person</span>
+                                            <input type="text" name="sale_show_web" class="form-control input-text-right" ng-value="sale_show_web " ng-model="sale_show_web" ng-change="saleshowweb(sale_show_web)"> <span>Baht / person</span>
                                         </div>
                                     </div>
                                     <!--<div ng-show="editPrice" class="form-group">-->
@@ -701,7 +701,7 @@
                                         </div>
                                         <div ng-if="!editPrice" class="price-block-tail" style="    border-radius: 0 4px  4px; 0">{{ tours.cost | currency : '':0 }} <span>Bath / Package</span></div>
                                         <div ng-if="editPrice" class="price-block-tail" style="border-radius: 0 4px  4px 0;z-index: 100">
-                                            <input type="text" id="child" name="ecost" class="form-control input-text-right" value="{{ecost  | currency :'':0 }}" ng-disabled="!editPrice" ng-model="ecost" ng-change="editchangeprice(ecost)" required> <span>Bath / Package</span>
+                                            <input type="text" id="child" name="ecost" class="form-control input-text-right" value="{{ecost  | currency :'':0 }}" ng-disabled="!editPrice" ng-model="ecost" ng-change="editchangeprice(ecost)" required> <span>Baht / Package</span>
                                         </div>
                                         </div>
                                 </div>

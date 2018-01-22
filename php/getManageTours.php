@@ -22,7 +22,6 @@ include("../config.php");
 	$sql = "SELECT * FROM dn_booking WHERE post_date BETWEEN '".$datefrom."' AND '".$dateto."' AND status != 2 AND type = 'Tour' ORDER BY ondate_2 ASC";
 	// AND booking_date BETWEEN '".$date."' AND  '".$date2."'
 	$Objquery = mysql_query($sql,$conndb);
-	
 	$rows = array();
 	if(mysql_num_rows($Objquery) > 0){
 		

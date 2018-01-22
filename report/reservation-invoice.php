@@ -566,9 +566,9 @@
                                             <th>Approved by</th>
                                              <!-- <th></th> -->
                                             <!-- <th>Status</th> -->
-                                            <th>Check In</th>
-                                            <th>Check Out</th>
-                                            <th>Due Date</th>
+                                            <th class="col-md-2">Check In</th>
+                                            <th class="col-md-2">Check Out</th>
+                                            <th class="col-md-2">Due Date</th>
                                             <th>Customer name</th> 
                                             <th>Invoice</th>
                                             <th>Agent Name</th>
@@ -601,9 +601,9 @@
                                                 </td>
                                                 <!-- <td  align="center"><i ng-show="item.done == 1" class="material-icons" style="color: #4caf50;">playlist_add_check</i><i ng-show="item.done == 0" class="material-icons"  style="color: #ff9800;">schedule</i></td> -->
                                                 <td  align="center"><button ng-show="item.approved == 0" data-toggle="modal" data-target="#approved" ng-click="approve(item)" class="btn btn-info btn-sm" style="text-transform: capitalize;">Approve</button><span style="color: #00bcd4" ng-show="item.approved == 1" ng-bind="item.approve_by"></span></td>
-                                                <td ng-bind="item.checkin"></td>
-                                                <td ng-bind="item.checkout"></td>
-                                                <td ng-bind="item.due_date"></td>
+                                                <td ng-bind="item.checkin2"></td>
+                                                <td ng-bind="item.checkout2"></td>
+                                                <td ng-bind="item.due_date2"></td>
                                                 <td class="col-md-2" ng-bind="item.name" ></td>
                                                 <td  ng-bind="item.invoice"></td>
                                                 <td ><span ng-bind="item.agent_name"></span></td>
@@ -1255,7 +1255,7 @@ label.label-editUser {
             $scope.total_tprofit = 0;
            
              var today = new Date();
-                var date = new Date(today.getFullYear()+'-'+(today.getMonth())+'-1');
+                var date = new Date(today.getFullYear()+'-'+(today.getMonth()+1));
                 console.log(today);
                 console.log(date);
                 $scope.dateselectionfrom = date;
@@ -1327,6 +1327,9 @@ label.label-editUser {
                 angular.forEach($scope.datatour, function (data) {
                    // Total Amountitem.adult_price*item.total 
                    $scope.dataAgentget.push(data.agent_name)
+                   data.checkin2 = $filter('date')(new Date(data.checkin),'dd-MM-yyyy');
+                    data.checkout2 = $filter('date')(new Date(data.checkout),'dd-MM-yyyy');
+                    data.due_date2 = $filter('date')(new Date(data.due_date),'dd-MM-yyyy');
                     //$scope.dataAgentget.push(data.agent_id)
                     // console.log(data.adult_price*data.total)
                     //item.net_price_adult*item.total
@@ -1601,7 +1604,8 @@ label.label-editUser {
                   $scope.newdate = $filter('date')(new Date(),'dd/MM/yyyy');
                     //console.log($scope.newdate)
                 angular.forEach($scope.datatour, function (data) {
-                   // Total Amountitem.adult_price*item.total 
+                   // Total Amountitem.adult_price*item.total
+
                    $scope.dataAgentget.push(data.agent_name)
                     //$scope.dataAgentget.push(data.agent_id)
                     // console.log(data.adult_price*data.total)

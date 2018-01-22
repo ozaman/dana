@@ -821,7 +821,7 @@
 
                                                 <td ng-bind="item.total_price | currency:'':0"></td>
 
-                                                <td ng-bind="item.ondate"></td>
+                                                <td ng-bind="item.ondate2"></td>
 
                                                 <td ng-bind="item.ontime"></td>
 
@@ -1563,6 +1563,10 @@ label.label-editUser {
                 }).success(function(res){
                  //console.log(res)
                  $scope.databook = res;
+                 angular.forEach($scope.databook, function (data) {
+                    data.ondate2 =  $filter('date')(new Date(data.ondate),'dd-MM-yyyy');
+                    console.log( $filter('date')(new Date(data.ondate),'dd-MM-yyyy'));
+                  });
 
                  
 

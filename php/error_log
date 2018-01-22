@@ -1,0 +1,67 @@
+[22-Sep-2017 23:05:15 Asia/Bangkok] PHP Parse error:  syntax error, unexpected '}' in /home/luaeuqpl/public_html/back/php/getManagebooking.php on line 13
+[22-Sep-2017 23:05:51 Asia/Bangkok] PHP Parse error:  syntax error, unexpected '}' in /home/luaeuqpl/public_html/back/php/getManagebooking.php on line 13
+[01-Oct-2017 00:53:05 Asia/Bangkok] PHP Parse error:  syntax error, unexpected T_CONSTANT_ENCAPSED_STRING in /home/luaeuqpl/public_html/back/php/getReservation.php on line 16
+[02-Oct-2017 23:50:52 Asia/Bangkok] PHP Parse error:  syntax error, unexpected ';' in /home/luaeuqpl/public_html/back/php/getManagebooking.php on line 16
+[02-Oct-2017 23:51:01 Asia/Bangkok] PHP Parse error:  syntax error, unexpected ';' in /home/luaeuqpl/public_html/back/php/getManagebooking.php on line 16
+[02-Oct-2017 23:52:18 Asia/Bangkok] PHP Parse error:  syntax error, unexpected ';' in /home/luaeuqpl/public_html/back/php/getManagebooking.php on line 16
+[03-Oct-2017 00:35:20 Asia/Bangkok] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, boolean given in /home/luaeuqpl/public_html/back/php/getBookingcancel.php on line 23
+[07-Nov-2017 11:32:16 Asia/Bangkok] PHP Warning:  unlink(../../data/files/upload/tour/gallery/) [<a href='function.unlink'>function.unlink</a>]: Is a directory in /home/luaeuqpl/public_html/back/php/removeGallery.php on line 13
+[07-Nov-2017 11:32:41 Asia/Bangkok] PHP Warning:  unlink(../../data/files/upload/tour/gallery/) [<a href='function.unlink'>function.unlink</a>]: Is a directory in /home/luaeuqpl/public_html/back/php/removeGallery.php on line 13
+[07-Nov-2017 13:24:39 Asia/Bangkok] PHP Warning:  move_uploaded_file() [<a href='function.move-uploaded-file'>function.move-uploaded-file</a>]: Unable to move '/tmp/phphYEYNr' to '../../data/files/upload/tour/gallery/02_CAMEL ROCK.jpg' in /home/luaeuqpl/public_html/back/php/uploadGallery.php on line 24
+[07-Nov-2017 13:24:46 Asia/Bangkok] PHP Warning:  move_uploaded_file() [<a href='function.move-uploaded-file'>function.move-uploaded-file</a>]: Unable to move '/tmp/php2OGuDK' to '../../data/files/upload/tour/gallery/10_VIKING CAVE.jpg' in /home/luaeuqpl/public_html/back/php/uploadGallery.php on line 24
+[07-Nov-2017 13:24:54 Asia/Bangkok] PHP Warning:  move_uploaded_file() [<a href='function.move-uploaded-file'>function.move-uploaded-file</a>]: Unable to move '/tmp/phpRTpslM' to '../../data/files/upload/tour/gallery/13_shutterstock_199655390.jpg' in /home/luaeuqpl/public_html/back/php/uploadGallery.php on line 24
+[07-Nov-2017 13:25:01 Asia/Bangkok] PHP Warning:  move_uploaded_file() [<a href='function.move-uploaded-file'>function.move-uploaded-file</a>]: Unable to move '/tmp/phpCXj1lf' to '../../data/files/upload/tour/gallery/04_IMG_3747.jpg' in /home/luaeuqpl/public_html/back/php/uploadGallery.php on line 24
+[07-Nov-2017 13:25:31 Asia/Bangkok] PHP Warning:  move_uploaded_file() [<a href='function.move-uploaded-file'>function.move-uploaded-file</a>]: Unable to move '/tmp/phpWKorEQ' to '../../data/files/upload/tour/gallery/13_shutterstock_199655390.jpg' in /home/luaeuqpl/public_html/back/php/uploadGallery.php on line 24
+[07-Nov-2017 13:25:39 Asia/Bangkok] PHP Warning:  move_uploaded_file() [<a href='function.move-uploaded-file'>function.move-uploaded-file</a>]: Unable to move '/tmp/phpN2unsS' to '../../data/files/upload/tour/gallery/Phi Phi.jpg' in /home/luaeuqpl/public_html/back/php/uploadGallery.php on line 24
+[07-Nov-2017 13:30:21 Asia/Bangkok] PHP Warning:  move_uploaded_file() [<a href='function.move-uploaded-file'>function.move-uploaded-file</a>]: Unable to move '/tmp/php6prGeX' to '../../data/files/upload/tour/gallery/1462017211557.jpg' in /home/luaeuqpl/public_html/back/php/uploadGallery.php on line 24
+[07-Nov-2017 13:30:28 Asia/Bangkok] PHP Warning:  move_uploaded_file() [<a href='function.move-uploaded-file'>function.move-uploaded-file</a>]: Unable to move '/tmp/phphJ2ajg' to '../../data/files/upload/tour/gallery/1392017055458.jpg' in /home/luaeuqpl/public_html/back/php/uploadGallery.php on line 24
+[07-Nov-2017 13:30:38 Asia/Bangkok] PHP Warning:  move_upl[07-Nov-2017 17:21:55 Asia/Bangkok] PHP Warning:  unlink(../../data/files/upload/tour/gallery/) [<a href='function.unlink'>function.unlink</a>]: Is a directory in /home/luaeuqpl/public_html/back/php/removeGallery.php on line 13
+[08-Nov-2017 15:28:09 Asia/Bangkok] PHP Warning:  unlink(../../data/files/upload/tour/gallery/) [<a href='function.unlink'>function.unlink</a>]: Is a directory in /home/luaeuqpl/public_html/back/php/removeGallery.php on line 13
+[18-Dec-2017 17:51:11 Asia/Bangkok] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, boolean given in /home/luaeuqpl/public_html/back/php/getManagebooking.php on line 27
+[21-Dec-2017 17:18:41 Asia/Bangkok] PHP Parse error:  syntax error, unexpected '"' in /home/luaeuqpl/public_html/back/php/getManagebooking.php on line 22
+[21-Dec-2017 17:24:24 Asia/Bangkok] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, boolean given in /home/luaeuqpl/public_html/back/php/getManagebooking.php on line 27
+[21-Dec-2017 17:25:01 Asia/Bangkok] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, boolean given in /home/luaeuqpl/public_html/back/php/getManagebooking.php on line 27
+[21-Dec-2017 17:25:24 Asia/Bangkok] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, boolean given in /home/luaeuqpl/public_html/back/php/getManagebooking.php on line 27
+[21-Dec-2017 17:26:10 Asia/Bangkok] PHP Parse error:  syntax error, unexpected '"' in /home/luaeuqpl/public_html/back/php/getManagebooking.php on line 22
+[21-Dec-2017 17:34:15 Asia/Bangkok] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, boolean given in /home/luaeuqpl/public_html/back/php/getManagebooking.php on line 27
+[21-Dec-2017 17:36:12 Asia/Bangkok] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, boolean given in /home/luaeuqpl/public_html/back/php/getManagebooking.php on line 27
+[21-Dec-2017 17:38:51 Asia/Bangkok] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, boolean given in /home/luaeuqpl/public_html/back/php/getManagebooking.php on line 27
+[21-Dec-2017 17:40:42 Asia/Bangkok] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, boolean given in /home/luaeuqpl/public_html/back/php/getManagebooking.php on line 27
+[21-Dec-2017 17:48:39 Asia/Bangkok] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, boolean given in /home/luaeuqpl/public_html/back/php/getManagebooking.php on line 27
+[21-Dec-2017 17:48:53 Asia/Bangkok] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, boolean given in /home/luaeuqpl/public_html/back/php/getManagebooking.php on line 27
+[21-Dec-2017 17:49:30 Asia/Bangkok] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, boolean given in /home/luaeuqpl/public_html/back/php/getManagebooking.php on line 27
+[21-Dec-2017 17:49:59 Asia/Bangkok] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, boolean given in /home/luaeuqpl/public_html/back/php/getManagebooking.php on line 27
+[21-Dec-2017 17:50:36 Asia/Bangkok] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, boolean given in /home/luaeuqpl/public_html/back/php/getManagebooking.php on line 27
+[21-Dec-2017 17:54:52 Asia/Bangkok] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, boolean given in /home/luaeuqpl/public_html/back/php/getManagebooking.php on line 27
+[21-Dec-2017 17:55:10 Asia/Bangkok] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, boolean given in /home/luaeuqpl/public_html/back/php/getManagebooking.php on line 27
+[03-Jan-2018 13:10:57 Asia/Bangkok] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, null given in /home/luaeuqpl/public_html/back/php/getManageTours.php on line 26
+[03-Jan-2018 13:19:54 Asia/Bangkok] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, null given in /home/luaeuqpl/public_html/back/php/getManageTours.php on line 26
+[03-Jan-2018 13:28:13 Asia/Bangkok] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, null given in /home/luaeuqpl/public_html/back/php/getManageTours.php on line 26
+[03-Jan-2018 13:28:18 Asia/Bangkok] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, null given in /home/luaeuqpl/public_html/back/php/getManageTours.php on line 26
+[03-Jan-2018 14:00:48 Asia/Bangkok] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, null given in /home/luaeuqpl/public_html/back/php/getManageTours.php on line 26
+[03-Jan-2018 14:03:44 Asia/Bangkok] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, null given in /home/luaeuqpl/public_html/back/php/getManageTours.php on line 26
+[03-Jan-2018 14:05:04 Asia/Bangkok] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, null given in /home/luaeuqpl/public_html/back/php/getManageTours.php on line 26
+[03-Jan-2018 14:05:34 Asia/Bangkok] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, null given in /home/luaeuqpl/public_html/back/php/getManageTours.php on line 26
+[03-Jan-2018 14:53:46 Asia/Bangkok] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, null given in /home/luaeuqpl/public_html/back/php/getManageTours.php on line 26
+[03-Jan-2018 14:53:52 Asia/Bangkok] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, null given in /home/luaeuqpl/public_html/back/php/getManageTours.php on line 26
+[03-Jan-2018 14:54:22 Asia/Bangkok] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, null given in /home/luaeuqpl/public_html/back/php/getManageTours.php on line 26
+[03-Jan-2018 15:00:59 Asia/Bangkok] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, null given in /home/luaeuqpl/public_html/back/php/getManageTours.php on line 26
+[03-Jan-2018 15:01:50 Asia/Bangkok] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, null given in /home/luaeuqpl/public_html/back/php/getManageTours.php on line 26
+[03-Jan-2018 15:03:00 Asia/Bangkok] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, null given in /home/luaeuqpl/public_html/back/php/getManageTours.php on line 26
+[03-Jan-2018 15:03:41 Asia/Bangkok] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, null given in /home/luaeuqpl/public_html/back/php/getManageTours.php on line 26
+[03-Jan-2018 15:03:54 Asia/Bangkok] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, null given in /home/luaeuqpl/public_html/back/php/getManageTours.php on line 26
+[03-Jan-2018 15:05:04 Asia/Bangkok] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, null given in /home/luaeuqpl/public_html/back/php/getManageTours.php on line 26
+[03-Jan-2018 15:05:43 Asia/Bangkok] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, null given in /home/luaeuqpl/public_html/back/php/getManageTours.php on line 26
+[03-Jan-2018 15:05:47 Asia/Bangkok] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, null given in /home/luaeuqpl/public_html/back/php/getManageTours.php on line 26
+[03-Jan-2018 15:05:52 Asia/Bangkok] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, null given in /home/luaeuqpl/public_html/back/php/getManageTours.php on line 26
+[03-Jan-2018 16:39:31 Asia/Bangkok] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, boolean given in /home/luaeuqpl/public_html/back/php/getManageHotels.php on line 27
+[03-Jan-2018 17:17:14 Asia/Bangkok] PHP Parse error:  syntax error, unexpected ')' in /home/luaeuqpl/public_html/back/php/addBooking2.php on line 11
+[03-Jan-2018 17:18:19 Asia/Bangkok] PHP Parse error:  syntax error, unexpected ')' in /home/luaeuqpl/public_html/back/php/addBooking2.php on line 11
+[03-Jan-2018 17:30:32 Asia/Bangkok] PHP Parse error:  syntax error, unexpected ')' in /home/luaeuqpl/public_html/back/php/addBooking2.php on line 11
+[03-Jan-2018 17:31:17 Asia/Bangkok] PHP Parse error:  syntax error, unexpected ')' in /home/luaeuqpl/public_html/back/php/addBooking2.php on line 11
+[03-Jan-2018 20:48:50 Asia/Bangkok] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, boolean given in /home/luaeuqpl/public_html/back/php/getManageHotels.php on line 27
+[03-Jan-2018 20:50:26 Asia/Bangkok] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, boolean given in /home/luaeuqpl/public_html/back/php/getManageHotels.php on line 27
+[03-Jan-2018 20:50:41 Asia/Bangkok] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, boolean given in /home/luaeuqpl/public_html/back/php/getManageHotels.php on line 27
+[03-Jan-2018 20:50:47 Asia/Bangkok] PHP Warning:  mysql_num_rows() expects parameter 1 to be resource, boolean given in /home/luaeuqpl/public_html/back/php/getManageHotels.php on line 27
+[05-Jan-2018 11:38:56 Asia/Bangkok] PHP Warning:  unlink(../../data/files/upload/hotel/gallery/banner5.jpg) [<a href='function.unlink'>function.unlink</a>]: No such file or directory in /home/luaeuqpl/public_html/back/php/removeGalleryhotel.php on line 12
+[19-Jan-2018 15:35:59 Asia/Bangkok] PHP Warning:  unlink(../../data/files/upload/tour/gallery/Dolphins Bay Phuket  (21) - Copy (002).jpg) [<a href='function.unlink'>function.unlink</a>]: No such file or directory in /home/luaeuqpl/public_html/back/php/removeGallery.php on line 13

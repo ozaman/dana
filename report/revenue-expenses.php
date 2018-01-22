@@ -522,7 +522,7 @@
                                 <div style="text-align: center;
     padding: 15px;
     font-weight: 500;
-    font-size: 16px;">Booking date <span ng-bind="dateselectionfrom | date:'dd/MM/yyyy'"></span> <span> - </span> <span ng-bind="dateselectionto | date:'dd/MM/yyyy'"></span></div>
+    font-size: 16px;">Valid date <span ng-bind="dateselectionfrom | date:'dd/MM/yyyy'"></span> <span> - </span> <span ng-bind="dateselectionto | date:'dd/MM/yyyy'"></span></div>
                                 
                                 <!-- <div class="card-header card-header-icon" data-background-color="rose">
                                     <i class="material-icons">assignment</i>
@@ -1490,10 +1490,10 @@ label.label-editUser {
             $scope.total_tprofit = 0;
             $scope.total_amount = 0;
            
-             var today = new Date();
-                var date = new Date(today.getFullYear()+'-'+(today.getMonth())+'-1');
-                // console.log(today);
-                // console.log(date);
+              var today = new Date();
+                var date = new Date(today.getFullYear()+'-'+(today.getMonth()+1));
+                console.log(today);
+                console.log(date);
                 $scope.dateselectionfrom = date;
                 $scope.dateselectionto = today;
             if($cookies.get('login'))

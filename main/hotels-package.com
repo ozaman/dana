@@ -85,7 +85,6 @@
                 <a href="" class="simple-text">
 
                     <img width="50" src="../files/img/logo.png">
-                
 
                 </a>
 
@@ -131,7 +130,7 @@
 
                     </li>
 
-                    <li >
+                    <li class="active">
 
                         <a data-toggle="collapse" href="index.php#pagesExamples" >
 
@@ -147,13 +146,13 @@
 
                         </a>
 
-                        <div class="collapse " id="pagesExamples" >
+                        <div class="collapse in" id="pagesExamples" aria-expanded="true">
 
                             <ul class="nav"> 
 
                                 <li >
 
-                                    <a href="../main/tours-package.php">
+                                    <a href="tours-package.php">
 
                                         <i class="material-icons">local_offer</i> Tour Packages
 
@@ -163,27 +162,26 @@
 
                                 <li >
 
-                                    <a href="../report/transfer-package.php">
+                                    <a href="transfer-package.php">
 
                                         <i class="material-icons">directions_car</i> Transfer Packages
 
                                     </a>
 
                                 </li>
-                                <li >
-                                    <a href="../main/hotel.php">
-                                       <i class="material-icons">location_city</i>Hotels
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="../main/hotels-package.php">
+                                 <li class="active">
+
+                                    <a href="hotels-package.php">
+
                                        <i class="material-icons">hotel</i>Hotels package
+
                                     </a>
+
                                 </li>
 
                                 <li>
 
-                                    <a href="../main/add-booking.php">
+                                    <a href="add-booking.php">
 
                                         <i class="material-icons">note_add</i>Add Bookings
 
@@ -193,7 +191,7 @@
 
                                 <li>
 
-                                    <a href="../main/company.php">
+                                    <a href="company.php">
 
                                         <i class="material-icons">dns</i>Companies
 
@@ -203,7 +201,7 @@
 
                                 <li>
 
-                                    <a href="../main/agent.php">
+                                    <a href="agent.php">
 
                                         <i class="material-icons">recent_actors</i> Agents
 
@@ -215,7 +213,7 @@
 
                                 <li>
 
-                                    <a href="../main/users.php">
+                                    <a href="users.php">
 
                                         <i class="material-icons">people</i> Users
 
@@ -229,7 +227,7 @@
 
                     </li>
 
-                    <li class="active">
+                    <li>
 
                         <a data-toggle="collapse" href="index.php#componentsExamples">
 
@@ -243,13 +241,13 @@
 
                         </a>
 
-                        <div class="collapse in" id="componentsExamples"  aria-expanded="true">
+                        <div class="collapse" id="componentsExamples">
 
                             <ul class="nav">
 
-                             <li  class="active">
+                             <li>
 
-                                    <a href="complete-booking.php">
+                                    <a href="../report/complete-booking.php">
 
                                     <i class="material-icons">check_circle</i>
 
@@ -261,7 +259,7 @@
 
                                <li>
 
-                                    <a href="new-booking.php">
+                                    <a href="../report/new-booking.php">
 
                                         <i class="material-icons">insert_drive_file</i> New Bookings
 
@@ -273,27 +271,17 @@
 
                                 <li>
 
-                                    <a href="cancel-booking.php">
+                                    <a href="../report/cancel-booking.php">
 
                                         <i class="material-icons">cancel</i> Cancel Bookings
 
                                     </a>
 
                                 </li>
-                                <li >
-                                    <a href="reservation-invoice.php">
-                                        <i class="material-icons">notifications_active</i> Reservation - Invoice
-                                    </a>
-                                </li>
-                                <li  >
-                                    <a href="tours-invoice.php">
-                                        <i class="material-icons">notifications_active</i> Tours - Invoice
-                                    </a>
-                                </li>
 
-                                <!-- <li>
+                                 <li>
 
-                                    <a href="account.php">
+                                    <a href="../report/account.php">
 
                                     <i class="material-icons">account_balance_wallet</i>
 
@@ -301,41 +289,23 @@
 
                                     </a>
 
-                                </li> -->
-                                  <li >
-                                    <a href="account-tour.php">
+                                </li>
+                                <li >
+                                    <a href="../report/account-tour.php">
                                     <i class="material-icons">business_center</i>
                                          Account Tours
                                     </a>
                                 </li>
-                                  <li >
-                                    <a href="manage-tours.php">
-                                        <i class="material-icons">satellite</i>                                
-                                         Manage Tour
-                                    </a>
-                                </li>
                                 <li >
-                                    <a href="manage-transfers.php">
-                                    <i class="material-icons">settings_system_daydream</i>
-                                         Manage Transfer
-                                    </a>
-                                </li>
-                                 <li >
-                                    <a href="manage-hotels.php">
-                                     <i class="material-icons">local_mall</i>
-                                         Manage Hotel
-                                    </a>
-                                </li>
-                                <li >
-                                    <a href="manage-flights.php">
+                                    <a href="../report/manage-booking.php">
                                      <i class="material-icons">dvr</i>
-                                         Manage Flights
+                                         Manage Booking
                                     </a>
                                 </li>
                                 <li >
-                                    <a href="revenue-expenses.php">
+                                    <a href="../report/revenue-expenses.php">
                                    <i class="material-icons">monetization_on</i>
-                                         Revenue - Expenses
+                                         Revenue-Expenses
                                     </a>
                                 </li>
 
@@ -439,7 +409,7 @@
 
                         </button>
 
-                        <a class="navbar-brand" href=""> Report </a>
+                        <a class="navbar-brand" href=""> Main menu </a>
 
 
 
@@ -553,7 +523,7 @@
 
                                     <li class="">
 
-                                      <a href="../main/users.php" >
+                                       <a href="users.php" >
 
                                        <i class="material-icons">settings</i>Settings
 
@@ -565,7 +535,7 @@
 
                                     <li>
 
-                                        <a href="" data-toggle="modal" data-target="#logout">
+                                         <a href="" data-toggle="modal" data-target="#logout">
 
                                             <i class="material-icons">power_settings_new</i>Logout
 
@@ -649,17 +619,15 @@
 
                                     <div class="navigate" >
 
-                                        <!-- <a href="new-package.php">
+                                        <a href="new-hotel-package.php">
 
-                                            <button type="button" class="btn btn-success btn-sm" style=""><i class="fa fa-plus padding-icon" aria-hidden="true"></i> New</button></a> -->
+                                            <button type="button" class="btn btn-success btn-sm" style=""><i class="fa fa-plus padding-icon" aria-hidden="true"></i> New</button></a>
 
-                                        <ol class="breadcrumb" style="margin: 0;padding: 11px;background: #fff; display: inline-block; ">
+                                        <ol class="breadcrumb" style="margin: 0;padding: 11px;padding-bottom: 0;background: #fff; display: inline-block; ">
 
                                             <!-- <li><a href="package.php">Main Menu</a></li> -->
 
-                                            <li class="active"><span>/</span>  Complete bookings
-
-                                    </li>
+                                            <li class="active"><span>/</span> Hotels Package</li>
 
                                         </ol>
 
@@ -677,59 +645,49 @@
 
                        <div class="col-md-12">
 
-                         <div class="row form-group form-inline">
+
 
                     <div class="booking_searchengine">
 
                             <p style="font-weight: 300;display: inline-block;margin-right:15px;">Search</p>
 
-                            <div class="select">
+                            <div class="select" >
 
-                                <div class='span6'>
+                          <div class='span6'>
 
-                                    <i class="fa fa-sort-desc"></i>
+                              <i class="fa fa-sort-desc"></i>
 
-                                    <input type="text" class="form-control" size="17" placeholder="Search By" value="{{search_box_list}}" ng-click="openlist()" style="color: transparent;" x-webkit-speech />
+                              <input type="text" class="form-control" size="17" placeholder="Search By" value="{{search_box_list}}" ng-click="openlist()" style="color: transparent;" x-webkit-speech />
 
-                                    <ul class="search_list">
+                              <ul class="search_list">
 
-                                        <li ng-click="clicklist('Booking ID')">Booking ID</li>
+                                  <li ng-click="clicklist('Package Name')">Package Name</li>
 
-                                       <li ng-click="clicklist('Invoice')">Invoice</li>
+                                  <li ng-click="clicklist('Company Name')">Company Name</li>
 
+                                  
 
+                              </ul>
 
-                                        <li ng-click="clicklist('Package')">Product Name</li>
+                          </div>
 
-                                        
+                      </div>
 
-                                    </ul>
+                      <div class="search-box">
 
-                                </div>
+                          <input type="text" class="search_tourname form-control" ng-model="search.name" placeholder="Package Name">
 
-                            </div>
+                         
 
-                            <div class="search-box">
+                          <input type="text" class="search_company form-control" ng-model="search.company_name" placeholder="Company Name">
 
-                             
+                          
 
-                                <input type="text" class="search_booking form-control" ng-model="search.id" placeholder="Booking ID">
+                         <!--  <a ng-click="reset_search_click()" class="reset_search">Reset</a> -->
 
-                                <input type="text" class="search_product form-control" ng-model="search.invoice" placeholder="Invoice">
-
-                                <input type="text" class="search_name form-control" ng-model="search.package_name" placeholder="Product Name">
-
-                                
-
-                                
-
-                               
-
-                            </div>
+                      </div>
 
                             <a ng-click="reset_search_click()" class="reset_search">Reset</a>
-
-                        </div>
 
                         </div>
 
@@ -759,103 +717,67 @@
 
                                         <thead class="text-primary" >
 
-                                             <th></th>
+                                            
 
                                            
 
-                                            <th>Status</th>
-
-                                            <th>Invoice</th>
-
-                                            <th class="col-md-4">Package Name</th>
-                                            <th>Customer name</th> 
-                                            <th>Flight</th> 
-                                             <th>Pickup place</th>
-                                            <th>To place</th>     
-
-                                            <!-- <th>Adult Price</th>
-
-                                            <th>Child Price</th> -->
-
-                                            <th>Total Price</th>
-
-                                            <th>Departure Date</th>
-
-                                            <th>On time</th>
-
-                                            <th>Adult</th>
-
-                                            <th>Child</th>
-
-                                            <th>No. of Guest</th>
-
-                                            <th>Type</th>
-
-                                            <th>Agent Name</th>
-
-                                            <th>Post By</th>
-
                                             <th></th>
+
+                                            <th>Name</th>
+
+                                            <th >Package ID</th>
+
+                                            <th>Province</th>
+
+                                            <th>Company Name</th>                                           
+
+                                            <th>Person</th>
+
+                                            <th>Flight</th>
+
+
+
+                                            
+
                                             <th></th>
 
                                         </thead>
 
                                         <tbody >
 
-                                            <tr ng-repeat="item in databook | filter:search:strict  ">
+                                            <tr ng-repeat="item in datatransport | filter:search:strict ">
 
-                                                <td align="center" ng-bind="$index+1"></td>
+                                                <!-- <td>{{$index+1}}</td> -->
 
-                                                 
+                                                <td class="col-sm-1" align="center" ng-bind="$index+1"></td>
 
-                                                 <td align="center"><i class="material-icons" style="color: #4CAF50;font-size: 18px;">check_circle</i><!-- <i class="fa fa-check-circle fa-lg" aria-hidden="true" ></i> --><!-- <i class="material-icons" >assignment_turned_in</i> --></td>
+                                                <td class="col-lg-3 col-md-3" ><span ng-bind="item.name"></span></td>
 
-                                                <td  ng-bind="item.invoice"></td>
+                                                 <td class="col-md-1"><span ng-bind="item.id"></span></td>
 
-                                                <td class="col-md-4" ng-bind="item.package_name"></td>
-                                                <td class="col-md-2" ng-bind="item.name" ></td>
-                                                <td class="col-md-2" ng-bind="item.flight" ng-if="item.flight != ''" ></td>
-                                                <td align="center" class="col-md-2" ng-if="item.flight == ''"><span >-</span></td>
-                                                
-                                                <td ng-bind="item.pickup_place"></td>
-                                                <td ng-bind="item.to_place"></td>
-
-
-<!-- 
-                                                <td ng-bind="item.adult_price | currency:'':0"></td>
-
-                                                <td ng-bind="item.child_price | currency:'':0"></td> -->
-
-                                                <td ng-bind="item.total_price | currency:'':0"></td>
-
-                                                <td ng-bind="item.ondate2"></td>
-
-                                                <td ng-bind="item.ontime"></td>
-
-                                                <td ng-bind="item.adult"></td>
-
-                                                <td ng-bind="item.child"></td>
-
-                                                <td ng-bind="item.total"></td>
-
-                                                <td ng-bind="item.type"></td>
-
-                                                <td ><button  ng-click="getagent(item.agent_id)" class="btn btn-primary btn-xs"><span ng-bind="item.agent_name"></span></button></td>
-
-                                                <td ><button  ng-click="getpostby(item.agent_id)" class="btn btn-rose btn-xs"><span ng-bind="item.user_name"></td>
+                                                <td class="col-md-1"><span ng-bind="item.province"></span></td>
 
                                                 
 
-                                              
+                                               
 
-                                                 <td class="col-md-1" align="center"><a href="view-booking.php#?data={{item.id}}"  target="_blank"><i class="material-icons"  style="color: #9E9E9E; font-size: 25px;">find_in_page</i></a></td>
-                                                  <td class="col-md-1" align="center"><i class="material-icons" ng-click="removepackage(item)" style="color: #e91e1e; font-size: 25px;padding-top: 5px;">delete</i></td>
+                                                <td class="col-lg-1 col-md-1"><span ng-bind="item.company_name"></span></td>
+
+                                                <td class="col-lg-2 col-md-2"><span ng-bind="item.person"></span></td>
+
+                                                <td class="col-lg-1 col-md-1"><span ng-bind="item.flight"></span></td>
+
+                                                <td class="col-sm-1" align="center"><a href="view-transfer-package.php#?data={{item.id}}"><i class="material-icons"  style="color: #9E9E9E; font-size: 25px;">find_in_page</i></a><!-- <a style="cursor: pointer;" ng-click="remove(item)"><i class="material-icons" style="color: #e91e1e;  font-size: 30px;">delete_forever</i></a> --></td>
+
+                                                
+
+                                                
 
 
 
                                             </tr>
 
-                                           
+                                            
 
                                         </tbody>
 
@@ -913,7 +835,7 @@
 
                 </div>
 
-                <div class="modal fade" id="getagent">
+            <div class="modal fade" id="remove">
 
                     <div class="modal-dialog">
 
@@ -923,224 +845,25 @@
 
                             <div class="modal-header">
 
-                                <button type="button" class="close" data-dismiss="modal" style="z-index: 100"  aria-hidden="true">&times;</button>
-
-                                <h4  class="modal-title">Agent</h4>
-
-                                
-
-                            </div>
-
-                            
-
-                            <form class="form-inline"  >
-
-                                <div class="modal-body">
-
-                                    <div class="form-group">
-
-                                        <label class="label-editUser">First Name<span> :</span></label>
-
-                                        <input type="text"  class="form-control" ng-model="dataagentid.fname" na-value="dataagentid.fname" disabled size="53">
-
-                                       
-
-                                    </div>
-
-                                    <div class="form-group">
-
-                                        <label class="label-editUser">Last Name<span> :</span></label>
-
-                                        <input type="text"  class="form-control" name="lastname"  ng-model="lastname" ng-value="dataagentid.lname" disabled  size="53">
-
-                                       
-
-                                    </div>
-
-                                    <div class="form-group">
-
-                                        <label class="label-editUser">Phone<span> :</span></label>
-
-                                        <input type="text" class="form-control" ng-model="phone" name="phone" size="53" ng-value="'+'+dataagentid.phonecode+dataagentid.phone" disabled>
-
-                                       
-
-                                    </div>
-
-                                    
-
-                                    <div class="form-group">
-
-                                        <label class="label-editUser">Email<span> :</span></label>
-
-                                        <input  class="form-control" ng-model="email" ng-value="dataagentid.email" disabled required size="53">
-
-                                       
-
-                                    </div>
-
-                                    <div class="form-group">
-
-                                        <label class="label-editUser">Company<span> :</span></label>
-
-                                        <input type="text" class="form-control" ng-model="company" ng-value="dataagentid.company"  disabled size="53">
-
-                                        <!-- <label class="typeUser" >{{edit_du.username}}</label> -->
-
-                                    </div>
-
-                                      <div class="form-group">
-
-                                        <label class="label-editUser">Address<span> :</span></label>
-
-                                        <textarea type="text" class="form-control"  rows="4" cols="53" ng-model="dataagentid.address" ng-value="dataagentid.address" disabled size="100"></textarea>
-
-                                    </div>
-
-
-
-                                </div>
-
-                                <div class="modal-footer">
-
-                                    
-
-                                    <button type="reset" class="btn btn-default" data-dismiss="modal" onclick="reset()" id="bt-view">Close</button>
-
-                                </div>
-
-                            </form>
-
-                            
-
-                           
-
-
-
-
-
-                        </div>
-
-                    </div>
-
-                </div>
-                <div class="modal fade" id="remove">
-                    <div class="modal-dialog">
-                        <!-- Modal content-->
-                        <div class="modal-content">
-                            <div class="modal-header">
-                            <input type="hidden" name="" ng-model="idremovebooking">
                                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                                <h4 class="modal-title" >Booking</h4>
+
+                                <h4 class="modal-title" >Tour</h4>
+
                             </div>
+
                             <div class="modal-body">
-                                <div>Are you sure to delete booking invoice {{removeinvoice}}</div>
+
+                                <div>Are you sure to delete tour {{namedelete}}</div>
+
                             </div>
+
                             <div class="modal-footer">
-                                <button type="button" class="btn btn-danger" data-dismiss="modal" ng-click="deletebooking(idremovebooking)">Remove</button>
+
+                                <button type="button" class="btn btn-danger" data-dismiss="modal" ng-click="deletePackage(iddelete)">Remove</button>
+
                                 <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="modal fade" id="getuser">
-
-                    <div class="modal-dialog">
-
-                        <!-- Modal content-->
-
-                        <div class="modal-content">
-
-                            <div class="modal-header">
-
-                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-
-                                <h4  class="modal-title">User</h4>
-
-                                
 
                             </div>
-
-                            
-
-                            <form class="form-inline"   >
-
-                                <div class="modal-body">
-
-                                    <div class="form-group">
-
-                                        <label class="label-editUser">First Name<span> :</span></label>
-
-                                        <input type="text"  class="form-control" ng-model="firstname" ng-value="datauserid.firstname" disabled size="53">
-
-                                        <!-- <label class="typeUser" >{{edit_du.firstname}}</label> -->
-
-                                    </div>
-
-                                    <div class="form-group">
-
-                                        <label class="label-editUser">Last Name<span> :</span></label>
-
-                                        <input type="text"  class="form-control" name="lastname"  ng-model="lastname" ng-value="datauserid.lastname" disabled size="53">
-
-                                        
-
-                                    </div>
-
-                                    <div class="form-group">
-
-                                        <label class="label-editUser">Phone<span> :</span></label>
-
-                                        <input type="text" class="form-control" ng-model="phone" name="phone"   size="53" ng-value="'+'+datauserid.phonecode+datauserid.phone">
-
-                                        
-
-                                    </div>
-
-                                    
-
-                                    <div class="form-group">
-
-                                        <label class="label-editUser">Email<span> :</span></label>
-
-                                        <input type="email"  class="form-control" name="email" ng-model="email" id="email" ng-value="datauserid.email" disabled required size="53">
-
-                                        <!-- <label class="typeUser" >{{edit_du.email}}</label> -->
-
-                                    </div>
-
-                                      <div class="form-group">
-
-                                        <label class="label-editUser">Address<span> :</span></label>
-
-                                        <textarea type="text" class="form-control"  rows="4" cols="53" name="address" ng-model="address" ng-value="datauserid.address" disabled size="100"></textarea>
-
-                                    </div>
-
-
-
-                                </div>
-
-                                <div class="modal-footer">
-
-                                    
-
-                                    <button type="reset" class="btn btn-default" data-dismiss="modal"  id="bt-view">Cancel</button>
-
-                                </div>
-
-                            </form>
-
-                            
-
-                            
-
-                            
-
-
-
-
 
                         </div>
 
@@ -1305,8 +1028,8 @@
 <!-- Material Dashboard DEMO methods, don't include it in your project! -->
 
 <script src="../js/jquery/demo.js"></script>
-<script src="../files/js-/angular.min.js"></script>
-<!-- <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script> -->
+
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
 
     <script src="../js/angular/angular-cookies.min.js"></script>
 
@@ -1338,153 +1061,13 @@
 
     </body>
 
-        <style >
-
-        
-
-label.label-editUser {
-
-    text-align: right;
-
-    width: 115px;
-
-    margin-right: 10px;
-
-}
-
-.form-group {
-
-  margin: 0;
-
-  padding-bottom: 10px;
-
-  margin: 20px 0 0 0;
-
-}
-
- #InputPassPhone{
-
-        margin-left: 127px;
-
-        /*margin-bottom: 20px;*/
-
-
-
-    }
-
-    #select-country {
-
-        text-align: center;
-
-    border: 1px solid #cccccc;
-
-    /*border-radius: 5px;*/
-
-    display: inline-block;
-
-    padding: 6px 65px;
-
-     /*width: 65%; */
-
-    /* margin-left: 5%; */
-
-     margin-bottom: 20px; 
-
-}
-
-        .cu-name{
-
-    display: none;
-
-    background: #fff;
-
-    z-index: 1;
-
-    height: 190px;
-
-    overflow-y: scroll;
-
-    /* overflow: hidden; */
-
-    padding-left: 0;
-
-    border: 1px solid #ddd;
-
-    position: absolute;
-
-   margin-left: 23%; 
-
-   /* margin-top: -16px;
-
-    margin-left: 22.5%;*/
-
-
-
-}
-
-#labelcun{
-
-    background-color: #fff;
-
-    margin: 0;
-
-    margin-bottom: 20px;
-
-        border-bottom: 1px solid #ccc;
-
-}
-
-.cu-name li{
-
-   padding: 3px 35px; 
-
-}
-
-.cu-name li:hover{
-
-   background: #e91e63;
-
-    color: #fff !important;
-
-}
-
-@media screen and (max-width: 767px){
-
-
-
-#InputPassPhone {
-
-    margin-left: 0;
-
-}
-
-.cu-name{
-
-     margin-left: 0;
-
-}
-
-label.label-editUser {
-
-    text-align: left;
-
-}
-
-
-
-}
-
-
-
-    </style>
-
     <script>
 
     var app = angular.module('myApp',['ngCookies']);
 
     app.controller('myCtrl', function($scope, $http, $cookies, $window,$filter){
 
-         loadpage();
+        loadpage();
 
         function loadpage(){
 
@@ -1568,29 +1151,35 @@ label.label-editUser {
 
                     }
 
-                     
-
                     
 
              });
 
-                $http({
+             $http({
+
                 method : 'POST',
-                url : "../php/getBookingconfirm.php",
+
+                url : "../php/getTransports.php",
+
                 //data: $.param({sv: $scope.dataSV}),
+
                 headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+
                 }).success(function(res){
+
                  //console.log(res)
-                 
-                 $scope.databook = res;
-                  angular.forEach($scope.databook, function (data) {
-                    data.ondate2 =  $filter('date')(new Date(data.ondate),'dd-MM-yyyy');
-                    console.log( $filter('date')(new Date(data.ondate),'dd-MM-yyyy'));
-                  });
+
+                 $scope.datatransport = res;
+
+                 //$scope.allTour = res;
+
+                       
 
             });
 
-            
+
+
+
 
             }
 
@@ -1613,27 +1202,9 @@ label.label-editUser {
             $window.location.href = '../login.php';
 
         }
-        $scope.removepackage = function(i){
-            //console.log(i)
-            $scope.idremovebooking = i.id;
-            $scope.removeinvoice = i.invoice;
-            $('#remove').modal('show');
 
-            //$scope.name
-        }
-        $scope.deletebooking = function(i){
-            //console.log(i)
-            $http({
-                    method: 'post',
-                    url: "../php/removeBooking.php",
-                    data: $.param({'id': i}),
-                    headers: {'Content-Type': 'application/x-www-form-urlencoded'}
-                }).success(function (res) {
-                    //console.log(res)
-                    $window.location.reload();
-                });
-        }
         $scope.edituser = function(id){
+
             localStorage.setItem("usereditid", id);
 
             $window.location.href = 'edituser';
@@ -1648,224 +1219,245 @@ label.label-editUser {
 
         }
 
-        $scope.getagent =function(agent){
-            //console.log(agent)
-            $http({
+         $scope.remove = function(x){
 
-                    method: 'post',
-                    url: "../php/getAgentbyid.php",
-                    data: $.param({'id': agent}),
-                    headers: {'Content-Type': 'application/x-www-form-urlencoded'}
-                }).success(function (res) {
-                    $scope.dataagentid = res[0];
-                    //console.log($scope.dataagentid)
-                    $('#getagent').modal('show');
-                });
-        }
+            $scope.iddelete = x.id;
 
-        $scope.getpostby =function(user){
-            //console.log(user)
-            $http({
-                    method: 'post',
-                    url: "../php/getUserbyid.php",
-                    data: $.param({'id': user}),
-                    headers: {'Content-Type': 'application/x-www-form-urlencoded'}
-                }).success(function (res) {
-                    $scope.datauserid = res[0];
-                    //console.log($scope.datauserid)
-                    $('#getuser').modal('show'); 
-                });
+            $scope.namedelete = x.name;
 
-
+            $("#remove").modal('show');
 
         }
 
+         $scope.deletetransport = function(data){
+
+    //console.log(data)
+
+    $http({
+
+                            method : 'POST',
+
+                            url : "../php/removePackage.php",
+
+                            data: $.param({'id': $scope.data}),
+
+                            headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+
+                            }).success(function(res){
+
+                                //console.log(res)
+
+                                //$window.location.href = 'tours-package.php';
+
+                            });
+
+                       
 
 
-        $scope.openlist = function(){
-            var result = document.getElementsByClassName("search_list");
 
-            if($scope.list == true)
+  }
 
-                {
+        
 
-                    angular.element(result).css('display','none');
 
-                    $scope.list = false;
 
-                }
+       $scope.openlist = function(){
 
-            else
+                        var result = document.getElementsByClassName("search_list");
 
-                {
+                        if($scope.list == true)
 
-                    angular.element(result).css('display','block');
+                        {
 
-                    $scope.list = true;
+                            angular.element(result).css('display','none');
 
-                }
+                            $scope.list = false;
 
-        }
+                        }
 
-        $scope.clicklist = function(input){
+                        else
 
-            var result;
+                        {
 
-            $scope.search_box_list = input;
+                            angular.element(result).css('display','block');
 
-            ////console.log($scope.search_box_list);
+                            $scope.list = true;
 
-            if(input=='Booking ID')
+                        }
 
-            {
+                    }
 
-                result = document.getElementsByClassName("search_booking");
+                    $scope.clicklist = function(input){
 
-                angular.element(result).css('display','inline-block');
+                        var result;
 
-                result = document.getElementsByClassName("search_product");
+                        $scope.search_box_list = input;
 
-                angular.element(result).css('display','none');
+                        if(input=='Package Name')
 
-                result = document.getElementsByClassName("search_name");
+                        {
 
-                angular.element(result).css('display','none');                        
+                          result = document.getElementsByClassName("search_tourname");
 
-                result = document.getElementsByClassName("search_list");
+                          angular.element(result).css('display','inline-block');
 
-                angular.element(result).css('display','none');
+                          // result = document.getElementsByClassName("search_tourid");
 
-                result = document.getElementsByClassName("reset_search");
+                          // angular.element(result).css('display','none');
 
-                angular.element(result).css('display','inline-block');
+                          // result = document.getElementsByClassName("search_class");
 
-                $scope.list = false;
+                          // angular.element(result).css('display','none');
 
-                $scope.search = new Array();
+                          result = document.getElementsByClassName("search_company");
 
-                $scope.search.package_name = '';
+                          angular.element(result).css('display','none');
 
-                $scope.search.invoice = '';
+                          // result = document.getElementsByClassName("search_status");
+
+                          // angular.element(result).css('display','none');
+
+                          result = document.getElementsByClassName("search_list");
+
+                          angular.element(result).css('display','none');
+
+                          result = document.getElementsByClassName("reset_search");
+
+                          angular.element(result).css('display','inline-block');
+
+                          $scope.list = false;
+
+                          //$scope.search.name = '';
 
                         
 
+                         
+
+                          $scope.search.company_name = '';
+
+                          // $scope.search.tour_date = '';
+
+                        }
+
                         
 
-                       
+                        else if(input=='Company Name')
 
-            }
+                        {
 
-            else if(input=='Invoice')
+                          result = document.getElementsByClassName("search_tourname");
 
-            {
+                          angular.element(result).css('display','none');
 
-                result = document.getElementsByClassName("search_booking");
+                        
 
-                angular.element(result).css('display','none');
+                         
 
-                result = document.getElementsByClassName("search_product");
+                          result = document.getElementsByClassName("search_company");
 
-                angular.element(result).css('display','inline-block'); 
+                          angular.element(result).css('display','inline-block');
 
-                result = document.getElementsByClassName("search_name");
+                         
 
-                angular.element(result).css('display','none');                        
+                          result = document.getElementsByClassName("search_list");
 
-                result = document.getElementsByClassName("search_list");
+                          angular.element(result).css('display','none');
 
-                angular.element(result).css('display','none');
+                          result = document.getElementsByClassName("reset_search");
 
-                result = document.getElementsByClassName("reset_search");
+                          angular.element(result).css('display','inline-block');
 
-                angular.element(result).css('display','inline-block');
+                          $scope.list = false;
 
-                $scope.list = false;
+                          $scope.search.name = '';
 
-                $scope.search = new Array();
+                          
 
-                $scope.search.id = '';
+                        
 
-                $scope.search.package_name = '';
+                          //$scope.search.company_name = '';
 
-                       
+                        
 
-            }
-
-            else if(input=='Package')
-
-            {
-
-                result = document.getElementsByClassName("search_booking");
-
-                angular.element(result).css('display','none');
-
-                result = document.getElementsByClassName("search_product");
-
-                angular.element(result).css('display','none'); 
-
-                result = document.getElementsByClassName("search_name");
-
-                angular.element(result).css('display','inline-block');                        
-
-                result = document.getElementsByClassName("search_list");
-
-                angular.element(result).css('display','none');
-
-                result = document.getElementsByClassName("reset_search");
-
-                angular.element(result).css('display','inline-block');
-
-                $scope.list = false;
-
-                $scope.search = new Array();
-
-                $scope.search.package_name = '';
-
-                $scope.search.id = '';
+                        }
 
                        
 
-            }
+                        else
 
-                    
+                        {
 
-        }
+                          result = document.getElementsByClassName("search_tourname");
 
-        $scope.reset_search_click = function(){
+                          angular.element(result).css('display','inline-block');
 
-            $scope.search_box_list = null;
+                        
 
-            result = document.getElementsByClassName("search_booking");
+                      
 
-            angular.element(result).css('display','none');
+                          result = document.getElementsByClassName("search_company");
 
-            result = document.getElementsByClassName("search_product");
+                          angular.element(result).css('display','inline-block');
 
-            angular.element(result).css('display','none');
+                       
 
-            result = document.getElementsByClassName("search_name");
+                          result = document.getElementsByClassName("search_list");
 
-            angular.element(result).css('display','none'); 
+                          angular.element(result).css('display','none');
 
-            result = document.getElementsByClassName("search_list");
+                          result = document.getElementsByClassName("reset_search");
 
-            angular.element(result).css('display','none');
+                          angular.element(result).css('display','inline-block');
 
-            result = document.getElementsByClassName("reset_search");
+                          $scope.list = false;
 
-            angular.element(result).css('display','none');
+                          $scope.search.name = '';
 
-            $scope.list = false;
+                         
 
-            $scope.search = new Array();
+                          $scope.search.company_name = '';
 
-            $scope.search.id = '';
+                         
 
-            $scope.search.package_name = '';
+                        }
 
-                    
+                      }
 
-        } 
+                      $scope.reset_search_click = function(){
+
+                          $scope.search_box_list = null;
+
+                          result = document.getElementsByClassName("search_tourname");
+
+                          angular.element(result).css('display','none');
+
+                         
+
+                          result = document.getElementsByClassName("search_company");
+
+                          angular.element(result).css('display','none');
+
+                         
+
+                          result = document.getElementsByClassName("search_list");
+
+                          angular.element(result).css('display','none');
+
+                          result = document.getElementsByClassName("reset_search");
+
+                          angular.element(result).css('display','none');
+
+                          $scope.list = false;
+
+                          $scope.search.name = '';
+
+                         
+
+                          $scope.search.company_name= '';
+
+                          
+
+                      }
 
                  
 

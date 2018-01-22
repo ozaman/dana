@@ -533,7 +533,7 @@
                                                 <td ng-bind="item.pickup_place"></td>
                                                 <td ng-bind="item.to_place"></td>
                                                 <td ng-bind="item.total_price | currency:'':0"></td>
-                                                <td ng-bind="item.ondate"></td>
+                                                <td ng-bind="item.ondate2"></td>
                                                 <td ng-bind="item.ontime"></td>
                                                 <td align="center"  ng-bind="item.adult"></td>
                                                 <td align="center" ng-bind="item.child"></td>
@@ -882,6 +882,13 @@
 <script src="../js/jquery/demo.js"></script>
 <script src="../files/js-/angular.min.js"></script>
     <script src="../js/angular/angular-cookies.min.js"></script>
+     <script src="https://code.angularjs.org/1.4.5/angular-route.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-filter/0.5.8/angular-filter.min.js"></script>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-filter/0.5.8/angular-filter.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.14.3/ui-bootstrap-tpls.min.js"></script>
+  <script src="https://cdn.rawgit.com/niklasvh/html2canvas/0.5.0-alpha2/dist/html2canvas.min.js"></script>
+   <script src="../bower_components/jsPDF/dist/jspdf.debug.js"></script>
+   <script src="../dist/saveHtmlToPdf.min.js"></script>
 
 <!-- <script src="../files/js-/main.js?v=<?=time()?>"></script> -->
 <!-- <script type="text/javascript">
@@ -1021,17 +1028,18 @@ label.label-editUser {
 
     </style>
     <script>
-    var app = angular.module('myApp',['ngCookies']);
-    app.controller('myCtrl', function($scope, $http, $cookies, $window,$filter){
+   var app = angular.module('myApp',['ngCookies','ngRoute','angular.filter','ui.bootstrap']);
+    app.controller('myCtrl', function($scope, $http, $cookies, $window,$filter,$interval){
          loadpage();
+         
         function loadpage(){
             $scope.datanoti = [];
             $scope.checktype = 'All';
              $scope.selsedataformonth = [];
              var today = new Date();
-                var date = new Date(today.getFullYear()+'-'+(today.getMonth()-1)+'-1');
-                //console.log(today);
-                //console.log(date);
+                var date = new Date(today.getFullYear()+'-'+(today.getMonth()+1));
+                console.log(today);
+                console.log(date);
                 $scope.dateselectionfrom = date;
                 $scope.dateselectionto = today;
             if($cookies.get('login'))
@@ -1085,6 +1093,7 @@ label.label-editUser {
                  //console.log(res)
                  $scope.dataTour = res;
                  $scope.allTour = res;
+                 
                        
             });
                  $http({
@@ -1100,6 +1109,7 @@ label.label-editUser {
                     //console.log($scope.newdate)
                 angular.forEach($scope.databook, function (data) {
                     //console.log(data.ondate)
+                    data.ondate2=  $filter('date')(new Date(data.ondate),'dd-MM-yyyy');
                      $scope.selsedataformonth.push(data)
                             if ($scope.newdate == data.ondate) { 
                                 data.noti = '1';                                    
@@ -1137,7 +1147,7 @@ label.label-editUser {
             console.log($scope.typebook)
             console.log($scope.datepdf)
              console.log($filter('date')(new Date($scope.datepdf),'dd/MM//yyyy'));
-                $scope.ondatepdf = $filter('date')(new Date($scope.datepdf),'dd/MM/yyyy')
+               $scope.ondatepdf = $filter('date')(new Date($scope.datepdf),'yyyy-MM-dd')
             if ($scope.typebook == undefined) {
                 $('#selecttype').modal('show')
             }
